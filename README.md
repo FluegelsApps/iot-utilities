@@ -1,2 +1,2 @@
-# iot-utilities
+# Iot-Utilities
 IoT-Utilities Android App
