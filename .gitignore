@@ -1,0 +1,5 @@
+# ingnore *docx files
+*.docx
+
+# ingonre special files
+TermsOfUse.txt
