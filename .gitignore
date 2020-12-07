@@ -1,4 +1,5 @@
 # ingnore *docx files
+/local
 *.docx
 *.txt
 *.html
