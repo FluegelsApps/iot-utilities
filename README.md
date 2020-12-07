@@ -1,4 +1,4 @@
 # Iot-Utilities
 IoT-Utilities Android App
 
-[Privacy Statement](https://jens-fluegel.github.io/iot-utilities/IoT-Utilities-Privacy-Statement.pdf)
+[Privacy Statement](http://iot-utilities.arubademo.de/IoT-Utilities-Privacy-Statement.pdf)
