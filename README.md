@@ -1,4 +1,4 @@
 # IoT-Utilities
 IoT-Utilities Android App
 
-[Privacy Statement](http://iot-utilities.arubademo.de/IoT-Utilities-Privacy-Statement.pdf)
+[Privacy Statement](https://iot-utilities.arubademo.de/IoT-Utilities-Privacy-Statement.pdf)
