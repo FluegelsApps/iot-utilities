@@ -1,5 +1,5 @@
 # ingnore *docx files
 /local
-*.docx
-*.txt
-*.html
+/*.docx
+/*.txt
+/*.html
