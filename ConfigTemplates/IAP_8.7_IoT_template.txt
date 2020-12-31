@@ -1,0 +1,48 @@
+! ArubaOS IoT CLI Config Template v2
+! InstantOS Version 8.7
+
+! Step 1 - Define Iot radio radio settings
+! a) Scanning using internal BLE radio
+iot radio-profile ble-int-scan
+ radio-mode ble
+ ble-opmode scanning
+
+! b) Scanning ad beaconsing using internal BLE radion
+iot radio-profile ble-int-scan+beacon
+ radio-mode ble
+
+! c) Scanning, beaconing and AP console using internal BLE radion
+iot radio-profile ble-int-scan+beacon+console
+ radio-mode ble
+ ble-console on
+
+! d) Scanning, beaconing and AP console with max tx power using internal BLE radion
+iot radio-profile ble-int-scan+beacon+console+tx
+ radio-mode ble
+ ble-console on
+ ble-txpower 4
+
+! e) Scanning, beaconing and AP console with max tx power using exernal BLE radion
+iot radio-profile ble-ext-scan+beacon+console+tx
+ radio-instance external
+ radio-mode ble
+ ble-console on
+ ble-txpower 4
+
+! Step 2 - Enable Iot radio
+iot use-radio-profile ble-int-scan+beacon+console+tx
+
+! Step 3- Define IoT API transport profile
+iot transportProfile IoT-Utilities-App
+ endpointURL wss://<iot-utilities-ip-address>:<port>/telemetry
+ endpointType telemetry-websocket
+ payloadContent all
+ endpointID <ClientID>
+ username <iot-utilities-username>
+ password <iot-utilities-password>
+ transportInterval <intervall in sesconds>
+ authenticationURL https://<iot-utilities-ip-address>:<port>/auth
+ rssiReporting last
+
+! Step 4 - Enable IoT transport profile
+iot useTransportProfile IoT-Utilities-App
