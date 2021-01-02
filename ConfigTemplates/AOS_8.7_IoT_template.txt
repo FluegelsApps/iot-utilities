@@ -1,6 +1,19 @@
 ! ArubaOS IoT CLI Config Template v2
 ! AOS Version 8.7
 
+! Variables:
+!
+! IoT-Utilities variables (auto-replaced):
+!   - ip-address
+!   - port
+!   - username
+!   - access-token
+!   - interval
+!   
+! Custom variables, to be replaced by the user:
+!   - password
+!   - ap-group
+
 ! Step 1 - Define Iot radio radio settings
 ! a) Scanning using internal BLE radio
 iot radio-profile ble-int-scan
@@ -41,10 +54,10 @@ ap-group <ap-group>
 ! a) with static access token
 iot transportProfile IoT-Utilities-App
     serverType Telemetry-Websocket
-    serverURL wss://<iot-utilities-ip-address>:<port>/telemetry
-    accessToken <iot-utilities-access-token>
-    clientId <ClientID>
-    reportingInterval <intervall in sesconds>
+    serverURL wss://<ip-address>:<port>/telemetry
+    accessToken <access-token>
+    clientId <clientid>
+    reportingInterval <interval>
     deviceClassFilter all
     rssiReporting last
     include-ap-group <ap-group>
@@ -52,13 +65,13 @@ iot transportProfile IoT-Utilities-App
 ! b) with username/password authentication
 iot transportProfile IoT-Utilities-App
     serverType Telemetry-Websocket
-    serverURL wss://<iot-utilities-ip-address>:<port>/telemetry
-    clientId <ClientID>
-    username <iot-utilities-username>
-    password <iot-utilities-password>
-    reportingInterval <intervall in sesconds>
+    serverURL wss://<ip-address>:<port>/telemetry
+    clientId <clientid>
+    username <username>
+    password <password>
+    reportingInterval <interval>
     deviceClassFilter all
-    authenticationURL https://<iot-utilities-ip-address>:<port>/auth
+    authenticationURL https://<ip-address>:<port>/auth
     rssiReporting last
     include-ap-group <ap-group>
 
