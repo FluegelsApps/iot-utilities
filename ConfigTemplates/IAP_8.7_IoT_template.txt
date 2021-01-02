@@ -1,6 +1,19 @@
 ! ArubaOS IoT CLI Config Template v2
 ! InstantOS Version 8.7
 
+! Variables:
+!
+! IoT-Utilities variables (auto-replaced):
+!   - ip-address
+!   - port
+!   - username
+!   - access-token
+!   - interval
+!   
+! Custom variables, to be replaced by the user:
+!   - password
+!   - ap-group
+
 ! Step 1 - Define Iot radio radio settings
 ! a) Scanning using internal BLE radio
 iot radio-profile ble-int-scan
@@ -34,14 +47,14 @@ iot use-radio-profile ble-int-scan+beacon+console+tx
 
 ! Step 3- Define IoT API transport profile
 iot transportProfile IoT-Utilities-App
- endpointURL wss://<iot-utilities-ip-address>:<port>/telemetry
+ endpointURL wss://<ip-address>:<port>/telemetry
  endpointType telemetry-websocket
  payloadContent all
- endpointID <ClientID>
- username <iot-utilities-username>
- password <iot-utilities-password>
- transportInterval <intervall in sesconds>
- authenticationURL https://<iot-utilities-ip-address>:<port>/auth
+ endpointID <clientid>
+ username <username>
+ password <password>
+ transportInterval <interval>
+ authenticationURL https://<ip-address>:<port>/auth
  rssiReporting last
 
 ! Step 4 - Enable IoT transport profile
