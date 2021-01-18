@@ -2,4 +2,4 @@
 
 ---
 
-![This is an image]("/pictures/PlayStoreBanner.png "Dumb image")
+![This is an image](/pictures/PlayStoreBanner.png "Dumb image")
