@@ -2,4 +2,4 @@
 
 ---
 
-![This is an image](github.com/FluegelsApps/iot-utilities/blob/documentation-dev/pictures/PlayStoreBanner.png "Dumb image")
+![This is an image](https://github.com/FluegelsApps/iot-utilities/blob/documentation-dev/docs/pictures/PlayStoreBanner.png?raw=true "Dumb image")
