@@ -1,6 +1,13 @@
 ![image](https://github.com/FluegelsApps/iot-utilities/raw/documentation-dev/docs/pictures/PlayStoreBanner.png)
 
 # IoT-Utilities (Android App)
+
+## Links
+
+[Documentation](iot-utilities.arubademo.de/docs)
+[GitHub-Repository](github.com/FluegelsApps/iot-utilities)
+
+[Get the app | Google Play Store](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
 [Privacy Statement](https://iot-utilities.arubademo.de/IoT-Utilities-Privacy-Statement.pdf)
 
 ## What is the purpose of this app?
