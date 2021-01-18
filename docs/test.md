@@ -29,4 +29,4 @@ here is inline `literal` codes. Must have space around it.
 
     Or 4 space code indent like classic markdown.
 
-![This is an image](https://github.com/FluegelsApps/iot-utilities/blob/documentation-dev/docs/pictures/PlayStoreBanner.svg)
+![This is an image](https://github.com/FluegelsApps/iot-utilities/blob/documentation-dev/docs/pictures/PlayStoreBanner.png)
