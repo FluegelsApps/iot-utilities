@@ -57,4 +57,4 @@ This app has been started as part of a student internship and is developed, publ
 
 Note: App reinstallation required due to major changes
 
-#### [Get the app](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
+#### [Get the app | Google Play Store](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
