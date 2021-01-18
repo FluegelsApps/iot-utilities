@@ -4,10 +4,10 @@
 
 ## Links
 
-[Documentation](iot-utilities.arubademo.de/docs)
-[GitHub-Repository](github.com/FluegelsApps/iot-utilities)
+[Documentation](/docs)
 
 [Get the app | Google Play Store](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
+
 [Privacy Statement](https://iot-utilities.arubademo.de/IoT-Utilities-Privacy-Statement.pdf)
 
 ## What is the purpose of this app?
