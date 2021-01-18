@@ -1,5 +1,6 @@
+![image](https://github.com/FluegelsApps/iot-utilities/raw/documentation-dev/docs/pictures/PlayStoreBanner.png)
+
 # IoT-Utilities (Android App)
-![image](https://github.com/FluegelsApps/iot-utilities/raw/documentation-dev/docs/pictures/PlayStoreBanner.png
 
 ## What is the purpose of this app?
 Aruba, a Hewlett Packard Enterprise (HPE) Company (https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points as gateways.
