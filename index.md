@@ -6,7 +6,7 @@
 
 [Documentation](/docs)
 
-[Get the app | Google Play Store](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
+[Download the App](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
 
 [Privacy Statement](https://iot-utilities.arubademo.de/IoT-Utilities-Privacy-Statement.pdf)
 
@@ -64,5 +64,3 @@ This app has been started as part of a student internship and is developed, publ
 - Styling updated
 
 Note: App reinstallation required due to major changes
-
-#### [Get the app | Google Play Store](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
