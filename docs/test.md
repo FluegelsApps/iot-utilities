@@ -1,6 +1,4 @@
----
-title: 'Ein cooler Title'
----
+## Title
 
 # Test Markdown file
 ## Another test title alda
