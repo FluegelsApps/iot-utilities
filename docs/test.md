@@ -1,8 +1,3 @@
----
-title: Test
----
-
-
 # Test Markdown file
 ## Another test title alda
 
