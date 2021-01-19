@@ -2,4 +2,4 @@
 
 ## Welcome to the documentation!
 
-[Dashboard](/app/dashboard)
+[Dashboard](./app/dashboard)
