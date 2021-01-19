@@ -1,4 +1,4 @@
-![image](https://github.com/FluegelsApps/iot-utilities/raw/documentation-dev/docs/pictures/PlayStoreBanner.png)
+<img src="https://github.com/FluegelsApps/iot-utilities/raw/documentation-dev/docs/pictures/PlayStoreBanner.png" width="100%">
 
 # IoT-Utilities (Android App)
 
