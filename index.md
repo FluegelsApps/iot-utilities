@@ -10,6 +10,9 @@
 
 [Privacy Statement](https://iot-utilities.arubademo.de/IoT-Utilities-Privacy-Statement.pdf)
 
+## Want to view the documentation in-app?
+[In-App Documentation](https://iot-utilities.arubademo.de/docs/index.md)
+
 ## What is the purpose of this app?
 Aruba, a Hewlett Packard Enterprise (HPE) Company (https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points as gateways.
 
