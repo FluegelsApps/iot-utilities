@@ -4,7 +4,7 @@
 
 ## Links
 
-[Documentation](/docs)
+[Documentation](./docs/index.md)
 
 [Download the App](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
 
