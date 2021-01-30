@@ -1,4 +1,4 @@
-# Documentation
+# Documentation (Work in progress)
 
 ## Welcome to the documentation!
 
