@@ -2,4 +2,4 @@
 
 ## Welcome to the documentation!
 
-[Dashboard](./app/dashboard.md)
+[Dashboard](./app/pages/dashboard.md)
