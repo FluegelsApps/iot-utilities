@@ -1,4 +1,3 @@
-
 # Terms and Conditions
 
 Last updated: December 06, 2020
@@ -11,9 +10,7 @@ Please read these terms and conditions carefully before using Our Service.
 
 ### **Interpretation**
 
-The words of which the initial letter is capitalized have meanings defined
-under the following conditions. The following definitions shall have the same
-meaning regardless of whether they appear in singular or in plural.
+The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
 
 ### **Definitions**
 
@@ -157,5 +154,4 @@ By continuing to access or use Our Service after those revisions become effectiv
 
 If you have any questions about these Terms and Conditions, You can contact us:
 
-* By email: [iot-utilities@arubademo.de](iot-utilities@arubademo.de)
-
+* By email: [iot-utilities@arubademo.de](mailto:iot-utilities@arubademo.de)
