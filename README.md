@@ -13,8 +13,6 @@
 ## Want to view the documentation in-app?
 [In-App Documentation](iot-utilities://docs/index.md)
 
-[Test link](iot-utilities://docs/app/dashboard.md)
-
 ## What is the purpose of this app?
 Aruba, a Hewlett Packard Enterprise (HPE) Company (https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points as gateways.
 
@@ -60,12 +58,16 @@ App requirements:
 This app has been started as part of a student internship and is developed, published and supported as a leisure activity in collaboration with an Aruba employee. This app is not an official product of Aruba, a Hewlett Packard Enterprise (HPE) Company.
 
 ## Last changelog
-### Version 0.9.4
-- Reworked data processing and layouts for all types of data
-- Privacy notice updated
-- Implemented feature to notify user about license changes
-- Implemented Aruba Wi-Fi data messages
-- Several bugs & issues fixed
-- Styling updated
+### Version 0.9.5
+Changelog:
+- Refactored big parts of the app, including:
+  - Logs and Dashboard
+  - Client & Sensor page
+  - Telemetry, BLE data & WiFi data page
+  - BLE scanning & advertising
+- Huge performance improvements
+- Layout improvements and changes
+- Various bug fixes
+- Setup crash fixed
 
 Note: App reinstallation required due to major changes
