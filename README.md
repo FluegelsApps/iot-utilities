@@ -8,8 +8,6 @@
 
 [Privacy Statement](./IoT-Utilities-Privacy-Statement_EN.md)
 
----
-
 ## What is the purpose of this app?
 
 Aruba, a Hewlett Packard Enterprise (HPE) Company (https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points as gateways.
@@ -23,8 +21,6 @@ ArubaOS WLAN and Aruba Instant 8.6.0.x IoT Interface Guide
 https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en_us
 
 The IoT-Utilities app is a generic tool to get to know and demonstrate the "Aruba IoT Interface" functionality provided by an Aruba access point infrastructure to integrate with IoT applications. The app provides a basic server functionality Aruba access points and controllers can connect to using the Aruba IoT interface. Data received via the Aruba IoT Interface, e.g. BLE telemetry, is decoded and shown in the app.
-
----
 
 ## This app provides the following tools and functionalities
 
@@ -56,8 +52,6 @@ The app allows scanning for Bluetooth Low Energy (BLE) devices in range of the s
 
 The app allows the configuration and sending of supported BLE advertisements, e.g. iBeacon or Eddystone, via the smartphone's BLE radio. 
 
----
-
 ## App requirements
 
 - Smartphone with Wi-Fi & BLE radio
@@ -78,8 +72,6 @@ The app allows the configuration and sending of supported BLE advertisements, e.
 [Documentation](./docs/index.md)
 
 [In-App Documentation](iot-utilities://docs/index.md)
-
----
 
 ## Last changelog
 
