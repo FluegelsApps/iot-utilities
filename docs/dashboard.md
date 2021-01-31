@@ -1,7 +1,7 @@
 # IoT-Utilities Dashboard
 
 <img src="./images/docs_dashboard.png" width="100%">
-![Dashboard-Screenshot](./images/docs_dashboard.png)
+![Dashboard-Screenshot](https://github.com/FluegelsApps/iot-utilities/edit/documentation-dev/images/docs_dashboard.png)
 
 The app dashboard is the main page of the application. You can control the server and it's values via this page.
 
