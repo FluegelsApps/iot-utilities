@@ -8,15 +8,7 @@
 
 [Privacy Statement](./IoT-Utilities-Privacy-Statement_EN.md)
 
-## Links
-
-[Documentation](./docs/index.md)
-
-[Download the App](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
-
-## Want to view the documentation in-app?
-
-[In-App Documentation](iot-utilities://docs/index.md)
+---
 
 ## What is the purpose of this app?
 
@@ -32,7 +24,9 @@ https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en_us
 
 The IoT-Utilities app is a generic tool to get to know and demonstrate the "Aruba IoT Interface" functionality provided by an Aruba access point infrastructure to integrate with IoT applications. The app provides a basic server functionality Aruba access points and controllers can connect to using the Aruba IoT interface. Data received via the Aruba IoT Interface, e.g. BLE telemetry, is decoded and shown in the app.
 
-This app provides the following tools and functionalities:
+---
+
+## This app provides the following tools and functionalities
 
 ### IoT Server
 
@@ -62,18 +56,32 @@ The app allows scanning for Bluetooth Low Energy (BLE) devices in range of the s
 
 The app allows the configuration and sending of supported BLE advertisements, e.g. iBeacon or Eddystone, via the smartphone's BLE radio. 
 
-App requirements:
+---
+
+## App requirements
+
 - Smartphone with Wi-Fi & BLE radio
 - Android 8.0 or higher
 - Aruba 3xx or 5xx series access points with integrated BLE or BLE/ZigBee radio
 - AOS/Aruba Instant version 8.7.0.0 or higher
 
+---
 
 **This app has been started as part of a student internship and is developed, published and supported as a leisure activity in collaboration with an Aruba employee. This app is not an official product of Aruba, a Hewlett Packard Enterprise (HPE) Company.**
 
-## Last changelog
+---
+
+## Links
+
+[Download the App](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
+
+[Documentation](./docs/index.md)
+
+[In-App Documentation](iot-utilities://docs/index.md)
 
 ---
+
+## Last changelog
 
 ### Version 0.9.5
 
