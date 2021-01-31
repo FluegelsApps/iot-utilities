@@ -4,7 +4,7 @@
 
 [End User License Agreement](./IoT-Utilities_EULA.md)
 
-[Terms and Conditions](.IoT-Utilities-Terms_and_Conditions.md)
+[Terms and Conditions](./IoT-Utilities_Terms_and_Conditions.md)
 
 [Privacy Statement](./IoT-Utilities-Privacy-Statement_EN.md)
 
