@@ -2,13 +2,17 @@
 
 # IoT-Utilities (Android App)
 
+[End User License Agreement](./IoT-Utilities_EULA.md)
+
+[Terms and Conditions](.IoT-Utilities-Terms_and_Conditions.md)
+
+[Privacy Statement](./IoT-Utilities-Privacy-Statement_EN.md)
+
 ## Links
 
 [Documentation](./docs/index.md)
 
 [Download the App](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
-
-[Privacy Statement](https://iot-utilities.arubademo.de/IoT-Utilities-Privacy-Statement.pdf)
 
 ## Want to view the documentation in-app?
 
