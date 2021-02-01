@@ -83,7 +83,7 @@ Android Berechtigungen (Benutzerabfrage):
 
 Diese App benötigt Zugriff auf die Standortfunktion des Gerätes. Diese Berechtigung wird benötigt, um auf die Bluetooth Low Energy (BLE) Schnittstelle des Smartphones zuzugreifen. Hierbei werden keinerlei Standortinformationen durch die App abgerufen oder gespeichert.
 
-- #### Speicher **(Lesen/Schreiben)**
+- #### **Speicher (Lesen/Schreiben)**
 
 Android Berechtigungen (Benutzerabfrage):  
 [android.permission.write\_external\_storage]  
@@ -267,4 +267,4 @@ Sie können sich bei der für uns zuständigen Aufsichtsbehörde beschweren, z.B
 
 Diese Datenschutzerklärung entspricht dem Stand zum Zeitpunkt der jeweils installierten aktuellen Version der App. Sollten sich Änderungen bei der Erhebung, Verarbeitung oder Nutzung von Daten durch neue oder geänderte Funktionen der App ergeben, so wird beim Update der App darauf hingewiesen und eine erneute Einverständniserklärung abgefragt. Die aktuelle Fassung der Datenschutzerklärung ist in der App abrufbar unter:  
 
-About -> Datenschutzerklärung
+About -> Privacy Statement
