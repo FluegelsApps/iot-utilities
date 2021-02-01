@@ -10,15 +10,15 @@
 
 ## What is the purpose of this app?
 
-Aruba, a Hewlett Packard Enterprise (HPE) Company (https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points as gateways.
+[Aruba, a Hewlett Packard Enterprise (HPE) Company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points as gateways.
 
 More information about this functionality and its specification can be found here:
 
-Aruba Support Portal
-https://asp.arubanetworks.com/downloads;search=iot
+Aruba Support Portal  
+[https://asp.arubanetworks.com/downloads;search=iot](https://asp.arubanetworks.com/downloads;search=iot)  
 
-ArubaOS WLAN and Aruba Instant 8.6.0.x IoT Interface Guide
-https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en_us
+ArubaOS WLAN and Aruba Instant 8.6.0.x IoT Interface Guide  
+[https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en\_us](https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en_us)  
 
 The IoT-Utilities app is a generic tool to get to know and demonstrate the "Aruba IoT Interface" functionality provided by an Aruba access point infrastructure to integrate with IoT applications. The app provides a basic server functionality Aruba access points and controllers can connect to using the Aruba IoT interface. Data received via the Aruba IoT Interface, e.g. BLE telemetry, is decoded and shown in the app.
 
@@ -78,6 +78,7 @@ The app allows the configuration and sending of supported BLE advertisements, e.
 ### Version 0.9.5
 
 Changelog:
+
 - Refactored big parts of the app, including:
   - Logs and Dashboard
   - Client & Sensor page
