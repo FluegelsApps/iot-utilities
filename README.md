@@ -6,7 +6,7 @@
 
 [Terms and Conditions](./IoT-Utilities_Terms_and_Conditions.md)
 
-Privacy Statement [EN](./IoT-Utilities-Privacy-Statement_EN.md) | [DE](./IoT-Utilities-Privacy-Statement_DE.md)
+[Privacy Statement](./IoT-Utilities-Privacy-Statement_EN.md)
 
 ## What is the purpose of this app?
 

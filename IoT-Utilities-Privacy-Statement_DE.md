@@ -1,4 +1,4 @@
-# IoT-Utilities Datenschutzerklärung
+# IoT-Utilities Datenschutzerklärung ([EN](./IoT-Utilities-Privacy-Statement_EN.md)|**DE**)
 
 Gütig ab dem <!--#validof-->31.01.2021<!--#validof-->
 

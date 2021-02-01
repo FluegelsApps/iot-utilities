@@ -1,4 +1,4 @@
-# IoT-Utilities Privacy Statement
+# IoT-Utilities Privacy Statement (**EN**|[DE](./IoT-Utilities-Privacy-Statement_DE.md))
 
 Valid as of <!--validof-->01/31/2021<!--validof-->
 
