@@ -59,11 +59,13 @@ Hold the button to manage the current certificate. You can import or generate a 
 
 ## 3) Values panel
 Tap this panel to get advanced information of the server. It contains values such as:
+
  - Authentication username (can also be accessed in settings)
  - Authentication access token (can also be accessed in settings)
  - Server URL (Dashboard)
  - Server URL (Telemetry)
  - Server URL (Authentication)
+ 
  You can also copy the information displayed by this panel by using the copy button (on the right of the value).
  
  ## 4) Web-Dashboard panel
