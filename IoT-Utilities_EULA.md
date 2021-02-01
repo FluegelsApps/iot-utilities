@@ -7,8 +7,6 @@ Agree" button, downloading or using IoT-Utilities.
 
 ## Interpretation and Definitions
 
----
-
 ### **Interpretation**
 
 The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
@@ -39,8 +37,6 @@ For the purposes of this End-User License Agreement:
 
 ## Acknowledgment
 
----
-
 By clicking the "I Agree" button, downloading or using the Application, You are agreeing to be bound by the terms and conditions of this Agreement. If You do not agree to the terms of this Agreement, do not click on the "I Agree" button, do not download or do not use the Application.
 
 This Agreement is a legal document between You and the Company and it governs your use of the Application made available to You by the Company.
@@ -52,8 +48,6 @@ Since the Application can be accessed and used by other users via, for example, 
 The Application is licensed, not sold, to You by the Company for use strictly in accordance with the terms of this Agreement.
 
 ## License
-
----
 
 ### **Scope of License**
 
@@ -75,15 +69,11 @@ You agree not to, and You will not permit others to:
 
 ## Intellectual Property
 
----
-
 The Application, including without limitation all copyrights, patents, trademarks, trade secrets and other intellectual property rights are, and shall remain, the sole and exclusive property of the Company.
 
 The Company shall not be obligated to indemnify or defend You with respect to any third party claim arising out of or relating to the Application. To the extend the Company is required to provide indemnification by applicable law, the Company, not the Application Store, shall be solely responsible for the investigation, defense, settlement and discharge of any claim that the Application or your use of it infringes any third party intellectual property rights.
 
 ## Third-Party Services
-
----
 
 The Application may display, include or make available third-party content (including data, information, applications and other products services) or provide links to third-party websites or services.
 
@@ -93,15 +83,11 @@ You must comply with applicable Third parties' Terms of agreement when using the
 
 ## Privacy Policy
 
----
-
 The Company collects, stores, maintains, and shares information about You inaccordance with Our Privacy Policy: [IoT-Utilities Privacy Statement](https://iot-utilities.arubademo.de/IoT-Utilities-Privacy-Statement.pdf)
 
 By accepting this Agreement, You acknowledge that You hereby agree and consent to the terms and conditions of Our Privacy Policy.
 
 ## Term and Termination
-
----
 
 This Agreement shall remain in effect until terminated by You or the Company. The Company may, in its sole discretion, at any time and for any or no reason, suspend or terminate this Agreement with or without prior notice.
 
@@ -113,13 +99,9 @@ Termination of this Agreement will not limit any of the Company's rights or reme
 
 ## Indemnification
 
----
-
 You agree to indemnify and hold the Company and its parents, subsidiaries, affiliates, officers, employees, agents, partners and licensors (if any) harmless from any claim or demand, including reasonable attorneys' fees, due to or arising out of your: (a) use of the Application; (b) violation of this Agreement or any law or regulation; or (c) violation of any right of a third party.
 
 ## No Warranties
-
----
 
 The Application is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Application, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Application will meet your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.
 
@@ -128,8 +110,6 @@ Without limiting the foregoing, neither the Company nor any of the company's pro
 Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section 11 shall be applied to the greatest extent enforceable under applicable law. To the extent any warranty exists under law that cannot be disclaimed, the Company, not the Application Store, shall be solely responsible for such warranty.
 
 ## Limitation of Liability
-
----
 
 Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Agreement and your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You for the Application or through the Application.
 
@@ -141,8 +121,6 @@ You expressly understand and agree that the Application Store, its subsidiaries 
 
 ## Severability and Waiver
 
----
-
 ### **Severability**
 
 If any provision of this Agreement is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.
@@ -153,19 +131,13 @@ Except as provided herein, the failure to exercise a right or to require perform
 
 ## Product Claims
 
----
-
 The Company does not make any warranties concerning the Application. To the extent You have any claim arising from or relating to your use of the Application, the Company, not the Application Store, is responsible for addressing any such claims, which may include, but not limited to: (i) any product liability claims; (ii) any claim that the Application fails to conform to any applicable legal or regulatory requirement; and (iii) any claim arising under consumer protection, or similar legislation.
 
 ## United States Legal Compliance
 
----
-
 You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a "terrorist supporting" country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.
 
 ## Changes to this Agreement
-
----
 
 The Company reserves the right, at its sole discretion, to modify or replace this Agreement at any time. If a revision is material we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at the sole discretion of the Company.
 
@@ -173,13 +145,9 @@ By continuing to access or use the Application after any revisions become effect
 
 ## Governing Law
 
----
-
 The laws of the Country, excluding its conflicts of law rules, shall govern this Agreement and your use of the Application. Your use of the Application may also be subject to other local, state, national, or international laws.
 
 ## Entire Agreement
-
----
 
 The Agreement constitutes the entire agreement between You and the Company regarding your use of the Application and supersedes all prior and contemporaneous written or oral agreements between You and the Company.
 
