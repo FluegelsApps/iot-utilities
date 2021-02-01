@@ -56,3 +56,33 @@ Tap to button to show the certificate details page. This page contains detailed 
 
 **- Holding the button:**
 Hold the button to manage the current certificate. You can import or generate a new certificate.
+
+## 3) Values panel
+Tap this panel to get advanced information of the server. It contains values such as:
+ - Authentication username (can also be accessed in settings)
+ - Authentication access token (can also be accessed in settings)
+ - Server URL (Dashboard)
+ - Server URL (Telemetry)
+ - Server URL (Authentication)
+ You can also copy the information displayed by this panel by using the copy button (on the right of the value).
+ 
+ ## 4) Web-Dashboard panel
+ Tap this panel to open the web-dashboard in your default browser. This panel only is clickable if the server is online.
+ 
+ ## 5) Client-Configuration panel
+ Tap this panel to open the client configuration page. More information on this page can be found in the "Client-Configuration" section of the documentation.
+ 
+ ## 6) Clients statistics panel
+ This panel displays the current client count of the server. Tap this panel to open the Clients page. More information on this page can be found in the "Clients" section of the documentation.
+ 
+ ## 7) Sensors statistics panel
+ This panel displays the current sensor count of the server. Tap this panel to open the Sensors page. More information on this page can be found in the "Sensors" section of the documentation.
+ 
+ ## 8) Telemetry data statistics panel
+ This panel displays the current count of Telemetry data records in the internal database. Tap this panel to open the BLE-Telemetry page. More information on this page can be found in the "BLE-Telemetry" section of the documentation.
+ 
+ ## 9) BLE data statistics panel
+ This panel displays the current count of BLE data records in the internal database. Tap the panel to open the BLE-Data page. More information on this page can be found in the "BLE-Data" section of the documentation.
+ 
+ ## 10) WiFi data statistics panel
+ This panel displays the current count of WiFi data records in the internal database. Tap the panel to open the WiFi-Data page. More information on this page can be found in the "WiFi-Data" section of the documentation.
