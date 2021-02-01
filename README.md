@@ -10,7 +10,7 @@
 
 ## What is the purpose of this app?
 
-[Aruba, a Hewlett Packard Enterprise (HPE) Company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points as gateways.
+[Aruba, a Hewlett Packard Enterprise (HPE) company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points as gateways.
 
 More information about this functionality and its specification can be found here:
 
