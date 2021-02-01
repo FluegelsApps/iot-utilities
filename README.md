@@ -1,4 +1,4 @@
-<img src="./docs/images/PlayStoreBanner.png" width="100%">
+![IoT-Utilities Banner](./docs/images/PlayStoreBanner.png)
 
 # IoT-Utilities (Android App)
 
