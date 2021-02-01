@@ -1,6 +1,6 @@
 # IoT-Utilities Privacy Statement
 
-Valid as of 1/31/2021
+Valid as of <!--validof-->01/31/2021<!--validof-->
 
 ## Privacy Statement for IoT-Utilities App
 
@@ -58,7 +58,7 @@ The data processing takes place for the following purposes and on the following 
 
 - If consent has been given for data processing to the extent specified in this privacy statement (Art. 6 Para. 1 a) GDPR).
 
-Consent to data processing can be given when the app is started for the first time. The app cannot be used without consent.Consents are always voluntary and can be freely revoked at any time. To revoke the consent the app have to be uninstalled or the app data being deleted under:  
+Consent to data processing can be given when the app is started for the first time. The app cannot be used without consent. Consents are always voluntary and can be freely revoked at any time. To revoke the consent the app have to be uninstalled or the app data being deleted under:  
 
 Android:  
 Settings -> Apps -> IoT Utilities -> Uninstall  
@@ -98,14 +98,14 @@ Android permissions (granted automatically):
 [_android.permission.bluetooth_]  
 [_android.permission.bluetooth\_admin_]  
 
-This app requires access to the smartphone&#39;s Bluetooth system in order to be able to provide the "Bluetooth scanning" and "Bluetooth advertising" functions.
+This app requires access to the smartphone's Bluetooth system in order to be able to provide the "Bluetooth scanning" and "Bluetooth advertising" functions.
 
 - #### **Internet**
 
 Android permissions (granted automatically):  
 [android.permission.internet]  
 
-This app requires access to the device&#39;s Internet connection in order to be able to provide the "IoT-server" function and to download the BLE MAC manufacturer list from the Internet (optional).
+This app requires access to the device's Internet connection in order to be able to provide the "IoT-server" function and to download the BLE MAC manufacturer list from the Internet (optional).
 
 - #### **Wi-Fi and network information**
 
