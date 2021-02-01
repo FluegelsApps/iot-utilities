@@ -61,7 +61,7 @@ The app allows the configuration and sending of supported BLE advertisements, e.
 
 ---
 
-**This app has been started as part of a student internship and is developed, published and supported as a leisure activity in collaboration with an Aruba employee. This app is not an official product of Aruba, a Hewlett Packard Enterprise (HPE) Company.**
+**This app has been started as part of a student internship and is developed, published and supported as a leisure activity in collaboration with an Aruba employee. This app is not an official product of Aruba, a Hewlett Packard Enterprise (HPE) company.**
 
 ---
 
