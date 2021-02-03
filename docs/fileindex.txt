@@ -1,2 +1,2 @@
-<IoT-Utilities Documentation Index File>
+<IoT-Utilities Documentation Index File>;
 ApplicationDashboardFragment,"./dashboard.md";
