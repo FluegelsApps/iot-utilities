@@ -1,0 +1,8 @@
+{
+  destinations: [
+    {
+        className: "ApplicationDashboardFragment",
+        url: "./dashboard.md",
+    }
+  ]
+}
