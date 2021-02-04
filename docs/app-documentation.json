@@ -1,8 +1,6 @@
 {
-  version: "1.0",
-  destinations: [
-    {
+  "version": "1.0",
+  "destinations": {
         "ApplicationDashboardFragment": "./dashboard.md",
     }
-  ]
 }
