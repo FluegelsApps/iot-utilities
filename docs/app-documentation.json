@@ -2,6 +2,6 @@
   "version": "1.0",
   "destinations": {
     "ApplicationDashboardFragment": "./dashboard.md",
-    "ClientConfigurationFragment": "./index.md"   
+    "ClientConfigurationFragment": ""   
   }
 }
