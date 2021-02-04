@@ -2,6 +2,17 @@
   "version": "1.0",
   "destinations": {
     "ApplicationDashboardFragment": "./dashboard.md",
-    "ClientConfigurationFragment": ""   
+    "ClientConfigurationFragment": "",
+    "ArubaIoTBLETestFragment": "",
+    "IoTClientsFragment": "",
+    "IoTSensorsFragment": "",
+    "NorthboundTelemetryFragment": "",
+    "NorthboundBLEDataFragment": "",
+    "NorthboundWifiDataFragment": "",
+    "BLEScanningFragment": "",
+    "BLEAdvertisingFragment": "",
+    "ApplicationLogFragment": "",
+    
+    "test": "test"
   }
 }
