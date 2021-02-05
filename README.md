@@ -1,4 +1,5 @@
-![IoT-Utilities Banner](./docs/images/PlayStoreBanner.png)
+<!--![IoT-Utilities Banner](./docs/images/PlayStoreBanner.png) Not working in mobile app-->
+![IoT-Utilities Banner](https://github.com/FluegelsApps/iot-utilities/raw/docs/images/PlayStorePanner.png)
 
 # IoT-Utilities (Android App)
 
