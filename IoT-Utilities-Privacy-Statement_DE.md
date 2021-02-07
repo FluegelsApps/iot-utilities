@@ -215,7 +215,7 @@ Einstellungen -> Apps -> IoT-Utilities -> Speicher -> Daten löschen.
 
 ---
 
-### _11. Werden Daten an Dritte weitergegeben?**_
+### _**11. Werden Daten an Dritte weitergegeben?**_
 
 Die Datenverarbeitung der App erfolgt ausschließlich lokal auf dem installierten Gerät und nur so lange die App verwendet wird bzw. im Hintergrund läuft. Die App speichert oder überträgt keine personenbezogenen oder anderen Daten an HPE, den Entwickler oder Dritte. Diese App verwendet außerdem keine Analyse- oder Werbedienste von Google oder anderen Anbietern.
 
