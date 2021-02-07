@@ -48,6 +48,6 @@ The app allows the configuration and sending of supported BLE advertisements, e.
 
 ## Requirements
 
-- a Wi-Fi network connection to an Aruba Wi-Fi infrastructure
+- Wi-Fi network connection to an Aruba Wi-Fi infrastructure
 - Aruba 3xx or 5xx series access points with integrated BLE or BLE/ZigBee radio
 - AOS/Aruba Instant version 8.7.0.0 or higher
