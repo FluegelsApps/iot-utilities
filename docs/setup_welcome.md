@@ -1,14 +1,14 @@
 
 # Setup wizard
 
-This wizard helps you setup the app for first time use.
-Tap "next" or swipe left to start.
+This wizard helps you setup the app for first time use.  
+Tap **next** or **swipe left** to start.
 
 ## What is the purpose of this app?
 
-[Aruba, a Hewlett Packard Enterprise (HPE) company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing a connection layer using Aruba access points as gateways.
+The **IoT-Utilities** app is a generic tool to get to know and demonstrate the _Aruba IoT Interface_ functionality provided by an Aruba access point infrastructure to integrate with IoT applications. The app provides a basic server functionality Aruba access points and controllers can connect to using the _Aruba IoT interface_. Data received via the _Aruba IoT interface_ is decoded and shown in the app.
 
-More information about this functionality and its specification can be found here:
+For more information about the _Aruba IoT interface_ functionality and its specification please refer to:
 
 Aruba Support Portal  
 [https://asp.arubanetworks.com/downloads;search=iot](https://asp.arubanetworks.com/downloads;search=iot)  
@@ -16,21 +16,19 @@ Aruba Support Portal
 ArubaOS WLAN and Aruba Instant 8.6.0.x IoT Interface Guide  
 [https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en\_us](https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en_us)  
 
-The **IoT-Utilities** app is a generic tool to get to know and demonstrate the "Aruba IoT Interface" functionality provided by an Aruba access point infrastructure to integrate with IoT applications. The app provides a basic server functionality Aruba access points and controllers can connect to using the Aruba IoT interface. Data received via the Aruba IoT Interface, e.g. BLE telemetry, is decoded and shown in the app.
-
 ## This app provides the following tools and functionalities
 
 ### IoT Server
 
-The app's IoT Server function accepts connections from Aruba controllers and Aruba Instant access points via the Aruba IoT interface using the secure WebSocket protocol and Google Protocol Buffer 2.0 for data encoding (telemetry-websocket). The IoT Server only allows encrypted connections (TLS/SSL). The required SSL server certificate can be imported into the app or a self-signed certificate can be generated.
+The app's IoT Server function accepts connections from Aruba controllers and Aruba Instant access points via the _Aruba IoT interface_ using the secure WebSocket protocol and Google Protocol Buffer 2.0 for data encoding (telemetry-websocket). The IoT Server only allows encrypted connections (TLS/SSL). The IoT server uses an auto-generated self-signed SSL server certificate by default. Alternatively a custom PKCS #12 certificate can be imported into the app. Connections to the IoT server are either authorized using a static access token or authenticated using a username/password.
 
 ### IoT Data
 
-Different messages (topics) are used to send and receive data via the Aruba IoT Interface. The app decodes and views received data for supported messages types, e.g. BLE Telemetry, BLE Data, ... more to come.
+Different messages (topics) are used to send and receive data via the _Aruba IoT interface_. The app decodes and views received data for supported messages types like BLE Telemetry, BLE Data, and Wi-Fi Data.
 
 ### Web Dashboard
 
-The app provides a web dashboard to show basic status information and to provide access to configuration templates from a web browser. Access to the dashboard is secured using HTTPS and username/password.
+The app provides a web dashboard to show basic status information and to provide access to configuration templates from a web browser. Access to the dashboard is secured using HTTPS and a username/password authentication.
 
 ### AOS/Instant configuration templates for ease of setup
 
@@ -50,6 +48,6 @@ The app allows the configuration and sending of supported BLE advertisements, e.
 
 ## Requirements
 
-- Wi-Fi network connection
+- a Wi-Fi network connection to an Aruba Wi-Fi infrastructure
 - Aruba 3xx or 5xx series access points with integrated BLE or BLE/ZigBee radio
 - AOS/Aruba Instant version 8.7.0.0 or higher
