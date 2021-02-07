@@ -12,8 +12,7 @@
     "BLEScanningFragment": "",
     "BLEAdvertisingFragment": "",
     "ApplicationLogFragment": "",
-    
-    "SetupActivityWelcomeFragment": "",
-    "SetupActivityEndpointFragment": ""
+    "SetupActivityWelcomeFragment": "./setup_welcome.md",
+    "SetupActivityEndpointFragment": "./setup_iot_server.md"
   }
 }
