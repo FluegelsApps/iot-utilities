@@ -25,7 +25,7 @@ The server certificate can be exported as .crt file via the app settings or down
 
 The wizard generates a static access token that can be changed at any time in the app settings. The app uses JSON web tokes as static access tokes.
 
-The static token can be vied and copied via the server settings icon on the app dashboard.
+The static token can be viewed and copied via the server settings icon on the app dashboard.
 
 ### IoT interface & web dashboard user account
 
