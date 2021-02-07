@@ -1,12 +1,12 @@
 
-# IoT-Utilities (Android App)
+# Setup wizard
 
-Before you can start using this application there are some minor things that need do be done.
-Tap "next" or swipe to start.
+This wizard helps you setup the app for first time use.
+Tap "next" or swipe left to start.
 
 ## What is the purpose of this app?
 
-[Aruba, a Hewlett Packard Enterprise (HPE) company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points as gateways.
+[Aruba, a Hewlett Packard Enterprise (HPE) company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking and sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing a connection layer using Aruba access points as gateways.
 
 More information about this functionality and its specification can be found here:
 
@@ -16,7 +16,7 @@ Aruba Support Portal
 ArubaOS WLAN and Aruba Instant 8.6.0.x IoT Interface Guide  
 [https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en\_us](https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en_us)  
 
-The IoT-Utilities app is a generic tool to get to know and demonstrate the "Aruba IoT Interface" functionality provided by an Aruba access point infrastructure to integrate with IoT applications. The app provides a basic server functionality Aruba access points and controllers can connect to using the Aruba IoT interface. Data received via the Aruba IoT Interface, e.g. BLE telemetry, is decoded and shown in the app.
+The **IoT-Utilities** app is a generic tool to get to know and demonstrate the "Aruba IoT Interface" functionality provided by an Aruba access point infrastructure to integrate with IoT applications. The app provides a basic server functionality Aruba access points and controllers can connect to using the Aruba IoT interface. Data received via the Aruba IoT Interface, e.g. BLE telemetry, is decoded and shown in the app.
 
 ## This app provides the following tools and functionalities
 
@@ -46,17 +46,10 @@ The app allows scanning for Bluetooth Low Energy (BLE) devices in range of the s
 
 ### Bluetooth Advertising
 
-The app allows the configuration and sending of supported BLE advertisements, e.g. iBeacon or Eddystone, via the smartphone's BLE radio. 
+The app allows the configuration and sending of supported BLE advertisements, e.g. iBeacon or Eddystone, via the smartphone's BLE radio.
 
-## App requirements
+## Requirements
 
-- Smartphone with Wi-Fi & BLE radio
-- Android 8.0 or higher
+- Wi-Fi network connection
 - Aruba 3xx or 5xx series access points with integrated BLE or BLE/ZigBee radio
 - AOS/Aruba Instant version 8.7.0.0 or higher
-
----
-
-**This app has been started as part of a student internship and is developed, published and supported as a leisure activity in collaboration with an Aruba employee. This app is not an official product of Aruba, a Hewlett Packard Enterprise (HPE) company.**
-
----
