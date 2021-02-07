@@ -11,6 +11,9 @@
     "NorthboundWifiDataFragment": "",
     "BLEScanningFragment": "",
     "BLEAdvertisingFragment": "",
-    "ApplicationLogFragment": ""
+    "ApplicationLogFragment": "",
+    
+    "SetupActivityWelcomeFragment": "",
+    "SetupActivityEndpointFragment": ""
   }
 }
