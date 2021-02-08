@@ -1,6 +1,5 @@
 {
   "version": "1.0",
-  "branch": "documentation-dev",
   "destinations": {
     "ApplicationDashboardFragment": "./dashboard.md",
     "ClientConfigurationFragment": "",
