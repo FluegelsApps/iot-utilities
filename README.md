@@ -73,21 +73,3 @@ The app allows the configuration and sending of supported BLE advertisements, e.
 [Documentation](./docs/index.md)
 
 [In-App Documentation](iot-utilities://docs/index.md)
-
-## Last changelog
-
-### Version 0.9.5
-
-Changelog:
-
-- Refactored big parts of the app, including:
-  - Logs and Dashboard
-  - Client & Sensor page
-  - Telemetry, BLE data & WiFi data page
-  - BLE scanning & advertising
-- Huge performance improvements
-- Layout improvements and changes
-- Various bug fixes
-- Setup crash fixed
-
-Note: App reinstallation required due to major changes
