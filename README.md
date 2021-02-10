@@ -68,26 +68,12 @@ The app allows the configuration and sending of supported BLE advertisements, e.
 
 ## Links
 
-[Download the App](https://play.google.com/store/apps/details?id=net.fluegels.iotutilities)
+<a href='https://play.google.com/store/apps/details?id=net.fluegels.iotutilities&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
 
 [Documentation](./docs/index.md)
 
 [In-App Documentation](iot-utilities://docs/index.md)
 
-## Last changelog
 
-### Version 0.9.5
 
-Changelog:
-
-- Refactored big parts of the app, including:
-  - Logs and Dashboard
-  - Client & Sensor page
-  - Telemetry, BLE data & WiFi data page
-  - BLE scanning & advertising
-- Huge performance improvements
-- Layout improvements and changes
-- Various bug fixes
-- Setup crash fixed
-
-Note: App reinstallation required due to major changes
+Google Play and Google Play logo are trademarks of Google LLC
