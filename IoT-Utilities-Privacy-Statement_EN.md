@@ -115,6 +115,13 @@ Android permissions (granted automatically):
 
 This app requires access to the network information of the smartphone in order to be able to provide the "IoT server" function.
 
+- #### **Foreground service permission**
+
+Android permissions (granted automatically):
+[ android.permission.foreground_service ]
+
+The app requires the "foreground-service" permission to be able to run the "IoT-Server", "BLE Advertising" and "BLE Testing" functions in the background. This feature is optional and can be enabled / disabled in the settings of the application.
+
 The granted permissions can be viewed/granted/withdrawn at any time in the app under Settings -> Authorizations or in the device settings:  
 
 Android:  
