@@ -115,7 +115,7 @@ Android Berechtigungen (automatisch erteilt):
 
 Diese App benötigt Zugriff auf die Netzwerkinformationen des Smartphones, um die Funktion „IoT-Server" zur Verfügung stellen zu können.
 
-- #### **Vordergrunddienst-Berechtigungen**
+- #### **Vordergrunddienste**
 
 Android Berechtigungen (automatisch erteilt):
 [android.permission.foreground_service]
