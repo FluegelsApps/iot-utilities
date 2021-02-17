@@ -117,7 +117,7 @@ Diese App benötigt Zugriff auf die Netzwerkinformationen des Smartphones, um di
 
 - #### **Vordergrunddienste**
 
-Android Berechtigungen (automatisch erteilt):
+Android Berechtigungen (automatisch erteilt):  
 [android.permission.foreground_service]
 
 Diese App benötigt Zugriff auf sogenannte "Vordergrunddienste" um die Funktionen "IoT-Server", "BLE Advertising" und "BLE Testing" im Hintergrund ausführen zu können. Dieses Feature is optional und kann jederzeit in den Einstellungen der App aktiviert / deaktiviert werden.
