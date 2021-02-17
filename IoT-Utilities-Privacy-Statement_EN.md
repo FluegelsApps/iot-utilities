@@ -115,7 +115,7 @@ Android permissions (granted automatically):
 
 This app requires access to the network information of the smartphone in order to be able to provide the "IoT server" function.
 
-- #### **Foreground service permission**
+- #### **Foreground services**
 
 Android permissions (granted automatically):
 [ android.permission.foreground_service ]
