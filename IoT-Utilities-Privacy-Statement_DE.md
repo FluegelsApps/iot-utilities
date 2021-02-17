@@ -115,6 +115,13 @@ Android Berechtigungen (automatisch erteilt):
 
 Diese App benötigt Zugriff auf die Netzwerkinformationen des Smartphones, um die Funktion „IoT-Server" zur Verfügung stellen zu können.
 
+- #### **Vordergrunddienst-Berechtigungen**
+
+Android Berechtigungen (automatisch erteilt):
+[android.permission.foreground_service]
+
+Diese App benötigt Zugriff auf sogenannte "Vordergrunddienste" um die Funktionen "IoT-Server", "BLE Advertising" und "BLE Testing" im Hintergrund ausführen zu können. Dieses Feature is optional und kann jederzeit in den Einstellungen der App aktiviert / deaktiviert werden.
+
 Die erteilten Berechtigungen können jederzeit in der App unter Einstellungen -> Berechtigungen oder in den Geräteeinstellungen eingesehen/erteilt/entzogen werden:  
 
 Android:  
