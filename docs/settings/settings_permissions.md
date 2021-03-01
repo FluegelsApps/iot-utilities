@@ -12,6 +12,6 @@ Tap any permission to request it
 
 Detailed information can be found in the [Privacy Statement](../../IoT-Utilities-Privacy-Statement_EN.md)
 
-### "Open Android Settings"
+### Open Android Settings
 - Tap this setting to open the Android settings page for this app
 - You can also manage permissions on this page
