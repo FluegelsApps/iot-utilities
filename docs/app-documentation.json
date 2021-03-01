@@ -14,6 +14,11 @@
     "ApplicationLogFragment": "",
     "SetupActivityWelcomeFragment": "./setup/setup_welcome.md",
     "SetupActivityIoTServerFragment": "./setup/setup_iot_server.md",
-    "PreferencesGeneralFragment": "./settings/settings_general.md"
+    "PreferencesGeneralFragment": "./settings/settings_general.md",
+    "PreferencesPermissionsFragment": "./settings/settings_permissions.md",
+    "PreferencesStyleFragment": "./settings/settings_style.md",
+    "PreferencesAdvancedFragment": "./settings/settings_advanced.md",
+    "PreferencesBluetoothFragment": "./settings/settings_bluetooth.md",
+    "PreferencesEndpointFragment": "./settings/settings_iotserver.md"
   }
 }
