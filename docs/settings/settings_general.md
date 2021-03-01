@@ -7,6 +7,7 @@ This section allows you to change the behaviour of the app
 - When this setting is enabled the app will show a dialog if you are about to close the app
 - When this setting is disabled the app will close once the back stack is empty
 
+
 ## Third party data
 
 ### "Update bluetooth company database"
