@@ -1,7 +1,7 @@
 # Permission settings
 
 ## Permissions
-- Tap a permission to request it
+Tap any permission to request it
 
 ### Available Permissions
 - Location Services: This permission is used for BLE scanning and advertising (detailed information in Privacy Statement)
