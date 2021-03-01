@@ -13,6 +13,7 @@
     "BLEAdvertisingFragment": "",
     "ApplicationLogFragment": "",
     "SetupActivityWelcomeFragment": "./setup/setup_welcome.md",
-    "SetupActivityIoTServerFragment": "./setup/setup_iot_server.md"
+    "SetupActivityIoTServerFragment": "./setup/setup_iot_server.md",
+    "PreferencesGeneralFragment": "./settings/settings_general.md"
   }
 }
