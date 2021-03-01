@@ -12,7 +12,9 @@ This section allows you to change the behaviour of the app
 ## Third party data
 
 ### Update bluetooth company database
+
 - Tap this setting to download the newest list of ble manufacturers from bluetooth.com
 
 ### Update configuration templates
+
 - Tap this setting to download the newest configuration templates from github.com
