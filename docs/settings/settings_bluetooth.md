@@ -14,15 +14,15 @@ Available modes:
 
 ### Keep advertising alive
 
-- when this setting is enabled, the app will keep advertising in the background if you close the app
-- when this setting is disabled, all advertisements will be stopped if you are about to close the app
+- If this setting is enabled, the app will keep advertising in the background if you close the app
+- If this setting is disabled, all advertisements will be stopped if you are about to close the app
 
 ## BLE testing
 
 ### Keep testing alive
 
-- when this setting is enabled, the app will keep the test running in the backgroud if you close the app
-- when this setting is disabled, the app will stop testing if you are about to close the app  
+- If this setting is enabled, the app will keep the test running in the backgroud if you close the app
+- If this setting is disabled, the app will stop testing if you are about to close the app  
 Note; The server also has to run in the background because this feature depends on it
 
 ### Advertising UUID
