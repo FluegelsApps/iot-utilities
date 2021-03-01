@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "destinations": {
-    "ApplicationDashboardFragment": "./dashboard.md",
+    "ApplicationDashboardFragment": "./main/dashboard.md",
     "ClientConfigurationFragment": "",
     "ArubaIoTBLETestFragment": "",
     "IoTClientsFragment": "",
@@ -12,7 +12,7 @@
     "BLEScanningFragment": "",
     "BLEAdvertisingFragment": "",
     "ApplicationLogFragment": "",
-    "SetupActivityWelcomeFragment": "./setup_welcome.md",
-    "SetupActivityIoTServerFragment": "./setup_iot_server.md"
+    "SetupActivityWelcomeFragment": "./setup/setup_welcome.md",
+    "SetupActivityIoTServerFragment": "./setup/setup_iot_server.md"
   }
 }
