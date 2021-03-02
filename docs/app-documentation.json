@@ -3,7 +3,7 @@
   "destinations": {
     "ApplicationDashboardFragment": "./main/dashboard.md",
     "ClientConfigurationFragment": "./main/client_configuration.md",
-    "ArubaIoTBLETestFragment": "./main/ble_testing.md",
+    "ArubaIoTBLETestingFragment": "./main/ble_testing.md",
     "IoTClientsFragment": "./main/clients.md",
     "IoTSensorsFragment": "./main/sensors.md",
     "NorthboundTelemetryFragment": "./main/ble_telemetry.md",
