@@ -1,6 +1,6 @@
 # IoT-Utilities Datenschutzerklärung ([EN](./IoT-Utilities-Privacy-Statement_EN.md)|**DE**)
 
-Gütig ab dem <!--#validof-->31.01.2021<!--#validof-->
+Gütig ab dem <!--#validof-->01.03.2021<!--#validof-->
 
 ## Datenschutzhinweise für IoT-Utilities App
 
@@ -114,6 +114,13 @@ Android Berechtigungen (automatisch erteilt):
 [android.permission.access\_network\_state]  
 
 Diese App benötigt Zugriff auf die Netzwerkinformationen des Smartphones, um die Funktion „IoT-Server" zur Verfügung stellen zu können.
+
+- #### **Vordergrunddienste**
+
+Android Berechtigungen (automatisch erteilt):  
+[android.permission.foreground_service]
+
+Diese App benötigt Zugriff auf sogenannte "Vordergrunddienste" um die Funktionen "IoT-Server", "BLE Advertising" und "BLE Testing" im Hintergrund ausführen zu können. Dieses Feature is optional und kann jederzeit in den Einstellungen der App aktiviert / deaktiviert werden.
 
 Die erteilten Berechtigungen können jederzeit in der App unter Einstellungen -> Berechtigungen oder in den Geräteeinstellungen eingesehen/erteilt/entzogen werden:  
 
