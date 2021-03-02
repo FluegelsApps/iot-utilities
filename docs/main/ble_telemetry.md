@@ -1,3 +1,3 @@
-# BLE-Telemetry
+# BLE Telemetry
 
 Work in progress
