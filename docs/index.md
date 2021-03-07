@@ -15,7 +15,7 @@
 - [Sensor data (details)](./main/sensor_data_details.md)  
 - [BLE-Telemetry](./main/ble_telemetry.md)  
 - [BLE-Telemetry (Details)](./main/ble_telemetry_details.md)  
-- [BLE-Data](./main/ble_data,md)  
+- [BLE-Data](./main/ble_data.md)  
 - [BLE-Data (Details)](./main/ble_data_details.md)  
 - [WiFi-Data](./main/wifi_data.md)  
 - [WiFi-Data (Details)](./main/wifi_data_details.md)  
