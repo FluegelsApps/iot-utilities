@@ -1,4 +1,4 @@
-# Documentation (Work in progress)
+# Documentation
 
 ## Welcome to the documentation!
 ## Available destinations
