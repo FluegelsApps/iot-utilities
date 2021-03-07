@@ -1,6 +1,5 @@
 # Documentation
 
-## Welcome to the documentation!
 ## Available destinations
 
 ### Application setup
