@@ -1,6 +1,34 @@
-## Version 1.0.0 | ?
+## Version 1.0.0 | 13.03.2021
 
-- Content
+### New features in this release:
+
+- Implemented ability to pause / resume the server in the status notification
+- Implemented ability to pause / resume the server in the launcher shortcut
+- Implemented ability to freeze the data view in the details page
+- Implemented swipe gesture to disconnect / delete clients in the client view
+-      swipe the client to the left or right side (when it's offline) to delete this client
+-      swipe the client to the left or right side (when receiving data) to close the connection
+- Implemented auto-complete engine for filtering (all pages: clients, sensors, main data, scanning)
+
+##### Note: Android 11 introduced a delay for foreground services. If you start or stop the server it may take up to 10 seconds for the server to start or stop.
+
+### Reworked features and improvements:
+
+- Reworked the changelog dialog
+-      Expand / collapse changelog entries (similar to privacy statement)
+-      Changed changelog to markdown format
+
+- Added dialog to choose certificate export location
+
+### Fixed bugs and issues:
+
+- Fixed issue that disabled certificate imports on Android 11 and higher
+- Fixed issue that disabled certificate exports on Android 11 and higher
+
+- Fixed BLE scanning performance (still lags on some devices, will be fixed in next release)
+- Fixed bug that sometimes destroyed filtering after devices rotation
+- Fixed bug that locked token expiration time in client view to 01.01.1970 (visual bug)
+- Fixed bug that caused app to crash when it was rotated at the end of the setup
 
 ---
 
