@@ -14,11 +14,8 @@
 
 ### Reworked features and improvements:
 
-#### Reworked the changelog dialog
-
-- Expand / collapse changelog entries (similar to privacy statement)
-- Changed changelog to markdown format
-
+- Expand / collapse changelog entries (similar to privacy statement)  
+    - Changed changelog to markdown format
 - Added dialog to choose certificate export location
 
 ### Fixed bugs and issues:
