@@ -5,9 +5,9 @@
 - Implemented ability to pause / resume the server in the status notification
 - Implemented ability to pause / resume the server in the launcher shortcut
 - Implemented ability to freeze the data view in the details page
-- Implemented swipe gesture to disconnect / delete clients in the client view
- - swipe the client to the left or right side (when it's offline) to delete this client
- - swipe the client to the left or right side (when receiving data) to close the connection
+- Implemented swipe gesture to disconnect / delete clients in the client view  
+    - swipe the client to the left or right side (when it's offline) to delete this client  
+    - swipe the client to the left or right side (when receiving data) to close the connection  
 - Implemented auto-complete engine for filtering (all pages: clients, sensors, main data, scanning)
 
 ##### Note: Android 11 introduced a delay for foreground services. If you start or stop the server it may take up to 10 seconds for the server to start or stop.
