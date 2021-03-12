@@ -14,7 +14,8 @@
 
 ### Reworked features and improvements:
 
-- Expand / collapse changelog entries (similar to privacy statement)  
+- Reworked changelog-system and dialog  
+    - Expand / collapse changelog entries (similar to privacy statement)  
     - Changed changelog to markdown format
 - Added dialog to choose certificate export location
 
