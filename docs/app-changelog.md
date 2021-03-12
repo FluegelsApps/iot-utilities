@@ -6,7 +6,7 @@
 - Implemented ability to pause / resume the server in the launcher shortcut
 - Implemented ability to freeze the data view in the details page
 - Implemented swipe gesture to disconnect / delete clients in the client view  
-    - swipe the client to the left or right side (when it's offline) to delete this client  
+    - swipe the client to the left or right side (when it's offline) to delete this client and ALL of the data received from this client  
     - swipe the client to the left or right side (when receiving data) to close the connection  
 - Implemented auto-complete engine for filtering (all pages: clients, sensors, main data, scanning)
 
