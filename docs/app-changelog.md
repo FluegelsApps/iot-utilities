@@ -18,6 +18,7 @@
     - expand / collapse changelog entries (similar to privacy statement)  
     - changed changelog to markdown format
 - added dialog to choose certificate export location
+- added colored background with action icon and name when swiping a list item
 
 ### Fixed bugs and issues:
 
