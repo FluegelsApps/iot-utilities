@@ -2,6 +2,10 @@
 
 ### New features in this release:
 
+- added new features to BLE testing
+    - implemented "Sensor timeout" value
+    - implemented "RSSI threshold" value
+    - implemented interface to change test beacon in testing page
 - implemented ability to pause / resume the server in the status notification
 - implemented ability to pause / resume the server in the launcher shortcut
 - implemented ability to freeze the data view in the details page
@@ -17,6 +21,7 @@
 - reworked changelog-system and dialog  
     - expand / collapse changelog entries (similar to privacy statement)  
     - changed changelog to markdown format
+- reworked BLE testing
 - added dialog to choose certificate export location
 - added colored background with action icon and name when swiping a list item
 
