@@ -34,6 +34,8 @@
 - fixed bug that sometimes destroyed filtering after devices rotation
 - fixed bug that locked token expiration time in client view to 01.01.1970 (visual bug)
 - fixed bug that caused app to crash when it was rotated at the end of the setup
+- fixed bug that client status was stuck in "Handshaking..." when not sending messages
+- fixed bug that client log messages sometimes were in wrong order and duplicated
 
 ---
 
