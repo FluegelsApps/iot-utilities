@@ -3,16 +3,19 @@
 ### New features in this release:
 
 - added new features to BLE testing
-    - implemented "Sensor timeout" value
-    - implemented "RSSI threshold" value
+    - new "Sensor timeout" value
+    - new "RSSI threshold" value
     - implemented interface to change test beacon in testing page
-- implemented ability to pause / resume the server in the status notification
-- implemented ability to pause / resume the server in the launcher shortcut
-- implemented ability to freeze the data view in the details page
-- implemented swipe gesture to disconnect / delete clients in the client view  
+- ability to pause / resume the server in the status notification
+- ability to pause / resume the server in the launcher shortcut
+- ability to freeze the data view in the details page
+- swipe gesture to disconnect / delete clients in the client view  
     - swipe the client to the right side to delete this client and ALL of the data received from this client  
     - swipe the client to the left side (when receiving data) to close the connection  
-- implemented auto-complete engine for filtering (all pages: clients, sensors, main data, scanning)
+- auto-complete engine for filtering (all pages: clients, sensors, main data, scanning)
+- ability to have multiple filters of same type
+- added all Aruba device classes to filtering
+- app automatically retries the last action if you grant missing permissions
 
 ##### Note: Android 11 introduced a delay for foreground services. If you start or stop the server it may take up to 10 seconds for the server to start or stop.
 
