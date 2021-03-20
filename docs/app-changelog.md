@@ -5,7 +5,7 @@
 - added new features to BLE testing
     - new "Sensor timeout" value
     - new "RSSI threshold" value
-    - implemented interface to change test beacon in testing page
+    - implemented interface to modify test beacon in testing page
 - ability to pause / resume the server in the status notification
 - ability to pause / resume the server in the launcher shortcut
 - ability to freeze the data view in the details page
