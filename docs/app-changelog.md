@@ -25,6 +25,7 @@
     - expand / collapse changelog entries (similar to privacy statement)  
     - changed changelog to markdown format
 - reworked BLE testing
+- reworked filtering
 - added dialog to choose certificate export location
 - added colored background with action icon and name when swiping a list item
 
