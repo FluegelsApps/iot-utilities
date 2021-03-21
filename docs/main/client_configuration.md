@@ -39,6 +39,8 @@ The access point works as protocol translational gateway between the different d
 
 ### IoT connectivity options (downstream)
 
+---
+
 In the downstream direction the Aruba access points support different IoT radio technologies either though integrated radios or 3rd party solutions connected to the APs USB port.
 
 #### Wi-Fi
@@ -91,6 +93,8 @@ USB based integrations that do not follow the previously mentioned methods use v
 
 ### Server connectivity options (upstream)
 
+---
+
 Data communication from/to an AP is handled via the active controller's corresponding IoT interface connection. In case of a failover the AP communication will also failover to the backup controller IoT interface connection. This is especially important for southbound connection management in IoT solutions.
 The different connectivity security options HTTP vs. HTTPS and websocket (ws) vs. secure websocket (wss) have to be explained and thier requirements, e.g. HTTPS/WSS requires a trusted root or self-signed certificate on the controller of the IoT server
 
@@ -104,6 +108,8 @@ Every Aruba controller establishes on IoT interface connection per IoT transport
 #### Authentication
 
 ### Data forwarding options
+
+---
 
 Telemetry vs. data forwarding
 northbound vs. southbound
@@ -123,6 +129,8 @@ northbound vs. southbound
 #### ZigBee
 
 ### Data filtering (Device Class Filter)
+
+---
 
 - BLE table limit: 512
 - Oldest entries are deleted
@@ -162,37 +170,35 @@ AOS/Instant 8.8 (Beta) - Device Class Filter
 
 ## Configuration
 
-### ArubaOS
+### IoT radio profile
 
-#### IoT radio profile
+---
 
 IoT radio profiles are used to configure the Aruba integrated or external (USB-dongle) IoT radio - please don't use the term "ZigBee USB dongle", it is misleading because the Aruba IoT radio is either BLE 4.x-only (Gen1 = AP 3xx series) or BLE5/802.15.4 (e.g. to support ZigBee)
 
-#### IoT transport profile
+### IoT transport profile
+
+---
 
 The IoT transport profile defines the Aruba IoT Interface API settings (some settings also influence the radios side - input filters, but this is a detail that have to be covert in the details section) 
 
 Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
-##### Server types
+#### Server types
 
-##### Proxy support
+#### Proxy support
 
-##### Authentication/Authorization
+#### Authentication/Authorization
 
-##### Device class filter
+#### Device class filter
 
-##### USB ACL configuration
+#### USB ACL configuration
 
-##### USB Ethernet configuration
+#### USB Ethernet configuration
 
 Wired-AP profile
 
 ## Configuration Examples
-
-### ArubaOS
-
-### Aruba Instant
 
 - Wi-Fi tracking solutions
 - BLE solutions
