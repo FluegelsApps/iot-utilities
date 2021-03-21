@@ -1,6 +1,6 @@
 # Client configuration
 
-The app client configuration feature provides templates for the configuration of an Aruba infrastructure for use with this app or other 3rd party IoT solutions.  
+The app client configuration feature provides templates for the configuration of an Aruba infrastructure for use with this app or other 3rd party IoT solutions. Even if the app only supports part of the IoT use cases, BLE and Wi-Fi, this documentation provides an overview of the available configuration options.
 
 ## Templates
 
@@ -28,6 +28,8 @@ The templates include placeholders for setup specific settings. Some of the plac
 
 ## Principal concepts of Aruba IoT configuration
 
+This chapter describes the principals of the Aruba IoT configuration.
+
 [Aruba, a Hewlett Packard Enterprise (HPE) company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking or sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points. IoT devices can send/receive data via the Aruba APs built-in radios or supported 3rd party radios connected via USB to 3rd party backend system.
 
 ![Aruba IoT Connectivity options](../images/aruba_iot_connectivity.jpg)
@@ -38,6 +40,10 @@ The access point works as protocol translational gateway between the different d
 ### IoT connectivity options (downstream)
 
 In the downstream direction the Aruba access points support different IoT radio technologies either though integrated radios or 3rd party solutions connected to the APs USB port.
+
+#### Wi-Fi
+
+The Aruba access point Wi-Fi radios can be used to forward associated/unassociated client information and RTLS data for Wi-Fi based tracking use cases. Wi-Fi client and RTLS data is encapsulated in the Aruba IoT interface protocol and forwarded upstream to the IoT backend system.  
 
 #### Aruba IoT radio
 
@@ -62,15 +68,26 @@ In addition to the internal IoT radio Aruba also provides [IoT expansion radio](
 
 #### USB/3rd party IoT radios
 
-In case of 3rd party radios connected via USB the 3rd party system handles the.
+Aruba supports the extension of Aruba access points using USB with supported 3rd party solutions. Depending on the particular solution the integration uses one of the following methods:
 
-##### USB-serial (e.g. EnOcean USB 900 MHz, ...) -> USB acl profile configuration/explanation
+- USB-to-serial
+- USB-to-ethernet
 
-##### USB-ethernet (e.g. ESL, AmberBox, ...) -> USB-to-Ethernet profile configuration
+In all cases the USB connected host system removes/adds the radio specific headers/protocols downstream from/to IoT devices and forwards/receives the data payload to the access point using one of the USB methods.  
+
+##### USB-to-serial
+
+3rd party solutions using the USB-to-serial method forwards the data payload to/from the access point using `serial-data`. The Aruba access point encapsulates the serial-data payload in the Aruba IoT interface protocol upstream to/from the IoT backend system.
+
+##### USB-to-ethernet
+
+3rd party solutions using the USB-to-ethernet method provide ethernet/IP connectivity to the connected USB host system. The USB host system is connected to the access point in the same way as a wired client. No data processing is done by the access point and ethernet/IP data packets form the USB host system is forwarded like any other ethernet/IP traffic.
 
 ##### Vendor specific implementations
 
-- SES Imagotag is a special case requiring a dedicated configuration
+USB based integrations that do not follow the previously mentioned methods use vendor specific implementations requiring dedicated configurations.  
+
+- SES Imagotag ESL
 
 ### Server connectivity options (upstream)
 
@@ -165,6 +182,12 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 ##### Device class filter
 
+##### USB ACL configuration
+
+##### USB Ethernet configuration
+
+Wired-AP profile
+
 ## Configuration Examples
 
 ### ArubaOS
@@ -187,3 +210,12 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 ### Supported BLE vendor list
 
 ### Supported USB vendor list
+
+|Vendor|Connection method|Description|
+|-|-|-|
+| EnOcean|serial-data| EnOcean USB 800/900 MHz |
+| SES Imagotag|vendor-specific| ESL USB dongle |
+| Solu-M|usb-ethernet| ESL USB dongle gen1/gen2 |
+| Hanshow|usb-ethernet| ESL USB dongle |
+| AmberBox|usb-ethernet| Gunshot detector |
+| Piera Systems|usb-ethernet| Particulate Matter (PM) Detection |
