@@ -51,14 +51,14 @@ An Aruba IoT radio is an additional internal or external radio in the Aruba AP-3
 A single Aruba AP-3xx/5xx series access points can support up to two IoT radios, one internal and one external. This would used cases where one radio could be used for BLE and another for ZigBee for example.  
 The access point removes/adds the radio specific headers downstream from/to IoT devices e.g. BLE or ZigBee and forwards/receives the data payload encapsulated in the Aruba IoT interface protocol upstream to/from the IoT backend system.  
 
-##### Integrated
+##### **Integrated**
 
 Aruba AP-3xx/5xx series access points provide an integrated Aruba IoT radio for downstream IoT connectivity supporting the following radio technologies:
 
 - AP-3xx: BLE4 (Gen1)
 - AP-5xx: BLE5/802.15.4 (Gen2) e.g. ZigBee
 
-##### External
+##### **External**
 
 In addition to the internal IoT radio Aruba also provides [IoT expansion radio](https://www.arubanetworks.com/assets/ds/DS_IoT-Expansion-Radio.pdf) supports the same radio technologies as the AP-5xx series access points:  
 
@@ -75,15 +75,15 @@ Aruba supports the extension of Aruba access points using USB with supported 3rd
 
 In all cases the USB connected host system removes/adds the radio specific headers/protocols downstream from/to IoT devices and forwards/receives the data payload to the access point using one of the USB methods.  
 
-##### USB-to-serial
+##### **USB-to-serial**
 
 3rd party solutions using the USB-to-serial method forwards the data payload to/from the access point using `serial-data`. The Aruba access point encapsulates the serial-data payload in the Aruba IoT interface protocol upstream to/from the IoT backend system.
 
-##### USB-to-ethernet
+##### **USB-to-ethernet**
 
 3rd party solutions using the USB-to-ethernet method provide ethernet/IP connectivity to the connected USB host system. The USB host system is connected to the access point in the same way as a wired client. No data processing is done by the access point and ethernet/IP data packets form the USB host system is forwarded like any other ethernet/IP traffic.
 
-##### Vendor specific implementations
+##### **Vendor specific implementations**
 
 USB based integrations that do not follow the previously mentioned methods use vendor specific implementations requiring dedicated configurations.  
 
@@ -214,8 +214,8 @@ Wired-AP profile
 |Vendor|Connection method|Description|
 |-|-|-|
 | EnOcean|serial-data| EnOcean USB 800/900 MHz |
+| Piera Systems|serial-data| Particulate Matter (PM) Detection |
 | SES Imagotag|vendor-specific| ESL USB dongle |
 | Solu-M|usb-ethernet| ESL USB dongle gen1/gen2 |
 | Hanshow|usb-ethernet| ESL USB dongle |
 | AmberBox|usb-ethernet| Gunshot detector |
-| Piera Systems|usb-ethernet| Particulate Matter (PM) Detection |
