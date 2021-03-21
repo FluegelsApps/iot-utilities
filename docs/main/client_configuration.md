@@ -26,34 +26,41 @@ The templates include placeholders for setup specific settings. Some of the plac
 
 > **_Note:_** The _password_ has to be replaced with the password that as been configured in the app settings. The app has no access to the configured password ans only uses a hashed representation for authentication.
 
-## Principal Concepts
+## Principal concepts of Aruba IoT configuration
 
-[Aruba, a Hewlett Packard Enterprise (HPE) company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking or sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points.
-
-IoT devices can send/receive data via the Aruba APs built-in radios or supported 3rd party radios connected via USB to 3rd party backend system.
+[Aruba, a Hewlett Packard Enterprise (HPE) company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking or sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points. IoT devices can send/receive data via the Aruba APs built-in radios or supported 3rd party radios connected via USB to 3rd party backend system.
 
 ![Aruba IoT Connectivity options](../images/aruba_iot_connectivity.jpg)
 
-The Aruba AP can be used as transmitter/receiver (e.g. BLE connect, ZigBee) or just a receiver/sensor (e.g. BLE asset tracking, Wi-Fi tracking), depending on the respective IoT solution. With that the AP provides a one-way or two-way communication channel between IoT devices (e.g, sensors, actors) and IoT systems.  
+The Aruba AP radios can be used as transmitter/receiver (e.g. BLE connect, ZigBee) or just a receiver/sensor (e.g. BLE asset tracking, Wi-Fi tracking), depending on the respective IoT solution. With that the AP provides a one-way or two-way communication channel between IoT devices (e.g, sensors, actors) and IoT systems.  
+The access point works as protocol translational gateway between the different downstream protocols/radios and the upstream Aruba IoT interface protocol or plain IP protocol depending on the respective IoT solution being used.  
 
-### Downstream IoT connectivity options
+### IoT connectivity options (downstream)
 
-In the downstream direction the access point works as protocol translational gateway between the different IoT radio technologies and the Aruba IoT interface protocol or plain IP connectivity, depending on respective radio being used.  
+In the downstream direction the Aruba access points support different IoT radio technologies either though integrated radios or 3rd party solutions connected to the APs USB port.
 
 #### Aruba IoT radio
 
-The access point removes/adds the radio specific headers downstream from/to IoT devices e.g. BLE or ZigBee in case of the Aruba IoT radio (internal or external) and forwards the data payload encapsulated upstream via the Aruba IoT interface to the IoT backend system.  
+An Aruba IoT radio is an additional internal or external radio in the Aruba AP-3xx/5xx series access points that can be leveraged for IoT connectivity.  
+A single Aruba AP-3xx/5xx series access points can support up to two IoT radios, one internal and one external. This would used cases where one radio could be used for BLE and another for ZigBee for example.  
+The access point removes/adds the radio specific headers downstream from/to IoT devices e.g. BLE or ZigBee and forwards/receives the data payload encapsulated in the Aruba IoT interface protocol upstream to/from the IoT backend system.  
 
-##### Integrated  
+##### Integrated
 
-- AP 3xx - Gen1 = BLE4
-- AP 5xx - Gen2 = BLE5/802.15.4 (e.g. ZigBee)
+Aruba AP-3xx/5xx series access points provide an integrated Aruba IoT radio for downstream IoT connectivity supporting the following radio technologies:
+
+- AP-3xx: BLE4 (Gen1)
+- AP-5xx: BLE5/802.15.4 (Gen2) e.g. ZigBee
 
 ##### External
 
-- Aruba IoT USB dongle - Gen2 = BLE5/802.15.4
+In addition to the internal IoT radio Aruba also provides [IoT expansion radio](https://www.arubanetworks.com/assets/ds/DS_IoT-Expansion-Radio.pdf) supports the same radio technologies as the AP-5xx series access points:  
 
-#### 3rd party USB
+- Aruba IoT Expansion Radio = BLE5/802.15.4 (Gen2) e.g. ZigBee
+
+> **_Note:_** The internal and the expansion BLE5/802.15.4 (Gne2) IoT radio can only run in BLE or ZigBee mode at any point in time. Running both protocols in parallel is currently not supported (even if this options is available in the configuration).  
+
+#### USB/3rd party IoT radios
 
 In case of 3rd party radios connected via USB the 3rd party system handles the.
 
@@ -61,11 +68,11 @@ In case of 3rd party radios connected via USB the 3rd party system handles the.
 
 ##### USB-ethernet (e.g. ESL, AmberBox, ...) -> USB-to-Ethernet profile configuration
 
-##### Special Cases/Vendor specific implementations
+##### Vendor specific implementations
 
 - SES Imagotag is a special case requiring a dedicated configuration
 
-### Upstream Server connectivity options
+### Server connectivity options (upstream)
 
 Data communication from/to an AP is handled via the active controller's corresponding IoT interface connection. In case of a failover the AP communication will also failover to the backup controller IoT interface connection. This is especially important for southbound connection management in IoT solutions.
 The different connectivity security options HTTP vs. HTTPS and websocket (ws) vs. secure websocket (wss) have to be explained and thier requirements, e.g. HTTPS/WSS requires a trusted root or self-signed certificate on the controller of the IoT server
@@ -81,18 +88,29 @@ Every Aruba controller establishes on IoT interface connection per IoT transport
 
 ### Data forwarding options
 
-Telemetry vs. BLE data forwarding
+Telemetry vs. data forwarding
+northbound vs. southbound
 
 #### Telemetry
 
-#### BLE data
+#### Data forwarding
+
+##### BLE
+
+##### Serial-data
+
+##### BLE data
 
 #### BLE connect
 
+#### ZigBee
+
 ### Data filtering (Device Class Filter)
 
-Maximum of 16 devices classes can be selected.
-Explain all = all BLE vendors
+- BLE table limit: 512
+- Oldest entries are deleted
+- Maximum of 16 devices classes can be selected.
+- Explain all = all BLE vendors
 
 AOS/Instant 8.8 (Beta) - Device Class Filter
 
@@ -145,7 +163,7 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 ##### Authentication/Authorization
 
-##### device class filter
+##### Device class filter
 
 ## Configuration Examples
 
