@@ -218,11 +218,13 @@ Wired-AP profile
 
 ### Supported USB vendor list
 
-|Vendor|Connection method|Description|
-|-|-|-|
-| EnOcean|serial-data| EnOcean USB 800/900 MHz |
-| Piera Systems|serial-data| Particulate Matter (PM) Detection |
-| SES Imagotag|vendor-specific| ESL USB dongle |
-| Solu-M|usb-ethernet| ESL USB dongle gen1/gen2 |
-| Hanshow|usb-ethernet| ESL USB dongle |
-| AmberBox|usb-ethernet| Gunshot detector |
+|Vendor|Minimum required AOS/Instant Version|Connection method|Description|
+|-|-|-|-|
+| EnOcean|8.7.1.0 or higher|serial-data| EnOcean USB 800/900 MHz |
+| Piera Systems|8.8.0.0 or higher|serial-data| Particulate Matter (PM) Detection |
+| SES Imagotag|8.4.0.0 or higher|vendor-specific| ESL USB dongle (on-premise mgmt) |
+| SES Imagotag|8.8.0.0 or higher|vendor-specific| ESL USB dongle (cloud mgmt) |
+| Solu-M|8.5.0.0 or higher|usb-ethernet| ESL USB dongle Gen1|
+| Solu-M|8.8.0.0 or higher|usb-ethernet| ESL USB dongle Gen2|
+| Hanshow|8.6.0.0 or higher|usb-ethernet| ESL USB dongle |
+| AmberBox|8.6.0.0 or higher|usb-ethernet| Gunshot detector |
