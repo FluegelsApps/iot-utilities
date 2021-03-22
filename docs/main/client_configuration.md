@@ -69,6 +69,8 @@ In addition to the internal IoT radio Aruba also provides [IoT expansion radio](
 
 > **_Note:_** The internal and the expansion BLE5/802.15.4 (Gne2) IoT radio can only run in BLE or ZigBee mode at any point in time. Running both protocols in parallel is currently not supported (even if this options is available in the configuration).  
 
+The configuration of the Aruba IoT radios is handled in [IoT radio profile](#iot-radio-profile) configuration.
+
 #### **USB/3rd party IoT radios**
 
 Aruba supports the extension of Aruba access points using USB with supported 3rd party solutions. Depending on the particular solution the integration uses one of the following methods:
@@ -76,35 +78,48 @@ Aruba supports the extension of Aruba access points using USB with supported 3rd
 - USB-to-serial
 - USB-to-ethernet
 
-In all cases the USB connected host system removes/adds the radio specific headers/protocols downstream from/to IoT devices and forwards/receives the data payload to the access point using one of the USB methods.  
+In all cases the USB connected host system removes/adds the radio specific headers/protocols downstream from/to IoT devices and forwards/receives the data payload to the access point using one of the USB methods.
+
+Supported USB connected devices does not required a specific configuration, except for vendor specific implementations, but it can be controlled which USB devices are allowed to connect to an access points. This can be controlled using an [USB ACL](#usb-acl-configuration).
 
 ##### **_USB-to-serial_**
 
 3rd party solutions using the USB-to-serial method forwards the data payload to/from the access point using `serial-data`. The Aruba access point encapsulates the serial-data payload in the Aruba IoT interface protocol upstream to/from the IoT backend system.
 
+> **_Note:_** No specific configuration required for USB-to-serial devices. Serial data is only forwarded though the Aruba IoT interface, if enabled upstream.  
+
 ##### **_USB-to-ethernet_**
 
 3rd party solutions using the USB-to-ethernet method provide ethernet/IP connectivity to the connected USB host system. The USB host system is connected to the access point in the same way as a wired client. No data processing is done by the access point and ethernet/IP data packets form the USB host system is forwarded like any other ethernet/IP traffic.
+
+USB-to-ethernet connectivity is enabled by applying an [wired-ap port profile](#wired-ap-profile) configuration.
 
 ##### **_Vendor specific implementations_**
 
 USB based integrations that do not follow the previously mentioned methods use vendor specific implementations requiring dedicated configurations.  
 
-- SES Imagotag ESLs
+- [SES Imagotag Electronic Shelf Labels (ESL)](#vendor-specific-implementations)
 
 ### Server connectivity options (upstream)
 
 ---
 
+```
+
+```
+
+Topics to cover:
 Data communication from/to an AP is handled via the active controller's corresponding IoT interface connection. In case of a failover the AP communication will also failover to the backup controller IoT interface connection. This is especially important for southbound connection management in IoT solutions.
+
 The different connectivity security options HTTP vs. HTTPS and websocket (ws) vs. secure websocket (wss) have to be explained and thier requirements, e.g. HTTPS/WSS requires a trusted root or self-signed certificate on the controller of the IoT server
 
 - HTTP vs. Websocket
 
-The IoT transport profile section has to provide an explanation about how IoT northbound connections are handled:
+The IoT transport profile section has to provide an explanation about how IoT northbound connections are handled. 
+
 Every Aruba controller establishes on IoT interface connection per IoT transport profile to the 3rd party system, e.g. a cluster of 4 controllers creates 4 connections.
 
-#### **Server connection types**
+#### **Aruba IoT interface - server connection types**
 
 |Server connection type|Connection protocol|Data encapsulation|Supported device class filter|Description|
 |-|-|-|-|-|
@@ -115,13 +130,17 @@ Every Aruba controller establishes on IoT interface connection per IoT transport
 |Telemetry-Https|HTTP or HTTPS|JSON|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST Aruba IoT telemetry reports to HTTP server endpoint|
 |Telemetry-Websocket|websocket(ws) or secure websocket (wss)|Protocol Buffers (protobuf)|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data payloads to Aruba IoT interface compatible web socket server|
 |ZF-Openmatics|secure web socket|vendor specific|zf-tags|ZF Openmatics cloud management|
-|IP-based|Internet protocol|vendors specific|not applicable|Plain IP connectivity for connected USB host system controlled by AP firewall|  
 
 > **_Note:_** The IoT-Utilities app only support secure web-socket connections using the Aruba IoT interface.
 
 #### **Authentication**
 
-### Aruba IoT Interface data forwarding options
+```
+
+```
+
+
+### Aruba IoT interface - data forwarding options
 
 ---
 
@@ -130,15 +149,39 @@ northbound vs. southbound
 
 #### **Telemetry**
 
+```
+
+```
+
 #### **Data forwarding**
+
+```
+
+```
 
 ##### **_BLE data_**
 
+```
+
+```
+
 ##### **_Serial-data_**
+
+```
+
+```
 
 #### **BLE connect**
 
+```
+
+```
+
 #### **ZigBee**
+
+```
+
+```
 
 ### Data filtering (Device Class Filter)
 
@@ -150,6 +193,10 @@ northbound vs. southbound
 - Explain all = all BLE vendors
 
 ## Configuration
+
+```
+
+```
 
 ### IoT radio profile
 
@@ -167,49 +214,135 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 #### **Server types**
 
+```
+
+```
+
 #### **Proxy support**
+
+```
+
+```
 
 #### **Authentication/Authorization**
 
+```
+
+```
+
 #### **Device class filter**
+
+```
+
+```
 
 #### **USB ACL configuration**
 
-#### **USB Ethernet configuration**
+```
 
-Wired-AP profile
+```
+
+#### **Wired-AP profile**
+
+```
+
+```
 
 ## Configuration Examples
 
+```
+
+```
+
 ### Wi-Fi solutions
+
+```
+
+```
 
 #### **Wi-Fi client RSSI tracking**
 
+```
+
+```
+
 #### **Wi-Fi RTLS**
+
+```
+
+```
 
 ### BLE solutions
 
+```
+
+```
+
 #### **Aruba Meridian Beacon Management**
+
+```
+
+```
 
 #### **Aruba Meridian Asset Tracking**
 
+```
+
+```
+
 #### **ZF Openmatics**
+
+```
+
+```
 
 #### **BLE telemetry (e.g. HYPROS, PnT, ...)**
 
+```
+
+```
+
 #### **BLE data forwarding (e.g. Minew, Google, ...)**
+
+```
+
+```
 
 #### **BLE connect (e.g. ABB)**
 
+```
+
+```
+
 #### **Zigbee (e.g. ASSA ABLOY)**
+
+```
+
+```
 
 ### USB/3rd party radio solutions
 
+```
+
+```
+
 #### **SES Imagotag**
+
+```
+
+```
 
 #### **USB-to-ethernet (e.g.Solu-M, Hanshow, AmberBox, ...)**
 
+```
+
+```
+
 #### **USB-to-serial (e.g. EnOcean, Piera Systems, ...)**
+
+```
+
+```
 
 ## Appendix
 
