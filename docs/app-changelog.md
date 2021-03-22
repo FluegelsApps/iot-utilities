@@ -2,15 +2,9 @@
 
 ### New features in this release:
 
--
-
 ### Reworked features and improvements:
 
--
-
 ### Fixed bugs and issues:
-
--
 
 ---
 
