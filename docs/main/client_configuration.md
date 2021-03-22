@@ -44,24 +44,24 @@ The access point works as protocol translational gateway between the different d
 
 In the downstream direction the Aruba access points support different IoT radio technologies either though integrated radios or 3rd party solutions connected to the APs USB port.
 
-#### Wi-Fi
+#### **Wi-Fi**
 
 The Aruba access point Wi-Fi radios can be used to forward associated/unassociated client information and RTLS data for Wi-Fi based tracking use cases. Wi-Fi client and RTLS data is encapsulated in the Aruba IoT interface protocol and forwarded upstream to the IoT backend system.  
 
-#### Aruba IoT radio
+#### **Aruba IoT radio**
 
 An Aruba IoT radio is an additional internal or external radio in the Aruba AP-3xx/5xx series access points that can be leveraged for IoT connectivity.  
 A single Aruba AP-3xx/5xx series access points can support up to two IoT radios, one internal and one external. This would used cases where one radio could be used for BLE and another for ZigBee for example.  
 The access point removes/adds the radio specific headers downstream from/to IoT devices e.g. BLE or ZigBee and forwards/receives the data payload encapsulated in the Aruba IoT interface protocol upstream to/from the IoT backend system.  
 
-##### **Integrated**
+##### **_Integrated_**
 
 Aruba AP-3xx/5xx series access points provide an integrated Aruba IoT radio for downstream IoT connectivity supporting the following radio technologies:
 
 - AP-3xx: BLE4 (Gen1)
 - AP-5xx: BLE5/802.15.4 (Gen2) e.g. ZigBee
 
-##### **External**
+##### **_External_**
 
 In addition to the internal IoT radio Aruba also provides [IoT expansion radio](https://www.arubanetworks.com/assets/ds/DS_IoT-Expansion-Radio.pdf) supports the same radio technologies as the AP-5xx series access points:  
 
@@ -69,7 +69,7 @@ In addition to the internal IoT radio Aruba also provides [IoT expansion radio](
 
 > **_Note:_** The internal and the expansion BLE5/802.15.4 (Gne2) IoT radio can only run in BLE or ZigBee mode at any point in time. Running both protocols in parallel is currently not supported (even if this options is available in the configuration).  
 
-#### USB/3rd party IoT radios
+#### **USB/3rd party IoT radios**
 
 Aruba supports the extension of Aruba access points using USB with supported 3rd party solutions. Depending on the particular solution the integration uses one of the following methods:
 
@@ -78,15 +78,15 @@ Aruba supports the extension of Aruba access points using USB with supported 3rd
 
 In all cases the USB connected host system removes/adds the radio specific headers/protocols downstream from/to IoT devices and forwards/receives the data payload to the access point using one of the USB methods.  
 
-##### **USB-to-serial**
+##### **_USB-to-serial_**
 
 3rd party solutions using the USB-to-serial method forwards the data payload to/from the access point using `serial-data`. The Aruba access point encapsulates the serial-data payload in the Aruba IoT interface protocol upstream to/from the IoT backend system.
 
-##### **USB-to-ethernet**
+##### **_USB-to-ethernet_**
 
 3rd party solutions using the USB-to-ethernet method provide ethernet/IP connectivity to the connected USB host system. The USB host system is connected to the access point in the same way as a wired client. No data processing is done by the access point and ethernet/IP data packets form the USB host system is forwarded like any other ethernet/IP traffic.
 
-##### **Vendor specific implementations**
+##### **_Vendor specific implementations_**
 
 USB based integrations that do not follow the previously mentioned methods use vendor specific implementations requiring dedicated configurations.  
 
@@ -104,9 +104,9 @@ The different connectivity security options HTTP vs. HTTPS and websocket (ws) vs
 The IoT transport profile section has to provide an explanation about how IoT northbound connections are handled:
 Every Aruba controller establishes on IoT interface connection per IoT transport profile to the 3rd party system, e.g. a cluster of 4 controllers creates 4 connections.
 
-#### Connection types
+#### **Connection types**
 
-#### Authentication
+#### **Authentication**
 
 ### Data forwarding options
 
@@ -115,19 +115,19 @@ Every Aruba controller establishes on IoT interface connection per IoT transport
 Telemetry vs. data forwarding
 northbound vs. southbound
 
-#### Telemetry
+#### **Telemetry**
 
-#### Data forwarding
+#### **Data forwarding**
 
-##### BLE
+##### **_BLE_**
 
-##### Serial-data
+##### **_Serial-data_**
 
-##### BLE data
+##### **_BLE data_**
 
-#### BLE connect
+#### **BLE connect**
 
-#### ZigBee
+#### **ZigBee**
 
 ### Data filtering (Device Class Filter)
 
@@ -185,17 +185,17 @@ The IoT transport profile defines the Aruba IoT Interface API settings (some set
 
 Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
-#### Server types
+#### **Server types**
 
-#### Proxy support
+#### **Proxy support**
 
-#### Authentication/Authorization
+#### **Authentication/Authorization**
 
-#### Device class filter
+#### **Device class filter**
 
-#### USB ACL configuration
+#### **USB ACL configuration**
 
-#### USB Ethernet configuration
+#### **USB Ethernet configuration**
 
 Wired-AP profile
 
