@@ -112,16 +112,16 @@ Every Aruba controller establishes on IoT interface connection per IoT transport
 |Azure-IoTHub|AMQP over secure web socket|JSON|all BLE types, serial-data|Connect with Azure IoTHub|
 |Meridian-Asset-Tracking|secure web socket|vendor specific|aruba-tags|Stream data to Meridian WebSocket server|
 |Meridian-Beacon-Management|secure web socket|vendor specific|aruba-beacons|POST to a RESTful Meridian api|
-|Telemetry-Https|HTTP or HTTPS|JSON|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST to a RESTful Aruba api|
-|Telemetry-Websocket|websocket(ws) or secure websocket (wss)|Protocol Buffers (protobuf)|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data to Websocket based server|
-|ZF-Openmatics|secure web socket|vendor specific|zf-tags|ZF Openmatics cloud management|  
-|
+|Telemetry-Https|HTTP or HTTPS|JSON|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST Aruba IoT telemetry reports to HTTP server endpoint|
+|Telemetry-Websocket|websocket(ws) or secure websocket (wss)|Protocol Buffers (protobuf)|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data payloads to Aruba IoT interface compatible web socket server|
+|ZF-Openmatics|secure web socket|vendor specific|zf-tags|ZF Openmatics cloud management|
+|IP-based|Internet protocol|vendors specific|not applicable|Plain IP connectivity for connected USB host system controlled by AP firewall|  
 
-> **_Note:_** The IoT-Utilities app only support secure web-socket connections.
+> **_Note:_** The IoT-Utilities app only support secure web-socket connections using the Aruba IoT interface.
 
 #### **Authentication**
 
-### Data forwarding options
+### Aruba IoT Interface data forwarding options
 
 ---
 
@@ -132,11 +132,9 @@ northbound vs. southbound
 
 #### **Data forwarding**
 
-##### **_BLE_**
+##### **_BLE data_**
 
 ##### **_Serial-data_**
-
-##### **_BLE data_**
 
 #### **BLE connect**
 
