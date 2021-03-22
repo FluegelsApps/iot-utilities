@@ -104,7 +104,20 @@ The different connectivity security options HTTP vs. HTTPS and websocket (ws) vs
 The IoT transport profile section has to provide an explanation about how IoT northbound connections are handled:
 Every Aruba controller establishes on IoT interface connection per IoT transport profile to the 3rd party system, e.g. a cluster of 4 controllers creates 4 connections.
 
-#### **Connection types**
+#### **Server connection types**
+
+|Server connection type|Connection protocol|Data encapsulation|Supported device class filter|Description|
+|-|-|-|-|-|
+|Assa-Abloy|vendor specific|vendor specific|assa-abloy|Assa Abloy Visiononline server|
+|Azure-IoTHub|AMQP over secure web socket|JSON|all BLE types, serial-data|Connect with Azure IoTHub|
+|Meridian-Asset-Tracking|secure web socket|vendor specific|aruba-tags|Stream data to Meridian WebSocket server|
+|Meridian-Beacon-Management|secure web socket|vendor specific|aruba-beacons|POST to a RESTful Meridian api|
+|Telemetry-Https|HTTP or HTTPS|JSON|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST to a RESTful Aruba api|
+|Telemetry-Websocket|websocket(ws) or secure websocket (wss)|Protocol Buffers (protobuf)|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data to Websocket based server|
+|ZF-Openmatics|secure web socket|vendor specific|zf-tags|ZF Openmatics cloud management|  
+|
+
+> **_Note:_** The IoT-Utilities app only support secure web-socket connections.
 
 #### **Authentication**
 
@@ -138,37 +151,6 @@ northbound vs. southbound
 - Maximum of 16 devices classes can be selected.
 - Explain all = all BLE vendors
 
-AOS/Instant 8.8 (Beta) - Device Class Filter
-
-- aruba-beacons (BLE)
-- aruba-sensors (BLE – Aruba developed format, only one known beacon vendor support it so far)
-- aruba-tags (BLE)
-- ibeacon (BLE)
-- eddystone (BLE)
-- zf-tags (BLE)
-- enocean-sensors (BLE)
-- enocean-switches (BLE)
-- mysphera (BLE)
-- ability-smart-sensor (BLE)
-- sbeacon (BLE)
-- wiliot (BLE)
-- exposure-notification (BLE)
-- blyott (BLE)
-- diract (BLE?)
-- google (BLE)
-- gwahygiene (BLE)
-- minew (BLE)
-- onity (BLE)
-- polestar (BLE)
-- unclassified (all BLE devices we don’t know)
-- all (= all BLE devices form vendors we know)
-- assa-abloy (ZigBee)
-- zsd (ZigBee)
-- serial-data (Serial)
-- wifi-tags (Wi-Fi)
-- wifi-assoc-sta (Wi-Fi)
-- wifi-unassoc-sta (Wi-Fi)
-
 ## Configuration
 
 ### IoT radio profile
@@ -201,30 +183,81 @@ Wired-AP profile
 
 ## Configuration Examples
 
-- Wi-Fi tracking solutions
-- BLE solutions
-- Aruba Meridian
-- Proprietary implementations (ZF Openmatics)
-- BLE telemetry (northbound)
-- BLE data (northbound)
-- BLE connect (southbound)
-- Summary of all supported BLE vendors (the list below is still not complete and should already include 8.8)
-- ZigBee solutions
-- 3rd party radio solutions
+### Wi-Fi solutions
+
+#### **Wi-Fi client RSSI tracking**
+
+#### **Wi-Fi RTLS**
+
+### BLE solutions
+
+#### **Aruba Meridian Beacon Management**
+
+#### **Aruba Meridian Asset Tracking**
+
+#### **ZF Openmatics**
+
+#### **BLE telemetry (e.g. HYPROS, PnT, ...)**
+
+#### **BLE data forwarding (e.g. Minew, Google, ...)**
+
+#### **BLE connect (e.g. ABB)**
+
+#### **Zigbee (e.g. ASSA ABLOY)**
+
+### USB/3rd party radio solutions
+
+#### **SES Imagotag**
+
+#### **USB-to-ethernet (e.g.Solu-M, Hanshow, AmberBox, ...)**
+
+#### **USB-to-serial (e.g. EnOcean, Piera Systems, ...)**
 
 ## Appendix
 
-### Supported BLE vendor list
+### Supported IoT vendor/device class list
 
-### Supported USB vendor list
+|Device class|IoT radio type|IoT transport|Minimum required SW version|Description|
+|-|-|-|-|-|
+|aruba-beacons|BLE|Meridian-Beacon-Management,Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward Aruba beacon BLE device data payloads|
+|aruba-tags|BLE|Meridian-Asset-Tracking,Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward Aruba tag BLE device data payloads|
+|aruba-sensors|BLE|Telemetry-Https or Telemetry-Websocket|8.5.0.0 or higher|Forward Aruba sensor BLE device data payloads|
+|ibeacon|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|Forward iBeacon BLE device data payloads|
+|eddystone|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|Forward Eddystone BLE device data payloads|
+|zf-tags|BLE|ZF-Openmatics|8.3.0.0 or higher|Forward EnOcean sensor BLE device data payloads|
+|enocean-sensors|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|Forward EnOcean sensor BLE device data payloads|
+|enocean-switches|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|Forward EnOcean switch BLE device data payloads|
+|mysphera|BLE|Telemetry-Https or Telemetry-Websocket|8.6.0.0 or higher|Forward MySphera BLE device data payloads|
+|ability-smart-sensor|BLE|Telemetry-Https or Telemetry-Websocket|8.6.0.0 or higher|Forward ABB sensor BLE device data payloads|
+|sbeacon|BLE|Telemetry-Https or Telemetry-Websocket|8.6.0.0 or higher|Forward sBeacon(HID) BLE device data payloads|
+|wiliot|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Wiliot BLE device data payloads|
+|exposure-notification|BLE|Telemetry-Https or Telemetry-Websocket|8.7.0.0 or higher|Forward Apple/Google exposure notification framework BLE device data payloads|
+|blyott|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Blyott BLE device data payloads|
+|diract|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Diract BLE device data payloads|
+|google|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Google BLE device data payloads|
+|gwahygiene|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward GWA Hygiene BLE device data payloads|
+|minew|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Ninew BLE device data payloads|
+|onity|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Onity BLE device data payloads|
+|polestar|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Polestar BLE device data payloads|
+|unclassified|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|all BLE devices we don’t know|
+|all|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|all BLE devices form known vendors|
+|assa-abloy|ZigBee|Assa-Abloy|8.6.0.0 or higher|Forwarding ASSA-ABLOY to Assa Abloy Visiononline server|
+|zsd|ZigBee|Telemetry-Websocket|8.7.0.0 or higher|Forwarding ZigBee data payloads to an ZigBee application server|
+|serial-data|USB/3rd party|Telemetry-Websocket|8.7.0.0 or higher|Forwarding serial data payloads of 3rd party USB extensions to an IoT system|
+|wifi-assoc-sta|Wi-Fi|Telemetry-Https or Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
+|wifi-unassoc-sta|Wi-Fi|Telemetry-Https or Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
+|wifi-tags|Wi-Fi|Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi tag data to 3rd party system|
+|
+
+### Supported USB vendor list for IoT
 
 |Vendor|Minimum required AOS/Instant Version|Connection method|Description|
 |-|-|-|-|
-| EnOcean|8.7.1.0 or higher|serial-data| EnOcean USB 800/900 MHz |
-| Piera Systems|8.8.0.0 or higher|serial-data| Particulate Matter (PM) Detection |
 | SES Imagotag|8.4.0.0 or higher|vendor-specific| ESL USB dongle (on-premise mgmt) |
 | SES Imagotag|8.8.0.0 or higher|vendor-specific| ESL USB dongle (cloud mgmt) |
 | Solu-M|8.5.0.0 or higher|usb-ethernet| ESL USB dongle Gen1|
 | Solu-M|8.8.0.0 or higher|usb-ethernet| ESL USB dongle Gen2|
 | Hanshow|8.6.0.0 or higher|usb-ethernet| ESL USB dongle |
 | AmberBox|8.6.0.0 or higher|usb-ethernet| Gunshot detector |
+| EnOcean|8.7.1.0 or higher|serial-data| EnOcean USB 800/900 MHz |
+| Piera Systems|8.8.0.0 or higher|serial-data| Particulate Matter (PM) Detection |
