@@ -1,3 +1,11 @@
+## Version 1.1.0 | ?
+
+### New features in this release:
+
+### Reworked features and improvements:
+
+### Fixed bugs and issues:
+
 ## Version 1.0.0 | 21.03.2021
 
 ### New features in this release:
