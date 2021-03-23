@@ -425,7 +425,6 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 |Telemetry-Https|HTTP, HTTPS|JSON|username/password, client ID/secret, access token|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST Aruba IoT telemetry reports to HTTP server endpoint|
 |Telemetry-Websocket|web socket (ws), secure web socket (wss)|Protocol Buffers (protobuf)|username/password, client ID/secret, access token|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data payloads to Aruba IoT interface compatible web socket server|
 |ZF-Openmatics|secure web socket|vendor specific|username/password|zf-tags|ZF Openmatics cloud management|
-|
 
 ### Supported IoT vendor/device class list
 
@@ -459,7 +458,6 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 |wifi-assoc-sta|Wi-Fi|Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
 |wifi-unassoc-sta|Wi-Fi|Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
 |wifi-tags|Wi-Fi|Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi tag data to 3rd party system|
-|
 
 ### Supported USB vendor list for IoT
 
@@ -473,4 +471,3 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 | AmberBox|8.6.0.0 or higher|[usb-to-ethernet](#usb-to-ethernet)| Gunshot detector |
 | EnOcean|8.7.1.0 or higher|[usb-to-serial](#usb-to-serial)|EnOcean USB 800/900 MHz |
 | Piera Systems|8.8.0.0 or higher|[usb-to-serial](#usb-to-serial)|Particulate Matter (PM) Detection |
-|
