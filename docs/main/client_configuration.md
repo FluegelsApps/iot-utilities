@@ -38,7 +38,7 @@ This chapter describes the principals of the Aruba IoT configuration.
 The Aruba AP radios can be used as transmitter/receiver (e.g. BLE connect, ZigBee) or just a receiver/sensor (e.g. BLE asset tracking, Wi-Fi tracking), depending on the respective IoT solution. With that the AP provides a one-way or two-way communication channel between IoT devices (e.g, sensors, actors) and IoT systems.  
 The access point works as protocol translational gateway between the different downstream protocols/radios and the upstream Aruba IoT interface protocol or plain IP protocol depending on the respective IoT solution being used.  
 
-### IoT connectivity options (downstream)
+### IoT connectivity (downstream)
 
 ---
 
@@ -84,104 +84,172 @@ Supported USB connected devices does not required a specific configuration, exce
 
 ##### **_USB-to-serial_**
 
-3rd party solutions using the USB-to-serial method forwards the data payload to/from the access point using `serial-data`. The Aruba access point encapsulates the serial-data payload in the Aruba IoT interface protocol upstream to/from the IoT backend system.
+[3rd party solutions using the USB-to-serial](#supported-usb-vendor-list-for-iot) method forwards the data payload to/from the access point using [serial-data](#serial-data). The Aruba access point encapsulates the serial-data payload in the Aruba IoT interface protocol upstream to/from the IoT backend system.
 
 > **_Note:_** No specific configuration required for USB-to-serial devices. Serial data is only forwarded though the Aruba IoT interface, if enabled upstream.  
 
 ##### **_USB-to-ethernet_**
 
-3rd party solutions using the USB-to-ethernet method provide ethernet/IP connectivity to the connected USB host system. The USB host system is connected to the access point in the same way as a wired client. No data processing is done by the access point and ethernet/IP data packets form the USB host system is forwarded like any other ethernet/IP traffic.
-
-USB-to-ethernet connectivity is enabled by applying an [wired-ap port profile](#wired-ap-profile) configuration.
+[3rd party solutions using the USB-to-ethernet](#supported-usb-vendor-list-for-iot) method provide ethernet/IP connectivity to the connected USB host system. The USB host system is connected to the access point in the same way as a wired client. No data processing is done by the access point and ethernet/IP data packets form the USB host system is forwarded like any other ethernet/IP traffic.
 
 ##### **_Vendor specific implementations_**
 
-USB based integrations that do not follow the previously mentioned methods use vendor specific implementations requiring dedicated configurations.  
-
+[Vendor specific USB integrations](#supported-usb-vendor-list-for-iot) that do not follow the previously mentioned methods use dedicated configurations.  
+ 
 - [SES Imagotag Electronic Shelf Labels (ESL)](#vendor-specific-implementations)
 
-### Server connectivity options (upstream)
+### Server connectivity (upstream)
 
 ---
+In the upstream direction IoT data payloads are either forwarded directly by [USB-to-ethernet](#usb-to-ethernet) connected USB devices using IP transport or using [Aruba IoT server connection type](#aruba-iot-interface---server-connection-types) depended transport protocols and data encapsulations.  
 
-```
+USB-to-ethernet connectivity only requires applying a [wired-ap port profile](#wired-ap-profile) to the APs USB port.  
 
-```
+Aruba IoT interface upstream connectivity is configured using [iot transport profiles](#iot-transport-profile).
 
-Topics to cover:
-Data communication from/to an AP is handled via the active controller's corresponding IoT interface connection. In case of a failover the AP communication will also failover to the backup controller IoT interface connection. This is especially important for southbound connection management in IoT solutions.
+#### **Server connection types**
 
-The different connectivity security options HTTP vs. HTTPS and websocket (ws) vs. secure websocket (wss) have to be explained and thier requirements, e.g. HTTPS/WSS requires a trusted root or self-signed certificate on the controller of the IoT server
+The Aruba IoT interface supports vendor specific and generic [IoT server connections](#aruba-iot-interface---server-connection-types).  
 
-- HTTP vs. Websocket
+The following generic connection types allow IoT data forwarding for multiple use cases and IoT protocols.
 
-The IoT transport profile section has to provide an explanation about how IoT northbound connections are handled. 
+##### **_Telemetry-Https_**
+
+- HTTP or HTTPS
+- JSON
+- Northbound only
+- BLE only
+
+[ArubaOS WLAN and InstantOS 8.6.0.x IoT Interface - JSON Schema Telemetry](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
+
+[ArubaOS WLAN and InstantOS 8.6.0.x IoT Interface - JSON Telemetry Example](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
+
+##### **_Telemetry-Websocket_**
+
+- web socket(ws) or secure web socket (wss)
+- Protocol Buffers (protobuf)
+- Northbound and Southbound
+
+[ArubaOS WLAN and InstantOS 8.6.0.x IoT Interface - Protobuf Specification](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
+
+##### **_Azure-IoTHub_**
+
+- AMQP over secure web socket
+- JSON
+- Northbound and Southbound
+- BLE, serial 
+
+> **_Note:_** The IoT-Utilities app only support Telemetry-Websocket connections.
+
+#### **Server connection encryption**
+
+In order to establish secure web socket (wss) or HTTPS connections a trusted root or self-signed certificate of the IoT server have to be installed on the Aruba controller/Instant Access Points.  
+If the IoT server certificate is un-trusted the server connection will not be established.
+
+#### **Authentication and authorization**
+
+Depending on the [Aruba IoT server connection type](#aruba-iot-interface---server-connection-types) different authentication and authorization methods are supported/required to establish upstream server connections.
+
+#### **Server connection management**
 
 Every Aruba controller establishes on IoT interface connection per IoT transport profile to the 3rd party system, e.g. a cluster of 4 controllers creates 4 connections.
 
-#### **Aruba IoT interface - server connection types**
-
-|Server connection type|Connection protocol|Data encapsulation|Supported device class filter|Description|
-|-|-|-|-|-|
-|Assa-Abloy|vendor specific|vendor specific|assa-abloy|Assa Abloy Visiononline server|
-|Azure-IoTHub|AMQP over secure web socket|JSON|all BLE types, serial-data|Connect with Azure IoTHub|
-|Meridian-Asset-Tracking|secure web socket|vendor specific|aruba-tags|Stream data to Meridian WebSocket server|
-|Meridian-Beacon-Management|secure web socket|vendor specific|aruba-beacons|POST to a RESTful Meridian api|
-|Telemetry-Https|HTTP or HTTPS|JSON|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST Aruba IoT telemetry reports to HTTP server endpoint|
-|Telemetry-Websocket|websocket(ws) or secure websocket (wss)|Protocol Buffers (protobuf)|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data payloads to Aruba IoT interface compatible web socket server|
-|ZF-Openmatics|secure web socket|vendor specific|zf-tags|ZF Openmatics cloud management|
-
-> **_Note:_** The IoT-Utilities app only support secure web-socket connections using the Aruba IoT interface.
-
-#### **Authentication**
-
-```
-
-```
-
-
-### Aruba IoT interface - data forwarding options
+### Aruba IoT interface - data forwarding types
 
 ---
-
-Telemetry vs. data forwarding
+The Aruba IoT interface supports northbound and southbound communication capabilities depending on the 
 northbound vs. southbound
 
-#### **Telemetry**
+In case of a failover the AP communication will also failover to the backup controller IoT interface connection. This is especially important for southbound connection management in IoT solutions.
 
-```
+#### **Wi-Fi telemetry**
 
-```
+The Wi-Fi telemetry service sends periodic reports about all the Wi-Fi devices that are discovered by an AP. The AP sees
+over the air wireless frames from devices that are in the vicinity of the AP. The AP classifies these devices into (a)
+associated stations: devices for which we observe bi-directional frames, i.e., going from AP to station and from station to
+AP, and (b) unassociated stations: devices for which we observe frames either going to the devices or from the device to
+its associated AP. At every reporting interval, in the periodic report for each station, we will send the tuple of station MAC
+address, received signal strength (RSSI), and device class.
+To enable the WiFi telemetry service in the IoT transport profile, the user will need to include the wifi-assoc-sta and wifiunassoc-sta classes in the device class filter. The configured server will receive one or more Google Protocol buffer
+encoded messages, depending upon the number of observed stations, at every reporting interval. Note that the WiFi
+telemetry is only available when the server type is set to Telemetry-Websocket.
 
-#### **Data forwarding**
+#### **Wi-Fi RTLS data forwarding**
 
-```
+The WiFi RTLS data telemetry service forwards the wireless data frames that originate from unassociated Wi-Fi tags to the
+configured server. Wireless packets from unassociated Wi-Fi tags are distinguished from other frames based on the
+wireless packet type, and the values of the toDS and fromDS flags in the frame control field. When the incoming packet is
+a data frame with either toDS = 1 and fromDS = 1, or toDS = 0 and fromDS = 0, then the AP tries to match the MAC
+address from the Address 1 field to the destination MAC address configured in the transport profile. If it is a match then
+the AP generates a report with the device MAC address, received signal strength (RSSI), device class (set to “wifiTag”) and
+the payload of the wireless frame.
+To enable the WiFi RTLS data telemetry service in the IoT transport profile, the user will need to include the wifi-tags class
+in the device class filter. Whenever the AP sees a frame that matches the MAC address configured in the rtlsDestMAC
+field in the IoT transport profile, it will immediately send a report to the configured server as a Google Protocol buffer
+encoded message. Note that the WiFi telemetry is only available when the server type is set to Telemetry-Websocket.
 
-```
+#### **BLE Telemetry**
 
-##### **_BLE data_**
+The BLE telemetry service sends periodic reports about all the BLE devices that are discovered by an AP. The AP will
+continually listen for advertisements and scan responses. The AP will parse/decode these packets to the best of its
+abilities and update the telemetry in its internal table. Periodically, the contents of this table will be reported as BLE
+telemetry data.
+Once an iot-transport-profile is properly configured on the AP/Controller, northbound telemetry messages will start to be
+sent. This will continue indefinitely until the profile is removed.
+These telemetry reports contain a summary of all the BLE devices that are seen by a particular AP. For each individual
+BLE device, we only populate the information that we have for the device. An example of these reports can be seen in the
+referenced JSON example file
 
-```
+### **BLE data forwarding**
 
-```
-
-##### **_Serial-data_**
-
-```
-
-```
+The BLE data service forwards all BLE advertisement frames and scan response frames from certain BLE devices. No
+special configuration is needed to enable BLE data. The BLE data service is automatically enabled.
+BLE data service applies to the following set of device classes: [mysphera, abilitySmartSensor, sBeacon,
+exposureNotification, wiliot and???].
+BLE Data forwarding works by forwarding the raw BLE data packets to the subscriber immediately when they are
+received by the AP. These messages increase the traffic over the WebSocket, as you will receive a message for every BLE
+advertisement and scan response eligible devices send.
+It is also important to remember that BLE data forwarding happens in addition to the periodic telemetry reporting. The
+two happen in parallel. If BLE data forwarding is the main method for which a subscriber would like to receive data, a
+high “reporting interval” can be configured in the iot-transport-profile.
 
 #### **BLE connect**
 
-```
+The BLE connections service provides primitives to connect and interact with BLE devices remotely via the IoT interface.
+This allows our partners to reach out and manage their devices via the Aruba WLAN infrastructure. This service is generic
+to all BLE devices. The operations map closely to the BLE GATT protocol.
 
-```
+#### **Serial-data**
 
-#### **ZigBee**
+Starting AOS 8.7, Aruba APs support data forwarding service for 3rd party IoT radios that are connected to the AP
+via the USB port. Every 3rd party radio requires custom integration involving bundling the device driver, port
+configuration and message parsing subrooutines into the AP's software image. When the 3rd party IoT radio is
+plugged into the USB port, it presents itself as a serial over USB device to the AP after the appropriate driver
+installation.
+The serial data sent by the 3rd party radio to the AP is encoded into a Google Protocol Buffer formatted message
+and forwarded to the server configured in the IoT transport profile. The server can also send a Google Protocol
+Buffer formatted message to the AP, which will be forwarded to the 3rd party device (i.e., the serial data bytes
+will be written to the serial port).The serial data forwarding service is only available when the server type is
+Telemetry-Websocket. Note that in AOS 8.7, a new parameter setting for device class filter called serial-data was
+added to enable forwarding messages from the attached 3rd party radio/device. Also, in 8.7 we only support the
+EnOcean NWC 300U/500U DA radios (see northbound and southbound message examples below).
 
-```
+#### **ZigBee Socket Data**
 
-```
+Aruba defines a new concept for Zigbee data communication Zigbee Socket Device (ZSD), which can simply the
+usage for sending/receiving data over Zigbee. ZSD specifies two parts:
+• inbound sockets: Inbound socket is used for receiving data from peer device.
+• outbound sockets: Outbound socket is used for sending data to peer device.
+Socket consists of 4 members: source-endpoint, destination-endpoint, profile ID and cluster ID. These four
+parameters are defined into a message ‘ZbE2PC’ (e2pc) in the API. When a ZSD is bound to an ATW transport
+profile by configuration, all data related to the e2pc can be transmitted over the ZSD. In fact, e2pc specifies a
+data tunnel between server and clients. Different services have different e2pc. Sometimes, e2pc for sending is
+also different from the one for receiving. Similarly, e2pc is like the port of TCP/UDP. Different ports can indicate
+different services.
+In the Zigbee world, for each connected device, it has a short network address which is allocated by
+coordinator/router. This short network address can be treated as the IP address. In Aruba implementation, we
+use the IEEE address of client device to send data, which is more generic. In the Zigbee stack, we will convert the
+IEEE address to short address if we have it.
 
 ### Data filtering (Device Class Filter)
 
@@ -208,7 +276,7 @@ IoT radio profiles are used to configure the Aruba integrated or external (USB-d
 
 ---
 
-The IoT transport profile defines the Aruba IoT Interface API settings (some settings also influence the radios side - input filters, but this is a detail that have to be covert in the details section) 
+The IoT transport profile defines the Aruba IoT interface upstream settings (some settings also influence the radios side - input filters, but this is a detail that have to be covert in the details section).
 
 Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
@@ -346,37 +414,50 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 ## Appendix
 
+### Aruba IoT interface - server connection types
+
+|Server connection type|Transport protocol|Data encapsulation|Authentication & Authorization|Supported device class filter|Description|
+|-|-|-|-|-|-|
+|Assa-Abloy|HTTPS|vendor specific|username/password, access ID|assa-abloy|Assa Abloy Visiononline server|
+|Azure-IoTHub|AMQP over secure web socket|JSON|symmetric group key|all BLE types, serial-data|Connect with Azure IoT Hub|
+|Meridian-Beacon-Management|secure web socket|vendor specific|access token|aruba-beacons|POST to a RESTful Meridian API|
+|Meridian-Asset-Tracking|secure web socket|vendor specific|Client ID/access token|aruba-tags|Stream data to Meridian WebSocket server|
+|Telemetry-Https|HTTP, HTTPS|JSON|username/password, client ID/secret, access token|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST Aruba IoT telemetry reports to HTTP server endpoint|
+|Telemetry-Websocket|web socket (ws), secure web socket (wss)|Protocol Buffers (protobuf)|username/password, client ID/secret, access token|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data payloads to Aruba IoT interface compatible web socket server|
+|ZF-Openmatics|secure web socket|vendor specific|username/password|zf-tags|ZF Openmatics cloud management|
+|
+
 ### Supported IoT vendor/device class list
 
-|Device class|IoT radio type|IoT transport|Minimum required SW version|Description|
+|Device class|IoT connectivity (radio)|Supported server connectivity|Minimum required SW version|Description|
 |-|-|-|-|-|
-|aruba-beacons|BLE|Meridian-Beacon-Management,Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward Aruba beacon BLE device data payloads|
-|aruba-tags|BLE|Meridian-Asset-Tracking,Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward Aruba tag BLE device data payloads|
-|aruba-sensors|BLE|Telemetry-Https or Telemetry-Websocket|8.5.0.0 or higher|Forward Aruba sensor BLE device data payloads|
-|ibeacon|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|Forward iBeacon BLE device data payloads|
-|eddystone|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|Forward Eddystone BLE device data payloads|
-|zf-tags|BLE|ZF-Openmatics|8.3.0.0 or higher|Forward EnOcean sensor BLE device data payloads|
-|enocean-sensors|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|Forward EnOcean sensor BLE device data payloads|
-|enocean-switches|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|Forward EnOcean switch BLE device data payloads|
-|mysphera|BLE|Telemetry-Https or Telemetry-Websocket|8.6.0.0 or higher|Forward MySphera BLE device data payloads|
-|ability-smart-sensor|BLE|Telemetry-Https or Telemetry-Websocket|8.6.0.0 or higher|Forward ABB sensor BLE device data payloads|
-|sbeacon|BLE|Telemetry-Https or Telemetry-Websocket|8.6.0.0 or higher|Forward sBeacon(HID) BLE device data payloads|
-|wiliot|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Wiliot BLE device data payloads|
-|exposure-notification|BLE|Telemetry-Https or Telemetry-Websocket|8.7.0.0 or higher|Forward Apple/Google exposure notification framework BLE device data payloads|
-|blyott|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Blyott BLE device data payloads|
-|diract|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Diract BLE device data payloads|
-|google|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Google BLE device data payloads|
-|gwahygiene|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward GWA Hygiene BLE device data payloads|
-|minew|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Ninew BLE device data payloads|
-|onity|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Onity BLE device data payloads|
-|polestar|BLE|Telemetry-Https or Telemetry-Websocket|8.8.0.0 or higher|Forward Polestar BLE device data payloads|
-|unclassified|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|all BLE devices we don’t know|
-|all|BLE|Telemetry-Https or Telemetry-Websocket|8.4.0.0 or higher|all BLE devices form known vendors|
+|aruba-beacons|BLE|Meridian-Beacon-Management, Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward Aruba beacon BLE device data payloads|
+|aruba-tags|BLE|Meridian-Asset-Tracking, Telemetry-Https,Telemetry-Websocket|8.4.0.0 or higher|Forward Aruba tag BLE device data payloads|
+|aruba-sensors|BLE|Telemetry-Https, Telemetry-Websocket|8.5.0.0 or higher|Forward Aruba sensor BLE device data payloads|
+|ibeacon|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward iBeacon BLE device data payloads|
+|eddystone|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward Eddystone BLE device data payloads|
+|zf-tags|BLE|ZF-Openmatics or Telemetry-Https, Telemetry-Websocket|8.3.0.0 or higher|Forward ZF-Openmatics tag BLE device data payloads|
+|enocean-sensors|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward EnOcean sensor BLE device data payloads|
+|enocean-switches|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward EnOcean switch BLE device data payloads|
+|mysphera|BLE|Telemetry-Https, Telemetry-Websocket|8.6.0.0 or higher|Forward MySphera BLE device data payloads|
+|ability-smart-sensor|BLE|Telemetry-Https, Telemetry-Websocket|8.6.0.0 or higher|Forward ABB sensor BLE device data payloads|
+|sbeacon|BLE|Telemetry-Https, Telemetry-Websocket|8.6.0.0 or higher|Forward sBeacon(HID) BLE device data payloads|
+|wiliot|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Wiliot BLE device data payloads|
+|exposure-notification|BLE|Telemetry-Https, Telemetry-Websocket|8.7.0.0 or higher|Forward Apple/Google exposure notification framework BLE device data payloads|
+|blyott|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Blyott BLE device data payloads|
+|diract|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Diract BLE device data payloads|
+|google|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Google BLE device data payloads|
+|gwahygiene|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward GWA Hygiene BLE device data payloads|
+|minew|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Ninew BLE device data payloads|
+|onity|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Onity BLE device data payloads|
+|polestar|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Polestar BLE device data payloads|
+|unclassified|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|all BLE devices we don’t know|
+|all|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|all BLE devices form known vendors|
 |assa-abloy|ZigBee|Assa-Abloy|8.6.0.0 or higher|Forwarding ASSA-ABLOY to Assa Abloy Visiononline server|
 |zsd|ZigBee|Telemetry-Websocket|8.7.0.0 or higher|Forwarding ZigBee data payloads to an ZigBee application server|
 |serial-data|USB/3rd party|Telemetry-Websocket|8.7.0.0 or higher|Forwarding serial data payloads of 3rd party USB extensions to an IoT system|
-|wifi-assoc-sta|Wi-Fi|Telemetry-Https or Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
-|wifi-unassoc-sta|Wi-Fi|Telemetry-Https or Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
+|wifi-assoc-sta|Wi-Fi|Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
+|wifi-unassoc-sta|Wi-Fi|Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
 |wifi-tags|Wi-Fi|Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi tag data to 3rd party system|
 |
 
@@ -384,11 +465,12 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 |Vendor|Minimum required AOS/Instant Version|Connection method|Description|
 |-|-|-|-|
-| SES Imagotag|8.4.0.0 or higher|vendor-specific| ESL USB dongle (on-premise mgmt) |
-| SES Imagotag|8.8.0.0 or higher|vendor-specific| ESL USB dongle (cloud mgmt) |
-| Solu-M|8.5.0.0 or higher|usb-ethernet| ESL USB dongle Gen1|
-| Solu-M|8.8.0.0 or higher|usb-ethernet| ESL USB dongle Gen2|
-| Hanshow|8.6.0.0 or higher|usb-ethernet| ESL USB dongle |
-| AmberBox|8.6.0.0 or higher|usb-ethernet| Gunshot detector |
-| EnOcean|8.7.1.0 or higher|serial-data| EnOcean USB 800/900 MHz |
-| Piera Systems|8.8.0.0 or higher|serial-data| Particulate Matter (PM) Detection |
+| SES Imagotag|8.4.0.0 or higher|[vendor-specific](#vendor-specific-implementations)| ESL USB dongle (on-premise mgmt) |
+| SES Imagotag|8.8.0.0 or higher|[vendor-specific](#vendor-specific-implementations)| ESL USB dongle (cloud mgmt) |
+| Solu-M|8.5.0.0 or higher|[usb-to-ethernet](#usb-to-ethernet)| ESL USB dongle Gen1|
+| Solu-M|8.8.0.0 or higher|[usb-to-ethernet](#usb-to-ethernet)| ESL USB dongle Gen2|
+| Hanshow|8.6.0.0 or higher|[usb-to-ethernet](#usb-to-ethernet)| ESL USB dongle |
+| AmberBox|8.6.0.0 or higher|[usb-to-ethernet](#usb-to-ethernet)| Gunshot detector |
+| EnOcean|8.7.1.0 or higher|[usb-to-serial](#usb-to-serial)|EnOcean USB 800/900 MHz |
+| Piera Systems|8.8.0.0 or higher|[usb-to-serial](#usb-to-serial)|Particulate Matter (PM) Detection |
+|
