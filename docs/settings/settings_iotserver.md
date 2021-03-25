@@ -26,7 +26,7 @@ Tap this setting to import an existing SSL certificate (PKCS12-Format)
 - If this setting is disabled, the server will be closed if you are about to close the app  
 Note: This setting also allows you to keep tests running in the background (feature needs to be enabled)
 
-> **_Note:_** This feature also allows you to keep tests running in the background with the app closed feature (Keep testing alive)[./settings_bluetooth.md] needs to be enabled
+> **_Note:_** This feature also allows you to keep tests running in the background with the app closed (feature (Keep testing alive)[../settings_bluetooth.md] needs to be enabled)
 
 ### Set server URL
 
