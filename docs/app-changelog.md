@@ -2,9 +2,31 @@
 
 ### New features in this release:
 
+- new reload-gesture for web-based content (licenses, documentation, ...)
+- dedicated BLE-Testing beacon
+    - new dialog to select any existing beacon for testing
+    - new views to edit this beacon between tests
+    - testing now uses advertising service
+- new BLE-Testing guide
+- new BLE-Testing documentation
+- new client configuration documentation
+- new documentation features
+    - new reload-gesture
+    - support of markdown anchors and tables
+    - support of links and references
+- new crash-management tab in settings
+    - view all recent crashes
+    - detailed error output
+    - share and export crash logs
+
 ### Reworked features and improvements:
 
+- reworked BLE-Testing (improvements & new features)
+
 ### Fixed bugs and issues:
+
+- fixed issue that BLE-Testing sometimes crashed due to UI-failures
+- fixed issue that RSSI-History sometimes crashes due to concurrent data modification
 
 ---
 
