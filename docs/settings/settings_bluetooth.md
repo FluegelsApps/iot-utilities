@@ -23,4 +23,6 @@ Available modes:
 
 - If this setting is enabled, the app will keep the test running in the backgroud if you close the app
 - If this setting is disabled, the app will stop testing if you are about to close the app  
-Note; The server also has to run in the background because this feature depends on it
+
+> **_Note:_** The server also has to run in the backgroud as this feature depends on it.
+> This feature requires "Keep server alive" as well as "Keep advertising alive" to run in the background with the app closed
