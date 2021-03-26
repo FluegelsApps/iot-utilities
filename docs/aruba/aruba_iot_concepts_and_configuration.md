@@ -11,8 +11,6 @@ The access point works as protocol translational gateway between the different d
 
 ## IoT connectivity (downstream)
 
----
-
 In the downstream direction the Aruba access points support different IoT radio technologies either though integrated radios or 3rd party solutions connected to the APs USB port.
 
 ### **Wi-Fi**
@@ -132,7 +130,6 @@ Every Aruba controller establishes on IoT interface connection per IoT transport
 
 ## Aruba IoT interface - data forwarding types
 
----
 The Aruba IoT interface supports northbound and southbound communication capabilities depending on the 
 northbound vs. southbound
 
@@ -229,8 +226,6 @@ IEEE address to short address if we have it.
 
 ## Data filtering (Device Class Filter)
 
----
-
 - BLE table limit: 512
 - Oldest entries are deleted
 - Maximum of 16 devices classes can be selected.
@@ -244,13 +239,9 @@ IEEE address to short address if we have it.
 
 ## IoT radio profile
 
----
-
 IoT radio profiles are used to configure the Aruba integrated or external (USB-dongle) IoT radio - please don't use the term "ZigBee USB dongle", it is misleading because the Aruba IoT radio is either BLE 4.x-only (Gen1 = AP 3xx series) or BLE5/802.15.4 (e.g. to support ZigBee)
 
 ## IoT transport profile
-
----
 
 The IoT transport profile defines the Aruba IoT interface upstream settings (some settings also influence the radios side - input filters, but this is a detail that have to be covert in the details section).
 
