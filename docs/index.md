@@ -33,4 +33,4 @@
 
 ### Aruba docuemntation
 
-- [Aruba IoT concepts and configuration](./aruba_iot_concepts_and_configuration.md)  
+- [Aruba IoT concepts and configuration](./aruba/aruba_iot_concepts_and_configuration.md)  
