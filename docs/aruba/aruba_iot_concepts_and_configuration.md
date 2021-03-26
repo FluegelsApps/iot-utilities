@@ -103,21 +103,31 @@ This connection type can be used for BLE-based asset tracking or sensor monitori
 
 The _Telemetry-Websocket_ connection type can be used for all [Aruba IoT interface - data forwarding types](#aruba-iot-interface---data-forwarding-types) in the upstream/northbound and downstream/southbound direction though a web socket (ws) or secure web socket (wss) connection.
 
-Communication via the _Telemetry-Websocket_ connection is encoded using the [Google Protocol Buffers](https://developers.google.com/protocol-buffers) serialization protocol. Supported messages types (northbound/southbound) and the encoding and decoding of the data payloads is defined in the [Aruba IoT Protobuf Specification](#aruba-iot-protobuf-specification).
+Communication via the _Telemetry-Websocket_ connection is encoded using the [Google Protocol Buffers](https://developers.google.com/protocol-buffers) serialization protocol. Supported messages types (northbound API/southbound API) and the encoding and decoding of the data payloads is defined in the [Aruba IoT Protobuf Specification](#aruba-iot-protobuf-specification).
 
 With this connection type the full IoT connection capabilities of the Aruba infrastructure are available.
 
 #### **_Azure-IoTHub_**
 
-- AMQP over secure web socket
-- JSON
-- Northbound and Southbound
-- BLE, serial
+The _Azure-IoTHub_ connection type can be use to send/receive [BLE data forwarding](#ble-data-forwarding)/[Serial-data](#serial-data) directly to [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub) by using AMPQ over websocket protocol.
+
+Aruba implements its Controller/IAP as a protocol translation gateway (in Azure terms) to send data to IoT Hub on behalf of IoT devices.
+
+For details please see the [Azure IoT Hub Integration Tech Note](#azure-iot-hub-integration) 
 
 ### **Server connection encryption**
 
-In order to establish secure web socket (wss) or HTTPS connections a trusted root or self-signed certificate of the IoT server have to be installed on the Aruba controller/Instant Access Points.  
-If the IoT server certificate is un-trusted the server connection will not be established.
+It is recommended to only use encrypted connections to remote IoT servers.  
+
+In order to establish secure web socket (wss) or HTTPS connections the remote serves self-signed certificate or root CA certificate has to be added to the Aruba controller/Instant Access Points trusted CA list.  
+
+> **_Note:_**  
+>If the IoT server certificate is un-trusted the server connection will not be established.
+
+Please refer to [importing certificates](#importing-certificates) for how add import required certificates.
+
+> **_Note:_**  
+>The IoT-Utilities app provides a download link on the web dashboard to download the self-signed server certificate. Alternatively a certificate signed by a private or public CA can be installed into the app.
 
 ### **Authentication and authorization**
 
@@ -125,14 +135,19 @@ Depending on the [Aruba IoT server connection type](#aruba-iot-interface---serve
 
 ### **Server connection management**
 
-Every Aruba controller establishes on IoT interface connection per IoT transport profile to the 3rd party system, e.g. a cluster of 4 controllers creates 4 connections.
+Server connections are established form every single Aruba Instant access point, in case of a controller-less setup, and from every Aruba controller in case of a controller-based setup.  
+
+For example, in a controller cluster setup with 4 controllers every controller will establish a connection to the remote server.
+
+In a controller based setup IoT data in forwarded to the remote IoT server via the active controller only. In case of a failover the AP communication will also failover to the backup controller IoT interface connection. This is especially important for southbound/downstream  connection management in the respective IoT server.
+
+> **_Note:_**  
+> In an ArubaOS controller setup the number of server connections equals the number of controllers.
+> In an Aruba Instant setup the number of server connections equals the number of APs.  
 
 ## Aruba IoT interface - data forwarding types
 
-The Aruba IoT interface supports northbound and southbound communication capabilities depending on the 
-northbound vs. southbound
-
-In case of a failover the AP communication will also failover to the backup controller IoT interface connection. This is especially important for southbound connection management in IoT solutions.
+The Aruba IoT interface supports different forwarding mode for the IoT data payloads.
 
 ### **Wi-Fi telemetry**
 
@@ -380,6 +395,14 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 ## Aruba Reference Documentation
 
+*  [ArubaOS Online Documentation](https://www.arubanetworks.com/techdocs/ArubaOS_8.7.1_Web_Help/Content/home.htm)
+*  [Aruba Instant Online Documentation](https://www.arubanetworks.com/techdocs/Instant_871_WebHelp/Content/homeinstant.htm)
+
+### Importing Certificates
+
+* [AurbaOS Importing Certificates](https://www.arubanetworks.com/techdocs/ArubaOS_8.7.1_Web_Help/Content/arubaos-solutions/manage-utilities/impo-cert.htm)  
+* [Aruba Instant Importing Certificates](https://www.arubanetworks.com/techdocs/Instant_871_WebHelp/Content/instant-ug/authentication/upload-cert.htm)
+
 ### Aruba IoT Telemetry JSON Schema
 
 * [ArubaOS WLAN and InstantOS 8.6.0.x IoT Interface - JSON Schema Telemetry](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
@@ -388,6 +411,10 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 ### Aruba IoT Protobuf Specification
 
 * [ArubaOS WLAN and InstantOS 8.6.0.x IoT Interface - Protobuf Specification](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
+
+### Azure IoT Hub Integration
+
+* [Azure IoT Hub Integration Tech Note]() 
 
 ## Aruba IoT interface - server connection types
 
