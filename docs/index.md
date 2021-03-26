@@ -31,6 +31,6 @@
 - [Bluetooth](./settings/settings_bluetooth.md)  
 - [IoT-Server](./settings/settings_iotserver.md)
 
-### Aruba docuemntation
+### Aruba documentation
 
 - [Aruba IoT concepts and configuration](./aruba/aruba_iot_concepts_and_configuration.md)  
