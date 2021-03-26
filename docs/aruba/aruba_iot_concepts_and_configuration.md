@@ -38,7 +38,8 @@ In addition to the internal IoT radio Aruba also provides [IoT expansion radio](
 
 - Aruba IoT Expansion Radio = BLE5/802.15.4 (Gen2) e.g. ZigBee
 
-> **_Note:_** The internal and the expansion BLE5/802.15.4 (Gne2) IoT radio can only run in BLE or ZigBee mode at any point in time. Running both protocols in parallel is currently not supported (even if this options is available in the configuration).  
+> **_Note:_**  
+> The internal and the expansion BLE5/802.15.4 (Gne2) IoT radio can only run in BLE or ZigBee mode at any point in time. Running both protocols in parallel is currently not supported (even if this options is available in the configuration).  
 
 The configuration of the Aruba IoT radios is handled in [IoT radio profile](#iot-radio-profile) configuration.
 
@@ -57,7 +58,8 @@ Supported USB connected devices does not required a specific configuration, exce
 
 [3rd party solutions using the USB-to-serial](#supported-usb-vendor-list-for-iot) method forwards the data payload to/from the access point using [serial-data](#serial-data). The Aruba access point encapsulates the serial-data payload in the Aruba IoT interface protocol upstream to/from the IoT backend system.
 
-> **_Note:_** No specific configuration required for USB-to-serial devices. Serial data is only forwarded though the Aruba IoT interface, if enabled upstream.  
+> **_Note:_**  
+> No specific configuration required for USB-to-serial devices. Serial data is only forwarded though the Aruba IoT interface, if enabled upstream.  
 
 #### **_USB-to-ethernet_**
 
@@ -71,20 +73,28 @@ Supported USB connected devices does not required a specific configuration, exce
 
 ## Server connectivity (upstream)
 
----
-In the upstream direction IoT data payloads are either forwarded directly by [USB-to-ethernet](#usb-to-ethernet) connected USB devices using IP transport or using [Aruba IoT server connection type](#aruba-iot-interface---server-connection-types) depended transport protocols and data encapsulations.  
+In the upstream direction IoT data payloads are either forwarded directly by [USB-to-ethernet](#usb-to-ethernet) connected devices using IP transport or using an [Aruba IoT server connection type](#aruba-iot-interface---server-connection-types) depended transport protocol and data encapsulation.
 
 USB-to-ethernet connectivity only requires applying a [wired-ap port profile](#wired-ap-profile) to the APs USB port.  
 
-Aruba IoT interface upstream connectivity is configured using [iot transport profiles](#iot-transport-profile).
+> **_Note:_**  
+Vendor specific USB implementations like _SES Imagotag Electronic Shelf Labels (ESL)_ are using IP transport with a [vendor specific configuration](#vendor-specific-implementations).  
+
+Aruba IoT interface upstream connectivity is configured using [iot transport profiles](#iot-transport-profile).  
+
+> **_Note:_**  
+Up to 4 iot transport profiles can be concurrently enabled per Aruba Instant AP or ArubaOS AP-group.  
+> This allows to run up to 4 IoT applications concurrently e.g., Aruba Meridian Beacon Management + Aruba Meridian Asset Tracking + 3rd Party BLE Asset Tracking + EnOcean.
 
 ### **Server connection types**
 
 The Aruba IoT interface supports vendor specific and generic [IoT server connections](#aruba-iot-interface---server-connection-types).  
 
-The following generic connection types allow IoT data forwarding for multiple use cases and IoT protocols.
+The following generic connection types allow IoT data forwarding for different IoT connectivity (downstream) protocols.
 
 #### **_Telemetry-Https_**
+
+The _Telemetry-Https_ connection type can be use to send supported IoT data payloads 
 
 - HTTP or HTTPS
 - JSON
@@ -97,8 +107,6 @@ The following generic connection types allow IoT data forwarding for multiple us
 - Protocol Buffers (protobuf)
 - Northbound and Southbound
 
-
-
 #### **_Azure-IoTHub_**
 
 - AMQP over secure web socket
@@ -106,7 +114,8 @@ The following generic connection types allow IoT data forwarding for multiple us
 - Northbound and Southbound
 - BLE, serial 
 
-> **_Note:_** The IoT-Utilities app only support Telemetry-Websocket connections.
+> **_Note:_**  
+> The IoT-Utilities app only support Telemetry-Websocket connections.
 
 ### **Server connection encryption**
 
