@@ -88,32 +88,31 @@ Up to 4 iot transport profiles can be concurrently enabled per Aruba Instant AP 
 
 The Aruba IoT interface supports vendor specific and generic [IoT server connections](#aruba-iot-interface---server-connection-types).  
 
-The following generic connection types allow IoT data forwarding for different IoT connectivity (downstream) protocols.
+The following generic connection types allow IoT data forwarding for the different [IoT connectivity (downstream)](#iot-connectivity-downstream) protocols previously listed.
+
+> **_Note:_**  
+> The IoT-Utilities app only support Telemetry-Websocket connections.
 
 #### **_Telemetry-Https_**
 
-The _Telemetry-Https_ connection type can be use to send supported IoT data payloads 
+The _Telemetry-Https_ connection type can be use to send [BLE telemetry](#ble-telemetry) reports in the upstream/northbound direction only using HTTP POST requests. Downstream/southbound communication is not supported.  
 
-- HTTP or HTTPS
-- JSON
-- Northbound only
-- BLE only
+This connection type can be used for BLE-based asset tracking or sensor monitoring use cases using easily consumable JSON data.
 
 #### **_Telemetry-Websocket_**
 
-- web socket(ws) or secure web socket (wss)
-- Protocol Buffers (protobuf)
-- Northbound and Southbound
+The _Telemetry-Websocket_ connection type can be used for all [Aruba IoT interface - data forwarding types](#aruba-iot-interface---data-forwarding-types) in the upstream/northbound and downstream/southbound direction though a web socket (ws) or secure web socket (wss) connection.
+
+Communication via the _Telemetry-Websocket_ connection is encoded using the [Google Protocol Buffers](https://developers.google.com/protocol-buffers) serialization protocol. Supported messages types (northbound/southbound) and the encoding and decoding of the data payloads is defined in the [Aruba IoT Protobuf Specification](#aruba-iot-protobuf-specification).
+
+With this connection type the full IoT connection capabilities of the Aruba infrastructure are available.
 
 #### **_Azure-IoTHub_**
 
 - AMQP over secure web socket
 - JSON
 - Northbound and Southbound
-- BLE, serial 
-
-> **_Note:_**  
-> The IoT-Utilities app only support Telemetry-Websocket connections.
+- BLE, serial
 
 ### **Server connection encryption**
 
@@ -163,15 +162,15 @@ encoded message. Note that the WiFi telemetry is only available when the server 
 
 ### **BLE Telemetry**
 
-The BLE telemetry service sends periodic reports about all the BLE devices that are discovered by an AP. The AP will
-continually listen for advertisements and scan responses. The AP will parse/decode these packets to the best of its
-abilities and update the telemetry in its internal table. Periodically, the contents of this table will be reported as BLE
-telemetry data.
-Once an iot-transport-profile is properly configured on the AP/Controller, northbound telemetry messages will start to be
-sent. This will continue indefinitely until the profile is removed.
-These telemetry reports contain a summary of all the BLE devices that are seen by a particular AP. For each individual
-BLE device, we only populate the information that we have for the device. An example of these reports can be seen in the
-referenced JSON example file
+The BLE telemetry service sends periodic reports about all BLE devices that are discovered by an AP. The AP will continuously listen for advertisements and scan responses. The AP will parse/decode these packets for supported BLE protocols and update the telemetry data in its internal table. The contents of this table will be reported as BLE telemetry data at the configured report interval by every AP.  
+
+>**_BLE table limits:_**
+>- max: 512 devices per AP  
+>- Oldest entries are deleted first (FIFO)
+
+These telemetry reports contain a summary of all the BLE devices that are seen by a particular AP. For each individual BLE device the supported protocol information will reported. For unsupported BLE protocols at least the BLE MAC address and the RSSI value are reported.  
+
+An example of these reports and the JSON schema can be found in the [Aruba IoT Telemetry JSON Schema documentation](#aruba-iot-telemetry-json-schema).
 
 ## **BLE data forwarding**
 
@@ -226,8 +225,6 @@ IEEE address to short address if we have it.
 
 ## Data filtering (Device Class Filter)
 
-- BLE table limit: 512
-- Oldest entries are deleted
 - Maximum of 16 devices classes can be selected.
 - Explain all = all BLE vendors
 
@@ -383,8 +380,13 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 ## Aruba Reference Documentation
 
+### Aruba IoT Telemetry JSON Schema
+
 * [ArubaOS WLAN and InstantOS 8.6.0.x IoT Interface - JSON Schema Telemetry](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
 * [ArubaOS WLAN and InstantOS 8.6.0.x IoT Interface - JSON Telemetry Example](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
+
+### Aruba IoT Protobuf Specification
+
 * [ArubaOS WLAN and InstantOS 8.6.0.x IoT Interface - Protobuf Specification](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
 
 ## Aruba IoT interface - server connection types
@@ -392,12 +394,12 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 |Server connection type|Transport protocol|Data encapsulation|Authentication & Authorization|Supported device class filter|Description|
 |-|-|-|-|-|-|
 |Assa-Abloy|HTTPS|vendor specific|username/password, access ID|assa-abloy|Assa Abloy Visiononline server|
-|Azure-IoTHub|AMQP over secure web socket|JSON|symmetric group key|all BLE types, serial-data|Connect with Azure IoT Hub|
-|Meridian-Beacon-Management|secure web socket|vendor specific|access token|aruba-beacons|POST to a RESTful Meridian API|
-|Meridian-Asset-Tracking|secure web socket|vendor specific|Client ID/access token|aruba-tags|Stream data to Meridian WebSocket server|
-|Telemetry-Https|HTTP, HTTPS|JSON|username/password, client ID/secret, access token|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST Aruba IoT telemetry reports to HTTP server endpoint|
-|Telemetry-Websocket|web socket (ws), secure web socket (wss)|Protocol Buffers (protobuf)|username/password, client ID/secret, access token|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data payloads to Aruba IoT interface compatible web socket server|
-|ZF-Openmatics|secure web socket|vendor specific|username/password|zf-tags|ZF Openmatics cloud management|
+|[Azure-IoTHub](#azure-iothub)|AMQP over secure web socket|JSON|symmetric group key|all BLE types, serial-data|Connect with Azure IoT Hub|
+|Meridian-Beacon-Management|secure web socket (wss)|vendor specific|access token|aruba-beacons|POST to a RESTful Meridian API|
+|Meridian-Asset-Tracking|secure web socket (wss)|vendor specific|Client ID/access token|aruba-tags|Stream data to Meridian WebSocket server|
+|[Telemetry-Https](#telemetry-https)|HTTP, HTTPS|JSON|username/password, client ID/secret, access token|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST Aruba IoT telemetry reports to HTTP server endpoint|
+|[Telemetry-Websocket](#telemetry-websocket)|web socket (ws), secure web socket (wss)|Protocol Buffers (protobuf)|username/password, client ID/secret, access token|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data payloads to Aruba IoT interface compatible web socket server|
+|ZF-Openmatics|secure web socket (wss)|vendor specific|username/password|zf-tags|ZF Openmatics cloud management|
 
 ## Supported IoT vendor/device class list
 
