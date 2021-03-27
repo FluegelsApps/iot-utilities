@@ -35,3 +35,19 @@ The testing beacon uses Apple's iBeacon protocol and will be used during the ent
 |Minor|Integer value between 0 and 65536|1278|
 
 > **_Note:_** All values will be generated during setup and can be modifed at any time.
+
+## Testing stages
+
+### IDLE-Stage
+
+The idle-stage is the start stage of the test. It will also enter this stage again when the test finishes. You can only change the parameters and the testing beacon of the test in this stage.
+
+### PENDING-Stage
+
+The test will enter the pending-stage if there aren't any clients available at the time of the start. Moreover, it will remain in this stage as long as no client transmitts any data. The [duration timer](#testing-duration) won't run in this stage as this stage can run indefinetely (until the user stops or any client connects).
+
+### RUNNING-Stage
+
+### COMPLETE-Stage
+
+### FAILED-Stage
