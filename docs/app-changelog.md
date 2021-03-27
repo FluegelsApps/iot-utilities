@@ -8,7 +8,7 @@
     - new views to edit this beacon between tests
     - testing now uses advertising service
 - new BLE-Testing guide
-- new BLE-Testing documentation
+- new BLE-Testing documentation (Work in progress)
 - new client configuration documentation
 - new documentation features
     - new reload-gesture
@@ -22,6 +22,8 @@
 ### Reworked features and improvements:
 
 - reworked BLE-Testing (improvements & new features)
+- reworked documentation link handling
+- changed configuration template "interval" value to 60s
 
 ### Fixed bugs and issues:
 
