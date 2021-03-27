@@ -2,7 +2,7 @@
 
 This document explains the concept of the feature BLE-Testing which uses the [Aruba IoT Interface](../aruba/aruba_iot_concepts_and_configuration.md) to validate the user's configuration.
 
-![Concept of BLE-Testing](../../images/ble_testing_graphic.png)
+![Concept of BLE-Testing](../images/ble_testing_graphic.png)
 
 ## Main concept
 
