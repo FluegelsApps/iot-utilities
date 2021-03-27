@@ -1,4 +1,4 @@
-# Aruba IoT concepts and configuration
+# Aruba IoT concepts and configuration (work in progress)
 
 This chapter describes the principals of the Aruba IoT integrations and configuration.
 
