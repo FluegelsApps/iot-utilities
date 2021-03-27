@@ -27,6 +27,7 @@
 
 - fixed issue that BLE-Testing sometimes crashed due to UI-failures
 - fixed issue that RSSI-History sometimes crashes due to concurrent data modification
+- fixed issue that causes app to crash when starting any service on OnePlus devices
 
 ---
 
