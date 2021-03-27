@@ -4,17 +4,18 @@
 
 ### Choose highest log level
 
-Tap this setting to choose the highest log level that will be used. Higher log levels will be ignored  
+Tap this setting to choose the highest log level that will be used. Higher log levels will be ignored.  
 Available levels:
 - Debug - All log messages
 - Information - Informational log messages (Default)
 - Warning - Warnings, not critical
 - Error - Critical errors and runtime exceptions
 
-### Default export location
+### Recent crashes
 
-This setting shows the current export location of the logs (This doesn't happen automatically)  
-This setting cannot be changed
+Tap this setting to show all recent crashes  
+- The setting will show an error icon if the app recently crashed
+- The setting will be disabled if the app has no storage permissions (read/write)
 
 ### Generate crash log files
 

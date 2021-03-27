@@ -10,7 +10,7 @@
 - [Dashboard](./main/dashboard.md)  
 - [Client-Configuration](./main/client_configuration.md)  
 - [BLE-Testing](./main/ble_testing.md)  
-- [Clients](./main/clients.md)  
+- [Clients](./main/clients.md)
 - [Sensors](./main/sensors.md)  
 - [Sensor data (details)](./main/sensor_data_details.md)  
 - [BLE-Telemetry](./main/ble_telemetry.md)  
@@ -30,3 +30,7 @@
 - [Advanced](./settings/settings_advanced.md)  
 - [Bluetooth](./settings/settings_bluetooth.md)  
 - [IoT-Server](./settings/settings_iotserver.md)
+
+### Aruba documentation
+
+- [Aruba IoT concepts and configuration](./aruba/aruba_iot_concepts_and_configuration.md)  

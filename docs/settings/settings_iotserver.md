@@ -24,15 +24,17 @@ Tap this setting to import an existing SSL certificate (PKCS12-Format)
 
 - If this setting is enabled, the server will keep running in the background when you close the app
 - If this setting is disabled, the server will be closed if you are about to close the app  
-Note: This setting also allows you to keep tests running in the background (feature needs to be enabled: Settings --> Bluetooth --> Keep testing alive)
+Note: This setting also allows you to keep tests running in the background (feature needs to be enabled)
+
+> **_Note:_** This feature also allows you to keep tests running in the background with the app closed (feature ["Keep testing alive"](./settings_bluetooth.md) needs to be enabled)
 
 ### Set server URL
 
-Tap this setting to change the api_url parameter that is included in Aruba authentication responses. This will ONLY change the parameter in the response, not the actual address of the server.
+Tap this setting to change the api_url parameter that is included in Aruba authentication responses. This will **ONLY** change the parameter in the response, not the actual address of the server.
 
 ### Include URL in authentication response
 
-- If this setting is enabled, the authentication server URL (see above) will be included in the Aruba authentication responses
+- If this setting is enabled, the [telemetry server URL](#set-server-url) will be included in the Aruba authentication responses
 - If this setting is disabled, the URl won't be included in authentication responses
 
 ### Send response messages
@@ -65,4 +67,4 @@ Tap this setting to change the password of the server authentication. This passw
 
 ### Set reauthentication-timer
 
-Tap this setting to change the duration of the reauthentication timer (see above)
+Tap this setting to change the duration of the [reauthentication timer](#use-reauthentication-timer)
