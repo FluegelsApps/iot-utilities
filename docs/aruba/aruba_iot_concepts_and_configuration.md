@@ -69,7 +69,7 @@ The [3rd party solutions using the USB-to-ethernet](#supported-usb-vendor-list-f
  
 - [SES Imagotag Electronic Shelf Labels (ESL)](#vendor-specific-implementations)
 
-## IoT Server connectivity (upstream)
+## IoT server connectivity (upstream)
 
 In the upstream direction IoT data payloads are either forwarded directly by [USB-to-ethernet](#usb-to-ethernet) connected devices using IP transport or using an [Aruba IoT server connection type](#aruba-iot-interface---server-connection-types) depended transport protocol and data encapsulation.
 
@@ -84,7 +84,7 @@ Aruba IoT interface upstream connectivity is configured using [iot transport pro
 Up to 4 iot transport profiles can be concurrently enabled per Aruba Instant AP or ArubaOS AP-group.  
 > This allows to run up to 4 IoT applications concurrently e.g., Aruba Meridian Beacon Management + Aruba Meridian Asset Tracking + 3rd Party BLE Asset Tracking + EnOcean.
 
-### **Server connection types**
+### **IoT server connection types**
 
 The Aruba IoT interface supports vendor specific and generic [IoT server connections](#aruba-iot-interface---server-connection-types).  
 
@@ -98,12 +98,13 @@ The following generic connection types allow IoT data forwarding for the differe
 The _Telemetry-Https_ connection type can be use to send [BLE telemetry](#ble-telemetry) reports in the upstream/northbound direction only using HTTP POST requests. Downstream/southbound communication is not supported.  
 
 This connection type can be used for BLE-based asset tracking or sensor monitoring use cases using easily consumable JSON data.
+The used JSON data structure is defined in the [Aruba IoT Telemetry JSON Schema](#aruba-iot-telemetry-json-schema).
 
 #### **_Telemetry-Websocket_**
 
 The _Telemetry-Websocket_ connection type can be used for all [Aruba IoT interface - data forwarding types](#aruba-iot-interface---data-forwarding-types) in the upstream/northbound and downstream/southbound direction though a web socket (ws) or secure web socket (wss) connection.
 
-Communication via the _Telemetry-Websocket_ connection is encoded using the [Google Protocol Buffers](https://developers.google.com/protocol-buffers) serialization protocol. Supported messages types (northbound/southbound API) and the encoding and decoding of the data payloads is defined in the [Aruba IoT Protobuf Specification](#aruba-iot-protobuf-specification).
+Communication via the _Telemetry-Websocket_ connection is encoded using the [Google Protocol Buffers serialization protocol](https://developers.google.com/protocol-buffers). Supported messages types (northbound/southbound API) and the encoding and decoding of the data payloads is defined in the [Aruba IoT Protobuf Specification](#aruba-iot-protobuf-specification).
 
 With this connection type the full IoT connection capabilities of the Aruba infrastructure are available.
 
@@ -141,7 +142,7 @@ Supported authentication and authorization methods:
 
 Details about the different authentication methods are documented in the [Aruba IoT Interface Guide](#aruba-iot-interface-guide).
 
-### **Server connection management**
+### **Connection management**
 
 Server connections are established form every single Aruba Instant access point, in case of a controller-less setup, and from every Aruba controller in case of a controller-based setup.  
 
@@ -156,41 +157,84 @@ In a controller based setup IoT data is forwarded to/from the remote IoT server 
 
 > **_Note_**  
 > Redundant controller based setups requires proper connection management on the IoT server side for southbound/downstream communication to continue to work in case of a failover.  
+>  
 > For details please refer to the [Aruba IoT Interface Guide](#aruba-iot-interface-guide).
 
-## Aruba IoT interface - data forwarding types
+## Aruba IoT interface - data forwarding modes
 
-The Aruba IoT interface supports different forwarding mode for the IoT data payloads.
+The Aruba IoT interface supports different data forwarding modes for the IoT communication.
+
+The usage of the specific data forwarding mode depends on the used [IoT connectivity](#iot-connectivity-downstream) and [IoT server connection type](#iot-server-connection-types).
+
+>**_Note:_**
+> Not all data forwarding modes are supported with every available IoT server connectivity.
+
+To enable one or multiple data forwarding modes the corresponding device class filter has to be enabled in the [iot transport profile](#iot-transport-profile) configuration.
+
+The table below shows a summary of the available data forwarding modes:
+
+|IoT data forwarding mode|[IoT connectivity](#iot-connectivity-downstream)|[Supported IoT server connection type](#iot-server-connection-types)|[Device Class Filter](#aruba-iot-interface---device-class-filter)|
+|-|-|-|-|
+|**Wi-Fi**||||
+|[Wi-Fi telemetry](#wi-fi-telemetry)|[Wi-Fi](#wi-fi)|[Telemetry-Websocket](#telemetry-websocket)|[wifi-assoc-sta, wifi-unassoc-sta](#supported-iot-vendordevice-class-list)|
+|[Wi-Fi RTLS data forwarding](#wi-fi-rtls-data-forwarding)|[Wi-Fi](#wi-fi)|[Telemetry-Websocket](#telemetry-websocket)|[wifi-tags](#supported-iot-vendordevice-class-list)|
+|**Bluetooth Low Energy (BLE)**||||
+|[BLE Telemetry](#ble-telemetry)|BLE -> [Aruba IoT radio Gen1 or Gen2](#aruba-iot-radio)|[Telemetry-Https](#Telemetry-Https), [Telemetry-Websocket](#telemetry-websocket)|[All BLE device classes](#supported-iot-vendordevice-class-list)|
+|[BLE data forwarding](#ble-data-forwarding)|BLE -> [Aruba IoT radio Gen1 or Gen2](#aruba-iot-radio)|[Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|[All BLE device classes](#supported-iot-vendordevice-class-list)|
+|[BLE connect](#ble-connect)|BLE -> [Aruba IoT radio Gen1 or Gen2](#aruba-iot-radio)|[Telemetry-Websocket](#telemetry-websocket)|[All BLE device classes](#supported-iot-vendordevice-class-list)|
+|**USB/3rd party**||||
+|[Serial-data](#serial-data)|USB/3rd party -> [USB-to-serial](#usb-to-serial)|[Telemetry-Websocket](#telemetry-websocket)|[serial-data](#supported-iot-vendordevice-class-list)|
+|**ZigBee**||||
+|[ZigBee Socket Device](#zigbee-socket-device)|[ZigBee -> Aruba IoT radio Gen2](#aruba-iot-radio)|[Telemetry-Websocket](#telemetry-websocket)|[ZSD](#supported-iot-vendordevice-class-list)|  
+
+>**_Note:_**  
+> For details about the available data with every IoT forwarding mode refer to the [Aruba IoT Interface Guide](#aruba-iot-interface-guide).
 
 ### **Wi-Fi telemetry**
 
-The Wi-Fi telemetry service sends periodic reports about all the Wi-Fi devices that are discovered by an AP. The AP sees
-over the air wireless frames from devices that are in the vicinity of the AP. The AP classifies these devices into (a)
-associated stations: devices for which we observe bi-directional frames, i.e., going from AP to station and from station to
-AP, and (b) unassociated stations: devices for which we observe frames either going to the devices or from the device to
-its associated AP. At every reporting interval, in the periodic report for each station, we will send the tuple of station MAC
-address, received signal strength (RSSI), and device class.
-To enable the WiFi telemetry service in the IoT transport profile, the user will need to include the wifi-assoc-sta and wifiunassoc-sta classes in the device class filter. The configured server will receive one or more Google Protocol buffer
-encoded messages, depending upon the number of observed stations, at every reporting interval. Note that the WiFi
-telemetry is only available when the server type is set to Telemetry-Websocket.
+Wi-Fi telemetry sends periodic reports (northbound only) about all the Wi-Fi devices that are discovered by an AP.
+
+ >**_Note:_**  
+ >For an AP to discover Wi-Fi devices the AP radios has to be enabled and set to _access_ or _monitor_ mode.
+
+Wi-Fi devices are classified either as:
+
+- associated (_wifi-assoc-sta_)
+- unassociated (_wifi-unassoc-sta_)
+
+At every reporting interval the following information are reported:
+
+- station MAC address
+- received signal strength (RSSI)
+- device class
+
+ >**_Note:_**  
+ >WiFi telemetry is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
 
 ### **Wi-Fi RTLS data forwarding**
 
-The WiFi RTLS data telemetry service forwards the wireless data frames that originate from unassociated Wi-Fi tags to the
-configured server. Wireless packets from unassociated Wi-Fi tags are distinguished from other frames based on the
-wireless packet type, and the values of the toDS and fromDS flags in the frame control field. When the incoming packet is
-a data frame with either toDS = 1 and fromDS = 1, or toDS = 0 and fromDS = 0, then the AP tries to match the MAC
-address from the Address 1 field to the destination MAC address configured in the transport profile. If it is a match then
-the AP generates a report with the device MAC address, received signal strength (RSSI), device class (set to “wifiTag”) and
-the payload of the wireless frame.
-To enable the WiFi RTLS data telemetry service in the IoT transport profile, the user will need to include the wifi-tags class
-in the device class filter. Whenever the AP sees a frame that matches the MAC address configured in the rtlsDestMAC
-field in the IoT transport profile, it will immediately send a report to the configured server as a Google Protocol buffer
-encoded message. Note that the WiFi telemetry is only available when the server type is set to Telemetry-Websocket.
+WiFi RTLS data forwards the wireless data frames that originate from unassociated Wi-Fi tags addressed to a configured RTLS destination MAC address to the remote server.
 
-### **BLE Telemetry**
+Wi-fi devices matching this traffic pattern are classified as _wifi-tags_.
 
-The BLE telemetry service sends periodic reports about all BLE devices that are discovered by an AP. The AP will continuously listen for advertisements and scan responses. The AP will parse/decode these packets for supported BLE protocols and update the telemetry data in its internal table. The contents of this table will be reported as BLE telemetry data at the configured report interval by every AP.  
+The RTLS destination MAC address has to be set in the [iot transport profile](#iot-transport-profile) configuration.
+
+Wi-Fi frames matching the RTLS destination MAC address are immediately forwarded via the IoT server connection (northbound only) to the remote server including the following information:  
+
+- received signal strength (RSSI)
+- device class (set to “wifi-tag”)
+- payload of the wireless frame
+
+ >**_Note:_**  
+ >WiFi telemetry is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
+
+### **BLE telemetry**
+
+BLE telemetry sends periodic reports about all BLE devices that are discovered by the AP's [IoT radio](#aruba-iot-radio) to a remote server.  
+
+![BLE telemetry](../images/ble_telemetry.png)
+
+The AP will continuously listen for advertisements and scan responses and parse/decode these packets for supported BLE protocols. The APs BLE table is updated an reported as BLE telemetry data at the configured report interval.  
 
 >**_BLE table limits:_**
 >- max: 512 devices per AP  
@@ -200,109 +244,157 @@ These telemetry reports contain a summary of all the BLE devices that are seen b
 
 An example of these reports and the JSON schema can be found in the [Aruba IoT Telemetry JSON Schema documentation](#aruba-iot-telemetry-json-schema).
 
-## **BLE data forwarding**
+>**_Note:_**  
+>BLE Telemetry is the default data forwarding mode for all BLE device classes and cannot be disabled.
 
-The BLE data service forwards all BLE advertisement frames and scan response frames from certain BLE devices. No
-special configuration is needed to enable BLE data. The BLE data service is automatically enabled.
-BLE data service applies to the following set of device classes: [mysphera, abilitySmartSensor, sBeacon,
-exposureNotification, wiliot and???].
-BLE Data forwarding works by forwarding the raw BLE data packets to the subscriber immediately when they are
-received by the AP. These messages increase the traffic over the WebSocket, as you will receive a message for every BLE
-advertisement and scan response eligible devices send.
-It is also important to remember that BLE data forwarding happens in addition to the periodic telemetry reporting. The
-two happen in parallel. If BLE data forwarding is the main method for which a subscriber would like to receive data, a
-high “reporting interval” can be configured in the iot-transport-profile.
+### **BLE data forwarding**
+
+BLE data forwarding sends all BLE advertisement and scan response frames from supported [BLE device classes](#supported-iot-vendordevice-class-list).
+
+>**_Note:_**  
+>Starting with ArubaOS/Instant version 8.8 BLE data forwarding is supported for all [BLE device classes](#supported-iot-vendordevice-class-list).
+
+BLE data forwarding works by forwarding the raw BLE data packets to the remote server **immediately when they are received** by the AP's [IoT radio](#aruba-iot-radio).
+
+![BLE data forwarding](../images/ble_data_forwarding.png)
+
+>**_Important:_**  
+>BLE forwarding increase the amount of upstream traffic because a message for every BLE advertisement and scan response from eligible BLE devices is send.  
+>Furthermore, BLE data forwarding happens in addition to the periodic telemetry reporting. Both methods happen in parallel.  
+Therefore, if BLE data forwarding is the main method for the IoT use case it is recommended to set a high _reporting interval_ in the iot transport profile.  
+
+>**_Note:_**  
+>BLE data forwarding is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
 
 ### **BLE connect**
 
-The BLE connections service provides primitives to connect and interact with BLE devices remotely via the IoT interface.
-This allows our partners to reach out and manage their devices via the Aruba WLAN infrastructure. This service is generic
-to all BLE devices. The operations map closely to the BLE GATT protocol.
+BLE connect provides functions to connect and interact with BLE devices remotely via the IoT interface using the [BLE GATT profile](https://www.bluetooth.com/bluetooth-resources/intro-to-bluetooth-gap-gatt/).  
+
+This allows IoT server applications to connect to BLE devices via the AP's [IoT radio](#aruba-iot-radio). This service is generic to all BLE devices and is not limited to as specific device class.
+
+ >**_Note:_**  
+ >An access point can connect to one BLE device at a time using BLE connect. Before connecting to another BLE device an existing connections has to be disconnected.
+
+For details about the available BLE connection functions refer to the [Aruba IoT Interface Guide](#aruba-iot-interface-guide).
+
+ >**_Note:_**  
+ >BLE data forwarding is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
 
 ### **Serial-data**
 
-Starting AOS 8.7, Aruba APs support data forwarding service for 3rd party IoT radios that are connected to the AP
-via the USB port. Every 3rd party radio requires custom integration involving bundling the device driver, port
-configuration and message parsing subrooutines into the AP's software image. When the 3rd party IoT radio is
-plugged into the USB port, it presents itself as a serial over USB device to the AP after the appropriate driver
-installation.
-The serial data sent by the 3rd party radio to the AP is encoded into a Google Protocol Buffer formatted message
-and forwarded to the server configured in the IoT transport profile. The server can also send a Google Protocol
-Buffer formatted message to the AP, which will be forwarded to the 3rd party device (i.e., the serial data bytes
-will be written to the serial port).The serial data forwarding service is only available when the server type is
-Telemetry-Websocket. Note that in AOS 8.7, a new parameter setting for device class filter called serial-data was
-added to enable forwarding messages from the attached 3rd party radio/device. Also, in 8.7 we only support the
-EnOcean NWC 300U/500U DA radios (see northbound and southbound message examples below).
+Serial-data forwarding is used to support [3rd party IoT radio solutions](#supported-usb-vendor-list-for-iot) connected via the AP USB port.
+When the 3rd party IoT radio is plugged into the USB port, it presents itself as a [USB-to-serial](#usb-to-serial) device to the AP.
 
-### **ZigBee Socket Data**
+The serial data sent by the 3rd party radio to the AP is encapsulated in the Aruba IoT interface protocol upstream to/from the IoT backend system. The server can also send serial data to the AP, which will be forwarded to the 3rd party device.  
 
-Aruba defines a new concept for Zigbee data communication Zigbee Socket Device (ZSD), which can simply the
-usage for sending/receiving data over Zigbee. ZSD specifies two parts:
-• inbound sockets: Inbound socket is used for receiving data from peer device.
-• outbound sockets: Outbound socket is used for sending data to peer device.
-Socket consists of 4 members: source-endpoint, destination-endpoint, profile ID and cluster ID. These four
-parameters are defined into a message ‘ZbE2PC’ (e2pc) in the API. When a ZSD is bound to an ATW transport
-profile by configuration, all data related to the e2pc can be transmitted over the ZSD. In fact, e2pc specifies a
-data tunnel between server and clients. Different services have different e2pc. Sometimes, e2pc for sending is
-also different from the one for receiving. Similarly, e2pc is like the port of TCP/UDP. Different ports can indicate
-different services.
-In the Zigbee world, for each connected device, it has a short network address which is allocated by
-coordinator/router. This short network address can be treated as the IP address. In Aruba implementation, we
-use the IEEE address of client device to send data, which is more generic. In the Zigbee stack, we will convert the
-IEEE address to short address if we have it.
+>**_Note:_**  
+>BLE data forwarding is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
 
-## Data filtering (Device Class Filter)
+Serial data forwarding is enabled using the device class _serial-data_ in the [iot transport profile](#iot-transport-profile) configuration.
 
-- Maximum of 16 devices classes can be selected.
-- Explain all = all BLE vendors
+### **ZigBee socket device**
+
+ZigBee socket device (ZSD) is a generic approach used for enabling ZigBee applications using the [Aruba IoT radio Gen2](#aruba-iot-radio).
+
+>**_Note:_**  
+>The ZigBee based Assa-Abloy solution uses a vendor specific [server connection type](#aruba-iot-interface---server-connection-types) and not the ZSD forwarding mode.
+
+Sending/receiving ZigBee application data using the ZigBee socket device (ZSD) method requires the configuration of one or multiple [ZigBee socket device profiles](#zigbee-socket-device-profile) which define the inbound and outbound sockets used by the ZigBee application.  
+
+- inbound sockets: receiving data from ZigBee devices
+- outbound sockets: sending data to ZigBee devices
+
+A ZigBee socket definition consists of four items:  
+
+- source-endpoint
+- destination-endpoint
+- profile ID
+- cluster ID
+
+Different ZigBee services have different socket definitions, may be even for inbound and outbound connections.  
+
+[Aruba IoT radios Gen2](#aruba-iot-radio) supports working as coordinator in a ZigBee network. The [ZigBee service profile](#zigbee-service-profile) defines the ZigBee network parameter.
+
+>**_Note:_**  
+>ZigBee socket device (ZSD) is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
+
+## Aruba IoT interface - Device Class Filter
+
+Device class filters are used to control which IoT application are enabled and the amount of Iot data transferred on an Aruba infrastructure by using input/output filtering.
+
+Every device class applies a specific input filter on IoT connectivity (downstream) e.g., filtering BLE devices added ot the BLE table and an output filter on the IoT server connection (upstream) e.g., filtering which IoT data is forwarded to the remote server.
+
+>**_Note:_**  
+>Concurrent input filtering can be disabled if required. Please refer to the [Aruba IoT documentation](#aruba-reference-documentation) for details.  
+
+[Supported device classes](#supported-iot-vendordevice-class-list) are enabled in the [iot transport profile](#iot-transport-profile) configuration.
+
+>**_Note:_**  
+> A maximum of 16 devices classes can be enabled per iot transport profile.
+
+The special device class _unclassified_ enables [BLE telemetry](#ble-telemetry) reporting for unknown/unsupported BLE vendors.  
+
+The special device class _all_ enables [BLE telemetry](#ble-telemetry) all BLE device classes.
 
 # Configuration
 
-```
-
-```
-
 ## IoT radio profile
 
-IoT radio profiles are used to configure the Aruba integrated or external (USB-dongle) IoT radio - please don't use the term "ZigBee USB dongle", it is misleading because the Aruba IoT radio is either BLE 4.x-only (Gen1 = AP 3xx series) or BLE5/802.15.4 (e.g. to support ZigBee)
+IoT radio profiles are used to configure the Aruba integrated or external (USB-dongle) IoT radio.
+
+### BLE
+
+### ZigBee
 
 ## IoT transport profile
 
-The IoT transport profile defines the Aruba IoT interface upstream settings (some settings also influence the radios side - input filters, but this is a detail that have to be covert in the details section).
+The IoT transport profile defines the Aruba IoT interface upstream settings.
 
 Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
-### **Server types**
+### Server types
 
 ```
 
 ```
 
-### **Proxy support**
+### Proxy support
 
 ```
 
 ```
 
-### **Authentication/Authorization**
+### Authentication/Authorization
 
 ```
 
 ```
 
-### **Device class filter**
+### Device class filter
 
 ```
 
 ```
 
-### **USB ACL configuration**
+## USB ACL configuration
 
 ```
 
 ```
 
-### **Wired-AP profile**
+## Wired-AP profile
+
+```
+
+```
+
+## ZigBee Socket Device Profile
+
+```
+
+```
+
+## ZigBee Service Profile
 
 ```
 
@@ -320,13 +412,13 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 ```
 
-### **Wi-Fi client RSSI tracking**
+### Wi-Fi client tracking
 
 ```
 
 ```
 
-### **Wi-Fi RTLS**
+### Wi-Fi RTLS
 
 ```
 
@@ -338,43 +430,43 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 ```
 
-### **Aruba Meridian Beacon Management**
+### Aruba Meridian Beacon Management
 
 ```
 
 ```
 
-### **Aruba Meridian Asset Tracking**
+### Aruba Meridian Asset Tracking
 
 ```
 
 ```
 
-### **ZF Openmatics**
+### ZF Openmatics
 
 ```
 
 ```
 
-### **BLE telemetry (e.g. HYPROS, PnT, ...)**
+### BLE telemetry (e.g. HYPROS, PnT, ...)
 
 ```
 
 ```
 
-### **BLE data forwarding (e.g. Minew, Google, ...)**
+### BLE data forwarding (e.g. Minew, Google, ...)
 
 ```
 
 ```
 
-### **BLE connect (e.g. ABB)**
+### BLE connect (e.g. ABB)
 
 ```
 
 ```
 
-### **Zigbee (e.g. ASSA ABLOY)**
+## Zigbee (e.g. ASSA ABLOY)
 
 ```
 
@@ -386,19 +478,19 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 ```
 
-### **SES Imagotag**
+### SES Imagotag
 
 ```
 
 ```
 
-### **USB-to-ethernet (e.g.Solu-M, Hanshow, AmberBox, ...)**
+### USB-to-ethernet (e.g.Solu-M, Hanshow, AmberBox, ...)
 
 ```
 
 ```
 
-### **USB-to-serial (e.g. EnOcean, Piera Systems, ...)**
+### USB-to-serial (e.g. EnOcean, Piera Systems, ...)
 
 ```
 
