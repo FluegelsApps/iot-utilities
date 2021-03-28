@@ -14,7 +14,7 @@ The BLE-Testing feature sends a BLE advertising packet via the bluetooth radio o
 
 ### Testing duration
 
-This value specifies the duration of the test. The timer starts once the ["Running"-phase]() started. Additionally, the test will stop automatically once this time expired. The user can select a duration between 10s and 90s. This value can also be set to infinity. Consequently, the test will run in the background indefinitely.
+This value specifies the duration of the test. The timer starts once the ["Running"-phase](#running-stage) started. Additionally, the test will stop automatically once this time expired. The user can select a duration between 10s and 90s. This value can also be set to infinity. Consequently, the test will run in the background indefinitely.
 
 ### Sensor visibility threshold
 
