@@ -54,14 +54,14 @@ Supported USB connected devices does not required a specific configuration, exce
 
 #### **_USB-to-serial_**
 
-[3rd party solutions using the USB-to-serial](#supported-usb-vendor-list-for-iot) method forwards the data payload to/from the access point using [serial-data](#serial-data). The Aruba access point encapsulates the serial-data payload in the Aruba IoT interface protocol upstream to/from the IoT backend system.
+The [3rd party solutions using the USB-to-serial](#supported-usb-vendor-list-for-iot) method forwards the data payload to/from the access point using [serial-data](#serial-data). The Aruba access point encapsulates the serial-data payload in the Aruba IoT interface protocol upstream to/from the IoT backend system.
 
 > **_Note:_**  
 > No specific configuration required for USB-to-serial devices. Serial data is only forwarded though the Aruba IoT interface, if enabled upstream.  
 
 #### **_USB-to-ethernet_**
 
-[3rd party solutions using the USB-to-ethernet](#supported-usb-vendor-list-for-iot) method provide ethernet/IP connectivity to the connected USB host system. The USB host system is connected to the access point in the same way as a wired client. No data processing is done by the access point and ethernet/IP data packets form the USB host system is forwarded like any other ethernet/IP traffic.
+The [3rd party solutions using the USB-to-ethernet](#supported-usb-vendor-list-for-iot) method provides ethernet/IP connectivity to the connected USB host system. The USB host system is connected to the access point in the same way as a wired client. No data processing is done by the access point and ethernet/IP data packets form the USB host system is forwarded like any other ethernet/IP traffic.
 
 #### **_Vendor specific implementations_**
 
@@ -69,7 +69,7 @@ Supported USB connected devices does not required a specific configuration, exce
  
 - [SES Imagotag Electronic Shelf Labels (ESL)](#vendor-specific-implementations)
 
-## Server connectivity (upstream)
+## IoT Server connectivity (upstream)
 
 In the upstream direction IoT data payloads are either forwarded directly by [USB-to-ethernet](#usb-to-ethernet) connected devices using IP transport or using an [Aruba IoT server connection type](#aruba-iot-interface---server-connection-types) depended transport protocol and data encapsulation.
 
@@ -103,7 +103,7 @@ This connection type can be used for BLE-based asset tracking or sensor monitori
 
 The _Telemetry-Websocket_ connection type can be used for all [Aruba IoT interface - data forwarding types](#aruba-iot-interface---data-forwarding-types) in the upstream/northbound and downstream/southbound direction though a web socket (ws) or secure web socket (wss) connection.
 
-Communication via the _Telemetry-Websocket_ connection is encoded using the [Google Protocol Buffers](https://developers.google.com/protocol-buffers) serialization protocol. Supported messages types (northbound API/southbound API) and the encoding and decoding of the data payloads is defined in the [Aruba IoT Protobuf Specification](#aruba-iot-protobuf-specification).
+Communication via the _Telemetry-Websocket_ connection is encoded using the [Google Protocol Buffers](https://developers.google.com/protocol-buffers) serialization protocol. Supported messages types (northbound/southbound API) and the encoding and decoding of the data payloads is defined in the [Aruba IoT Protobuf Specification](#aruba-iot-protobuf-specification).
 
 With this connection type the full IoT connection capabilities of the Aruba infrastructure are available.
 
@@ -117,9 +117,9 @@ For details please see the [Azure IoT Hub Integration Tech Note](#azure-iot-hub-
 
 ### **Server connection encryption**
 
-It is recommended to only use encrypted connections to remote IoT servers.  
+Even if un-encrypted HTTP or web socket connectivity is supported by the Aruba IoT interface, it is recommended to only use encrypted connections to remote IoT systems.  
 
-In order to establish secure web socket (wss) or HTTPS connections the remote serves self-signed certificate or root CA certificate has to be added to the Aruba controller/Instant Access Points trusted CA list.  
+In order to establish secure web socket (wss) or HTTPS connections the remote server's self-signed certificate or root CA certificate has to be added to the Aruba controller/Instant Access Points trusted CA list.  
 
 > **_Note:_**  
 >If the IoT server certificate is un-trusted the server connection will not be established.
@@ -127,11 +127,19 @@ In order to establish secure web socket (wss) or HTTPS connections the remote se
 Please refer to [importing certificates](#importing-certificates) for how add import required certificates.
 
 > **_Note:_**  
->The IoT-Utilities app provides a download link on the web dashboard to download the self-signed server certificate. Alternatively a certificate signed by a private or public CA can be installed into the app.
+>The IoT-Utilities app provides a download link on the web dashboard to download the self-signed server certificate. Alternatively a certificate signed by a private or public CA certificate that is trusted by the Aruba infrastructure can be installed into the app.
 
 ### **Authentication and authorization**
 
 Depending on the [Aruba IoT server connection type](#aruba-iot-interface---server-connection-types) different authentication and authorization methods are supported/required to establish upstream server connections.
+
+Supported authentication and authorization methods:
+
+- static access token
+- username/password
+- client_id/secret
+
+Details about the different authentication methods are documented in the [Aruba IoT Interface Guide](#aruba-iot-interface-guide).
 
 ### **Server connection management**
 
@@ -139,11 +147,16 @@ Server connections are established form every single Aruba Instant access point,
 
 For example, in a controller cluster setup with 4 controllers every controller will establish a connection to the remote server.
 
-In a controller based setup IoT data in forwarded to the remote IoT server via the active controller only. In case of a failover the AP communication will also failover to the backup controller IoT interface connection. This is especially important for southbound/downstream  connection management in the respective IoT server.
-
 > **_Note:_**  
-> In an ArubaOS controller setup the number of server connections equals the number of controllers.
+> In an ArubaOS controller setup the number of server connections equals the number of controllers.  
+>  
 > In an Aruba Instant setup the number of server connections equals the number of APs.  
+
+In a controller based setup IoT data is forwarded to/from the remote IoT server via the APs active controller only. In case of a failover the IoT communication will also failover to the backup controller's IoT interface connection.  
+
+> **_Note_**  
+> Redundant controller based setups requires proper connection management on the IoT server side for southbound/downstream communication to continue to work in case of a failover.  
+> For details please refer to the [Aruba IoT Interface Guide](#aruba-iot-interface-guide).
 
 ## Aruba IoT interface - data forwarding types
 
@@ -403,6 +416,10 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 * [AurbaOS Importing Certificates](https://www.arubanetworks.com/techdocs/ArubaOS_8.7.1_Web_Help/Content/arubaos-solutions/manage-utilities/impo-cert.htm)  
 * [Aruba Instant Importing Certificates](https://www.arubanetworks.com/techdocs/Instant_871_WebHelp/Content/instant-ug/authentication/upload-cert.htm)
 
+### Aruba IoT Interface Guide
+
+* [ArubaOS WLAN and Aruba Instant 8.6.0.x IoT Interface Guide](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
+
 ### Aruba IoT Telemetry JSON Schema
 
 * [ArubaOS WLAN and InstantOS 8.6.0.x IoT Interface - JSON Schema Telemetry](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
@@ -420,12 +437,12 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 |Server connection type|Transport protocol|Data encapsulation|Authentication & Authorization|Supported device class filter|Description|
 |-|-|-|-|-|-|
-|Assa-Abloy|HTTPS|vendor specific|username/password, access ID|assa-abloy|Assa Abloy Visiononline server|
+|Assa-Abloy|HTTPS|vendor specific|username/password, access_id|assa-abloy|Assa Abloy Visiononline server|
 |[Azure-IoTHub](#azure-iothub)|AMQP over secure web socket|JSON|symmetric group key|all BLE types, serial-data|Connect with Azure IoT Hub|
-|Meridian-Beacon-Management|secure web socket (wss)|vendor specific|access token|aruba-beacons|POST to a RESTful Meridian API|
-|Meridian-Asset-Tracking|secure web socket (wss)|vendor specific|Client ID/access token|aruba-tags|Stream data to Meridian WebSocket server|
-|[Telemetry-Https](#telemetry-https)|HTTP, HTTPS|JSON|username/password, client ID/secret, access token|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST Aruba IoT telemetry reports to HTTP server endpoint|
-|[Telemetry-Websocket](#telemetry-websocket)|web socket (ws), secure web socket (wss)|Protocol Buffers (protobuf)|username/password, client ID/secret, access token|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data payloads to Aruba IoT interface compatible web socket server|
+|Meridian-Beacon-Management|secure web socket (wss)|vendor specific|static access token|aruba-beacons|POST to a RESTful Meridian API|
+|Meridian-Asset-Tracking|secure web socket (wss)|vendor specific|client_id/secret|aruba-tags|Stream data to Meridian WebSocket server|
+|[Telemetry-Https](#telemetry-https)|HTTP, HTTPS|JSON|username/password, client_id/secret, static access token|all BLE types, wifi-assoc-sta, wifi-unassoc-sta|POST Aruba IoT telemetry reports to HTTP server endpoint|
+|[Telemetry-Websocket](#telemetry-websocket)|web socket (ws), secure web socket (wss)|Protocol Buffers (protobuf)|username/password, client_id/secret, static access token|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data payloads to Aruba IoT interface compatible web socket server|
 |ZF-Openmatics|secure web socket (wss)|vendor specific|username/password|zf-tags|ZF Openmatics cloud management|
 
 ## Supported IoT vendor/device class list
