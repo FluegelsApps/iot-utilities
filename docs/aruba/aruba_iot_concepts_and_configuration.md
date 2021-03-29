@@ -183,7 +183,7 @@ The table below shows a summary of the available data forwarding modes:
 |[BLE data forwarding](#ble-data-forwarding)|BLE -> [Aruba IoT radio Gen1 or Gen2](#aruba-iot-radio)|[Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|[All BLE device classes](#supported-iot-vendordevice-class-list)|
 |[BLE connect](#ble-connect)|BLE -> [Aruba IoT radio Gen1 or Gen2](#aruba-iot-radio)|[Telemetry-Websocket](#telemetry-websocket)|[All BLE device classes](#supported-iot-vendordevice-class-list)|
 |**USB/3rd party**||||
-|[Serial-data](#serial-data)|USB/3rd party -> [USB-to-serial](#usb-to-serial)|[Telemetry-Websocket](#telemetry-websocket)|[serial-data](#supported-iot-vendordevice-class-list)|
+|[Serial-data](#serial-data)|USB/3rd party -> [USB-to-serial](#usb-to-serial)|[Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|[serial-data](#supported-iot-vendordevice-class-list)|
 |**ZigBee**||||
 |[ZigBee Socket Device](#zigbee-socket-device)|[ZigBee -> Aruba IoT radio Gen2](#aruba-iot-radio)|[Telemetry-Websocket](#telemetry-websocket)|[ZSD](#supported-iot-vendordevice-class-list)|  
 
@@ -541,34 +541,34 @@ Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 |Device class|IoT connectivity (radio)|Supported server connectivity|Minimum required SW version|Description|
 |-|-|-|-|-|
-|aruba-beacons|BLE|Meridian-Beacon-Management, Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward Aruba beacon BLE device data payloads|
-|aruba-tags|BLE|Meridian-Asset-Tracking, Telemetry-Https,Telemetry-Websocket|8.4.0.0 or higher|Forward Aruba tag BLE device data payloads|
-|aruba-sensors|BLE|Telemetry-Https, Telemetry-Websocket|8.5.0.0 or higher|Forward Aruba sensor BLE device data payloads|
-|ibeacon|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward iBeacon BLE device data payloads|
-|eddystone|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward Eddystone BLE device data payloads|
-|zf-tags|BLE|ZF-Openmatics or Telemetry-Https, Telemetry-Websocket|8.3.0.0 or higher|Forward ZF-Openmatics tag BLE device data payloads|
-|enocean-sensors|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward EnOcean sensor BLE device data payloads|
-|enocean-switches|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|Forward EnOcean switch BLE device data payloads|
-|mysphera|BLE|Telemetry-Https, Telemetry-Websocket|8.6.0.0 or higher|Forward MySphera BLE device data payloads|
-|ability-smart-sensor|BLE|Telemetry-Https, Telemetry-Websocket|8.6.0.0 or higher|Forward ABB sensor BLE device data payloads|
-|sbeacon|BLE|Telemetry-Https, Telemetry-Websocket|8.6.0.0 or higher|Forward sBeacon(HID) BLE device data payloads|
-|wiliot|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Wiliot BLE device data payloads|
-|exposure-notification|BLE|Telemetry-Https, Telemetry-Websocket|8.7.0.0 or higher|Forward Apple/Google exposure notification framework BLE device data payloads|
-|blyott|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Blyott BLE device data payloads|
-|diract|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Diract BLE device data payloads|
-|google|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Google BLE device data payloads|
-|gwahygiene|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward GWA Hygiene BLE device data payloads|
-|minew|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Ninew BLE device data payloads|
-|onity|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Onity BLE device data payloads|
-|polestar|BLE|Telemetry-Https, Telemetry-Websocket|8.8.0.0 or higher|Forward Polestar BLE device data payloads|
-|unclassified|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|all BLE devices we don’t know|
-|all|BLE|Telemetry-Https, Telemetry-Websocket|8.4.0.0 or higher|all BLE devices form known vendors|
+|aruba-beacons|BLE|Meridian-Beacon-Management, [Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward Aruba beacon BLE device data payloads|
+|aruba-tags|BLE|Meridian-Asset-Tracking, [Telemetry-Https](#telemetry-https),[Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward Aruba tag BLE device data payloads|
+|aruba-sensors|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.5.0.0 or higher|Forward Aruba sensor BLE device data payloads|
+|ibeacon|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward iBeacon BLE device data payloads|
+|eddystone|BLE|[Telemetry-Https](#telemetry-https), [Azure-IoTHub](#azure-iothub), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward Eddystone BLE device data payloads|
+|zf-tags|BLE|ZF-Openmatics or [Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.3.0.0 or higher|Forward ZF-Openmatics tag BLE device data payloads|
+|enocean-sensors|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward EnOcean sensor BLE device data payloads|
+|enocean-switches|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward EnOcean switch BLE device data payloads|
+|mysphera|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.6.0.0 or higher|Forward MySphera BLE device data payloads|
+|ability-smart-sensor|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket)|8.6.0.0 or higher|Forward ABB sensor BLE device data payloads|
+|sbeacon|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.6.0.0 or higher|Forward sBeacon(HID) BLE device data payloads|
+|wiliot|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.8.0.0 or higher|Forward Wiliot BLE device data payloads|
+|exposure-notification|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.7.0.0 or higher|Forward Apple/Google exposure notification framework BLE device data payloads|
+|blyott|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.8.0.0 or higher|Forward Blyott BLE device data payloads|
+|diract|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.8.0.0 or higher|Forward Diract BLE device data payloads|
+|google|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.8.0.0 or higher|Forward Google BLE device data payloads|
+|gwahygiene|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.8.0.0 or higher|Forward GWA Hygiene BLE device data payloads|
+|minew|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.8.0.0 or higher|Forward Ninew BLE device data payloads|
+|onity|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.8.0.0 or higher|Forward Onity BLE device data payloads|
+|polestar|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.8.0.0 or higher|Forward Polestar BLE device data payloads|
+|unclassified|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|all BLE devices we don’t know|
+|all|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|all BLE devices form known vendors|
 |assa-abloy|ZigBee|Assa-Abloy|8.6.0.0 or higher|Forwarding ASSA-ABLOY to Assa Abloy Visiononline server|
-|zsd|ZigBee|Telemetry-Websocket|8.7.0.0 or higher|Forwarding ZigBee data payloads to an ZigBee application server|
-|serial-data|USB/3rd party|Telemetry-Websocket|8.7.0.0 or higher|Forwarding serial data payloads of 3rd party USB extensions to an IoT system|
-|wifi-assoc-sta|Wi-Fi|Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
-|wifi-unassoc-sta|Wi-Fi|Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
-|wifi-tags|Wi-Fi|Telemetry-Websocket|8.6.0.0 or higher|Forwarding Wi-Fi tag data to 3rd party system|
+|zsd|ZigBee|[Telemetry-Websocket](#telemetry-websocket)|8.7.0.0 or higher|Forwarding ZigBee data payloads to an ZigBee application server|
+|serial-data|USB/3rd party|[Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.7.0.0 or higher|Forwarding serial data payloads of 3rd party USB extensions to an IoT system|
+|wifi-assoc-sta|Wi-Fi|[Telemetry-Websocket](#telemetry-websocket)|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
+|wifi-unassoc-sta|Wi-Fi|[Telemetry-Websocket](#telemetry-websocket)|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
+|wifi-tags|Wi-Fi|[Telemetry-Websocket](#telemetry-websocket)|8.6.0.0 or higher|Forwarding Wi-Fi tag data to 3rd party system|
 
 ## Supported USB vendor list for IoT
 
