@@ -1,4 +1,4 @@
-## Version 1.0.2 | ?
+## Version 1.1.0 | ?
 
 ### New features in this release:
 
@@ -6,6 +6,8 @@
     - new dialog to choose date
     - new dialog to choose time
     - updated and improved animations
+
+---
 
 ## Version 1.0.1 | 27.03.2021
 
