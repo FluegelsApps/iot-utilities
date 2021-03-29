@@ -1,3 +1,3 @@
 # IoT-Connector
 
-Work in progress!
+Work in progress
