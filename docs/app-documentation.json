@@ -23,6 +23,8 @@
     "PreferencesStyleFragment": "./settings/settings_style.md",
     "PreferencesAdvancedFragment": "./settings/settings_advanced.md",
     "PreferencesBluetoothFragment": "./settings/settings_bluetooth.md",
-    "PreferencesEndpointFragment": "./settings/settings_iotserver.md"
+    "PreferencesEndpointFragment": "./settings/settings_iotserver.md",
+    "ArubaIoTConnectorDataFragment": "./main/iot_connector",
+    "ArubaIoTConnectorDetailsActivity": "./main/iot_connector_details.md"
   }
 }
