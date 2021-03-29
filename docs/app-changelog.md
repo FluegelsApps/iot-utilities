@@ -6,6 +6,18 @@
     - new dialog to choose date
     - new dialog to choose time
     - updated and improved animations
+- added "IoT-Connector" support (early access)
+    - new "IoT-Connector"-page with guide and documentation
+    - new "IoT-Connector-Details"-page with guide and documentation
+    - support for Telemetry and BLE-data topic
+- added "url-encoded-authentication"
+    - client authentication via json or url-encoded content
+
+### Reworked features and improvements:
+
+- reworked documentation link handling
+
+### Fixed bugs and issues:
 
 ---
 
