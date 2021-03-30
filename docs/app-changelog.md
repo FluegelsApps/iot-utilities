@@ -19,6 +19,8 @@
 
 ### Fixed bugs and issues:
 
+- fixed issue that caused app to crash when switching theme in BLE-Advertising page
+
 ---
 
 ## Version 1.0.1 | 27.03.2021
