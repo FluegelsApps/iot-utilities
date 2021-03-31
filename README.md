@@ -15,6 +15,9 @@
 
 More information about this functionality and its specification can be found here:
 
+IoT-Utilities documentation  
+[Aruba IoT Concepts and Configuration](./docs/aruba/aruba_iot_concepts_and_configuration.md)
+
 Aruba Support Portal  
 [https://asp.arubanetworks.com/downloads;search=iot](https://asp.arubanetworks.com/downloads;search=iot)  
 
