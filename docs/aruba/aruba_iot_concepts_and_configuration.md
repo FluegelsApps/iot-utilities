@@ -1,6 +1,6 @@
-# Aruba IoT concepts and configuration (work in progress)
+# Aruba IoT concepts and configuration
 
-This chapter describes the principals of the Aruba IoT integrations and configuration.
+This chapter describes the principals of the Aruba IoT integrations and configuration using ArubaOs/Aruba Instant version 8.8.0.0 or higher.
 
 [Aruba, a Hewlett Packard Enterprise (HPE) company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking or sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points. IoT devices can send/receive data via the Aruba APs built-in radios or supported 3rd party radios connected via USB to 3rd party backend system.
 
@@ -340,7 +340,7 @@ The special device class **_unclassified_** enables [BLE telemetry](#ble-telemet
 
 The special device class **_all_** enables [BLE telemetry](#ble-telemetry) reporting for all BLE device classes.
 
-# Configuration
+# Configuration (work in progress)
 
 The configuration of Aruba IoT integrations consists of two main steps:
 
@@ -357,20 +357,26 @@ No further configuration for [USB-to-serial](#usb-to-serial) based solutions is 
    2) an _[wired-ap profile](#wired-ap-profile)_ (for [USB-to-ethernet](#usb-to-ethernet) based solutions using plain IP connectivity)  
    3) an _[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)_ (for SES Imagotag only)
 
-
 ## IoT radio profile
 
 IoT radio profiles are used to configure the Aruba integrated or external (USB-dongle) IoT radio.
 
 ### BLE
 
+
+```
+
+```
+
 ### ZigBee
+
+```
+
+```
 
 ## IoT transport profile
 
 The IoT transport profile defines the Aruba IoT server interface  settings.
-
-Performance and limitations (e.g. max 4 IoT transport profiles per AP group)
 
 ### Server types
 
