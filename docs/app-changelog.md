@@ -1,11 +1,3 @@
-## Version 1.0.2 | ?
-
-### New features in this release:
-
-- Material Components updated to 1.3.0
-    - new dialog to choose a date
-    - new dialog to choose a time
-    - updated and improved animations
 
 ## Version 1.0.1 | 27.03.2021
 
