@@ -2,7 +2,7 @@
 
 This document explains the concept of the feature BLE-Testing which uses the [Aruba IoT Interface](../aruba/aruba_iot_concepts_and_configuration.md) to validate the user's configuration.
 
-![Concept of BLE-Testing](https://github.com/FluegelsApps/iot-utilities/raw/documentation-dev/docs/images/ble_testing_graphic.png)
+![Concept of BLE-Testing](../images/ble_testing_graphic.png)
 
 ## Main concept
 
@@ -14,7 +14,7 @@ The BLE-Testing feature sends a BLE advertising packet via the bluetooth radio o
 
 ### Testing duration
 
-This value specifies the duration of the test. The timer starts once the ["Running"-phase]() started. Additionally, the test will stop automatically once this time expired. The user can select a duration between 10s and 90s. This value can also be set to infinity. Consequently, the test will run in the background indefinitely.
+This value specifies the duration of the test. The timer starts once the ["Running"-phase](#running-stage) started. Additionally, the test will stop automatically once this time expired. The user can select a duration between 10s and 90s. This value can also be set to infinity. Consequently, the test will run in the background indefinitely.
 
 ### Sensor visibility threshold
 
