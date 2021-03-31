@@ -3,6 +3,8 @@
 
 In this step the IoT server is setup for first time use.
 
+For details about the related Aruba side concepts and configurations please refer to [Aruba IoT Concepts and Configuration](../../docs/aruba/aruba_iot_concepts_and_configuration.md).
+
 ## Server certificate
 
 The wizard automatically generates a self-signed certificate that is used by the IoT server for the _Aruba IoT Interface_ WebSocket Secure (wss:) connections as well as connections to the web dashboard using HTTPS.  
