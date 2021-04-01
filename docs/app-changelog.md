@@ -6,6 +6,12 @@
     - new dialog to choose date
     - new dialog to choose time
     - updated and improved animations
+- added support for multiple connections and WebSockets per client
+- added client allow-list and deny-list
+    - block or only allow certain clients when connecting to the server
+- replaced "Reconnecting"-status with "Authenticated"-status
+- added maximum connection threshold (other connections will be discarded)
+- added cooldown timer for offline connections (session will be removed when time expired)
 - added "IoT-Connector" support (early access)
     - new "IoT-Connector"-page with guide and documentation
     - new "IoT-Connector-Details"-page with guide and documentation
@@ -16,6 +22,7 @@
 ### Reworked features and improvements:
 
 - reworked documentation link handling
+- reworked IoT-Server
 
 ### Fixed bugs and issues:
 
