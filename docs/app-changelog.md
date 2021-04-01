@@ -27,6 +27,7 @@
 ### Fixed bugs and issues:
 
 - fixed issue that caused app to crash when switching theme in BLE-Advertising page
+- fixed BLE-Scanning performance issues
 
 ---
 
