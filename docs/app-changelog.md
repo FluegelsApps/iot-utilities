@@ -1,10 +1,9 @@
-## Version 1.1.0 | ?
+## Version 1.1.0 | 01.04.2021
 
 ### New features in this release:
 
 - added support for multiple connections and WebSockets per client
 - added client allow-list and deny-list
-    - block or only allow certain clients when connecting to the server
 - replaced "Reconnecting"-status with "Authenticated"-status
 - added maximum connection threshold (other connections will be discarded)
 - added cooldown timer for offline connections (session will be removed when time expired)
@@ -14,7 +13,7 @@
     - support for Telemetry and BLE-data topic
 - new authentication features
     - added url-encoded client connection
-    - added authentication during handshake if provided by the client
+    - added authentication during handshake if supported by the client
 - Material Components library updated to 1.3.0
     - new date dialog (certificate generation)
     - new time dialog (certificate generation)
