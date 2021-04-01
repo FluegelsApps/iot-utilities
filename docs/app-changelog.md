@@ -2,22 +2,23 @@
 
 ### New features in this release:
 
-- Material Components updated to 1.3.0
-    - new dialog to choose date
-    - new dialog to choose time
-    - updated and improved animations
 - added support for multiple connections and WebSockets per client
 - added client allow-list and deny-list
     - block or only allow certain clients when connecting to the server
 - replaced "Reconnecting"-status with "Authenticated"-status
 - added maximum connection threshold (other connections will be discarded)
 - added cooldown timer for offline connections (session will be removed when time expired)
-- added "IoT-Connector" support (early access)
+- added "IoT-Connector" support (**early access**)
     - new "IoT-Connector"-page with guide and documentation
     - new "IoT-Connector-Details"-page with guide and documentation
     - support for Telemetry and BLE-data topic
-- added "url-encoded-authentication"
-    - client authentication via json or url-encoded content
+- new authentication features
+    - added url-encoded client connection
+    - added authentication during handshake if provided by the client
+- Material Components library updated to 1.3.0
+    - new date dialog (certificate generation)
+    - new time dialog (certificate generation)
+    - updated and improved animations
 
 ### Reworked features and improvements:
 
