@@ -55,3 +55,5 @@ This is the main stage of the test. The device will start advertising the testin
 The test will enter this stage when the [running stage](#running-stage) finished. The test service is now offline but the results are still viewable.
 
 ### Failed-Stage
+
+The test will enter this stage when any exception occured. The test service is now offline but the results as well as the received data are visible.
