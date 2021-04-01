@@ -345,18 +345,24 @@ The special device class ***all*** enables [BLE telemetry](#ble-telemetry) repor
 
 The configuration of Aruba IoT integrations consists of two main steps:
 
-1. Configuring the **[iot radio-side](#iot-connectivity-radio-side)** using either  
-    1. an *[iot radio profile](#iot-radio-profile)* (when using an [Aruba IoT radio](#aruba-iot-radio))  
-    2. an (optional) *[USB acl profile](#usb-acl-profile)* to control allowed USB devices (when using an [USB/3rd party radio](#usb3rd-party-iot-radios) solution incl. SES imagotag)
-    3. an *[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)* (for SES Imagotag only)
+1. IoT radio-side configuration
+2. IoT server-side configuration
+
+Depending on respective IoT solution different configuration settings are required.
 
 >***Note:***  
-> No further configuration for [USB-to-serial](#usb-to-serial) based solutions is required on the Aruba side. The IoT radio settings are configured on the USB/3rd party system.  
+>The IoT radio settings for USB/3rd party radios are controlled on the 3rd party system, if any, and there is no configuration required on the Aruba side. The only exception is the [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration) which controls the ESL radio channel.  
+>
+>Which USB device are allowed to connect to an access point can be controlled by an optional [USB acl profile](#usb-acl-profile) configuration.
 
-2. Configuring the **[iot server-side](#iot-server-connectivity-server-side)** using either
-   1. an *[iot transport profile](#iot-transport-profile)* (when using the [Aruba IoT server interface](#aruba-iot-server-interface---connection-types) for server-side connectivity) 
-   2. an *[wired-ap profile](#wired-ap-profile)* (for [USB-to-ethernet](#usb-to-ethernet) based solutions using plain IP connectivity)  
-   3. an *[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)* (for SES Imagotag only)
+|IoT solution|Step 1) [IoT radio-side](#iot-connectivity-radio-side) configuration|Step 2) [IoT server-side](#iot-server-connectivity-server-side) configuration|
+|-|-|-|
+|Wi-Fi solutions|Enable Wi-Fi radios (access or monitor mode)|[iot transport profile](#iot-transport-profile)|
+|BLE solutions|[iot radio profile](#iot-radio-profile)|[iot transport profile](#iot-transport-profile)|
+|ZigBee solutions|[iot radio profile](#iot-radio-profile) + [zigbee service profile](#zigbee-service-profile) + [zigbee socket device profile](#zigbee-socket-device-profile)|[iot transport profile](#iot-transport-profile)|
+|USB/3rd party: USB-to-serial solutions|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices)|[iot transport profile](#iot-transport-profile)|
+|USB/3rd party: USB-to-ethernet solutions|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices)|[wired-ap profile](#wired-ap-profile)|
+|USB/3rd party: SES Imagotag ESLs|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices) + [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|
 
 ## IoT radio profile
 
@@ -415,17 +421,18 @@ The IoT transport profile defines the Aruba IoT server interface  settings.
 
 ```
 
+## ZigBee service profile
+
+```
+
+```
+
 ## ZigBee socket device profile
 
 ```
 
 ```
 
-## ZigBee service profile
-
-```
-
-```
 
 ## SES Imagotag ESL configuration
 
