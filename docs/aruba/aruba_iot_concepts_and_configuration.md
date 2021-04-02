@@ -404,8 +404,13 @@ An `iot radio-profile` is enabled using the following command:
 |-|-|
 |`iot useTransportProfile <iot-profile-name>`|`iot use-radio-profile <iot-profile-name>`|
 
+In addition to enabling the `iot radio-profile` it has to be assigned to an ap-group in ArubaOS/controller based deployments using the following configuration:
+
+    ap-group <ap-group-name>
+        iot radio-profile <iot-profile-name>
+
 >***Note:***  
->Multiple `iot radio-profile`'s can be configured but a **maximum of two**, one internal and one external can be **enabled** per access point.
+>Multiple `iot radio-profile`'s can be configured but a **maximum of two**, one internal and one external can be **enabled** per access point (Aruba Instant) or access point group (ArubaOS).
 
 ## IoT transport profile
 
