@@ -10,6 +10,9 @@ The **IoT-Utilities** app is a generic tool to get to know and demonstrate the _
 
 For more information about the _Aruba IoT interface_ functionality and its specification please refer to:
 
+IoT-Utilities documentation  
+[Aruba IoT Concepts and Configuration](../../docs/aruba/aruba_iot_concepts_and_configuration.md)
+
 Aruba Support Portal  
 [https://asp.arubanetworks.com/downloads;search=iot](https://asp.arubanetworks.com/downloads;search=iot)  
 
