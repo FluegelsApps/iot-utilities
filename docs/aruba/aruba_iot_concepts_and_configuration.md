@@ -343,17 +343,16 @@ The special device class ***all*** enables [BLE telemetry](#ble-telemetry) repor
 
 # Configuration (work in progress)
 
+In this chapter the ArubaOS/Aruba Instant configuration steps are described to setup the Aruba infrastructure for IoT solutions.
+
 The configuration of Aruba IoT integrations consists of two main steps:
 
 1. IoT radio-side configuration
 2. IoT server-side configuration
 
-Depending on respective IoT solution different configuration settings are required.
+Depending on respective IoT solution different configuration settings are required.  
 
->***Note:***  
->The IoT radio settings for USB/3rd party radios are controlled on the 3rd party system, if any, and there is no configuration required on the Aruba side. The only exception is the [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration) which controls the ESL radio channel.  
->
->Which USB device are allowed to connect to an access point can be controlled by an optional [USB acl profile](#usb-acl-profile) configuration.
+In the table below the required configuration items for step 1 and step 2 per IoT solution are listed:
 
 |IoT solution|Step 1) [IoT radio-side](#iot-connectivity-radio-side) configuration|Step 2) [IoT server-side](#iot-server-connectivity-server-side) configuration|
 |-|-|-|
@@ -364,22 +363,49 @@ Depending on respective IoT solution different configuration settings are requir
 |USB/3rd party: USB-to-ethernet solutions|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices)|[wired-ap profile](#wired-ap-profile)|
 |USB/3rd party: SES Imagotag ESLs|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices) + [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|
 
+>***Note:***  
+>The IoT radio settings for USB/3rd party radios are controlled on the 3rd party system, if any, and there is no configuration required on the Aruba side. The only exception is the [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration) which controls the ESL radio channel.  
+>
+>Which USB device are allowed to connect to an access point can be controlled by an optional [USB acl profile](#usb-acl-profile) configuration.
+
 ## IoT radio profile
 
-IoT radio profiles are used to configure the Aruba integrated or external (USB-dongle) IoT radio.
+`iot radio-profile`'s are used to configure the [Aruba IoT radio](#aruba-iot-radio) mode, BLE and/or ZigBee, and the respective mode settings. An `iot radio-profile` can either be for an internal or external radio instance.  
 
-### BLE
+The `iot radio-profile` also controls the AP' BLE console settings.
 
+The following table lists the available `iot radio-profile` parameters and their description:
 
-```
+|ArubaOS|Aruba Instant|Description|
+|-|-|-|
+|`iot radio-profile <iot-profile-name>`|`iot radio-profile <iot-profile-name>`|**Name** of the radio profile|
+|`radio-instance <internal, external>`|`radio-instance <internal, external>`|**Type** of the radio the profile applies to. Available options are: ***internal*** - applies to the internal radio of the AP (default), ***external*** - applies to the external radio that is connected over the USB port of the AP.|
+|`radio-firmware <firmware>`|`radio-firmware <firmware>`|Firmware that is applied to the radio. Available options: ***default*** - default firmware gets applied.|
+|`radio-mode <mode>`|`radio-mode <mode>`|Radio mode to be enabled. Available options are: ***None*** - Radio disabled (default), ***ble*** - BLE (tx/rx) enabled. ***zigbee*** - ZigBee enabled, ***"ble zigbee"*** - BLE (tx-only) and ZigBee enabled concurrently.|
+|`ble-opmode <opmode>`|`ble-opmode <opmode>`|BLE operation mode to be enabled. This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***. Available options are: ***beaconing*** - BLE (tx) beaconing enabled using the iBeacon protocol (default), ***scanning*** - BLE (rx) scanning enabled, ***"beaconing scanning"*** - BLE (tx/rx) beaconing and scanning enabled concurrently (default - does not show up in the configuration!).|
+|`ble-console <console-mode>` |`ble-console <console-mode>`| BLE console mode to be enabled. BLE console provides console access to the AP over BLE. This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***. Available options are: ***dynamic*** - Enables BLE console automatically, ***on*** - BLE console enabled, ***off*** - BLE console disabled (default).|
+|`ble-txpower <txpower>`|`ble-txpower <txpower>`| BLE tx power in dBM to be used. This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***. Value range: ***-20 .. 4***, ***0*** is the default value.|
+|`zigbee-opmode <opmode>`|`zigbee-opmode <opmode>`|ZigBee operation mode to be used. This parameter is available only when `radio-mode` is set to ***zigbee*** or ***"ble zigbee"***. Available options are: ***coordinator*** - Radio works as ZigBee coordinator (default).|
+|`zigbee-channel <channel>`|`zigbee-channel <channel>`|Channel to be used. This parameter is available only when `radio-mode` is set to ***zigbee*** or ***"ble zigbee"***. Available options are: **auto** - Selects the channel automatically (default), ***11 ... 26*** - Specify the channel manually.|
 
-```
+>***Additional CLI parameters:***  
+>
+>- `clone` - Copy data from another IoT Radio Profile (ArubaOS only)
+>- `no` - Delete a command from the profile
 
-### ZigBee
+>***Note:***  
+>The default `ble-opmode` ***beaconing scanning*** does not show up in the configuration. Using the `"beaconing scanning"`parameter is only required to change the `ble-opmode` from ***beaconing*** or ***scanning*** only back to the default.  
+>
+>If the `radio-mode` is set to ***"ble zigbee"*** only BLE (tx) beaconing is supported, regardless of the `ble-opmode` setting.
 
-```
+An `iot radio-profile` is enabled using the following command:
 
-```
+|ArubaOS|Aruba Instant|
+|-|-|
+|`iot useTransportProfile <iot-profile-name>`|`iot use-radio-profile <iot-profile-name>`|
+
+>***Note:***  
+>Multiple `iot radio-profile`'s can be configured but a **maximum of two**, one internal and one external can be **enabled** per access point.
 
 ## IoT transport profile
 
