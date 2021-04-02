@@ -370,7 +370,7 @@ In the table below the required configuration items for step 1 and step 2 per Io
 
 ## IoT radio profile
 
-`iot radio-profile`'s are used to configure the [Aruba IoT radio](#aruba-iot-radio) mode, BLE and/or ZigBee, and the respective mode settings. An `iot radio-profile` can either be for an internal or external radio instance.  
+`iot radio-profile`'s are used to configure the [Aruba IoT radio](#aruba-iot-radio) mode, BLE and/or ZigBee, and the respective mode settings. An `iot radio-profile` can either be applied to an internal or external radio instance.  
 
 The `iot radio-profile` also controls the AP' BLE console settings.
 
@@ -394,7 +394,7 @@ The following table lists the available `iot radio-profile` parameters and their
 >- `no` - Delete a command from the profile
 
 >***Note:***  
->The default `ble-opmode` ***beaconing scanning*** does not show up in the configuration. Using the `"beaconing scanning"`parameter is only required to change the `ble-opmode` from ***beaconing*** or ***scanning*** back to the default.  
+>The default `ble-opmode beaconing scanning` does not show up in the configuration. Using the ***"beaconing scanning"*** parameter is only required to change the configuration form `ble-opmode beaconing` or `ble-opmode scanning` back to the default.  
 >
 >If the `radio-mode` is set to ***"ble zigbee"*** only BLE (tx) beaconing is supported, regardless of the `ble-opmode` setting.
 
