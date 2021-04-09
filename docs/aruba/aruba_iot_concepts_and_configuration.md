@@ -489,7 +489,7 @@ The following table lists the available `iot radio-profile` parameters and their
 
 >***Additional CLI parameters:***  
 >
->- `clone` - Copy data from another IoT Radio Profile (ArubaOS only)
+>- `clone` - Copy data from another `iot radio profile` (ArubaOS only)
 >- `no` - Delete a command from the profile
 
 >***Note:***  
@@ -563,6 +563,10 @@ The following table lists the available `iot transport profile` parameters and t
 |**AP-group assignment**|||
 |`include-ap-group <ap-group>`|n/a|Applies one ore multiple AP groups to the transport profile.<br>Only supported on ArubaOS.<br>Required input values:<br>- ***ap-group*** - AP group name|
 
+>***Additional CLI parameters:***  
+>
+>- `clone` - Copy data from another `iot transport profile` (ArubaOS only)
+>- `no` - Delete a command from the profile
 
 An `iot transportProfile` is enabled using the following command:
 
