@@ -77,7 +77,7 @@ The following [Vendor specific USB integrations](#supported-usb-vendor-list-for-
 
 On the server-side IoT data payloads are either forwarded directly by [USB-to-ethernet](#usb-to-ethernet) connected devices using IP transport or using the [Aruba IoT server interface](#aruba-iot-server-interface) providing different transport protocols and data encapsulations.
 
-USB-to-ethernet connectivity only requires applying a [wired-ap port profile](#wired-ap-profile) to the APs USB port to give the USB host system ethernet/IP access. The benefit of this approach is that USB host system's network access can be separated from the AP management networks e.g. by assigning a different VLAN and can be controlled using the AP integrated firewall like any other wired client connected to the AP. The USB host system uses its own IP stack with a separate IP address for its communication to the remote IoT system.
+USB-to-ethernet connectivity only requires applying a [Wired-Port profile](#wired-port-profile) to the APs USB port to give the USB host system ethernet/IP access. The benefit of this approach is that USB host system's network access can be separated from the AP management networks e.g. by assigning a different VLAN and can be controlled using the AP integrated firewall like any other wired client connected to the AP. The USB host system uses its own IP stack with a separate IP address for its communication to the remote IoT system.
 
 >***Note:***  
 >Vendor specific USB implementations like *SES Imagotag Electronic Shelf Labels (ESL)* are using IP transport with a [vendor specific configuration](#vendor-specific-implementations).  
@@ -88,7 +88,7 @@ The **Aruba IoT server interface** is an Aruba proprietary server-side connectiv
 All **Aruba IoT server interface** related aspects are configured in an [iot transport profile](#iot-transport-profile).  
 
 >***Note:***  
-Up to 4 iot transport profiles can be concurrently enabled per Aruba Instant AP or ArubaOS AP-group.  
+Up to 4 iot transport profiles can be concurrently enabled per Aruba Instant AP or ArubaOS AP group.  
 > This allows to run up to 4 IoT applications concurrently e.g., Aruba Meridian Beacon Management + Aruba Meridian Asset Tracking + 3rd Party BLE Asset Tracking + EnOcean.
 
 The following chapters describe the **Aruba IoT server interface** related options and services.
@@ -459,7 +459,7 @@ In the table below the required configuration items for step 1 and step 2 per Io
 |BLE solutions|[iot radio profile](#iot-radio-profile)|[iot transport profile](#iot-transport-profile)|
 |ZigBee solutions|[iot radio profile](#iot-radio-profile) + [zigbee service profile](#zigbee-service-profile) + [zigbee socket device profile](#zigbee-socket-device-profile)|[iot transport profile](#iot-transport-profile)|
 |USB/3rd party: USB-to-serial solutions|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile)|[iot transport profile](#iot-transport-profile)|
-|USB/3rd party: USB-to-ethernet solutions|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile)|[wired-ap profile](#wired-ap-profile)|
+|USB/3rd party: USB-to-ethernet solutions|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile)|[Wired-Port profile](#wired-port-profile)|
 |USB/3rd party: SES Imagotag ESLs|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile) + [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|
 
 >***Note:***  
@@ -503,10 +503,12 @@ An `iot radio-profile` is enabled using the following command:
 |-|-|
 |`iot useTransportProfile <iot-profile-name>`|`iot use-radio-profile <iot-profile-name>`|
 
-In addition to enabling the `iot radio-profile` it has to be assigned to an ap-group in ArubaOS/controller based deployments using the following configuration:
+In addition to enabling the `iot radio-profile` it has to be assigned to an AP group in ArubaOS/controller based deployments using the following configuration:
 
     ap-group <ap-group-name>
         iot radio-profile <iot-profile-name>
+
+For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](#aruba-cli-reference---ap-group).
 
 >***Note:***  
 >Multiple `iot radio-profile`'s can be configured but a **maximum of two**, one internal and one external can be **enabled** per access point (Aruba Instant) or access point group (ArubaOS).
@@ -614,15 +616,20 @@ ap-group <ap-group-name>
     usb-profile <usb-profile-name>
 ```
 
+For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](#aruba-cli-reference---ap-group).
+
 **Aruba Instant**
 
 ```
 usb-profile-binding <usb-profile-name>
 ```
 
+For details about the `usb-profile-binding` configuration refer to the [Aruba CLI Reference - USB profile binding](#aruba-cli-reference---usb-profile-binding).
+
 Examples:
 
 **ArubaOS**
+
 ```
 ap usb-acl-prof "UsbAclProf1"
     rule vendor All action permit
@@ -634,7 +641,9 @@ ap-group "ApGroup1"
     usb-profile "UsbProf1"
 !
 ```
+
 **Aruba Instant**
+
 ```
 usb acl-profile "UsbAclProf1"
  rule  All  permit
@@ -645,7 +654,7 @@ exit
 usb-profile-binding "UsbProf1"
 ```
 
-## Wired-AP profile
+## Wired-Port profile
 
 **Aruba Instant**
 
@@ -655,10 +664,12 @@ usb-profile-binding "UsbProf1"
 Examples:
 
 **ArubaOS**
+
 ```
 ap wired-ap-profile "USB-to-ethernet-wiredApProf1"
     forward-mode bridge
     switchport access vlan 192
+    wired-ap-enable
 !
 ap wired-port-profile "USB-to-ethernet-wiredPortProf1"
     wired-ap-profile "USB-to-ethernet-wiredApProf1"
@@ -667,24 +678,16 @@ ap-group "IoT-1"
     enet-usb-port-profile "USB-to-ethernet-wiredPortProf1"
 !
 ```
+
 **Aruba Instant**
+
 ```
-wlan access-rule USB-to-ethernet-accessRule
- rule any any match any any any permit
-exit
 wired-port-profile USB-to-ethernet-wiredPortProf1
  switchport-mode access
  allowed-vlan 100
  native-vlan 100
  no shutdown
- access-rule-name USB-to-ethernet-accessRule
- speed auto
- duplex auto
- no poe
  type employee
- auth-server InternalServer
- captive-portal disable
- no dot1x
 exit
 enet-usb-port-profile USB-to-ethernet-wiredPortProf1
 ```
@@ -704,10 +707,21 @@ enet-usb-port-profile USB-to-ethernet-wiredPortProf1
 
 ## SES Imagotag ESL configuration
 
+Examples:
+
+**ArubaOS**
+
 ```
+sesimagotag-esl-profile
+ sesimagotag-esl-serverip 192.168.100.53
+ sesimagotag-esl-channel 3
+```
+
+**Aruba Instant**
 
 ```
 
+```
 
 # Configuration Examples
 
@@ -849,6 +863,8 @@ enet-usb-port-profile USB-to-ethernet-wiredPortProf1
 ### Aruba CLI Reference - USB profile binding
 
 -   [Aruba Instant CLI Reference - USB profile binding](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/usb-profile-binding.htm)
+
+### Aruba CLI Reference - 
 
 ### Importing Certificates
 
