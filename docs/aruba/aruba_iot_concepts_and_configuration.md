@@ -54,7 +54,7 @@ Aruba supports the extension of Aruba access points using USB with supported 3rd
 
 In all cases the USB connected host system removes/adds the radio specific headers/protocols from/to IoT devices and forwards/receives the data payload to the access point using one of the USB methods.
 
-Supported USB connected devices does not required a specific configuration, except for vendor specific implementations, but it can be controlled which USB devices are allowed to connect to an access points. This can be controlled using an [USB ACL profile](#usb-acl-profile).
+Supported USB connected devices does not required a specific configuration, except for vendor specific implementations, but it can be controlled which USB devices are allowed to connect to an access points. This can be controlled using the [AP USB device management](#ap-usb-device-management).
 
 #### ***USB-to-serial***
 
@@ -458,14 +458,14 @@ In the table below the required configuration items for step 1 and step 2 per Io
 |Wi-Fi solutions|Enable Wi-Fi radios (access or monitor mode)|[iot transport profile](#iot-transport-profile)|
 |BLE solutions|[iot radio profile](#iot-radio-profile)|[iot transport profile](#iot-transport-profile)|
 |ZigBee solutions|[iot radio profile](#iot-radio-profile) + [zigbee service profile](#zigbee-service-profile) + [zigbee socket device profile](#zigbee-socket-device-profile)|[iot transport profile](#iot-transport-profile)|
-|USB/3rd party: USB-to-serial solutions|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices)|[iot transport profile](#iot-transport-profile)|
-|USB/3rd party: USB-to-ethernet solutions|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices)|[wired-ap profile](#wired-ap-profile)|
-|USB/3rd party: SES Imagotag ESLs|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices) + [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|
+|USB/3rd party: USB-to-serial solutions|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile)|[iot transport profile](#iot-transport-profile)|
+|USB/3rd party: USB-to-ethernet solutions|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile)|[wired-ap profile](#wired-ap-profile)|
+|USB/3rd party: SES Imagotag ESLs|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile) + [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|
 
 >***Note:***  
 >The IoT radio settings for USB/3rd party radios are controlled on the 3rd party system, if any, and there is no configuration required on the Aruba side. The only exception is the [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration) which controls the ESL radio channel.  
 >
->Which USB device are allowed to connect to an access point can be controlled by an optional [USB acl profile](#usb-acl-profile) configuration.
+>Which USB device are allowed to connect to an access point can be controlled using the [AP USB device management](#ap-usb-device-management).
 
 ## IoT radio profile
 
@@ -577,10 +577,72 @@ An `iot transportProfile` is enabled using the following command:
 >***Note:***  
 >Multiple transport profiles can be configured, but a maximum of 4 transport profiles can be enabled per access point (Aruba Instant) or access point group (ArubaOS).
 
-## USB ACL profile
+## AP USB device management
+  
+AP USB device management controls connected USB devices using USB profiles and USB ACL profiles. An USB ACL profile is assigned to an AP or AP group using an USB profile.
+
+### USB ACL profile
+
+An USB ACL profile consists of one or more permit/deny rules for supported USB vendor-product names. An USB ACL profile includes an implicit *deny-all* at then end. An USB profile with an undefined USB ACL profile applies a *permit-all* by default.
+
+>***Note:***  
+>Up to 16 USB ACL profiles are supported.
+
+|ArubaOS|Aruba Instant|Description|
+|-|-|-|
+|`ap usb-acl-prof <usb-acl-profile-name>`|`usb acl-profile <usb-acl-profile-name>`|**Name** of the USB ACL profile|
+|`rule vendor <vendor-name> action <permit/deny>`|`rule <vendor-name> <permit/dena>`|Configure an ACL rule for a supported USB ***vendor-name***.<br>Available options are:<br> - ***vendor-name*** - USB vendor name, ***All*** allows all supported vendors<br><br>Available action value to perform if the vendor-name matches.<br>Available options are:<br> - ***deny*** - Access to USB device is denied<br> - ***permit*** - Access to USB device is refused
+
+>***Note:***  
+>The `show usb supported vendor-product` command lists the supported USB vendor-names on Aruba Instant APs.
+
+### USB profile
+
+An USB profile binds a specific USB ACL profile ton an AP or AP group.
+
+|ArubaOS|Aruba Instant|Description|
+|-|-|-|
+|`ap usb-profile <usb-profile-name>`|`usb profile <usb-profile-name>`|**Name** of the USB profile|
+|`usb-acl-profile <usb-acl-profile-name>`|`usb-acl <usb-acl-profile-name>`|Assigns an previously defined USB profile to the USB profile.<br>Available options are:<br> - ***usb-acl-profile-name*** - Name of the USB ACL profile|
+
+An USB profile is bound to an AP or AP group using the following commands:
+
+**ArubaOS**
 
 ```
+ap-group <ap-group-name>
+    usb-profile <usb-profile-name>
+```
 
+**Aruba Instant**
+
+```
+usb-profile-binding <usb-profile-name>
+```
+
+Examples:
+
+**ArubaOS**
+```
+ap usb-acl-prof "UsbAclProf1"
+    rule vendor All action permit
+!
+ap usb-profile "UsbProf1"
+    usb-acl-profile "UsbAclPro1"
+!
+ap-group "ApGroup1"
+    usb-profile "UsbProf1"
+!
+```
+**Aruba Instant**
+```
+usb acl-profile UsbAclProf1
+ rule  All  permit
+
+usb profile UsbProf1
+ usb-acl UsbAclProf1
+
+usb-profile-binding UsbProf1
 ```
 
 ## Wired-AP profile
