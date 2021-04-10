@@ -667,14 +667,13 @@ Examples:
 
 ```
 ap wired-ap-profile "USB-to-ethernet-wiredApProf1"
-    forward-mode bridge
     switchport access vlan 192
     wired-ap-enable
 !
 ap wired-port-profile "USB-to-ethernet-wiredPortProf1"
     wired-ap-profile "USB-to-ethernet-wiredApProf1"
 !
-ap-group "IoT-1"
+ap-group "ApGroup1"
     enet-usb-port-profile "USB-to-ethernet-wiredPortProf1"
 !
 ```
