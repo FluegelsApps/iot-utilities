@@ -636,19 +636,57 @@ ap-group "ApGroup1"
 ```
 **Aruba Instant**
 ```
-usb acl-profile UsbAclProf1
+usb acl-profile "UsbAclProf1"
  rule  All  permit
-
-usb profile UsbProf1
- usb-acl UsbAclProf1
-
-usb-profile-binding UsbProf1
+exit
+usb profile "UsbProf1"
+ usb-acl "UsbAclProf1"
+exit
+usb-profile-binding "UsbProf1"
 ```
 
 ## Wired-AP profile
 
+**Aruba Instant**
+
+```
 ```
 
+Examples:
+
+**ArubaOS**
+```
+ap wired-ap-profile "USB-to-ethernet-wiredApProf1"
+    forward-mode bridge
+    switchport access vlan 192
+!
+ap wired-port-profile "USB-to-ethernet-wiredPortProf1"
+    wired-ap-profile "USB-to-ethernet-wiredApProf1"
+!
+ap-group "IoT-1"
+    enet-usb-port-profile "USB-to-ethernet-wiredPortProf1"
+!
+```
+**Aruba Instant**
+```
+wlan access-rule USB-to-ethernet-accessRule
+ rule any any match any any any permit
+exit
+wired-port-profile USB-to-ethernet-wiredPortProf1
+ switchport-mode access
+ allowed-vlan 100
+ native-vlan 100
+ no shutdown
+ access-rule-name USB-to-ethernet-accessRule
+ speed auto
+ duplex auto
+ no poe
+ type employee
+ auth-server InternalServer
+ captive-portal disable
+ no dot1x
+exit
+enet-usb-port-profile USB-to-ethernet-wiredPortProf1
 ```
 
 ## ZigBee service profile
@@ -775,16 +813,42 @@ usb-profile-binding UsbProf1
 *  [Aruba Instant Online Documentation](https://www.arubanetworks.com/techdocs/Instant_88_WebHelp/Content/homeinstant.htm)
 *  [Aruba CLI Reference](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/Home.htm)
 
+### Aruba CLI Reference - ap-group
+
+-   [ArubaOS CLI Reference - ap-group](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/ap-group.htm)
+
+### Aruba CLI Reference - ap system-profile
+
+-   [ArubaOS ClI Reference - ap system-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/ap-system-pro.htm)
+
+### Aruba CLI Reference - iot radio-profile
+
+*   [ArubaOS CLI Reference - iot radio-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/iot-radio-pro.htm)
+*   [Aruba Instant CLI Reference - iot radio-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/iot-radio-pro.htm)
 
 ### Aruba CLI Reference - iot transportProfile
 
-*   [Aruba Instant CLI Reference - iot transportProfile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/iot-transportpro.htm)
 *   [ArubaOS CLI Reference - iot transportProfile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/iot-trans-pro.htm)
+*   [Aruba Instant CLI Reference - iot transportProfile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/iot-transportpro.htm)
 
 ### Aruba CLI Reference - Data-Filter
 
 *   [ArubaOS - Data-Filter Values](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/iot-trans-pro.htm#DataFilt)
 *   [Aruba Instant - Data-Filter Values](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/iot-transportpro.htm?Highlight=iot%20transport%20profile#DataFilt)
+
+### Aruba CLI Reference - USB ACL profile
+
+*   [ArubaOS CLI Reference - USB ACL profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/ap-usb-acl-prof.htm)
+*   [Aruba Instant CLI Reference - USB ACL profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/usb-acl-prof.htm)
+
+### Aruba CLI Reference - USB profile
+
+*   [ArubaOS CLI Reference - USB profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/ap-usb-prof.htm)
+*   [Aruba Instant CLI Reference - USB profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/usb-prof.htm)
+
+### Aruba CLI Reference - USB profile binding
+
+-   [Aruba Instant CLI Reference - USB profile binding](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/usb-profile-binding.htm)
 
 ### Importing Certificates
 
