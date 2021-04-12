@@ -54,7 +54,7 @@ Aruba supports the extension of Aruba access points using USB with supported 3rd
 
 In all cases the USB connected host system removes/adds the radio specific headers/protocols from/to IoT devices and forwards/receives the data payload to the access point using one of the USB methods.
 
-Supported USB connected devices does not required a specific configuration, except for vendor specific implementations, but it can be controlled which USB devices are allowed to connect to an access points. This can be controlled using an [USB ACL profile](#usb-acl-profile).
+Supported USB connected devices does not required a specific configuration, except for vendor specific implementations, but it can be controlled which USB devices are allowed to connect to an access points. This can be controlled using the [AP USB device management](#ap-usb-device-management).
 
 #### ***USB-to-serial***
 
@@ -77,7 +77,7 @@ The following [Vendor specific USB integrations](#supported-usb-vendor-list-for-
 
 On the server-side IoT data payloads are either forwarded directly by [USB-to-ethernet](#usb-to-ethernet) connected devices using IP transport or using the [Aruba IoT server interface](#aruba-iot-server-interface) providing different transport protocols and data encapsulations.
 
-USB-to-ethernet connectivity only requires applying a [wired-ap port profile](#wired-ap-profile) to the APs USB port to give the USB host system ethernet/IP access. The benefit of this approach is that USB host system's network access can be separated from the AP management networks e.g. by assigning a different VLAN and can be controlled using the AP integrated firewall like any other wired client connected to the AP. The USB host system uses its own IP stack with a separate IP address for its communication to the remote IoT system.
+USB-to-ethernet connectivity only requires applying a [Wired-Port profile](#wired-port-profile) to the APs USB port to give the USB host system ethernet/IP access. The benefit of this approach is that USB host system's network access can be separated from the AP management networks e.g. by assigning a different VLAN and can be controlled using the AP integrated firewall like any other wired client connected to the AP. The USB host system uses its own IP stack with a separate IP address for its communication to the remote IoT system.
 
 >***Note:***  
 >Vendor specific USB implementations like *SES Imagotag Electronic Shelf Labels (ESL)* are using IP transport with a [vendor specific configuration](#vendor-specific-implementations).  
@@ -88,7 +88,7 @@ The **Aruba IoT server interface** is an Aruba proprietary server-side connectiv
 All **Aruba IoT server interface** related aspects are configured in an [iot transport profile](#iot-transport-profile).  
 
 >***Note:***  
-Up to 4 iot transport profiles can be concurrently enabled per Aruba Instant AP or ArubaOS AP-group.  
+Up to 4 iot transport profiles can be concurrently enabled per Aruba Instant AP or ArubaOS AP group.  
 > This allows to run up to 4 IoT applications concurrently e.g., Aruba Meridian Beacon Management + Aruba Meridian Asset Tracking + 3rd Party BLE Asset Tracking + EnOcean.
 
 The following chapters describe the **Aruba IoT server interface** related options and services.
@@ -458,14 +458,14 @@ In the table below the required configuration items for step 1 and step 2 per Io
 |Wi-Fi solutions|Enable Wi-Fi radios (access or monitor mode)|[iot transport profile](#iot-transport-profile)|
 |BLE solutions|[iot radio profile](#iot-radio-profile)|[iot transport profile](#iot-transport-profile)|
 |ZigBee solutions|[iot radio profile](#iot-radio-profile) + [zigbee service profile](#zigbee-service-profile) + [zigbee socket device profile](#zigbee-socket-device-profile)|[iot transport profile](#iot-transport-profile)|
-|USB/3rd party: USB-to-serial solutions|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices)|[iot transport profile](#iot-transport-profile)|
-|USB/3rd party: USB-to-ethernet solutions|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices)|[wired-ap profile](#wired-ap-profile)|
-|USB/3rd party: SES Imagotag ESLs|[USB acl profile](#usb-acl-profile) (optional, to control allowed USB devices) + [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|
+|USB/3rd party: USB-to-serial solutions|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile)|[iot transport profile](#iot-transport-profile)|
+|USB/3rd party: USB-to-ethernet solutions|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile)|[Wired-Port profile](#wired-port-profile)|
+|USB/3rd party: SES Imagotag ESLs|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile) + [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|
 
 >***Note:***  
 >The IoT radio settings for USB/3rd party radios are controlled on the 3rd party system, if any, and there is no configuration required on the Aruba side. The only exception is the [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration) which controls the ESL radio channel.  
 >
->Which USB device are allowed to connect to an access point can be controlled by an optional [USB acl profile](#usb-acl-profile) configuration.
+>Which USB device are allowed to connect to an access point can be controlled using the [AP USB device management](#ap-usb-device-management).
 
 ## IoT radio profile
 
@@ -503,10 +503,12 @@ An `iot radio-profile` is enabled using the following command:
 |-|-|
 |`iot useTransportProfile <iot-profile-name>`|`iot use-radio-profile <iot-profile-name>`|
 
-In addition to enabling the `iot radio-profile` it has to be assigned to an ap-group in ArubaOS/controller based deployments using the following configuration:
+In addition to enabling the `iot radio-profile` it has to be assigned to an AP group in ArubaOS/controller based deployments using the following configuration:
 
     ap-group <ap-group-name>
         iot radio-profile <iot-profile-name>
+
+For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](#aruba-cli-reference---ap-group).
 
 >***Note:***  
 >Multiple `iot radio-profile`'s can be configured but a **maximum of two**, one internal and one external can be **enabled** per access point (Aruba Instant) or access point group (ArubaOS).
@@ -577,16 +579,116 @@ An `iot transportProfile` is enabled using the following command:
 >***Note:***  
 >Multiple transport profiles can be configured, but a maximum of 4 transport profiles can be enabled per access point (Aruba Instant) or access point group (ArubaOS).
 
-## USB ACL profile
+## AP USB device management
+  
+AP USB device management controls connected USB devices using USB profiles and USB ACL profiles. An USB ACL profile is assigned to an AP or AP group using an USB profile.
+
+### USB ACL profile
+
+An USB ACL profile consists of one or more permit/deny rules for supported USB vendor-product names. An USB ACL profile includes an implicit *deny-all* at then end. An USB profile with an undefined USB ACL profile applies a *permit-all* by default.
+
+>***Note:***  
+>Up to 16 USB ACL profiles are supported.
+
+|ArubaOS|Aruba Instant|Description|
+|-|-|-|
+|`ap usb-acl-prof <usb-acl-profile-name>`|`usb acl-profile <usb-acl-profile-name>`|**Name** of the USB ACL profile|
+|`rule vendor <vendor-name> action <permit/deny>`|`rule <vendor-name> <permit/dena>`|Configure an ACL rule for a supported USB ***vendor-name***.<br>Available options are:<br> - ***vendor-name*** - USB vendor name, ***All*** allows all supported vendors<br><br>Available action value to perform if the vendor-name matches.<br>Available options are:<br> - ***deny*** - Access to USB device is denied<br> - ***permit*** - Access to USB device is refused
+
+>***Note:***  
+>The `show usb supported vendor-product` command lists the supported USB vendor-names on Aruba Instant APs.
+
+### USB profile
+
+An USB profile binds a specific USB ACL profile ton an AP or AP group.
+
+|ArubaOS|Aruba Instant|Description|
+|-|-|-|
+|`ap usb-profile <usb-profile-name>`|`usb profile <usb-profile-name>`|**Name** of the USB profile|
+|`usb-acl-profile <usb-acl-profile-name>`|`usb-acl <usb-acl-profile-name>`|Assigns an previously defined USB profile to the USB profile.<br>Available options are:<br> - ***usb-acl-profile-name*** - Name of the USB ACL profile|
+
+An USB profile is bound to an AP or AP group using the following commands:
+
+**ArubaOS**
 
 ```
-
+ap-group <ap-group-name>
+    usb-profile <usb-profile-name>
 ```
 
-## Wired-AP profile
+For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](#aruba-cli-reference---ap-group).
+
+**Aruba Instant**
 
 ```
+usb-profile-binding <usb-profile-name>
+```
 
+For details about the `usb-profile-binding` configuration refer to the [Aruba CLI Reference - USB profile binding](#aruba-cli-reference---usb-profile-binding).
+
+Examples:
+
+**ArubaOS**
+
+```
+ap usb-acl-prof "UsbAclProf1"
+    rule vendor All action permit
+!
+ap usb-profile "UsbProf1"
+    usb-acl-profile "UsbAclPro1"
+!
+ap-group "ApGroup1"
+    usb-profile "UsbProf1"
+!
+```
+
+**Aruba Instant**
+
+```
+usb acl-profile "UsbAclProf1"
+ rule  All  permit
+exit
+usb profile "UsbProf1"
+ usb-acl "UsbAclProf1"
+exit
+usb-profile-binding "UsbProf1"
+```
+
+## Wired-Port profile
+
+**Aruba Instant**
+
+```
+```
+
+Examples:
+
+**ArubaOS**
+
+```
+ap wired-ap-profile "USB-to-ethernet-wiredApProf1"
+    switchport access vlan 192
+    wired-ap-enable
+!
+ap wired-port-profile "USB-to-ethernet-wiredPortProf1"
+    wired-ap-profile "USB-to-ethernet-wiredApProf1"
+!
+ap-group "ApGroup1"
+    enet-usb-port-profile "USB-to-ethernet-wiredPortProf1"
+!
+```
+
+**Aruba Instant**
+
+```
+wired-port-profile USB-to-ethernet-wiredPortProf1
+ switchport-mode access
+ allowed-vlan 100
+ native-vlan 100
+ no shutdown
+ type employee
+exit
+enet-usb-port-profile USB-to-ethernet-wiredPortProf1
 ```
 
 ## ZigBee service profile
@@ -604,10 +706,21 @@ An `iot transportProfile` is enabled using the following command:
 
 ## SES Imagotag ESL configuration
 
+Examples:
+
+**ArubaOS**
+
 ```
+sesimagotag-esl-profile
+ sesimagotag-esl-serverip 192.168.100.53
+ sesimagotag-esl-channel 3
+```
+
+**Aruba Instant**
 
 ```
 
+```
 
 # Configuration Examples
 
@@ -713,16 +826,44 @@ An `iot transportProfile` is enabled using the following command:
 *  [Aruba Instant Online Documentation](https://www.arubanetworks.com/techdocs/Instant_88_WebHelp/Content/homeinstant.htm)
 *  [Aruba CLI Reference](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/Home.htm)
 
+### Aruba CLI Reference - ap-group
+
+-   [ArubaOS CLI Reference - ap-group](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/ap-group.htm)
+
+### Aruba CLI Reference - ap system-profile
+
+-   [ArubaOS ClI Reference - ap system-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/ap-system-pro.htm)
+
+### Aruba CLI Reference - iot radio-profile
+
+*   [ArubaOS CLI Reference - iot radio-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/iot-radio-pro.htm)
+*   [Aruba Instant CLI Reference - iot radio-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/iot-radio-pro.htm)
 
 ### Aruba CLI Reference - iot transportProfile
 
-*   [Aruba Instant CLI Reference - iot transportProfile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/iot-transportpro.htm)
 *   [ArubaOS CLI Reference - iot transportProfile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/iot-trans-pro.htm)
+*   [Aruba Instant CLI Reference - iot transportProfile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/iot-transportpro.htm)
 
 ### Aruba CLI Reference - Data-Filter
 
 *   [ArubaOS - Data-Filter Values](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/iot-trans-pro.htm#DataFilt)
 *   [Aruba Instant - Data-Filter Values](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/iot-transportpro.htm?Highlight=iot%20transport%20profile#DataFilt)
+
+### Aruba CLI Reference - USB ACL profile
+
+*   [ArubaOS CLI Reference - USB ACL profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/ap-usb-acl-prof.htm)
+*   [Aruba Instant CLI Reference - USB ACL profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/usb-acl-prof.htm)
+
+### Aruba CLI Reference - USB profile
+
+*   [ArubaOS CLI Reference - USB profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/ap-usb-prof.htm)
+*   [Aruba Instant CLI Reference - USB profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/usb-prof.htm)
+
+### Aruba CLI Reference - USB profile binding
+
+-   [Aruba Instant CLI Reference - USB profile binding](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/usb-profile-binding.htm)
+
+### Aruba CLI Reference - 
 
 ### Importing Certificates
 
