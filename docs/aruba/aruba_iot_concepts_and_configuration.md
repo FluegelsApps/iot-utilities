@@ -748,6 +748,8 @@ An `iot transportProfile` is enabled using the following command:
 
 ## Aruba IoT server interface - connection types
 
+Supported connection type list as of ArubaOS/Aruba Instant version 8.8.0.0.
+
 |Server connection type|Transport protocol|Data encapsulation|Authentication & Authorization|Supported report interval (in seconds)|Supported device class filter|Description|
 |-|-|-|-|-|-|-|
 |Assa-Abloy|HTTPS|vendor specific|username/password, access_id|1-3600 s, default: 600|assa-abloy|Assa Abloy Visiononline server|
@@ -760,13 +762,15 @@ An `iot transportProfile` is enabled using the following command:
 
 ## Supported IoT vendor/device class list
 
+Device class list as of ArubaOS/Aruba Instant version 8.8.0.0.
+
 |Device class|IoT connectivity (radio)|Supported server connectivity|Minimum required SW version|Description|
 |-|-|-|-|-|
 |aruba-beacons|BLE|Meridian-Beacon-Management, [Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward Aruba beacon BLE device data payloads|
 |aruba-tags|BLE|Meridian-Asset-Tracking, [Telemetry-Https](#telemetry-https),[Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward Aruba tag BLE device data payloads|
-|aruba-sensors|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.5.0.0 or higher|Forward Aruba sensor BLE device data payloads|
-|ibeacon|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward iBeacon BLE device data payloads|
-|eddystone|BLE|[Telemetry-Https](#telemetry-https), [Azure-IoTHub](#azure-iothub), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward Eddystone BLE device data payloads|
+|aruba-sensors|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.5.0.0 or higher|Forward Aruba sensor BLE device data payloads.<br>This an Aruba specific BLE beacon format for telemetry reporting of multiple sensor values by BLE device implementing the Aruba sensor specification|
+|ibeacon|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward iBeacon BLE device data payloads<br>Telemetry reporting of the following iBeacon data payloads is supported:<br> - ***UUID*** - broadcasted Universally Unique Identifier<br> - ***Major*** - broadcasted major id<br> - ***Minor*** - broadcasting minor id|
+|eddystone|BLE|[Telemetry-Https](#telemetry-https), [Azure-IoTHub](#azure-iothub), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward Eddystone BLE device data payloads.<br>Telemetry reporting of the following Eddystone data payloads is supported:<br> - ***Eddystone-TLM*** - broadcasted telemetry (temperature, voltage)<br> - ***Eddystone-URL*** - broadcasted URL addresses<br> - ***Eddystone-UID*** - broadcasted beacons IDs|
 |zf-tags|BLE|ZF-Openmatics or [Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.3.0.0 or higher|Forward ZF-Openmatics tag BLE device data payloads|
 |enocean-sensors|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward EnOcean sensor BLE device data payloads|
 |enocean-switches|BLE|[Telemetry-Https](#telemetry-https), [Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|8.4.0.0 or higher|Forward EnOcean switch BLE device data payloads|
@@ -792,6 +796,8 @@ An `iot transportProfile` is enabled using the following command:
 |wifi-tags|Wi-Fi|[Telemetry-Websocket](#telemetry-websocket)|8.6.0.0 or higher|Forwarding Wi-Fi tag data to 3rd party system|
 
 ## Supported USB vendor list for IoT
+
+IoT related supported USB vendor list as of ArubaOS/Aruba Instant version 8.8.0.0.
 
 |Vendor|Minimum required AOS/Instant Version|Connection method|Description|
 |-|-|-|-|
