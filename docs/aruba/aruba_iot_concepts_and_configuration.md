@@ -712,8 +712,8 @@ Examples:
 
 ```
 sesimagotag-esl-profile
- sesimagotag-esl-serverip 192.168.100.53
- sesimagotag-esl-channel 3
+ sesimagotag-esl-serverip <FQDN or server-ip>
+ sesimagotag-esl-channel <channel>
 ```
 
 **Aruba Instant**
