@@ -1,3 +1,13 @@
+## Version 1.2.0 | ?
+
+### New features in this release:
+
+- new BLE-Connect feature
+
+### Reworked features and improvements:
+
+### Fixed bugs and issues
+
 ## Version 1.1.0 | 02.04.2021
 
 ### New features in this release:
