@@ -458,6 +458,7 @@ In the table below the required configuration items for step 1 and step 2 per Io
 |Wi-Fi solutions|Enable Wi-Fi radios (access or monitor mode)|[iot transport profile](#iot-transport-profile)|
 |BLE solutions|[iot radio profile](#iot-radio-profile)|[iot transport profile](#iot-transport-profile)|
 |ZigBee solutions|[iot radio profile](#iot-radio-profile) + [zigbee service profile](#zigbee-service-profile) + [zigbee socket device profile](#zigbee-socket-device-profile)|[iot transport profile](#iot-transport-profile)|
+|ZigBee solutions (ASSA-ABLOY)|[iot radio profile](#iot-radio-profile) + [zigbee service profile](#zigbee-service-profile)|[iot transport profile](#iot-transport-profile)|
 |USB/3rd party: USB-to-serial solutions|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile)|[iot transport profile](#iot-transport-profile)|
 |USB/3rd party: USB-to-ethernet solutions|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile)|[Wired-Port profile](#wired-port-profile)|
 |USB/3rd party: SES Imagotag ESLs|(optional) [USB ACL profile](#usb-acl-profile)/[USB profile](#usb-profile) + [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|[SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)|
@@ -710,7 +711,7 @@ ap wired-port-profile "USB-to-ethernet-wiredPortProf1"
     wired-ap-profile "USB-to-ethernet-wiredApProf1"
     aaa-profile "iot-wired_aaa_prof"
 !
-ap-group "iot1"
+ap-group "ApGroup1"
     enet-usb-port-profile "USB-to-ethernet-wiredPortProf1"
 !
 ```
@@ -732,19 +733,6 @@ exit
 enet-usb-port-profile "USB-to-ethernet-wiredPortProf1"
 ```
 
-## ZigBee service profile
-
-```
-
-```
-
-## ZigBee socket-device-profile
-
-```
-
-```
-
-
 ## SES Imagotag ESL configuration
 
 Examples:
@@ -752,12 +740,30 @@ Examples:
 **ArubaOS**
 
 ```
-sesimagotag-esl-profile
- sesimagotag-esl-serverip <FQDN or server-ip>
- sesimagotag-esl-channel <channel>
+ap system-profile "iot-ap-system-prof"
+    sesImagotag-esl-server "ses-imagotag.com"
+    sesImagotag-esl-channel 127
+    sesImagotag-esl-tls-auth
+    sesImagotag-esl-tls-fqdn-verify
 ```
 
 **Aruba Instant**
+
+```
+sesimagotag-esl-profile
+ sesimagotag-esl-server ses-imagotag.com
+ sesimagotag-esl-channel 127
+ sesimagotag-esl-tls-auth
+ sesimagotag-esl-tls-fqdn-verify
+```
+
+## ZigBee service profile
+
+```
+
+```
+
+## ZigBee socket-device-profile
 
 ```
 
