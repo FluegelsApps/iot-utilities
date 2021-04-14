@@ -6,7 +6,7 @@
 
 ### Reworked features and improvements:
 
-### Fixed bugs and issues
+### Fixed bugs and issues:
 
 ## Version 1.1.0 | 02.04.2021
 
