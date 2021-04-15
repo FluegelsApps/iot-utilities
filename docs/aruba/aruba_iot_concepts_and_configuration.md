@@ -69,7 +69,7 @@ The [3rd party solutions using the USB-to-ethernet](#supported-usb-vendor-list-f
 
 #### ***Vendor specific implementations***
 
-The following [Vendor specific USB integrations](#supported-usb-vendor-list-for-iot) do not follow the previously mentioned methods and require a dedicated configuration.  
+The following vendor specific [USB integrations](#supported-usb-vendor-list-for-iot) do not follow the previously mentioned methods and require a dedicated configuration.  
  
 - [SES Imagotag Electronic Shelf Labels (ESL)](#ses-imagotag-esl-configuration)
 
@@ -424,7 +424,14 @@ This filter is active when the cell size filter is also configured. When this fi
 The Age Filter is used to only report devices the AP has received an update (either BLE advertisement or scan response) in the configured time. For instance, if the age filter is set to 30 seconds, only devices which have been heard in the last 30 seconds will be reported. If there is a device that received an update 45 seconds before, this device will not be reported. The default value for this field is “0”, which corresponds to the age filter being disabled. This field accepts integer values from 30 to 3600, and the units are seconds.  
 
 -   ***BLE Vendor Filter***  
-The BLE Vendor Filter allows to input either [Bluetooth SIG Vendor IDs](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/) or freeform vendor name strings, which will be used to filter the devices being reported. If this is configured, the only devices that will be reported are the devices that match the configured Vendor ID or Vendor Name.  
+The BLE Vendor Filter allows to input [Bluetooth SIG Vendor IDs](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/) and/or freeform vendor name strings, which will be used to filter the devices being reported. If this is configured, the only devices that will be reported are the devices that match the configured Vendor ID or Vendor Name.  
+The vendor ID is a 2-byte hexadecimal value preceding with 0x in 0xABCD format. The vendor name is a string that can be either a full vendor name (example:Aruba) or a substring of the actual vendor name (example:Aru) and can be case-insensitive.  
+The vendor filter accepts up to five combinations of vendor names or vendorIDs separated by commas, for example:  
+    -   Aruba,Favendo,HanVit,SoluM,ABB
+    -   0xABCD,0xBCDE,0xCDEF,0xDEF0,0xEF01
+    -   Aruba,0xABCD,Favendo,0xBCDE,HanVit  
+
+    If more than one vendor name or vendorID is configured, then any of the matching vendor names or vendorIDs in the vendor filter is applied. A device is reported only if the vendor data or vendor name field is not empty and matches the vendor information configured. If the vendor field is not populated for the devices, the IoT devices are reported because there is not matching vendor filter in the IoT transport profile.
 
 -   ***UUID Filter (iBeacon)***  
 A list of UUIDs to filter the devices included in the reports. Applies only to iBeacon devices.
@@ -594,7 +601,7 @@ An USB ACL profile consists of one or more permit/deny rules for supported USB v
 |ArubaOS|Aruba Instant|Description|
 |-|-|-|
 |`ap usb-acl-prof <usb-acl-profile-name>`|`usb acl-profile <usb-acl-profile-name>`|**Name** of the USB ACL profile|
-|`rule vendor <vendor-name> action <permit/deny>`|`rule <vendor-name> <permit/dena>`|Configure an ACL rule for a supported USB ***vendor-name***.<br>Available options are:<br> - ***vendor-name*** - USB vendor name, ***All*** allows all supported vendors<br><br>Available action value to perform if the vendor-name matches.<br>Available options are:<br> - ***deny*** - Access to USB device is denied<br> - ***permit*** - Access to USB device is refused
+|`rule vendor <vendor-name> action <permit/deny>`|`rule <vendor-name> <permit/dena>`|Configure an ACL rule for a supported USB ***vendor-name***.<br>Available options are:<br> - ***vendor-name*** - USB vendor name, ***All*** allows all supported vendors<br><br>Available action value to perform if the vendor-name matches.<br>Available options are:<br> - ***deny*** - Access to USB device is denied<br> - ***permit*** - Access to USB device is refused|
 
 >***Note:***  
 >The `show usb supported vendor-product` command lists the supported USB vendor-names on Aruba Instant APs.
@@ -735,6 +742,20 @@ enet-usb-port-profile "USB-to-ethernet-wiredPortProf1"
 
 ## SES Imagotag ESL configuration
 
+SES-Imagotag’s Electronic Shelf Label system uses a [vendor-specific](#vendor-specific-implementations) USB integration with the Aruba infrastructure using a dedicated set of configuration commands.
+In ArubaOS the SES-Imagotag configuration is enabled in the `ap system-profile` where Aruba Instant uses an `sesimagotag-esl-profile`.
+
+|ArubaOS|Aruba Instant|Description|
+|-|-|-|
+|`ap system-profile <ap-system-profile-name>`|n/a|**Name** of the ap system-profile.<br>Only supported on ArubaOS.<br>Required input values:<br>- ***ap-system-profile-name*** - AP system profile name|
+|n/a|`sesimagotag-esl-profile`|Adds a SES-Imagotag ESL configuration profile.<br>Only supported on Aruba Instant.|
+|`sesImagotag-esl-channel <esl-channel>`|`sesImagotag-esl-channel <sl-channel>`|The Channel of SES-Imagotag ESL Radio.<br>Available options are:<br> - ***esl-channel*** - Range [0-10], 127 is ESL-server managed channel|
+|`sesImagotag-esl-radio-coexistence`|`sesImagotag-esl-radio-coexistence`|Enables the coexistence function between the SES-Imagotag ESL radio and the AP 2.4G Wi-Fi radio|
+|`sesImagotag-esl-server <FQDN>`|`sesImagotag-esl-server  <FQDN>`|Adds the FQDN of SES-Imagotag ESL server. FQDN setting has a higher priority than `sesImagotag-esl-serverip`.<br>Available options are:<br> - ***FQDN*** - FQDN of the SES-Imagotag ESL server.|
+|`sesImagotag-esl-serverip <ip-address>`|`sesImagotag-esl-serverip <ip-address>`|Configures the ip address of the SES-Imagotag ESL server.<br>Available options are:<br> - ***ip-address*** - SES-Imagotag ESL server ip address|
+|`sesImagotag-esl-tls-auth`|`sesImagotag-esl-tls-auth`|Enables AP authentication with the SES-Imagotag ESL server|
+|`sesImagotag-esl-tls-fqdn-verify`|`sesImagotag-esl-tls-fqdn-verify`|Enables TLS certificate verification for the SES-Imagotag ESL server connection checking the configured FQDN against the TLS certificate presented by the SES-Imagotag server during connection establishment.|  
+
 Examples:
 
 **ArubaOS**
@@ -751,7 +772,7 @@ ap system-profile "iot-ap-system-prof"
 
 ```
 sesimagotag-esl-profile
- sesimagotag-esl-server ses-imagotag.com
+ sesimagotag-esl-server "ses-imagotag.com"
  sesimagotag-esl-channel 127
  sesimagotag-esl-tls-auth
  sesimagotag-esl-tls-fqdn-verify
