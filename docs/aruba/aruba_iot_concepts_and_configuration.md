@@ -20,28 +20,41 @@ The Aruba access point Wi-Fi radios can be used to forward associated/unassociat
 ### **Aruba IoT radio**
 
 An Aruba IoT radio is an additional internal or external radio in the Aruba AP-3xx/5xx series access points that can be leveraged for IoT connectivity.  
-A single Aruba AP-3xx/5xx series access points can support up to two IoT radios, one internal and one external. This would used cases where one radio could be used for BLE and another for ZigBee for example.  
+A single Aruba AP-3xx/5xx series access points can support up to two IoT radios, one internal and one external. This would allow to use one radio for BLE and the other one for ZigBee concurrently.  
 The access point removes/adds the radio specific headers from/to IoT devices e.g. BLE or ZigBee and forwards/receives the data payload encapsulated in the Aruba IoT server interface protocol to/from the IoT backend system.  
 
-#### ***Integrated***
+#### ***Internal***
 
 Aruba AP-3xx/5xx series access points provide an integrated Aruba IoT radio for the IoT connectivity supporting the following radio technologies:
 
 - AP-3xx: BLE4 (Gen1)
 - AP-5xx: BLE5/802.15.4 (Gen2) e.g. ZigBee
 
+>***Note:***  
+>[BLE connect](#ble-connect) IoT transport services using the [Aruba IoT interface](#aruba-iot-server-interface) southbound API are only supported using the integrated IoT radio.  
+>Furthermore BLE security (authentication/encryption) via [BLE connect](#ble-connect) is only supported on the AP-5xx: BLE5/802.15.4 (Gen2) IoT radio starting with ArubaOS/Instant OS version 8.8.
+
+*BLE Wi-Fi Co-Existence*
+
+Starting with ArubaOS/Instant OS version 8.8 **BLE Wi-Fi Co-Existence** has been introduced to improve the overall WLAN and BLE receiver performance and to prevent inter-modulation by coordinating WLAN and BLE traffic and avoiding WLAN and BLE transmitting simultaneously. The feature is enabled by default.
+
+>***Note:***  
+>BLE Wi-Fi Co-Existence is only supported for the internal IoT radio. 
+
 #### ***External***
 
-In addition to the internal IoT radio Aruba also provides [IoT expansion radio](https://www.arubanetworks.com/assets/ds/DS_IoT-Expansion-Radio.pdf) supports the same radio technologies as the AP-5xx series access points:  
+In addition to the internal IoT radio Aruba also provides an [IoT expansion radio](https://www.arubanetworks.com/assets/ds/DS_IoT-Expansion-Radio.pdf) that supports the same radio technologies as the AP-5xx series access points:  
 
 - Aruba IoT Expansion Radio = BLE5/802.15.4 (Gen2) e.g. ZigBee
+
+The intention of the Aruba IoT expansion radio is to add the 802.15.4(ZigBee) capability to the AP-3xx series access points.
 
 >***Note:***  
 >The internal and the expansion BLE5/802.15.4 (Gne2) IoT radio can be enabled to run in BLE and ZigBee concurrently. But in this case the IoT radio can only transmit but not receive BLE packet, while the ZigBee communication works bi-directional.  
 >  
-> This allows enabling the APs BLE console as well as BLE beaconing (iBeacon) for indoor navigation use cases in parallel to ZigBee user cases. But BLE tracking uses cases like asset tracking are not supported in this case.  
+> This allows enabling the APs BLE console as well as BLE beaconing (iBeacon) for indoor navigation use cases in parallel to ZigBee use cases. But BLE tracking uses cases like asset tracking are not supported in this case.  
 >  
-> In order to support BLE tracking or bi-directional use cases concurrently to ZigBee uses cases on the same access points two Aruba IoT radios Gen2, one internal and one external, are required. Therefore this scenario is currently only supported on the Aruba AP-5xx series access points.
+> In order to support BLE tracking or bi-directional use cases concurrently to ZigBee uses cases on the same access points two Aruba IoT radios Gen2, one internal and one external, are required. The external radio should be used as ZigBee radio in this case. Therefore this scenario is currently only supported on the Aruba AP-5xx series access points.
 
 The configuration of the Aruba IoT radios is handled in the [IoT radio profile](#iot-radio-profile) configuration.
 
