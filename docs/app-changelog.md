@@ -2,11 +2,28 @@
 
 ### New features in this release:
 
-- new BLE-Connect feature
+- implementation of Aruba IoT BLE-Connect functionality
+    - connecting to devices via sensors
+    - authenticating, pairing and bonding with devices via sensors
+    - reading and writing on GATT-services of connected devices
+    - support of GATT-Notification and GATT-Indication
+    - Philips Hue control panel (BETA)
+- BLE-Connect presets
+    - functionality to save connection presets (device and sensor)
+    - shortcuts to open connections to previous devices
+    - connection and security information of device can be stored
+    - functionality to reconnect after successful authentication
 
 ### Reworked features and improvements:
 
+- reworked certificate generator dialog
+    - updated components
+    - fixed data loss on rotation
+    - added certificate generation in background without dialog
+
 ### Fixed bugs and issues:
+
+- fixed bug that caused app to crash on rotation in main activity
 
 ---
 
