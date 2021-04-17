@@ -1,6 +1,46 @@
-# Aruba IoT concepts and configuration
+# Aruba IoT Configuration Guide
 
-This chapter describes the principals of the Aruba IoT integrations and configuration using ArubaOS/Aruba Instant version 8.8.0.0 or higher.
+This document describes the principals and configuration of the Aruba IoT integrations using ArubaOS/Aruba Instant version 8.8.0.0 or higher.
+
+### **Table of contents**
+
+*  [Aruba IoT concepts](#aruba-iot-concepts)  
+  
+    *  [IoT connectivity (radio-side)](#iot-connectivity-radio-side)  
+
+       *   [Wi-Fi](#wi-fi)
+       *  [Aruba IoT radio](#aruba-iot-radio)
+       *  [USB/3rd party IoT radios](#usb3rd-party-iot-radios)  
+
+    *  [IoT server connectivity (server-side)](#iot-server-connectivity-server-side)
+  
+       *  [Aruba IoT server interface](#aruba-iot-server-interface)
+       *  [IoT server connection types](#iot-server-connection-types)
+       *  [Authentication and authorization](#authentication-and-authorization)
+       *  [Connection management](#connection-management)
+       *  [IoT transport services](#iot-transport-services)
+       *  [Device class filter](#device-class-filter)
+       *  [Data contet filters](#data-content-filters)
+
+*  [Configuration](#configuration)
+  
+   *  [IoT radio profile](#iot-radio-profile)
+   *  [IoT transport profile](#iot-transport-profile)
+   *  [AP USB device management](#ap-usb-device-management)
+   *  [Wired-Port profile](#wired-port-profile)
+   *  [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)
+
+*  [Configuration examples](#configuration-examples)
+  
+*  [Appendix](#appendix)
+
+    *  [Aruba reference documenation](#aruba-reference-documentation)
+    *  [Aruba IoT server interface - connection types](#aruba-iot-server-interface---connection-types)
+    *  [Supported IoT vendor/device class list](#supported-iot-vendordevice-class-list)
+    *  [Supported USB vendor list for IoT](#supported-usb-vendor-list-for-iot)
+
+
+# [Aruba IoT concepts](#table-of-contents)
 
 [Aruba, a Hewlett Packard Enterprise (HPE) company](https://www.arubanetworks.com/) supports IoT applications based on Wi-Fi (e.g. Wi-Fi tracking), BLE (e.g. asset tracking or sensor monitoring), ZigBee and 3rd party protocols via USB-extension by providing the connection layer using Aruba access points. IoT devices can send/receive data via the Aruba APs built-in radios or supported 3rd party radios connected via USB to 3rd party backend system.
 
@@ -9,15 +49,15 @@ This chapter describes the principals of the Aruba IoT integrations and configur
 The Aruba AP radios can be used as transmitter/receiver (e.g. BLE connect, ZigBee) or just a receiver/sensor (e.g. BLE asset tracking, Wi-Fi tracking), depending on the respective IoT solution. With that the AP provides a one-way or two-way communication channel between IoT devices (e.g, sensors, actors) and IoT systems.  
 The access point works as protocol translational gateway between the different IoT radios/protocols and the Aruba IoT server interface protocol or plain IP protocol depending on the respective IoT solution being used.  
 
-## IoT connectivity (radio-side)
+## [IoT connectivity (radio-side)](#table-of-contents)
 
 On the radio-side the Aruba access points support different IoT radio technologies either though integrated radios or 3rd party solutions connected to the APs USB port.
 
-### **Wi-Fi**
+### [**Wi-Fi**](#table-of-contents)
 
 The Aruba access point Wi-Fi radios can be used to forward associated/unassociated client information and RTLS data for Wi-Fi based tracking use cases. Wi-Fi client and RTLS data is encapsulated in the Aruba IoT server interface protocol and forwarded to the IoT backend system.  
 
-### **Aruba IoT radio**
+### [**Aruba IoT radio**](#table-of-contents)
 
 An Aruba IoT radio is an additional internal or external radio in the Aruba AP-3xx/5xx series access points that can be leveraged for IoT connectivity.  
 A single Aruba AP-3xx/5xx series access points can support up to two IoT radios, one internal and one external. This would allow to use one radio for BLE and the other one for ZigBee concurrently.  
@@ -58,7 +98,7 @@ The intention of the Aruba IoT expansion radio is to add the 802.15.4(ZigBee) ca
 
 The configuration of the Aruba IoT radios is handled in the [IoT radio profile](#iot-radio-profile) configuration.
 
-### **USB/3rd party IoT radios**
+### [**USB/3rd party IoT radios**](#table-of-contents)
 
 Aruba supports the extension of Aruba access points using USB with supported 3rd party solutions. Depending on the particular solution the integration uses one of the following methods:
 
@@ -86,7 +126,7 @@ The following vendor specific [USB integrations](#supported-usb-vendor-list-for-
  
 - [SES Imagotag Electronic Shelf Labels (ESL)](#ses-imagotag-esl-configuration)
 
-## IoT server connectivity (server-side)
+## [IoT server connectivity (server-side)](#table-of-contents)
 
 On the server-side IoT data payloads are either forwarded directly by [USB-to-ethernet](#usb-to-ethernet) connected devices using IP transport or using the [Aruba IoT server interface](#aruba-iot-server-interface) providing different transport protocols and data encapsulations.
 
@@ -95,7 +135,7 @@ USB-to-ethernet connectivity only requires applying a [Wired-Port profile](#wire
 >***Note:***  
 >Vendor specific USB implementations like *SES Imagotag Electronic Shelf Labels (ESL)* are using IP transport with a [vendor specific configuration](#vendor-specific-implementations).  
 
-### **Aruba IoT server interface**
+### [**Aruba IoT server interface**](#table-of-contents)
 
 The **Aruba IoT server interface** is an Aruba proprietary server-side connectivity interface to connect to IoT servers using the Aruba AP's or Aruba controllers management IP address. The interface provide multiple transport protocol and data encapsulation options and is specified in the [Aruba IoT Server Interface Guide](#aruba-iot-server-interface-guide).  
 All **Aruba IoT server interface** related aspects are configured in an [iot transport profile](#iot-transport-profile).  
@@ -106,7 +146,7 @@ Up to 4 iot transport profiles can be concurrently enabled per Aruba Instant AP 
 
 The following chapters describe the **Aruba IoT server interface** related options and services.
 
-### **IoT server connection types**
+### [**IoT server connection types**](#table-of-contents)
 
 The Aruba IoT server interface supports vendor specific and generic [IoT server connections](#aruba-iot-server-interface---connection-types).  
 
@@ -152,7 +192,7 @@ Please refer to [importing certificates](#importing-certificates) for how to add
 >***Note:***  
 >The IoT-Utilities app provides a download link on the web dashboard to download the self-signed server certificate. Alternatively a certificate signed by a private or public CA certificate that is trusted by the Aruba infrastructure can be installed into the app.
 
-### **Authentication and authorization**
+### [**Authentication and authorization**](#table-of-contents)
 
 Depending on the [Aruba IoT server connection type](#aruba-iot-server-interface---connection-types) different authentication and authorization methods are supported/required to establish server-side connections.
 
@@ -164,7 +204,7 @@ Supported authentication and authorization methods are:
 
 Details about the different authentication methods are documented in the [Aruba IoT Server Interface Guide](#aruba-iot-server-interface-guide).
 
-### **Connection management**
+### [**Connection management**](#table-of-contents)
 
 Server connections are established form every single Aruba Instant access point, in case of a controller-less setup, or from every Aruba controller in case of a controller-based setup.  
 
@@ -182,7 +222,7 @@ In a controller based setup IoT data is forwarded to/from the remote IoT server 
 >  
 >For details please refer to the [Aruba IoT Server Interface Guide](#aruba-iot-server-interface-guide).
 
-### **IoT transport services**
+### [**IoT transport services**](#table-of-contents)
 
 The Aruba IoT server interface supports different transport services for the IoT communication.
 
@@ -353,7 +393,7 @@ ZigBee socket device (ZSD) is enabled using the device class [zsd](#zigbee-socke
 >***Note:***  
 >ZigBee socket device (ZSD) is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
 
-### **Device Class Filter**
+### [**Device Class Filter**](#table-of-contents)
 
 Device class filters are used to enabled specific [IoT transport services](#iot-transport-services) over an [IoT server connection](#iot-server-connectivity-server-side) and to control the amount of IoT data transferred on an Aruba infrastructure by using input/output filtering.
 
@@ -392,7 +432,7 @@ The device class ***serial-data*** enables the [serial-data forwarding](#serial-
 
 The device class ***zsd*** enables the [ZigBee socket device](#zigbee-socket-device) transport service to enable ZigBee applications.
 
-### **Data content filters**
+### [**Data content filters**](#table-of-contents)
 
 In addition to filter for specific [device classes](#device-class-filter) it possible to filter the forwarded IoT data content before being sent to the remote Iot system.
 
@@ -460,7 +500,7 @@ When [BLE data forwarding](#ble-data-forwarding) is enabled, the raw payload con
 For example: If a device advertises an iBeacon frame and an Eddystone frame and in the [transport profile](#iot-transport-profile) the ***iBeacon*** device class has been selected only, then for this device both iBeacon and Eddystone frames are forward.  
 If per frame filtering is enabled in addition to the BLE data forwarding , then only the raw payloads from the iBeacon frames will be forwarded.  
 
-# Configuration
+# [Configuration](#table-of-contents)
 
 In this chapter the ArubaOS/Aruba Instant configuration steps are described to setup the Aruba infrastructure for IoT solutions.
 
@@ -488,7 +528,7 @@ In the table below the required configuration items for step 1 and step 2 per Io
 >
 >Which USB device are allowed to connect to an access point can be controlled using the [AP USB device management](#ap-usb-device-management).
 
-## IoT radio profile
+## [IoT radio profile](#table-of-contents)
 
 `iot radio-profile`'s are used to configure the [Aruba IoT radio](#aruba-iot-radio) mode, BLE and/or ZigBee, and the respective mode settings. An `iot radio-profile` can either be applied to an internal or external radio instance.  
 
@@ -534,7 +574,7 @@ For details about the `ap-group` configuration refer to the [ArubaOS CLI Referen
 >***Note:***  
 >Multiple `iot radio-profile`'s can be configured but a **maximum of two**, one internal and one external can be **enabled** per access point (Aruba Instant) or access point group (ArubaOS).
 
-## IoT transport profile
+## [IoT transport profile](#table-of-contents)
 
 The `iot transport profile` defines the [IoT server connectivity](#iot-server-connectivity-server-side) settings using the [Aruba IoT server interface](#aruba-iot-server-interface-guide).
 
@@ -600,7 +640,7 @@ An `iot transportProfile` is enabled using the following command:
 >***Note:***  
 >Multiple transport profiles can be configured, but a maximum of 4 transport profiles can be enabled per access point (Aruba Instant) or access point group (ArubaOS).
 
-## AP USB device management
+## [AP USB device management](#table-of-contents)
   
 AP USB device management controls connected USB devices using USB profiles and USB ACL profiles. An USB ACL profile is assigned to an AP or AP group using an USB profile.
 
@@ -675,7 +715,7 @@ exit
 usb-profile-binding "UsbProf1"
 ```
 
-## Wired-Port profile
+## [Wired-Port profile](#table-of-contents)
 
 A wired port profile configures the USB port on the AP as a wired ethernet port. It allows to configure all aspects of the ethernet connectivity of the USB device including the following:
 
@@ -753,7 +793,7 @@ exit
 enet-usb-port-profile "USB-to-ethernet-wiredPortProf1"
 ```
 
-## SES Imagotag ESL configuration
+## [SES Imagotag ESL configuration](#table-of-contents)
 
 SES-Imagotag’s Electronic Shelf Label system uses a [vendor-specific](#vendor-specific-implementations) USB integration with the Aruba infrastructure using a dedicated set of configuration commands.
 In ArubaOS the SES-Imagotag configuration is enabled in the `ap system-profile` where Aruba Instant uses an `sesimagotag-esl-profile`.
@@ -803,7 +843,7 @@ sesimagotag-esl-profile
 
 ```
 
-# Configuration Examples
+# [Configuration Examples](#table-of-contents)
 
 ```
 
@@ -869,12 +909,6 @@ sesimagotag-esl-profile
 
 ```
 
-## Zigbee (e.g. ASSA ABLOY)
-
-```
-
-```
-
 ## USB/3rd party radio solutions
 
 ```
@@ -899,9 +933,17 @@ sesimagotag-esl-profile
 
 ```
 
-# Appendix
+## Zigbee (e.g. ASSA ABLOY)
 
-## Aruba Reference Documentation
+```
+
+```
+
+# Verification and troubleshooting
+
+# [Appendix](#table-of-contents)
+
+## [Aruba Reference Documentation](#table-of-contents)
 
 *  [ArubaOS Online Documentation](https://www.arubanetworks.com/techdocs/ArubaOS_8.8.0_Web_Help/Content/home.htm)
 *  [Aruba Instant Online Documentation](https://www.arubanetworks.com/techdocs/Instant_88_WebHelp/Content/homeinstant.htm)
@@ -971,7 +1013,7 @@ sesimagotag-esl-profile
 
 * [Azure IoT Hub Integration Tech Note (not available yet)](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot) 
 
-## Aruba IoT server interface - connection types
+## [Aruba IoT server interface - connection types](#table-of-contents)
 
 Supported connection type list as of ArubaOS/Aruba Instant version 8.8.0.0.
 
@@ -985,7 +1027,7 @@ Supported connection type list as of ArubaOS/Aruba Instant version 8.8.0.0.
 |[Telemetry-Websocket](#telemetry-websocket)|web socket (ws), secure web socket (wss)|Protocol Buffers (protobuf)|username/password, client_id/secret, static access token|1-3600 s, default: 600 s|all BLE types, wifi-tags, serial-data, zsd (ZigBee)|Stream data payloads to Aruba IoT interface compatible web socket server|
 |ZF-Openmatics|secure web socket (wss)|vendor specific|username/password|5-600 s, default: 60 s|zf-tags|ZF Openmatics cloud management|
 
-## Supported IoT vendor/device class list
+## [Supported IoT vendor/device class list](#table-of-contents)
 
 Device class list as of ArubaOS/Aruba Instant version 8.8.0.0.
 
@@ -1020,7 +1062,7 @@ Device class list as of ArubaOS/Aruba Instant version 8.8.0.0.
 |wifi-unassoc-sta|Wi-Fi|[Telemetry-Websocket](#telemetry-websocket)|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
 |wifi-tags|Wi-Fi|[Telemetry-Websocket](#telemetry-websocket)|8.6.0.0 or higher|Forwarding Wi-Fi tag data to 3rd party system|
 
-## Supported USB vendor list for IoT
+## [Supported USB vendor list for IoT](#table-of-contents)
 
 IoT related supported USB vendor list as of ArubaOS/Aruba Instant version 8.8.0.0.
 
