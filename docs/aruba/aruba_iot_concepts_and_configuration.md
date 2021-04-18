@@ -12,7 +12,7 @@ This document describes the principals and configuration of the Aruba IoT integr
        *  [Aruba IoT radio](#aruba-iot-radio)
        *  [USB/3rd party IoT radios](#usb3rd-party-iot-radios)  
 
-    *  [IoT server connectivity (server-side)](#iot-server-connectivity-server-side)
+    *  [IoT server connectivity (server-side)](#iot-server-connectivity-server-side)  
   
        *  [Aruba IoT server interface](#aruba-iot-server-interface)
        *  [IoT server connection types](#iot-server-connection-types)
@@ -20,25 +20,25 @@ This document describes the principals and configuration of the Aruba IoT integr
        *  [Connection management](#connection-management)
        *  [IoT transport services](#iot-transport-services)
        *  [Device class filter](#device-class-filter)
-       *  [Data contet filters](#data-content-filters)
+       *  [Data contet filters](#data-content-filters)  
 
-*  [Configuration](#configuration)
+*  [Configuration](#configuration)  
   
    *  [IoT radio profile](#iot-radio-profile)
    *  [IoT transport profile](#iot-transport-profile)
    *  [AP USB device management](#ap-usb-device-management)
    *  [Wired-Port profile](#wired-port-profile)
-   *  [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)
+   *  [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration) 
+   *  [ZigBee configuration](#zigbee-configuration) 
 
-*  [Configuration examples](#configuration-examples)
+*  [Configuration examples](#configuration-examples)  
   
-*  [Appendix](#appendix)
+*  [Appendix](#appendix)  
 
     *  [Aruba reference documenation](#aruba-reference-documentation)
     *  [Aruba IoT server interface - connection types](#aruba-iot-server-interface---connection-types)
     *  [Supported IoT vendor/device class list](#supported-iot-vendordevice-class-list)
-    *  [Supported USB vendor list for IoT](#supported-usb-vendor-list-for-iot)
-
+    *  [Supported USB vendor list for IoT](#supported-usb-vendor-list-for-iot)  
 
 # [Aruba IoT concepts](#table-of-contents)
 
@@ -367,31 +367,35 @@ Serial data forwarding is enabled using the device class [serial-data](#usb3rd-p
 
 #### **ZigBee socket device**
 
-ZigBee socket device (ZSD) is a generic approach used for enabling ZigBee applications using the [Aruba IoT radio Gen2](#aruba-iot-radio).
+ZigBee socket device (ZSD) service is a generic approach used for enabling ZigBee applications using the [Aruba IoT radio Gen2](#aruba-iot-radio).
 
->***Note:***  
->The ZigBee based Assa-Abloy solution uses a vendor specific [server connection type](#aruba-iot-server-interface---connection-types) and not the ZSD transport service.
+Sending/receiving ZigBee application data using the ZigBee socket device (ZSD) service requires the configuration of one or multiple [ZigBee socket device profiles](#zigbee-socket-device-profile) which define the inbound and outbound sockets used by the respective ZigBee application.  
 
-Sending/receiving ZigBee application data using the ZigBee socket device (ZSD) method requires the configuration of one or multiple [ZigBee socket device profiles](#zigbee-socket-device-profile) which define the inbound and outbound sockets used by the respective ZigBee application.  
+- **Inbound sockets**
+  - Defines data received by the AP from ZigBee devices via the ZigBee radio
+  - Data is forwarded to the remote ZigBee application server via the Aruba IoT interface
 
-- inbound sockets: receiving data from ZigBee devices
-- outbound sockets: sending data to ZigBee devices
+- **Outbound sockets**
+  - Defines data received by the AP form the ZigBee application server via the Aruba IoT interface
+  - Data is forwarded to ZigBee devices via the ZigBee radio
 
 A ZigBee socket profile definition consists of four items:  
 
-- source-endpoint
-- destination-endpoint
+- source endpoint
+- destination endpoint
 - profile ID
 - cluster ID
 
 Different ZigBee services have different socket definitions, may be even for inbound and outbound connections.  
 
-Only the [Aruba IoT radios Gen2](#aruba-iot-radio) support working as coordinator in a ZigBee network. The [ZigBee service profile](#zigbee-service-profile) defines the ZigBee network parameter.
+Only the [Aruba IoT radios Gen2](#aruba-iot-radio) supports the ZigBee protocol and provides the coordinator function to establish a ZigBee network. The [ZigBee service profile](#zigbee-service-profile) defines the respective ZigBee network parameters.
 
-ZigBee socket device (ZSD) is enabled using the device class [zsd](#zigbee-socket-device-class-filter) in the [iot transport profile](#iot-transport-profile) configuration. In addition one or multiple [ZigBee socket device profiles](#zigbee-socket-device-profile) have to be defined and assigned in the [iot transport profile](#iot-transport-profile) configuration.
+ZigBee socket device (ZSD) service is enabled using the device class [zsd](#zigbee-socket-device-class-filter) in the [iot transport profile](#iot-transport-profile) configuration. In addition one or multiple [ZigBee socket device profiles](#zigbee-socket-device-profile) have to be defined and assigned in the [iot transport profile](#iot-transport-profile) configuration.
 
 >***Note:***  
->ZigBee socket device (ZSD) is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
+>The ZigBee socket device (ZSD) service is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
+
+Details about the required configuration steps are describe in the chapter [ZigBee configuration](#zigbee-configuration).
 
 ### [**Device Class Filter**](#table-of-contents)
 
@@ -576,9 +580,9 @@ For details about the `ap-group` configuration refer to the [ArubaOS CLI Referen
 
 ## [IoT transport profile](#table-of-contents)
 
-The `iot transport profile` defines the [IoT server connectivity](#iot-server-connectivity-server-side) settings using the [Aruba IoT server interface](#aruba-iot-server-interface-guide).
+The `iot transportProfile` defines the [IoT server connectivity](#iot-server-connectivity-server-side) settings using the [Aruba IoT server interface](#aruba-iot-server-interface-guide).
 
-The following table lists the available `iot transport profile` parameters and their description:
+The following table lists the available `iot transportProfile` parameters and their description:
 
 |ArubaOS|Aruba Instant|Description|
 |-|-|-|
@@ -627,7 +631,6 @@ The following table lists the available `iot transport profile` parameters and t
 |`include-ap-group <ap-group>`|n/a|Applies one ore multiple AP groups to the transport profile.<br>Only supported on ArubaOS.<br>Required input values:<br>- ***ap-group*** - AP group name|
 
 >***Additional CLI parameters:***  
->
 >- `clone` - Copy data from another `iot transport profile` (ArubaOS only)
 >- `no` - Delete a command from the profile
 
@@ -796,7 +799,7 @@ enet-usb-port-profile "USB-to-ethernet-wiredPortProf1"
 ## [SES Imagotag ESL configuration](#table-of-contents)
 
 SES-Imagotag’s Electronic Shelf Label system uses a [vendor-specific](#vendor-specific-implementations) USB integration with the Aruba infrastructure using a dedicated set of configuration commands.
-In ArubaOS the SES-Imagotag configuration is enabled in the `ap system-profile` where Aruba Instant uses an `sesimagotag-esl-profile`.
+In ArubaOS the SES-Imagotag configuration is enabled in the [`ap system-profile`](#aruba-cli-reference---ap-system-profile) where Aruba Instant uses an `sesimagotag-esl-profile`.
 
 |ArubaOS|Aruba Instant|Description|
 |-|-|-|
@@ -831,16 +834,184 @@ sesimagotag-esl-profile
  sesimagotag-esl-tls-fqdn-verify
 ```
 
-## ZigBee service profile
+## [ZigBee configuration](#table-of-contents)
+
+This secion describes the required configuration for ZigBee based solutions via the [Aruba IoT radio Gen2](#aruba-iot-radio) using the [ZigBee socket device transport service](#zigbee-socket-device).
+
+Configuring a ZigBee solution requires the following setps:  
+
+1)  Configuring an [`iot radio-profile`](#iot-radio-profile)  
+2)  Configuring a [`zigbee service-profile`](#zigbee-service-profile)
+3)  Configuring a [`zigbee socket-device-profile`](#zigbee-socket-device-profile)
+4)  Configuring an [`iot transportProfile`](#iot-transport-profile)
+
+>***Note:***  
+>**Assa-Abloy** is currently the only supported vendor specific ZigBee solution using a vendor specific [server connection type](#aruba-iot-server-interface---connection-types) and not using the generic [Zigbee socket device framework](#zigbee-socket-device). Therefore step 3) `zigbee socket-device-profile` confugration is NOT required for this solution.
+
+### ZigBee service profile
+
+The `zigbee service-profile` determines the Zigbee network settings if ZigBee has been enabled in the [`iot radio-profile`](#iot-radio-profile) configuration.  
+
+|ArubaOS|Aruba Instant|Description|
+|-|-|-|
+|`zigbee service-profile <profile-name>`|`zigbee service-profile <profile-name>`|**Name** of the Zigbee service-profile.|
+|`panid <panid>`|`panid <panid>`|Sets the ZigBee **pernsonal network identifier (PAN ID)**.<br>Available options are:<br> - ***auto*** - automatically selects a PAN ID (default)<br> - ***[0000-FFF0]*** - hexadecimal PAN ID|
+|`permit-joining {off, on}`|`permit-joining {off, on}`|Enables or disables joining permission of new devices to the APs ZigBee network permanently.<br>Available options are:<br> - ***off*** - permanent joinging disabled (default)<br> - ***on*** - permanent joining enabled<br> ***Note:*** To allow devices to join in case joining is disabled see [Permit ZigBee device joining](#permit-zigbee-device-joining)|
+|`radio-instance {all, external, internal}`|`radio-instance {all, external, internal}`|Determines the IoT ZigBee radio instance the ZigBee service profile should be used with.<br>Available options are:<br> - ***all*** - applies the service-profile to internal and external IoT radios (default)<br> - ***external*** - applies the servcie profile to external radio's only<br> - ***internal*** - applies the service-profile to internal radios only.|
+|`security {disable, enable}`|`security {disable, enable}`|Enables or disables ZigBee security.<br>Available options are:<br> - ***enable*** - enables ZigBee security (default) <br> - ***disable*** - disables ZigBee security|
+
+>***Additional CLI parameters:***  
+>- `clone` - Copy data from another `zigbee service-profile` (ArubaOS only)
+>- `no` - Delete a command from the profile
+
+A `zigbee service-profile` is bound to an AP or AP group using the following commands:
+
+**ArubaOS**
 
 ```
-
+ap-group <ap-group-name>
+    zigbee service-profile <profile-name>
 ```
 
-## ZigBee socket-device-profile
+For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](#aruba-cli-reference---ap-group).
+
+**Aruba Instant**
 
 ```
+zigbee use-service-profile <profile-name>
+```
 
+#### **Permit ZigBee device joining**
+
+If `permit-joining` is disabled in the `zigbee service-profile`, which is the default setting, new clients can only join an APs ZigBee radio when it is temporarily permitted.
+Temporarily permitting joining is enabled using the `zigbee-init-action` command `permit-joining`.
+
+|ArubaOS|Aruba Instant|Description|
+|-|-|-|
+|`ap zigbee-init-action permit-joining {ap-name, ip-addr, ipv6-addr} <ap-name, ip-addr, ipv6-addr> radio <radio-addr> restart [<duration>]`|`zigbee-init-action permit-joining radio <radio-addr> restart [<duration>]`|Opens the APs ZigBee radio for new zigBee device to join.<br>Available options:<br> - ***radio-addr*** - ZigBee radio MAC address or ***all***<br> - ***duration*** - 60 - 600 seconds, time window to allow joining, default: 600 s <br>Available options (ArubaOS-only):<br> - ***ap-name, ip-addr, ip6-addr*** - AP name or IP to execture the command on|
+|`ap zigbee-init-action permit-joining {ap-name, ip-addr, ipv6-addr} <ap-name, ip-addr, ipv6-addr> radio <radio-addr> stop`|`zigbee-init-action permit-joining radio <radio-addr> stop`|Closes the APs ZigBee radio for new ZigBee devices imidiately.<br>Available options:<br> - ***radio-addr*** - ZigBee radio MAC address or ***all***<br> - ***duration*** - 60 - 600 seconds, time window to allow joining, default: 600 s <br>Available options (ArubaOS-only):<br> - ***ap-name, ip-addr, ip6-addr*** - AP name or IP to execture the command on|
+
+### ZigBee socket-device-profile
+
+The `zigbee socket-device-profile` profile defines the **inbound and outbound sockets** of a ZigBee application using the [zigbee socket device (ZSD) service](#zigbee-socket-device).
+
+|ArubaOS|Aruba Instant|Description|
+|-|-|-|
+|`zigbee socket-device-profile <socket-device-profile-name>`|`zigbee socket-device-profile <socket-device-profile-name>`|**Name** of the Zigbee socket-device-profile.|
+|`zigbee socket-inbound-profile <inbound-socket-profile-name>`<br>or<br>`zigbee socket-outbound-profile <outbound-socket-profile-name>`|n/a|Adds an **inbound** or **outbound** socket profile entry to the `socket-device-profile` (ArubaOS only).<br> - ***Name*** - name of the inbound/outbound socket profile<br>**Note**:<br>In ArubaOS inbound/outbound socket profiles are explicitley defined while in Aruba Instant inbound/outbound socket entries are added directly (see next).|
+|`source_endpoint <source_endpoint>`<br>`endpoint <endpoint>`<br>`profile <profile>`<br>`cluster <cluster>`<br>` [aps-ack]`|`<inbound, outbound> <source_endpoint> <endpoint> <profile> <cluster> [aps-ack]`|Adds the zigbee socket device profile parameters.<br>Available options:<br> - ***inbound/outbound*** - socket direction (Aruba Instant only)<br> - ***source_endpoint*** - ZigBee application soruce endpoint, range [1, 254]<br> - ***endpoint*** - ZigBee application destination endpoint, range [1, 254]<br> - ***profile*** - ZigBee application profile ID, range [0x0000, 0x7FFF], [0xC000, 0xFFFF]<br> - ***cluster*** - ZigBee application cluster ID, range [0x0000, 0x7FFF], [0xFC00, 0xFFFF]<br> - ***aps-ack*** - Enables acknowledgement of ZigBee APS packets, optional, only applicable if socket direction is set to `outbound`|
+
+The `zigbee socket-device-profile` is assigned to the [`iot transportProfile`](#iot-transport-profile) using the `ZSDFilter` command.
+
+>***Note:***  
+>A maximum of 8 inbound and 4 outbound socket are supported per ZigBee socket device profile while a maximum of 4 ZigBee socket device profiles are supported per IoT transport profile.
+
+Examples:
+
+**ArubaOS**
+
+```
+zigbee service-profile "ext-zb"
+    radio-instance external
+!
+zigbee service-profile "ext-zb"
+    radio-instance external
+!
+ap-group "ApGroup1"
+    iot radio-profile "ext-zigbee"
+    zigbee service-profile "ext-zb"
+!
+zigbee socket-inbound-profile "zb-in-prof-1"
+    cluster 2100
+	profile 0a1e
+    endpoint 242
+    source-endpoint 1
+!	
+zigbee socket-inbound-profile "zb-in-prof-2"
+    cluster 1900
+	profile 0104
+    endpoint 11
+    source-endpoint 1
+!
+zigbee socket-outbound-profile "zb-out-prof-1" 
+	cluster 0000
+    profile 0104
+    endpoint 11
+    source-endpoint 1
+!
+zigbee socket-outbound-profile "zb-out-prof-2" 
+	cluster 0003
+    profile 0104
+    endpoint 11
+    source-endpoint 1
+!
+zigbee socket-outbound-profile "zb-out-prof-3" 
+	cluster 0010
+    profile 0104
+    endpoint 11
+    source-endpoint 1
+!
+zigbee socket-outbound-profile "zb-out-prof-4" 
+	cluster 01fc
+    profile 0104
+    endpoint 11
+    source-endpoint 1
+!
+zigbee socket-device-profile "zb-device-prof-1"
+    inbound "zb-in-prof-1"
+	outbound "zb-out-prof-1"
+	outbound "zb-out-prof-2"
+!
+zigbee socket-device-profile "zb-device-prof-2"
+    inbound "zb-in-prof-2"
+	outbound "zb-out-prof-3"
+	outbound "zb-out-prof-4"
+!
+iot transportProfile "ZigBee"
+    serverType Telemetry-Websocket
+    serverURL "wss://1.1.1.1/zigbee"
+    accessToken "any"
+    clientId "ArubaOS"
+    deviceClassFilter ZSD
+    ZSDFilter "zb-device-prof-1"
+    ZSDFilter "zb-device-prof-2"
+    include-ap-group "ApGroup1"
+!
+iot useTransportProfile "ZigBee"
+```
+
+**Aruba Instant**
+
+```
+iot radio-profile int-zb
+ radio-mode zigbee
+ exit
+
+zigbee service-profile zb-sec-auto
+
+zigbee socket-device-profile "zb-device-prof-1"
+ inbound 242 1 0a1e 2100
+ inbound 11 1 0104 1900
+ outbound 1 11 0104 0000
+ outbound 1 11 0104 0003
+ outbound 1 11 0104 0010
+ outbound 1 11 0104 01fc
+ exit
+
+iot transportProfile "ZigBee"
+ endpointURL "wss://1.1.1.1/zigbee"
+ endpointType telemetry-websocket
+ payloadContent zsd
+ endpointToken any
+ endpointID "Aruba Instant"
+ ZSDFilter "zb-device-prof-1"
+ exit
+
+iot use-radio-profile int-zb
+
+zigbee use-service-profile zb-sec-auto
+
+iot useTransportProfile "ZigBee"
 ```
 
 # [Configuration Examples](#table-of-contents)
@@ -955,7 +1126,7 @@ sesimagotag-esl-profile
 
 ### Aruba CLI Reference - ap system-profile
 
--   [ArubaOS ClI Reference - ap system-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/ap-system-pro.htm)
+-   [ArubaOS CLI Reference - ap system-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/ap-system-pro.htm)
 
 ### Aruba CLI Reference - iot radio-profile
 
@@ -969,8 +1140,8 @@ sesimagotag-esl-profile
 
 ### Aruba CLI Reference - Data-Filter
 
-*   [ArubaOS - Data-Filter Values](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/iot-trans-pro.htm#DataFilt)
-*   [Aruba Instant - Data-Filter Values](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/iot-transportpro.htm?Highlight=iot%20transport%20profile#DataFilt)
+*   [ArubaOS CLI Reference - Data-Filter Values](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/iot-trans-pro.htm#DataFilt)
+*   [Aruba Instant CLI Reference - Data-Filter Values](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/iot-transportpro.htm?Highlight=iot%20transport%20profile#DataFilt)
 
 ### Aruba CLI Reference - USB ACL profile
 
@@ -993,8 +1164,12 @@ sesimagotag-esl-profile
 
 ### Aruba CLI Reference - Importing Certificates
 
-* [AurbaOS Importing Certificates](https://www.arubanetworks.com/techdocs/ArubaOS_8.8.0_Web_Help/Content/arubaos-solutions/manage-utilities/impo-cert.htm)  
-* [Aruba Instant Importing Certificates](https://www.arubanetworks.com/techdocs/Instant_88_WebHelp/Content/instant-ug/authentication/upload-cert.htm)
+* [AurbaOS CLI Reference - Importing Certificates](https://www.arubanetworks.com/techdocs/ArubaOS_8.8.0_Web_Help/Content/arubaos-solutions/manage-utilities/impo-cert.htm)  
+* [Aruba Instant CLI Reference -  Importing Certificates](https://www.arubanetworks.com/techdocs/Instant_88_WebHelp/Content/instant-ug/authentication/upload-cert.htm)
+
+### Aruba IoT Basic Setup Guide
+
+* [IoT Basic Setup Guide](https://asp.arubanetworks.com/downloads;pageSize=25;search=IoT%20Setup)
 
 ### Aruba IoT Server Interface Guide
 
