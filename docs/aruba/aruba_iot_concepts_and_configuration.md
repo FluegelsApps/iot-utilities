@@ -79,7 +79,7 @@ Aruba AP-3xx/5xx series access points provide an integrated Aruba IoT radio for 
 Starting with ArubaOS/Instant OS version 8.8 **BLE Wi-Fi Co-Existence** has been introduced to improve the overall WLAN and BLE receiver performance and to prevent inter-modulation by coordinating WLAN and BLE traffic and avoiding WLAN and BLE transmitting simultaneously. The feature is enabled by default.
 
 >***Note:***  
->BLE Wi-Fi Co-Existence is only supported for the internal IoT radio. 
+>BLE Wi-Fi Co-Existence is only supported on Aruba AP-5xx series for the internal Aruba IoT Gen2 radio.  
 
 #### ***External***
 
@@ -95,6 +95,10 @@ The intention of the Aruba IoT expansion radio is to add the 802.15.4(ZigBee) ca
 > This allows enabling the APs BLE console as well as BLE beaconing (iBeacon) for indoor navigation use cases in parallel to ZigBee use cases. But BLE tracking uses cases like asset tracking are not supported in this case.  
 >  
 > In order to support BLE tracking or bi-directional use cases concurrently to ZigBee uses cases on the same access points two Aruba IoT radios Gen2, one internal and one external, are required. The external radio should be used as ZigBee radio in this case. Therefore this scenario is currently only supported on the Aruba AP-5xx series access points.
+
+>***Note:***  
+>The [BLE connect](#ble-connect) service is only supported with the **internal** radio.  
+>Starting with ArubaOS/Instant OS 8.8 BLE security supporing BLE authetnication and encryption has been added to the BLE connect servcie. BLE security is only supported by the Aruba IoT Gen2 radio.
 
 The configuration of the Aruba IoT radios is handled in the [IoT radio profile](#iot-radio-profile) configuration.
 
