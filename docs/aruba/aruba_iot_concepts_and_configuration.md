@@ -1162,6 +1162,16 @@ iot useTransportProfile "ZigBee"
 -   [ArubaOS CLI Reference - Configuring the AP Wired Port Profile](https://www.arubanetworks.com/techdocs/ArubaOS_8.8.0_Web_Help/Content/arubaos-solutions/access-points/conf-apwd-port-prof.htm)
 -   [Aruba Instant CLI Reference - Configuring a Wired Profile](https://www.arubanetworks.com/techdocs/Instant_88_WebHelp/Content/instant-ug/wired-port-prof/conf-wired-prof.htm)
 
+### Aruba CLI Reference - ZigBee
+
+-   [AurbaOS CLI Reference - ZigBee service-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/zb-srv-pro.htm)
+-   [AurbaOS CLI Reference - ZigBee socket-device-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/zb-sokt-dev-pro.htm)
+-   [AurbaOS CLI Reference - ZigBee socket-inbound-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/zb-sokt-in-pro.htm)
+-   [AurbaOS CLI Reference - ZigBee socket-outbound-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/zb-sokt-out-pro.htm)
+-   [Aruba Instant CLI Reference - ZigBee service-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/zigbee-srv-pro.htm)
+-   [Aruba Instant CLI Reference - ZigBee socket-device-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/zigbee-sock-dev-pro.htm)
+-   [Aruba Instant CLI Reference - ZigBee suse-service-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/zigbee%20use-service-profile.htm)
+
 ### Aruba CLI Reference - Importing Certificates
 
 * [AurbaOS CLI Reference - Importing Certificates](https://www.arubanetworks.com/techdocs/ArubaOS_8.8.0_Web_Help/Content/arubaos-solutions/manage-utilities/impo-cert.htm)  
