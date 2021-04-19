@@ -33,6 +33,25 @@ This document describes the principals and configuration of the Aruba IoT integr
 
 *  [Configuration examples](#configuration-examples)  
   
+   *  [Wi-Fi solutions](#wi-fi-solutions)  
+      *  [Wi-Fi client tracking](#wi-fi-client-tracking)
+      *  [Wi-Fi RTLS](#wi-fi-rtls)
+   *  [BLE vendor specific solutions](#ble-vendor-specific-solutions)  
+      *  [Aruba Meridian Beacon Management](#aruba-meridian-beacon-management)
+      *  [Aruba Meridian Asset Tracking](#aruba-meridian-asset-tracking)
+      *  [ZF Openmatics](#zf-openmatics)
+   *  [BLE telemetry solutions](#ble-telemetry-solutions)
+   *  [BLE data forwarding solutions](#ble-data-forwarding-solutions)
+   *  [BLE connect solutions](#ble-connect-solutions)
+      *  [ABB](#abb)
+   *  [USB vendor specific solutions](#usb-vendor-specific-solutions)
+      *  [SES Imagotag](#ses-imagotag)
+   *  [USB-to-ethernet solutions](#usb-to-ethernet-solutions)
+   *  [USB-to-serial solutions](#usb-to-serial-solutions)
+      *  [EnOcean](#enocean)
+   *  [Zigbee solutions](#zigbee-solutions)
+      *  [ASSA ABLOY](#assa-abloy)
+  
 *  [Appendix](#appendix)  
 
     *  [Aruba reference documenation](#aruba-reference-documentation)
@@ -514,8 +533,8 @@ In this chapter the ArubaOS/Aruba Instant configuration steps are described to s
 
 The configuration of Aruba IoT integrations consists of two main steps:
 
-1. IoT radio-side configuration
-2. IoT server-side configuration
+1. **IoT radio-side configuration**
+2. **IoT server-side configuration**
 
 Depending on respective IoT solution different configuration settings are required.  
 
@@ -599,7 +618,7 @@ The following table lists the available `iot transportProfile` parameters and th
 |**Reporting frequency settings**|||
 |`reportingInterval <seconds>`|`transportInterval <seconds>`|Configures the ***reporting interval (in seconds)*** for [IoT transport services](#iot-transport-services) and vendor specific connections that support periodic reporting.<br> The valid/supported value range depends on the configured `serverType/endpointType` and is listed in [Aruba IoT server interface - connection types](#aruba-iot-server-interface---connection-types).|
 |**Authentication/Authorization settings**|||
-|`authentication-mode <mode>`|`authentication-mode <mode>`|Configures the OAuth2 authentication mode to be used for the server connection.<br>Available options are:<br>- ***none*** - Authentication is disabled and a static access token is used for authorization(default)<br>- ***password*** - Authentication using username/password<br> - ***client-credentials*** - Authentication using client_id/client secret|
+|`authentication-mode <mode>`|`authentication-mode <mode>`|Configures the OAuth2 authentication mode to be used for the server connection.<br>Available options are:<br>- ***none*** - Authentication is disabled and a static access token is used for authorization (default)<br>- ***password*** - Authentication using username/password<br> - ***client-credentials*** - Authentication using client_id/client secret|
 |`authenticationURL <URL>`|`authenticationURL <URL>`|Configures the authentication server URL.<br>This parameter only applies if `authentication-mode` is set to ***password*** or ***client-credentials***.<br>Only encrypted connections are allowed starting with **https://**.|
 |`accessToken <token>`|`endpointToken <token>`|Configures the static access token used for authorization.<br>This parameter is only applicable when `authentication-mode` is set to ***none***.<br>Input values:<br> - ***token*** - String, base64 characters only.|
 |`clientID <client_id>`|`endpointID <client_id>`|Client identifier string that is used by the IoT server to identify the connecting Aruba infrastructure.<br>This parameter only applies if `serverType/endpointType` is set to ***Meridian-Asset-Tracking***, ***[Telemetry-Https](#telemetry-https)*** or ***[Telemetry-Websocket](#telemetry-websocket)***.<br>This parameter is required when `authentication-mode` is set to ***client-credentials*** for OAuth2 client_id/secret authentication.<br>Input values:<br> - ***client_id*** - string, 1-100 characters|
@@ -1024,97 +1043,140 @@ iot useTransportProfile "ZigBee"
 
 ```
 
-## Wi-Fi solutions
+## [Wi-Fi solutions](#table-of-contents)
 
 ```
 
 ```
 
-### Wi-Fi client tracking
+### [Wi-Fi client tracking](#table-of-contents)
 
 ```
 
 ```
 
-### Wi-Fi RTLS
+### [Wi-Fi RTLS](#table-of-contents)
 
 ```
 
 ```
 
-## BLE solutions
+## [BLE vendor specific solutions](#table-of-contents)
 
 ```
 
 ```
 
-### Aruba Meridian Beacon Management
+### [Aruba Meridian Beacon Management](#table-of-contents)
 
 ```
 
 ```
 
-### Aruba Meridian Asset Tracking
+### [Aruba Meridian Asset Tracking](#table-of-contents)
 
 ```
 
 ```
 
-### ZF Openmatics
+### [ZF Openmatics](#table-of-contents)
 
 ```
 
 ```
 
-### BLE telemetry (e.g. HYPROS, PnT, ...)
+## [BLE telemetry solutions](#table-of-contents)
+
+ e.g. HYPROS, PnT, Blyott ...
 
 ```
 
 ```
 
-### BLE data forwarding (e.g. Minew, Google, ...)
+## [BLE data forwarding solutions](#table-of-contents)
+
+e.g. Minew, Google, ...
 
 ```
 
 ```
 
-### BLE connect (e.g. ABB)
+## [BLE connect solutions](#table-of-contents)
+
+### [ABB](#table-of-contents)
 
 ```
 
 ```
 
-## USB/3rd party radio solutions
+## [USB vendor specific solutions](#table-of-contents)
 
 ```
 
 ```
 
-### SES Imagotag
+### [SES Imagotag](#table-of-contents)
 
 ```
 
 ```
 
-### USB-to-ethernet (e.g.Solu-M, Hanshow, AmberBox, ...)
+## [USB-to-ethernet solutions](#table-of-contents)
+
+e.g.Solu-M, Hanshow, AmberBox, ...
 
 ```
 
 ```
 
-### USB-to-serial (e.g. EnOcean, Piera Systems, ...)
+## [USB-to-serial solutions](#table-of-contents)
+
+#### ***[EnOcean](#table-of-contents)***
+
+This example shows the required configuration to enable the [Aruba EnOcean Demo Kit](https://www.enocean.com/en/applications/iot-solutions/).
+
+-   `ip-address` - has to be replaced with the IP address of the windows client the demo software is running on
+-   `ap-grouo` - has to be replaced with the AP group of APs with EnOcean USB dongles connected (multiple statements are required for multiple groups) (ArubaOS only)
+
+**ArubaOS**
 
 ```
-
+iot transportProfile "EnOcean-Demo"
+    serverType Telemetry-Websocket
+    serverURL "ws://<ip-address>:8000/arubaws"
+    accessToken "1234567890"
+    clientId "Aruba Controller"
+    deviceClassFilter serial-data
+    include-ap-group <ap-group>
+!
+iot useTransportProfile "EnOcean-Demo"
 ```
 
-## Zigbee (e.g. ASSA ABLOY)
+**Aruba Instant**
+
+```
+iot transportProfile "EnOcean-Demo"
+    serverType Telemetry-Websocket
+    serverURL "ws://<ip-address>:8000/arubaws"
+    accessToken "1234567890"
+    clientId "Aruba Instant"
+    deviceClassFilter serial-data
+!
+iot useTransportProfile "EnOcean-Demo"
+```
+
+## [Zigbee solutions](#table-of-contents)
+
+### [ASSA ABLOY](#table-of-contents)
+
 
 ```
 
 ```
 
 # Verification and troubleshooting
+
+t.b.d.
 
 # [Appendix](#table-of-contents)
 
