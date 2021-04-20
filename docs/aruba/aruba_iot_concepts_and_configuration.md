@@ -34,8 +34,8 @@ This document describes the principals and configuration of the Aruba IoT integr
 *  [Configuration examples](#configuration-examples)  
   
    *  [Wi-Fi solutions](#wi-fi-solutions)  
-      *  [Wi-Fi client tracking](#wi-fi-client-tracking)
-      *  [Wi-Fi RTLS](#wi-fi-rtls)
+      *  [Wi-Fi client tracking solution](#wi-fi-client-tracking-solution)
+      *  [Wi-Fi RTLS data forwarding solution](#wi-fi-rtls-data-forwarding-solution)
    *  [BLE vendor specific solutions](#ble-vendor-specific-solutions)  
       *  [Aruba Meridian Beacon Management](#aruba-meridian-beacon-management)
       *  [Aruba Meridian Asset Tracking](#aruba-meridian-asset-tracking)
@@ -1043,24 +1043,26 @@ This chapter provides configuration examples for supported IoT solutions and use
 
 ## [Wi-Fi solutions](#table-of-contents)
 
-### [Wi-Fi client tracking](#table-of-contents)
+### [Wi-Fi client tracking solution](#table-of-contents)
 
-This example shows the required configuration to enable the [Wi-Fi telemetry](#wi-fi-telemetry) service.
+This example shows the required configuration to enable [Wi-Fi telemetry](#wi-fi-telemetry).
 
--   `ip-address` - has to be replaced with the IP address of the windows client the demo software is running on
--   `ap-grouo` - has to be replaced with the AP group of APs with EnOcean USB dongles connected (multiple statements are required for multiple groups) (ArubaOS only)
+-   `fqdn, ip-address` - has to be replaced with the FQDN or IP address of the remote server
+-   `access-token` - has to be replaced with the static access token used to connect to the remote server
+-   `client-id` - has to be replaced with the client identifier string that is used by the remote server to identify the connecting Aruba infrastructure
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
 
 **ArubaOS**
 
 ```
 iot transportProfile "Wi-Fi-telemetry"
     serverType Telemetry-Websocket
-    serverURL "[ws|wss]://<ip-address>[:<port>][<path>]"
-    accessToken <access token>
-    clientId "ArubaController"
+    serverURL "[ws|wss]://<fqdn|ip-address>[:<port>][<path>]"
+    accessToken <access-token>
+    clientId <client-id>
     deviceClassFilter wifi-assoc-sta
     deviceClassFilter wifi-unassoc-sta
-    include-ap-group "<ap-group>"
+    include-ap-group <ap-group>
 !
 iot useTransportProfile "Wi-Fi-telemetry"
 ```
@@ -1069,20 +1071,53 @@ iot useTransportProfile "Wi-Fi-telemetry"
 
 ```
 iot transportProfile "Wi-Fi-telemetry"
- endpointURL "[ws|wss]://<ip-address>[:<port>][<path>]"
+ endpointURL "[ws|wss]://<fqdn|ip-address>[:<port>][<path>]"
  endpointType telemetry-websocket
  payloadContent wifi-assoc-sta
  payloadContent wifi-unassoc-sta
- endpointToken <access token>
- endpointID "ArubaInstant"
+ endpointToken <access-token>
+ endpointID <client-id>
 exit
 iot useTransportProfile "Wi-Fi-telemetry"
 ```
 
-### [Wi-Fi RTLS](#table-of-contents)
+### [Wi-Fi RTLS data forwarding solution](#table-of-contents)
+
+This example shows the required configuration to enable [Wi-Fi RTLS data forwarding](#wi-fi-rtls-data-forwarding).
+
+-   `fqdn, ip-address` - has to be replaced with the FQDN or IP address of the remote server
+-   `access-token` - has to be replaced with the static access token used to connect to the remote server
+-   `client-id` - has to be replaced with the client identifier string that is used by the remote server to identify the connecting Aruba infrastructure
+-   `mac-address` - has to be replaced with the destination MAC address used by Wi-fi tags
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
+
+**ArubaOS**
 
 ```
+iot transportProfile "Wi-Fi-RTLS"
+    serverType Telemetry-Websocket
+    serverURL "[ws|wss]://<fqdn|ip-address>[:<port>][<path>]"
+    accessToken <access-token>
+    clientId <client-id>
+    deviceClassFilter wifi-tags
+    include-ap-group <ap-group>
+    rtlsDestMAC <mac-address>
+!
+iot useTransportProfile "Wi-Fi-RTLS"
+```
 
+**Aruba Instant**
+
+```
+iot transportProfile "Wi-Fi-RTLS"
+ endpointURL "[ws|wss]://<fqdn|ip-address>[:<port>][<path>]"
+ endpointType telemetry-websocket
+ payloadContent wifi-tags
+ endpointToken <access-token>
+ endpointID <client-id>
+ rtlsDestMAC <mac-address>
+exit
+iot useTransportProfile "Wi-Fi-RTLS"
 ```
 
 ## [BLE vendor specific solutions](#table-of-contents)
@@ -1160,7 +1195,7 @@ e.g.Solu-M, Hanshow, AmberBox, ...
 This example shows the required configuration to enable the [Aruba EnOcean Demo Kit](https://www.enocean.com/en/applications/iot-solutions/).
 
 -   `ip-address` - has to be replaced with the IP address of the windows client the demo software is running on
--   `ap-group` - has to be replaced with the AP group of APs with EnOcean USB dongles connected (multiple statements are required for multiple groups) (ArubaOS only)
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
 
 **ArubaOS**
 
