@@ -1039,20 +1039,44 @@ iot useTransportProfile "ZigBee"
 
 # [Configuration Examples](#table-of-contents)
 
-```
-
-```
+This chapter provides configuration examples for supported IoT solutions and use cases on an Aruba infrastructure.
 
 ## [Wi-Fi solutions](#table-of-contents)
 
-```
-
-```
-
 ### [Wi-Fi client tracking](#table-of-contents)
 
+This example shows the required configuration to enable the [Wi-Fi telemetry](#wi-fi-telemetry) service.
+
+-   `ip-address` - has to be replaced with the IP address of the windows client the demo software is running on
+-   `ap-grouo` - has to be replaced with the AP group of APs with EnOcean USB dongles connected (multiple statements are required for multiple groups) (ArubaOS only)
+
+**ArubaOS**
+
+```
+iot transportProfile "Wi-Fi-telemetry"
+    serverType Telemetry-Websocket
+    serverURL "[ws|wss]://<ip-address>[:<port>][<path>]"
+    accessToken <access token>
+    clientId "ArubaController"
+    deviceClassFilter wifi-assoc-sta
+    deviceClassFilter wifi-unassoc-sta
+    include-ap-group "<ap-group>"
+!
+iot useTransportProfile "Wi-Fi-telemetry"
 ```
 
+**Aruba Instant**
+
+```
+iot transportProfile "Wi-Fi-telemetry"
+ endpointURL "[ws|wss]://<ip-address>[:<port>][<path>]"
+ endpointType telemetry-websocket
+ payloadContent wifi-assoc-sta
+ payloadContent wifi-unassoc-sta
+ endpointToken <access token>
+ endpointID "ArubaInstant"
+exit
+iot useTransportProfile "Wi-Fi-telemetry"
 ```
 
 ### [Wi-Fi RTLS](#table-of-contents)
@@ -1131,12 +1155,12 @@ e.g.Solu-M, Hanshow, AmberBox, ...
 
 ## [USB-to-serial solutions](#table-of-contents)
 
-#### ***[EnOcean](#table-of-contents)***
+### ***[EnOcean](#table-of-contents)***
 
 This example shows the required configuration to enable the [Aruba EnOcean Demo Kit](https://www.enocean.com/en/applications/iot-solutions/).
 
 -   `ip-address` - has to be replaced with the IP address of the windows client the demo software is running on
--   `ap-grouo` - has to be replaced with the AP group of APs with EnOcean USB dongles connected (multiple statements are required for multiple groups) (ArubaOS only)
+-   `ap-group` - has to be replaced with the AP group of APs with EnOcean USB dongles connected (multiple statements are required for multiple groups) (ArubaOS only)
 
 **ArubaOS**
 
@@ -1145,7 +1169,7 @@ iot transportProfile "EnOcean-Demo"
     serverType Telemetry-Websocket
     serverURL "ws://<ip-address>:8000/arubaws"
     accessToken "1234567890"
-    clientId "Aruba Controller"
+    clientId "ArubaController"
     deviceClassFilter serial-data
     include-ap-group <ap-group>
 !
@@ -1156,12 +1180,12 @@ iot useTransportProfile "EnOcean-Demo"
 
 ```
 iot transportProfile "EnOcean-Demo"
-    serverType Telemetry-Websocket
-    serverURL "ws://<ip-address>:8000/arubaws"
-    accessToken "1234567890"
-    clientId "Aruba Instant"
-    deviceClassFilter serial-data
-!
+ endpointURL "ws://<ip-address>:8000/arubaws"
+ endpointType telemetry-websocket
+ payloadContent serial-data
+ endpointToken "1234567890"
+ endpointID "ArubaInstant"
+exit
 iot useTransportProfile "EnOcean-Demo"
 ```
 
