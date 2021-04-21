@@ -559,6 +559,8 @@ In the table below the required configuration items for step 1 and step 2 per Io
 >
 >Which USB device are allowed to connect to an access point can be controlled using the [AP USB device management](#ap-usb-device-management).
 
+For details about the different configuration steps requried to setup the IoT solutions layed out in the table above see the following chapters as well as the [configuratoin examples](#configuration-examples) chapter.
+
 ## [IoT radio profile](#table-of-contents)
 
 `iot radio-profile`'s are used to configure the [Aruba IoT radio](#aruba-iot-radio) mode, BLE and/or ZigBee, and the respective mode settings. An `iot radio-profile` can either be applied to an internal or external radio instance.  
@@ -575,7 +577,7 @@ The following table lists the available `iot radio-profile` parameters and their
 |`radio-mode <mode>`|`radio-mode <mode>`|Radio mode to be enabled.<br> Available options are:<br>- ***None*** - Radio disabled (default)<br>- ***ble*** - BLE (tx/rx) enabled<br>- ***zigbee*** - ZigBee enabled<br>- ***"ble zigbee"*** - BLE (tx-only) and ZigBee enabled concurrently|
 |`ble-opmode <opmode>`|`ble-opmode <opmode>`|BLE operation mode to be enabled.<br> This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***.<br> Available options are:<br>- ***beaconing*** - BLE (tx) beaconing enabled using the iBeacon protocol (default)<br>- ***scanning*** - BLE (rx) scanning enabled<br>- ***"beaconing scanning"*** - BLE (tx/rx) beaconing and scanning enabled concurrently (default - does not show up in the configuration!)|
 |`ble-console <console-mode>` |`ble-console <console-mode>`|BLE console mode to be enabled.<br>BLE console provides console access to the AP over BLE.<br>This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***.<br>Available options are:<br>- ***dynamic*** - Enables BLE console automatically<br>- ***on*** - BLE console enabled<br>- ***off*** - BLE console disabled (default)|
-|`ble-txpower <txpower>`|`ble-txpower <txpower>`| BLE tx power in dBM to be used.<br> This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***.<br>- Value range: ***-20 ... 4***, ***0*** is the default value|
+|`ble-txpower <txpower>`|`ble-txpower <txpower>`| BLE tx power in dBM to be used.<br> This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***.<br>- Value range: ***-20 ... 4***, (default: ***0***)|
 |`zigbee-opmode <opmode>`|`zigbee-opmode <opmode>`|ZigBee operation mode to be used.<br> This parameter is available only when `radio-mode` is set to ***zigbee*** or ***"ble zigbee"***.<br> Available options are:<br>- ***coordinator*** - Radio works as ZigBee coordinator (default)|
 |`zigbee-channel <channel>`|`zigbee-channel <channel>`|Channel to be used.<br> This parameter is available only when `radio-mode` is set to ***zigbee*** or ***"ble zigbee"***.<br> Available options are:<br>- **auto** - Selects the channel automatically (default)<br>- ***Value range: 11 ... 26*** - Specifies the channel manually|
 
@@ -1126,17 +1128,55 @@ iot useTransportProfile "Wi-Fi-RTLS"
 
 ## [BLE vendor specific solutions](#table-of-contents)
 
-```
-
-```
-
 ### [Aruba Meridian Beacon Management](#table-of-contents)
 
+This example shows the required configuration to enable Aruba Meridian Beacon Management.
+For more details on the Aruba Meridian related confiugration please refer to the [Aruba Meridian Online Documenation - Configure Aruba Hardware](#aruba-meridian-online-documenation---configure-aruba-hardware)
+
+-   `access-token` - has to be replaced with the static access token used to connect to the Meridian server
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
+
+>***Note:***  
+>Because the `serverType/endpointType Meridian-Beacon-Managemen` and the `reportingInterval` of **600 s** are the default values, they do not show up in the confiugration.
+
+**ArubaOS**
+
+```
+iot radio-profile "int-beacon-scan"
+    radio-mode none ble
+!
+ap-group <ap-group>
+    iot radio-profile "int-beacon-scan"
+!
+iot transportProfile "Meridian-Beacon-Management"
+    serverURL "https://edit.meridianapps.com/api/beacons/manage"
+    accessToken <access-token>
+    deviceClassFilter aruba-beacons
+    include-ap-group <ap-group>
+!
+iot useTransportProfile "Meridian-Beacon-Management"
 ```
 
+**Aruba Instant**
+
+```
+iot radio-profile "int-beacon-scan"
+  radio-mode ble
+exit
+iot use-radio-profile "int-beacon-scan"
+
+iot transportProfile "Meridian-Beacon-Management"
+  endpointURL https://edit.meridianapps.com/api/beacons/manage 
+  endpointToken <access-token>
+  payloadContent managed-beacons 
+exit
+iot useTransportProfile "Meridian-Beacon-Management"
 ```
 
 ### [Aruba Meridian Asset Tracking](#table-of-contents)
+
+This example shows the required configuration to enable Aruba Meridian Asset Tracking.
+For more details on the Aruba Meridian related confiugration please refer to the [Aruba Meridian Online Documenation - Configure Aruba Hardware](#aruba-meridian-online-documenation---configure-aruba-hardware)
 
 ```
 
@@ -1331,6 +1371,10 @@ t.b.d.
 ### Azure IoT Hub Integration
 
 * [Aruba Azure IoT Hub Interface Guide](https://asp.arubanetworks.com/downloads;pageSize=25;search=hub) 
+
+### Aruba Meridian Online Documenation - Configure Aruba Hardware 
+
+*   [Aruba Meridian Online Documenation - Configure Aruba Hardware](https://docs.meridianapps.com/hc/en-us/sections/360006480194-Configure-Aruba-Hardware)
 
 ## [Aruba IoT server interface - connection types](#table-of-contents)
 
