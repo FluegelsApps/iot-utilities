@@ -529,7 +529,11 @@ If per frame filtering is enabled in addition to the BLE data forwarding , then 
 
 # [Configuration](#table-of-contents)
 
-In this chapter the ArubaOS/Aruba Instant configuration steps are described to setup the Aruba infrastructure for IoT solutions.
+In this chapter the ArubaOS/Aruba Instant configuration steps are described to setup the Aruba infrastructure for IoT solutions using ArubaOS/Aruba Instant version 8.8.0.0 or higher.
+
+>***Note:***  
+>For Aruba Instant deployments managed via [Aruba Central](https://www.arubanetworks.com/products/network-management-operations/central/) currently only [***template based***](#aruba-central-online-documentation---configuring-aps-using-templates) configuration is supported.  
+>The Aruba Instant configuraiton described in this chapter can be applied using Aruba Central configuration templaes to manage the IoT configuration of cloud-based Aruba infrastrucure deployments.
 
 The configuration of Aruba IoT integrations consists of two main steps:
 
@@ -1241,9 +1245,10 @@ t.b.d.
 
 ## [Aruba Reference Documentation](#table-of-contents)
 
-*  [ArubaOS Online Documentation](https://www.arubanetworks.com/techdocs/ArubaOS_8.8.0_Web_Help/Content/home.htm)
-*  [Aruba Instant Online Documentation](https://www.arubanetworks.com/techdocs/Instant_88_WebHelp/Content/homeinstant.htm)
+*  [ArubaOS 8.8 Online Documentation](https://www.arubanetworks.com/techdocs/ArubaOS_8.8.0_Web_Help/Content/home.htm)
+*  [Aruba Instant 8.8 Online Documentation](https://www.arubanetworks.com/techdocs/Instant_88_WebHelp/Content/homeinstant.htm)
 *  [Aruba CLI Reference](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/Home.htm)
+*  [Aruba Central Online Documenation](https://help.central.arubanetworks.com/latest/documentation/online_help/content/home.htm)
 
 ### Aruba CLI Reference - ap-group
 
@@ -1297,6 +1302,10 @@ t.b.d.
 -   [Aruba Instant CLI Reference - ZigBee socket-device-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/zigbee-sock-dev-pro.htm)
 -   [Aruba Instant CLI Reference - ZigBee suse-service-profile](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/instant/zigbee%20use-service-profile.htm)
 
+### Aruba Central Online Documentation - Configuring APs Using Templates
+
+-   [Aruba Central Online Documentation - Configuring APs Using Templates](https://help.central.arubanetworks.com/latest/documentation/online_help/content/access-points/cfg/cfg-templates/prov_template_iap.htm)
+
 ### Aruba CLI Reference - Importing Certificates
 
 * [AurbaOS CLI Reference - Importing Certificates](https://www.arubanetworks.com/techdocs/ArubaOS_8.8.0_Web_Help/Content/arubaos-solutions/manage-utilities/impo-cert.htm)  
@@ -1308,20 +1317,20 @@ t.b.d.
 
 ### Aruba IoT Server Interface Guide
 
-* [ArubaOS WLAN and Aruba Instant IoT Interface Guide](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
+* [Aruba IoT WebSocket Interface Guide](https://asp.arubanetworks.com/downloads;pageSize=25;search=websocket)
 
 ### Aruba IoT Telemetry JSON Schema
 
-* [ArubaOS WLAN and InstantOS IoT Interface - JSON Schema Telemetry](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
-* [ArubaOS WLAN and InstantOS IoT Interface - JSON Telemetry Example](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
+* [ArubaOS WLAN and InstantOS IoT Interface - JSON Schema Telemetry](https://asp.arubanetworks.com/downloads;pageSize=25;search=IoT%20JSON)
+* [ArubaOS WLAN and InstantOS IoT Interface - JSON Telemetry Example](https://asp.arubanetworks.com/downloads;pageSize=25;search=IoT%20JSON)
 
 ### Aruba IoT Protobuf Specification
 
-* [ArubaOS WLAN and InstantOS IoT Interface - Protobuf Specification](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot)
+* [ArubaOS WLAN and InstantOS IoT Interface - Protobuf Specification](https://asp.arubanetworks.com/downloads;pageSize=25;search=protobuf)
 
 ### Azure IoT Hub Integration
 
-* [Azure IoT Hub Integration Tech Note (not available yet)](https://asp.arubanetworks.com/downloads;pageSize=25;search=iot) 
+* [Aruba Azure IoT Hub Interface Guide](https://asp.arubanetworks.com/downloads;pageSize=25;search=hub) 
 
 ## [Aruba IoT server interface - connection types](#table-of-contents)
 
