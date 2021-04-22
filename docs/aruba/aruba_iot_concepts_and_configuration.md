@@ -920,7 +920,7 @@ The `zigbee socket-device-profile` is assigned to the [`iot transportProfile`](#
 >***Note:***  
 >A maximum of 8 inbound and 4 outbound socket are supported per ZigBee socket device profile while a maximum of 4 ZigBee socket device profiles are supported per IoT transport profile.
 
-Plesae see [Generic ZDO solution](#generic-zdo-solution) for a configuration example unsing the the [ZigBee socket device transport service](#zigbee-socket-device).
+Plesae see [Generic ZSD solution](#generic-zsd-solution) for a configuration example unsing the the [ZigBee socket device transport service](#zigbee-socket-device).
 
 # [Configuration Examples](#table-of-contents)
 
