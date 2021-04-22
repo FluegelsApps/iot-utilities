@@ -1182,8 +1182,6 @@ iot useTransportProfile "ZF-Openmatics-deTAGtive"
 
 ## [BLE data forwarding solutions](#table-of-contents)
 
-e.g. Minew, Google, ...
-
 ### ***[Azure IoT Hub (ble data)](#table-of-contents)***
 
 This example shows the required configuration to enable [BLE data forwarding](#ble-data-forwarding) for `all` supported [BLE vendors](#supported-iot-vendordevice-class-list) to Azure IoT Hub.
@@ -1243,8 +1241,58 @@ iot useTransportProfile "Azure-IoT-Hub-ble-data"
 
 ### [ABB](#table-of-contents)
 
+This example shows the required configuration to enable the [ABB Ability™ Smart Sensor](https://new.abb.com/motors-generators/service/advanced-services/smart-sensor) integrartion.
+
+-   `client-id` - has to be replaced with the ABB Ability™ account organization ID
+-   `username` - has to be replaced with the **email address** of the ABB Ability™ account
+-   `password` - has to be replaced with the **login password** of the ABB Ability™ account
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
+
+>***Note:***  
+>The [Baltimore CyberTrust Root certificate (BaltimoreCyberTrustRoot.crt.pem)](https://www.digicert.com/kb/digicert-root-certificates.htm) has to be installed on the Aruba infrastructure when connecting the [ABB Ability™ Smart Sensor platform](https://new.abb.com/motors-generators/service/advanced-services/smart-sensor). Please see the [Aruba CLI Reference - Importing Certificates](#aruba-cli-reference---importing-certificates) for details.
+
+**ArubaOS**
+
+```
+iot radio-profile "int-beacon-scan"
+    radio-mode none ble
+!
+ap-group <ap-group>
+    iot radio-profile "int-beacon-scan"
+!
+iot transportProfile "ABB-Ability-Smart-Sensor"
+    serverType Telemetry-Websocket
+    serverURL "https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2"
+    clientId <client-id>
+    username <username>
+    password <password>
+    reportingInterval 10
+    deviceClassFilter ability-smart-sensor
+    authenticationURL "https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2"
+    authentication-mode password
+!
+iot useTransportProfile "ABB-Ability-Smart-Sensor"
 ```
 
+**Aruba Instant**
+
+```
+iot radio-profile "int-beacon-scan"
+  radio-mode ble
+exit
+iot use-radio-profile "int-beacon-scan"
+
+iot transportProfile "ABB-Ability-Smart-Sensor"
+ endpointURL https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2
+ endpointType telemetry-websocket
+ payloadContent ability-smart-sensor
+ endpointID <client-id>
+ username <username>
+ password <password>
+ transportInterval 10
+ authenticationURL https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2
+ authentication-mode password
+iot useTransportProfile "ABB-Ability-Smart-Sensor"
 ```
 
 ## [USB vendor specific solutions](#table-of-contents)
