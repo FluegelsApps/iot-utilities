@@ -42,15 +42,18 @@ This document describes the principals and configuration of the Aruba IoT integr
       *  [ZF Openmatics](#zf-openmatics)
    *  [BLE telemetry solutions](#ble-telemetry-solutions)
    *  [BLE data forwarding solutions](#ble-data-forwarding-solutions)
+      *  [Azure IoT Hub (ble data)](#azure-iot-hub-ble-data)
    *  [BLE connect solutions](#ble-connect-solutions)
       *  [ABB](#abb)
    *  [USB vendor specific solutions](#usb-vendor-specific-solutions)
       *  [SES Imagotag](#ses-imagotag)
    *  [USB-to-ethernet solutions](#usb-to-ethernet-solutions)
    *  [USB-to-serial solutions](#usb-to-serial-solutions)
-      *  [EnOcean](#enocean)
+      *  [EnOcean demo](#enocean-demo)
+      *  [Azure IoT Hub (serial-data)](#azure-iot-hub-serial-data)
    *  [Zigbee solutions](#zigbee-solutions)
       *  [ASSA ABLOY](#assa-abloy)
+      *  [Generic ZDO solution](#generic-zdo-solution)
   
 *  [Appendix](#appendix)  
 
@@ -841,27 +844,7 @@ In ArubaOS the SES-Imagotag configuration is enabled in the [`ap system-profile`
 |`sesImagotag-esl-tls-auth`|`sesImagotag-esl-tls-auth`|Enables AP authentication with the SES-Imagotag ESL server|
 |`sesImagotag-esl-tls-fqdn-verify`|`sesImagotag-esl-tls-fqdn-verify`|Enables TLS certificate verification for the SES-Imagotag ESL server connection checking the configured FQDN against the TLS certificate presented by the SES-Imagotag server during connection establishment.|  
 
-Examples:
-
-**ArubaOS**
-
-```
-ap system-profile "iot-ap-system-prof"
-    sesImagotag-esl-server "ses-imagotag.com"
-    sesImagotag-esl-channel 127
-    sesImagotag-esl-tls-auth
-    sesImagotag-esl-tls-fqdn-verify
-```
-
-**Aruba Instant**
-
-```
-sesimagotag-esl-profile
- sesimagotag-esl-server "ses-imagotag.com"
- sesimagotag-esl-channel 127
- sesimagotag-esl-tls-auth
- sesimagotag-esl-tls-fqdn-verify
-```
+Please find an example configuration [here](#ses-imagotag)
 
 ## [ZigBee configuration](#table-of-contents)
 
@@ -875,7 +858,7 @@ Configuring a ZigBee solution requires the following setps:
 4)  Configuring an [`iot transportProfile`](#iot-transport-profile)
 
 >***Note:***  
->**Assa-Abloy** is currently the only supported vendor specific ZigBee solution using a vendor specific [server connection type](#aruba-iot-server-interface---connection-types) and not using the generic [Zigbee socket device framework](#zigbee-socket-device). Therefore step 3) `zigbee socket-device-profile` confugration is NOT required for this solution.
+>**Assa-Abloy** is currently the only supported vendor specific ZigBee solution using a vendor specific [server connection type](#aruba-iot-server-interface---connection-types) and not using the generic [Zigbee socket device framework](#zigbee-socket-device). Therefore step 3) `zigbee socket-device-profile` confugration is NOT required for this solution. Please see the [Assa-Abloy configuration](#assa-abloy) exmaple for details.
 
 ### ZigBee service profile
 
@@ -935,113 +918,7 @@ The `zigbee socket-device-profile` is assigned to the [`iot transportProfile`](#
 >***Note:***  
 >A maximum of 8 inbound and 4 outbound socket are supported per ZigBee socket device profile while a maximum of 4 ZigBee socket device profiles are supported per IoT transport profile.
 
-Examples:
-
-**ArubaOS**
-
-```
-zigbee service-profile "ext-zb"
-    radio-instance external
-!
-zigbee service-profile "ext-zb"
-    radio-instance external
-!
-ap-group "ApGroup1"
-    iot radio-profile "ext-zigbee"
-    zigbee service-profile "ext-zb"
-!
-zigbee socket-inbound-profile "zb-in-prof-1"
-    cluster 2100
-	profile 0a1e
-    endpoint 242
-    source-endpoint 1
-!	
-zigbee socket-inbound-profile "zb-in-prof-2"
-    cluster 1900
-	profile 0104
-    endpoint 11
-    source-endpoint 1
-!
-zigbee socket-outbound-profile "zb-out-prof-1" 
-	cluster 0000
-    profile 0104
-    endpoint 11
-    source-endpoint 1
-!
-zigbee socket-outbound-profile "zb-out-prof-2" 
-	cluster 0003
-    profile 0104
-    endpoint 11
-    source-endpoint 1
-!
-zigbee socket-outbound-profile "zb-out-prof-3" 
-	cluster 0010
-    profile 0104
-    endpoint 11
-    source-endpoint 1
-!
-zigbee socket-outbound-profile "zb-out-prof-4" 
-	cluster 01fc
-    profile 0104
-    endpoint 11
-    source-endpoint 1
-!
-zigbee socket-device-profile "zb-device-prof-1"
-    inbound "zb-in-prof-1"
-	outbound "zb-out-prof-1"
-	outbound "zb-out-prof-2"
-!
-zigbee socket-device-profile "zb-device-prof-2"
-    inbound "zb-in-prof-2"
-	outbound "zb-out-prof-3"
-	outbound "zb-out-prof-4"
-!
-iot transportProfile "ZigBee"
-    serverType Telemetry-Websocket
-    serverURL "wss://1.1.1.1/zigbee"
-    accessToken "any"
-    clientId "ArubaOS"
-    deviceClassFilter ZSD
-    ZSDFilter "zb-device-prof-1"
-    ZSDFilter "zb-device-prof-2"
-    include-ap-group "ApGroup1"
-!
-iot useTransportProfile "ZigBee"
-```
-
-**Aruba Instant**
-
-```
-iot radio-profile int-zb
- radio-mode zigbee
- exit
-
-zigbee service-profile zb-sec-auto
-
-zigbee socket-device-profile "zb-device-prof-1"
- inbound 242 1 0a1e 2100
- inbound 11 1 0104 1900
- outbound 1 11 0104 0000
- outbound 1 11 0104 0003
- outbound 1 11 0104 0010
- outbound 1 11 0104 01fc
- exit
-
-iot transportProfile "ZigBee"
- endpointURL "wss://1.1.1.1/zigbee"
- endpointType telemetry-websocket
- payloadContent zsd
- endpointToken any
- endpointID "Aruba Instant"
- ZSDFilter "zb-device-prof-1"
- exit
-
-iot use-radio-profile int-zb
-
-zigbee use-service-profile zb-sec-auto
-
-iot useTransportProfile "ZigBee"
-```
+Plesae see [Generic ZDO solution](#generic-zdo-solution) for a configuration example unsing the the [ZigBee socket device transport service](#zigbee-socket-device).
 
 # [Configuration Examples](#table-of-contents)
 
@@ -1307,8 +1184,59 @@ iot useTransportProfile "ZF-Openmatics-deTAGtive"
 
 e.g. Minew, Google, ...
 
+### ***[Azure IoT Hub (ble data)](#table-of-contents)***
+
+This example shows the required configuration to enable [BLE data forwarding](#ble-data-forwarding) for `all` supported [BLE vendors](#supported-iot-vendordevice-class-list) to Azure IoT Hub.
+
+-   `scope-id` - has to be replaced with Azure DPS enrollment group scope-id
+-   `key` - has to be replaces with Azure symmetric group key
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
+
+>***Note:***  
+>`bleDataForwarding` is enabled by default for server type `Azure-IoTHub` and cannot be disabled.
+
+>***Caution:***  
+>Enabling the **device class filter** `all` will enable BLE data forwarding of all knon/supported [BLE vendor device classes](#supported-iot-vendordevice-class-list). This could haveally increase the amount of data beeing forwarded to the remote server because all BLE advertisements and scan respsonse packets are forwarded in near real time.  
+It is recommended to use the [BLE device class filter](#ble-device-class-filter) and [BLE data filters ](#ble-data-filter) to filter the data being forwarded.
+
+**ArubaOS**
+
+```
+iot radio-profile "int-scan"
+    radio-mode none ble
+    ble-opmode scanning
+!
+ap-group <ap-group>
+    iot radio-profile "int-scan"
+!
+iot transportProfile "Azure-IoT-Hub-ble-data"
+    serverType Azure-IoTHub
+    deviceClassFilter all
+    bleDataForwarding
+    azure-dps-id-scope <scope-id>
+    azure-dps-auth-type group-enrollment symmetric-key <key>
+    include-ap-group <ap-group>
+!
+iot useTransportProfile "Azure-IoT-Hub-ble-data"
 ```
 
+**Aruba Instant**
+
+```
+iot radio-profile "int-scan"
+ radio-mode ble
+ ble-opmode scanning
+exit
+iot use-radio-profile "int-scan"
+
+iot transportProfile "Azure-IoT-Hub-ble-data"
+ endpointType Azure-IoTHub
+ payloadContent all
+ bleDataForwarding
+ azure-dps-id-scope <scope-id>
+ azure-dps-auth-type group-enrollment symmetric-key <key>
+exit
+iot useTransportProfile "Azure-IoT-Hub-ble-data"
 ```
 
 ## [BLE connect solutions](#table-of-contents)
@@ -1321,19 +1249,31 @@ e.g. Minew, Google, ...
 
 ## [USB vendor specific solutions](#table-of-contents)
 
-```
-
-```
-
 ### [SES Imagotag](#table-of-contents)
 
+This example shows the required configuration to enable an [SES-Imagotag ESL soulution](https://www.arubanetworks.com/assets/pso/PSB_SESImagotag.pdf) on premise solution. All avaialbe confiugation options are descirbed in the [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)
+
+-   `<ip-address>` - has to be replaced with the SES-Imagotag on-premises server IP address
+
+**ArubaOS**
+
+```
+ap system-profile "iot-ap-system-prof"
+    sesImagotag-esl-serverip <ip-address>
+    sesImagotag-esl-channel 127
 ```
 
+**Aruba Instant**
+
+```
+sesimagotag-esl-profile
+ sesImagotag-esl-serverip <ip-address>
+ sesimagotag-esl-channel 127
 ```
 
 ## [USB-to-ethernet solutions](#table-of-contents)
 
-e.g.Solu-M, Hanshow, AmberBox, ...
+e.g. Solu-M, Hanshow, AmberBox, ...
 
 ```
 
@@ -1341,7 +1281,7 @@ e.g.Solu-M, Hanshow, AmberBox, ...
 
 ## [USB-to-serial solutions](#table-of-contents)
 
-### ***[EnOcean](#table-of-contents)***
+### ***[EnOcean demo](#table-of-contents)***
 
 This example shows the required configuration to enable the [Aruba EnOcean Demo Kit](https://www.enocean.com/en/applications/iot-solutions/).
 
@@ -1375,13 +1315,165 @@ exit
 iot useTransportProfile "EnOcean-Demo"
 ```
 
-## [Zigbee solutions](#table-of-contents)
+### ***[Azure IoT Hub (serial-data)](#table-of-contents)***
+
+This example shows the required configuration to enable [serial-data](#serial-data) forwarding to Azure IoT Hub.
+
+-   `scope-id` - has to be replaced with Azure DPS enrollment group scope-id
+-   `key` - has to be replaces with Azure symmetric group key
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
+
+>***Note:***  
+>`bleDataForwarding` is enabled by default for server type `Azure-IoTHub` and cannot be disabled. But removing `payloadContent serial-data` effectively disables all [BLE device classes](#supported-iot-vendordevice-class-list) and therefore no BLE data is forwarded.
+
+**ArubaOS**
+
+```
+iot transportProfile "Azure-IoT-Hub-serial-data"
+    serverType Azure-IoTHub
+    payloadContent serial-data
+    bleDataForwarding
+    azure-dps-id-scope <scope-id>
+    azure-dps-auth-type group-enrollment symmetric-key <key>
+    include-ap-group <ap-group>
+!
+iot useTransportProfile "Azure-IoT-Hub-serial-data"
+```
+
+**Aruba Instant**
+
+```
+iot transportProfile "Azure-IoT-Hub-serial-data"
+ endpointType Azure-IoTHub
+ payloadContent serial-data
+ bleDataForwarding
+ azure-dps-id-scope <scope-id>
+ azure-dps-auth-type group-enrollment symmetric-key <key>
+exit
+iot useTransportProfile "Azure-IoT-Hub-serial-data"
+```
+
+## [ZigBee solutions](#table-of-contents)
 
 ### [ASSA ABLOY](#table-of-contents)
 
 
 ```
+```
 
+### [Generic ZDO solution](#table-of-contents)
+
+This example shows the required configuration to enable the [ZigBee socket device (ZSD) service](#zigbee-socket-device)
+
+-   `fqdn, ip-address` - has to be replaced with the FQDN or IP address of the remote server
+-   `access-token` - has to be replaced with the static access token used to connect to the remote server
+-   `client-id` - has to be replaced with the client identifier string that is used by the remote server to identify the connecting Aruba infrastructure
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
+
+**ArubaOS**
+
+```
+zigbee service-profile "ext-zb"
+    radio-instance external
+!
+zigbee service-profile "ext-zb"
+    radio-instance external
+!
+ap-group <ap-group>
+    iot radio-profile "ext-zigbee"
+    zigbee service-profile "ext-zb"
+!
+zigbee socket-inbound-profile "zb-in-prof-1"
+    cluster 2100
+	profile 0a1e
+    endpoint 242
+    source-endpoint 1
+!	
+zigbee socket-inbound-profile "zb-in-prof-2"
+    cluster 1900
+	profile 0104
+    endpoint 11
+    source-endpoint 1
+!
+zigbee socket-outbound-profile "zb-out-prof-1" 
+	cluster 0000
+    profile 0104
+    endpoint 11
+    source-endpoint 1
+!
+zigbee socket-outbound-profile "zb-out-prof-2" 
+	cluster 0003
+    profile 0104
+    endpoint 11
+    source-endpoint 1
+!
+zigbee socket-outbound-profile "zb-out-prof-3" 
+	cluster 0010
+    profile 0104
+    endpoint 11
+    source-endpoint 1
+!
+zigbee socket-outbound-profile "zb-out-prof-4" 
+	cluster 01fc
+    profile 0104
+    endpoint 11
+    source-endpoint 1
+!
+zigbee socket-device-profile "zb-device-prof-1"
+    inbound "zb-in-prof-1"
+	outbound "zb-out-prof-1"
+	outbound "zb-out-prof-2"
+!
+zigbee socket-device-profile "zb-device-prof-2"
+    inbound "zb-in-prof-2"
+	outbound "zb-out-prof-3"
+	outbound "zb-out-prof-4"
+!
+iot transportProfile "ZigBee"
+    serverType Telemetry-Websocket
+    serverURL "[ws|wss]://<fqdn|ip-address>[:<port>][<path>]"
+    accessToken <access-token>
+    clientId <client-id>
+    deviceClassFilter ZSD
+    ZSDFilter "zb-device-prof-1"
+    ZSDFilter "zb-device-prof-2"
+    include-ap-group <ap-group>
+!
+iot useTransportProfile "ZigBee"
+```
+
+**Aruba Instant**
+
+```
+iot radio-profile int-zb
+ radio-mode zigbee
+ exit
+
+zigbee service-profile zb-sec-auto
+
+zigbee socket-device-profile "zb-device-prof-1"
+ inbound 242 1 0a1e 2100
+ inbound 11 1 0104 1900
+ outbound 1 11 0104 0000
+ outbound 1 11 0104 0003
+ outbound 1 11 0104 0010
+ outbound 1 11 0104 01fc
+ exit
+
+iot transportProfile "ZigBee"
+ endpointURL "[ws|wss]://<fqdn|ip-address>[:<port>][<path>]"
+ endpointType telemetry-websocket
+ payloadContent zsd
+ endpointToken <access-token>
+ endpointID <client-id>
+ ZSDFilter "zb-device-prof-1"
+ exit
+
+iot use-radio-profile int-zb
+
+zigbee use-service-profile zb-sec-auto
+
+iot useTransportProfile "ZigBee"
 ```
 
 # Verification and troubleshooting
