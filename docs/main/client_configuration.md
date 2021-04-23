@@ -2,7 +2,7 @@
 
 The app client configuration feature provides templates for the configuration of an Aruba infrastructure for use with this app or other 3rd party IoT solutions. The term _client_ revers to the ArubaOS Controller or Aruba Instant access point.
 
-For details about how to setup an Aruba infrastructure to be used with this app an other IoT use cases please refer to [Aruba IoT concepts and configuration](../aruba/aruba_iot_concepts_and_configuration.md).
+For details about how to setup an Aruba infrastructure to be used with this app an other IoT use cases please refer to [Aruba IoT Configuration Guide](../aruba/aruba_iot_configuration_guide.md).
 
 > **_Note:_** This app supports the BLE and Wi-Fi Aruba IoT integrations using BLE and Wi-Fi.
 
