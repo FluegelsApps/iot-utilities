@@ -16,6 +16,7 @@ This document describes the principals and configuration of the Aruba IoT integr
   
        *  [Aruba IoT server interface](#aruba-iot-server-interface)
        *  [IoT server connection types](#iot-server-connection-types)
+       *  [Server connection encryption](#server-connection-encryption)
        *  [Authentication and authorization](#authentication-and-authorization)
        *  [Connection management](#connection-management)
        *  [IoT transport services](#iot-transport-services)
@@ -206,7 +207,7 @@ With this connection type Aruba controller's or Instant access points work as a 
 
 For details please see the [Azure IoT Hub Integration Tech Note](#azure-iot-hub-integration)  
 
-### **Server connection encryption**
+### [**Server connection encryption**](#table-of-contents)
 
 Even if un-encrypted HTTP or web socket connectivity is supported by the Aruba IoT server interface, it is recommended to only use encrypted connections to remote IoT systems.  
 
