@@ -3,7 +3,7 @@
 
 In this step the IoT server is setup for first time use.
 
-For details about the related Aruba side concepts and configurations please refer to [Aruba IoT Concepts and Configuration](../../docs/aruba/aruba_iot_concepts_and_configuration.md).
+For details about the related Aruba side concepts and configurations please refer to [Aruba IoT Configuration Guide](../../docs/aruba/aruba_iot_configuration_guide.md).
 
 ## Server certificate
 

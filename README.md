@@ -16,13 +16,10 @@
 More information about this functionality and its specification can be found here:
 
 IoT-Utilities documentation  
-[Aruba IoT Concepts and Configuration](./docs/aruba/aruba_iot_concepts_and_configuration.md)
+[Aruba IoT Configuration Guide](./docs/aruba/aruba_iot_configuration_guide.md)
 
 Aruba Support Portal  
 [https://asp.arubanetworks.com/downloads;search=iot](https://asp.arubanetworks.com/downloads;search=iot)  
-
-ArubaOS WLAN and Aruba Instant 8.6.0.x IoT Interface Guide  
-[https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en\_us](https://support.hpe.com/hpesc/public/docDisplay?docId=a00100259en_us)  
 
 The IoT-Utilities app is a generic tool to get to know and demonstrate the "Aruba IoT Interface" functionality provided by an Aruba access point infrastructure to integrate with IoT applications. The app provides a basic server functionality Aruba access points and controllers can connect to using the Aruba IoT interface. Data received via the Aruba IoT Interface, e.g. BLE telemetry, is decoded and shown in the app.
 
