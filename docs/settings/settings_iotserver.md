@@ -28,6 +28,10 @@ Note: This setting also allows you to keep tests running in the background (feat
 
 > **_Note:_** This feature also allows you to keep tests running in the background with the app closed (feature ["Keep testing alive"](./settings_bluetooth.md) needs to be enabled)
 
+### Offline session cooldown
+
+Tap this setting to set a cooldown for offline connections. These connections will be removed when the time expired to free memory space. Additionally, you can set this value to 0 in order to disable this feature.
+
 ### Set server URL
 
 Tap this setting to change the api_url parameter that is included in Aruba authentication responses. This will **ONLY** change the parameter in the response, not the actual address of the server.
@@ -47,6 +51,10 @@ Tap this setting to change the api_url parameter that is included in Aruba authe
 Tap this setting to change the port of the IoT-Server.
 
 ## Server security / authentication
+
+### Maximum server sessions
+
+Tap this setting to set the maximum amount of concurrent connections. The lowest possible value is 1 connection. Therefore, additional sessions will be discarded.
 
 ### Static access token
 

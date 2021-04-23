@@ -1,3 +1,35 @@
+## Version 1.1.0 | 02.04.2021
+
+### New features in this release:
+
+- added support for multiple connections and WebSockets per client
+- added client allow-list and deny-list
+- replaced "Reconnecting"-status with "Authenticated"-status
+- added maximum connection threshold (other connections will be discarded)
+- added cooldown timer for offline connections (session will be removed when time expired)
+- added "IoT-Connector" support (**early access**)
+    - new "IoT-Connector"-page with guide and documentation
+    - new "IoT-Connector-Details"-page with guide and documentation
+    - support for Telemetry and BLE-data topic
+- new authentication features
+    - added url-encoded client connection
+    - added authentication during handshake if supported by the client
+- Material Components library updated to 1.3.0
+    - new date dialog (certificate generation)
+    - new time dialog (certificate generation)
+    - updated and improved animations
+
+### Reworked features and improvements:
+
+- reworked documentation link handling
+- reworked IoT-Server
+
+### Fixed bugs and issues:
+
+- fixed issue that caused app to crash when switching theme in BLE-Advertising page
+- fixed BLE-Scanning performance issues
+
+---
 
 ## Version 1.0.1 | 27.03.2021
 

@@ -6,7 +6,7 @@ This document explains the concept of the feature BLE-Testing which uses the [Ar
 
 ## Main concept
 
-The BLE-Testing feature sends a BLE advertising packet via the bluetooth radio of the user's mobile device. The Aruba Access Point should receive this data and forwards it to the IoT-Server. The server validates and evaluates the incoming data. If the message contains all properties of the [Testing beacon](#testing-beacon) the Access Point / sensor will be treated as "in-range". The user can also specify multiple [parameters](#testing-parameters) to control the test and customize the testing conditions.
+The BLE-Testing feature sends a BLE advertising packet via the bluetooth radio of the mobile device. The Aruba Access Point should receive this data and forwards it to the IoT-Server. The server validates and evaluates the incoming data. If the message contains all properties of the [Testing beacon](#testing-beacon) the Access Point / sensor will be treated as "in-range". The user can also specify multiple [parameters](#testing-parameters) to control the test and customize the testing conditions.
 
 > **_Note:_** The server only accepts BLE-Data messages during tests to optimize performance and latency during the test.
 
@@ -38,16 +38,22 @@ The testing beacon uses Apple's iBeacon protocol and will be used during the ent
 
 ## Testing stages
 
-### IDLE-Stage
+### Idle-Stage
 
-The idle-stage is the start stage of the test. It will also enter this stage again when the test finishes. You can only change the parameters and the testing beacon of the test in this stage.
+The idle-stage is the start stage of the test. It will also enter this stage again when the test finishes. The parameters are only changeable in this stage of the test.
 
-### PENDING-Stage
+### Pending-Stage
 
-The test will enter the pending-stage if there aren't any clients available at the time of the start. Moreover, it will remain in this stage as long as no client transmitts any data. The [duration timer](#testing-duration) won't run in this stage as this stage can run indefinetely (until the user stops or any client connects).
+The test will enter the pending-stage if there aren't any clients available at the time of the start. Moreover, it will remain in this stage as long as no client transmitts any data. The [duration timer](#testing-duration) won't run in this stage as this stage can run indefinetely (until is is stopped or any client connects).
 
-### RUNNING-Stage
+### Running-Stage
 
-### COMPLETE-Stage
+This is the main stage of the test. The device will start advertising the testing beacon with the specified parameters. Additionally, the app tries to free as many resources as possible, to reduce the latency. The test will start searching for the testing beacon in every arriving message. Finally, this stage will be completed when the [timer](#testing-duration) expires (if set) or the user cancels the test.
 
-### FAILED-Stage
+### Complete-Stage
+
+The test will enter this stage when the [running stage](#running-stage) finished. The test service is now offline but the results are still viewable.
+
+### Failed-Stage
+
+The test will enter this stage when any exception occured. The test service is now offline but the results as well as the received data are visible.
