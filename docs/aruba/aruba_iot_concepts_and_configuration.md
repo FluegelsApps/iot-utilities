@@ -1491,7 +1491,7 @@ This example shows the required configuration to enable [serial-data](#serial-da
 -   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
 
 >***Note:***  
->`bleDataForwarding` is enabled by default for server type `Azure-IoTHub` and cannot be disabled. But removing `payloadContent serial-data` effectively disables all [BLE device classes](#supported-iot-vendordevice-class-list) and therefore no BLE data is forwarded.
+>`bleDataForwarding` is enabled by default for server type `Azure-IoTHub` and cannot be disabled. But only enabling `payloadContent serial-data`  effectively disables all [BLE device classes](#supported-iot-vendordevice-class-list) and therefore no BLE data is forwarded.
 
 **ArubaOS**
 
