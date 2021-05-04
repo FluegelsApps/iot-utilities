@@ -21,7 +21,7 @@ This app provides an interface to control Philips Hue lamps via the IoT-Interfac
 
 There are several steps that have to be done in order to communicate with the lamp.
 
-#### 1) Reset the lamp via the Philips Hue Bluetooth Application
+#### 1) Reset the lamp via the "Philips Hue Bluetooth Application" ([Android](https://play.google.com/store/apps/details?id=com.signify.hue.blue&gl=DE)/[IOS](https://apps.apple.com/de/app/philips-hue-bluetooth/id1456604186))
 
 The Philips Hue lamp needs to be reset to factory settings in order to establish a new connection. By doing so, the lamp enters it's initial pairing state, allowing the app to establish a secure connection. The app will be able to do this process automatically in a future version.
 
