@@ -969,7 +969,8 @@ iot transportProfile "Wi-Fi-telemetry"
  payloadContent wifi-unassoc-sta
  endpointToken <access-token>
  endpointID <client-id>
-exit
+ exit
+
 iot useTransportProfile "Wi-Fi-telemetry"
 ```
 
@@ -1008,7 +1009,8 @@ iot transportProfile "Wi-Fi-RTLS"
  endpointToken <access-token>
  endpointID <client-id>
  rtlsDestMAC <mac-address>
-exit
+ exit
+
 iot useTransportProfile "Wi-Fi-RTLS"
 ```
 
@@ -1047,15 +1049,17 @@ iot useTransportProfile "Meridian-Beacon-Management"
 
 ```
 iot radio-profile "int-beacon-scan"
-  radio-mode ble
-exit
+ radio-mode ble
+ exit
+
 iot use-radio-profile "int-beacon-scan"
 
 iot transportProfile "Meridian-Beacon-Management"
-  endpointURL https://edit.meridianapps.com/api/beacons/manage 
-  endpointToken <access-token>
-  payloadContent managed-beacons 
-exit
+ endpointURL https://edit.meridianapps.com/api/beacons/manage 
+ endpointToken <access-token>
+ payloadContent managed-beacons 
+ exit
+
 iot useTransportProfile "Meridian-Beacon-Management"
 ```
 
@@ -1106,25 +1110,28 @@ iot useTransportProfile "Meridian-Asset-Tracking"
 
 ```
 iot radio-profile "int-beacon-scan"
-  radio-mode ble
-exit
+ radio-mode ble
+ exit
+
 iot use-radio-profile "int-beacon-scan"
 
 iot transportProfile "Meridian-Beacon-Management"
-  endpointURL https://edit.meridianapps.com/api/beacons/manage 
-  endpointToken <access-token>
-  payloadContent managed-beacons 
-exit
+ endpointURL https://edit.meridianapps.com/api/beacons/manage 
+ endpointToken <access-token>
+ payloadContent managed-beacons 
+ exit
+
 iot useTransportProfile "Meridian-Beacon-Management"
 
 iot transportProfile "Meridian-Asset-Tracking"
-  endpointType Meridian-Asset-Tracking
-  endpointURL https://tags.meridianapps.com/api/v1beta1/streams/ingestion.start 
-  endpointToken <access-token>
-  endpointID <client-id>
-  payloadContent managed-tags 
-  transportInterval 5  
-exit
+ endpointType Meridian-Asset-Tracking
+ endpointURL https://tags.meridianapps.com/api/v1beta1/streams/ingestion.start 
+ endpointToken <access-token>
+ endpointID <client-id>
+ payloadContent managed-tags 
+ transportInterval 5  
+ exit
+
 iot useTransportProfile "Meridian-Asset-Tracking"
 ```
 
@@ -1167,7 +1174,8 @@ iot useTransportProfile "ZF-Openmatics-deTAGtive"
 iot radio-profile "int-scan"
  radio-mode ble
  ble-opmode scanning
-exit
+ exit
+
 iot use-radio-profile "int-scan"
 
 iot transportProfile "ZF-Openmatics-deTAGtive"
@@ -1177,7 +1185,8 @@ iot transportProfile "ZF-Openmatics-deTAGtive"
  username <username>
  password <password>
  transportInterval 5
-exit
+ exit
+
 iot useTransportProfile "ZF-Openmatics-deTAGtive"
 ```
 
@@ -1223,7 +1232,8 @@ iot useTransportProfile "BLE-telemetry"
 iot radio-profile "int-scan"
  radio-mode ble
  ble-opmode scanning
-exit
+ exit
+
 iot use-radio-profile "int-scan"
 
 iot transportProfile "BLE-telemetry"
@@ -1236,7 +1246,8 @@ iot transportProfile "BLE-telemetry"
  transportInterval 1
  ageFilter 30
  rssiReporting last
-exit
+ exit
+
 iot useTransportProfile "BLE-telemetry"
 ```
 
@@ -1284,7 +1295,8 @@ iot useTransportProfile "Azure-IoT-Hub-ble-data"
 iot radio-profile "int-scan"
  radio-mode ble
  ble-opmode scanning
-exit
+ exit
+
 iot use-radio-profile "int-scan"
 
 iot transportProfile "Azure-IoT-Hub-ble-data"
@@ -1293,7 +1305,8 @@ iot transportProfile "Azure-IoT-Hub-ble-data"
  bleDataForwarding
  azure-dps-id-scope <scope-id>
  azure-dps-auth-type group-enrollment symmetric-key <key>
-exit
+ exit
+
 iot useTransportProfile "Azure-IoT-Hub-ble-data"
 ```
 
@@ -1338,7 +1351,8 @@ iot useTransportProfile "ABB-Ability-Smart-Sensor"
 ```
 iot radio-profile "int-beacon-scan"
   radio-mode ble
-exit
+ exit
+
 iot use-radio-profile "int-beacon-scan"
 
 iot transportProfile "ABB-Ability-Smart-Sensor"
@@ -1350,6 +1364,8 @@ iot transportProfile "ABB-Ability-Smart-Sensor"
  password <password>
  transportInterval 30
  authenticationURL "https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2"
+ exit
+
 iot useTransportProfile "ABB-Ability-Smart-Sensor"
 ```
 
@@ -1390,8 +1406,9 @@ iot useTransportProfile "ABB-Ability-Smart-Sensor"
 
 ```
 iot radio-profile "int-beacon-scan"
-  radio-mode ble
-exit
+ radio-mode ble
+ exit
+
 iot use-radio-profile "int-beacon-scan"
 
 iot transportProfile "ABB-Ability-Smart-Sensor"
@@ -1403,6 +1420,8 @@ iot transportProfile "ABB-Ability-Smart-Sensor"
  transportInterval 30
  authenticationURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
  authentication-mode client-credentials
+ exit
+
 iot useTransportProfile "ABB-Ability-Smart-Sensor"
 ```
 
@@ -1484,15 +1503,18 @@ ap-group <ap-group>
 ```
 usb acl-profile "Solu-M-USB-GW-acl"
  rule Solu-M-SLG-DM101 permit
-exit
+ exit
+
 usb profile "Solu-M-USB-GW"
  usb-acl "Solu-M-USB-GW-acl"
-exit
+ exit
+
 usb-profile-binding "Solu-M-USB-GW"
 
 wlan access-rule "Solu-M-USB-GW-wiredPortProf"
  rule any any match any any any permit
-exit
+ exit
+
 wired-port-profile "Solu-M-USB-GW-wiredPortProf"
  switchport-mode access
  allowed-vlan <vlan-id>
@@ -1500,7 +1522,8 @@ wired-port-profile "Solu-M-USB-GW-wiredPortProf"
  no shutdown
  access-rule-name "Solu-M-USB-GW-wiredPortProf"
  type employee
-exit
+ exit
+
 enet-usb-port-profile "Solu-M-USB-GW-wiredPortProf"
 ```
 
@@ -1536,7 +1559,8 @@ iot transportProfile "EnOcean-Demo"
  payloadContent serial-data
  endpointToken "1234567890"
  endpointID "ArubaInstant"
-exit
+ exit
+
 iot useTransportProfile "EnOcean-Demo"
 ```
 
@@ -1574,7 +1598,7 @@ iot transportProfile "Azure-IoT-Hub-serial-data"
  bleDataForwarding
  azure-dps-id-scope <scope-id>
  azure-dps-auth-type group-enrollment symmetric-key <key>
-exit
+ exit
 iot useTransportProfile "Azure-IoT-Hub-serial-data"
 ```
 
