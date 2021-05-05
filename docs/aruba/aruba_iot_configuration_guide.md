@@ -326,7 +326,7 @@ Wi-Fi RTLS data forwarding is enabled using the device class [wifi-tag](#wi-fi-d
 >***Note:***  
 >WiFi telemetry is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
 
-#### [**BLE telemetry**]](#table-of-contents)
+#### [**BLE telemetry**](#table-of-contents)
 
 BLE telemetry sends periodic reports about all BLE devices that are discovered by an AP's [IoT radio](#aruba-iot-radio) and saved on a local BLE table to a remote server.  
 
