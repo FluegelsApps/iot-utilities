@@ -58,7 +58,8 @@ This document describes the principals and configuration of the Aruba IoT integr
    *  [BLE data forwarding solutions](#ble-data-forwarding-solutions)
       *  [Azure IoT Hub (ble data)](#azure-iot-hub-ble-data)
    *  [BLE connect solutions](#ble-connect-solutions)
-      *  [ABB](#abb)
+      *  [ABB (ArubaOS/Aruba Instant 8.7.x.x)](#abb-arubaosaruba-instant-87xx)
+      *  [ABB (ArubaOS/Aruba Instant 8.8.x.x or higher)](#abb-arubaosaruba-instant-88xx-or-higher)
    *  [USB vendor specific solutions](#usb-vendor-specific-solutions)
       *  [SES Imagotag](#ses-imagotag)
    *  [USB-to-ethernet solutions](#usb-to-ethernet-solutions)
@@ -588,7 +589,7 @@ The following table lists the available `iot radio-profile` parameters and their
 |`radio-mode <mode>`|`radio-mode <mode>`|Radio mode to be enabled.<br> Available options are:<br>- ***None*** - Radio disabled (default)<br>- ***ble*** - BLE (tx/rx) enabled<br>- ***zigbee*** - ZigBee enabled<br>- ***"ble zigbee"*** - BLE (tx-only) and ZigBee enabled concurrently|
 |`ble-opmode <opmode>`|`ble-opmode <opmode>`|BLE operation mode to be enabled.<br> This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***.<br> Available options are:<br>- ***beaconing*** - BLE (tx) beaconing enabled using the iBeacon protocol (default)<br>- ***scanning*** - BLE (rx) scanning enabled<br>- ***"beaconing scanning"*** - BLE (tx/rx) beaconing and scanning enabled concurrently (default - does not show up in the configuration!)|
 |`ble-console <console-mode>` |`ble-console <console-mode>`|BLE console mode to be enabled.<br>BLE console provides console access to the AP over BLE.<br>This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***.<br>Available options are:<br>- ***dynamic*** - Enables BLE console automatically<br>- ***on*** - BLE console enabled<br>- ***off*** - BLE console disabled (default)|
-|`ble-txpower <txpower>`|`ble-txpower <txpower>`| BLE tx power in dBM to be used.<br> This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***.<br>- Value range: ***-20 ... 4***, (default: ***0***)|
+|`ble-txpower <txpower>`|`ble-txpower <txpower>`| BLE tx power in dBm to be used.<br> This parameter is available only when `radio-mode` is set to ***ble*** or ***"ble zigbee"***.<br>- Value range: ***-20 ... 4***, (default: ***0***)|
 |`zigbee-opmode <opmode>`|`zigbee-opmode <opmode>`|ZigBee operation mode to be used.<br> This parameter is available only when `radio-mode` is set to ***zigbee*** or ***"ble zigbee"***.<br> Available options are:<br>- ***coordinator*** - Radio works as ZigBee coordinator (default)|
 |`zigbee-channel <channel>`|`zigbee-channel <channel>`|Channel to be used.<br> This parameter is available only when `radio-mode` is set to ***zigbee*** or ***"ble zigbee"***.<br> Available options are:<br>- **auto** - Selects the channel automatically (default)<br>- ***Value range: 11 ... 26*** - Specifies the channel manually|
 
@@ -1241,7 +1242,7 @@ iot useTransportProfile "BLE-telemetry"
 
 ## [BLE data forwarding solutions](#table-of-contents)
 
-### ***[Azure IoT Hub (ble data)](#table-of-contents)***
+### [Azure IoT Hub (ble data)](#table-of-contents)
 
 This example shows the required configuration to enable [BLE data forwarding](#ble-data-forwarding) for `all` supported [BLE vendors](#supported-iot-vendordevice-class-list) to Azure IoT Hub.
 
@@ -1298,9 +1299,9 @@ iot useTransportProfile "Azure-IoT-Hub-ble-data"
 
 ## [BLE connect solutions](#table-of-contents)
 
-### [ABB](#table-of-contents)
+### [ABB (ArubaOS/Aruba Instant 8.7.x.x)](#table-of-contents)
 
-This example shows the required configuration to enable the [ABB Ability™ Smart Sensor](https://new.abb.com/motors-generators/service/advanced-services/smart-sensor) integrartion.
+This example shows the required configuration to enable the [ABB Ability™ Smart Sensor](https://new.abb.com/motors-generators/service/advanced-services/smart-sensor) integrartion using ArubaOS/Aruba Instant version 8.7.x.x.
 
 -   `client-id` - has to be replaced with the ABB Ability™ account organization ID
 -   `username` - has to be replaced with the **email address** of the ABB Ability™ account
@@ -1325,10 +1326,9 @@ iot transportProfile "ABB-Ability-Smart-Sensor"
     clientId <client-id>
     username <username>
     password <password>
-    reportingInterval 10
+    reportingInterval 30
     deviceClassFilter ability-smart-sensor
     authenticationURL "https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2"
-    authentication-mode password
 !
 iot useTransportProfile "ABB-Ability-Smart-Sensor"
 ```
@@ -1342,15 +1342,67 @@ exit
 iot use-radio-profile "int-beacon-scan"
 
 iot transportProfile "ABB-Ability-Smart-Sensor"
- endpointURL https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2
+ endpointURL "https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2"
  endpointType telemetry-websocket
  payloadContent ability-smart-sensor
  endpointID <client-id>
  username <username>
  password <password>
- transportInterval 10
- authenticationURL https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2
- authentication-mode password
+ transportInterval 30
+ authenticationURL "https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2"
+iot useTransportProfile "ABB-Ability-Smart-Sensor"
+```
+
+### [ABB (ArubaOS/Aruba Instant 8.8.x.x or higher)](#table-of-contents)
+
+This example shows the required configuration to enable the [ABB Ability™ Smart Sensor](https://new.abb.com/motors-generators/service/advanced-services/smart-sensor) integrartion using ArubaOS/Aruba Instant version 8.8.x.x or higher.
+
+-   `client-id` - has to be replaced with the ABB Ability™ account organization ID
+-   `secret` - has to be replaced with the **client credentials** of the ABB Ability™ account
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
+
+>***Note:***  
+>The [Baltimore CyberTrust Root certificate (BaltimoreCyberTrustRoot.crt.pem)](https://www.digicert.com/kb/digicert-root-certificates.htm) has to be installed on the Aruba infrastructure when connecting the [ABB Ability™ Smart Sensor platform](https://new.abb.com/motors-generators/service/advanced-services/smart-sensor). Please see the [Aruba CLI Reference - Importing Certificates](#aruba-cli-reference---importing-certificates) for details.
+
+**ArubaOS**
+
+```
+iot radio-profile "int-beacon-scan"
+    radio-mode none ble
+!
+ap-group <ap-group>
+    iot radio-profile "int-beacon-scan"
+!
+iot transportProfile "ABB-Ability-Smart-Sensor"
+    serverType Telemetry-Websocket
+    serverURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+    clientId <client-id>
+    client-secret <secret>
+    reportingInterval 30
+    deviceClassFilter ability-smart-sensor
+    authenticationURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+    authentication-mode client-credentials
+!
+iot useTransportProfile "ABB-Ability-Smart-Sensor"
+```
+
+**Aruba Instant**
+
+```
+iot radio-profile "int-beacon-scan"
+  radio-mode ble
+exit
+iot use-radio-profile "int-beacon-scan"
+
+iot transportProfile "ABB-Ability-Smart-Sensor"
+ endpointURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+ endpointType telemetry-websocket
+ payloadContent ability-smart-sensor
+ endpointID <client-id>
+ client-secret <secret>
+ transportInterval 30
+ authenticationURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+ authentication-mode client-credentials
 iot useTransportProfile "ABB-Ability-Smart-Sensor"
 ```
 
