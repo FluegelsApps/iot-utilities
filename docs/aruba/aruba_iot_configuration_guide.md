@@ -23,6 +23,7 @@ This document describes the principals and configuration of the Aruba IoT integr
        *  [IoT transport services](#iot-transport-services)
           *  [Wi-Fi telemetry](#wi-fi-telemetry)
           *  [Wi-Fi RTLS data forwarding](#wi-fi-rtls-data-forwarding)
+          *  [BLE telemetry](#ble-telemetry)
           *  [BLE data forwarding](#ble-data-forwarding)
           *  [BLE connect](#ble-connect)
           *  [Serial-data](#serial-data)
@@ -273,7 +274,7 @@ The table below shows a summary of the available transport services and the corr
 |[Wi-Fi telemetry](#wi-fi-telemetry)|[Wi-Fi](#wi-fi)|[Telemetry-Websocket](#telemetry-websocket)|[wifi-assoc-sta, wifi-unassoc-sta](#wi-fi-device-class-filter)|
 |[Wi-Fi RTLS data forwarding](#wi-fi-rtls-data-forwarding)|[Wi-Fi](#wi-fi)|[Telemetry-Websocket](#telemetry-websocket)|[wifi-tags](#wi-fi-device-class-filter)|
 |**Bluetooth Low Energy (BLE)**||||
-|[BLE Telemetry](#ble-telemetry)|BLE -> [Aruba IoT radio Gen1 or Gen2](#aruba-iot-radio)|[Telemetry-Https](#Telemetry-Https), [Telemetry-Websocket](#telemetry-websocket)|[All BLE device classes](#ble-device-class-filter)|
+|[BLE telemetry](#ble-telemetry)|BLE -> [Aruba IoT radio Gen1 or Gen2](#aruba-iot-radio)|[Telemetry-Https](#Telemetry-Https), [Telemetry-Websocket](#telemetry-websocket)|[All BLE device classes](#ble-device-class-filter)|
 |[BLE data forwarding](#ble-data-forwarding)|BLE -> [Aruba IoT radio Gen1 or Gen2](#aruba-iot-radio)|[Telemetry-Websocket](#telemetry-websocket), [Azure-IoTHub](#azure-iothub)|[All BLE device classes](#ble-device-class-filter)|
 |[BLE connect](#ble-connect)|BLE -> [Aruba IoT radio Gen1 or Gen2](#aruba-iot-radio)|[Telemetry-Websocket](#telemetry-websocket)|[All BLE device classes](#ble-device-class-filter)|
 |**USB/3rd party**||||
