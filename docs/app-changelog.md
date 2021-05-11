@@ -13,6 +13,8 @@
     - shortcuts to open connections to previous devices
     - connection and security information of device can be stored
     - functionality to reconnect after successful authentication
+- new documentation features
+    - support of anchors
 
 ### Reworked features and improvements:
 
@@ -20,10 +22,19 @@
     - updated components
     - fixed data loss on rotation
     - added certificate generation in background without dialog
+- reworked BLE-Testing beacon info dialog
+    - new dialog style
+    - displays all important information
+    - values can be copied to clipboard
 
 ### Fixed bugs and issues:
 
-- fixed bug that caused app to crash on rotation in main activity
+- fixed bug: app crashing when rotating the dashboard
+- fixed bug: advertiser name not cloned properly
+- fixed bug: data collection not loaded when rotating in northbound details
+- fixed bug: app crashing when deleting multiple clients at a time
+- fixed bug: app crashing in clients list due to formatting errors 
+- fixed bug: certificate was not downloadable from the web-dashboard (only viewable)
 
 ---
 
