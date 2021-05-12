@@ -58,6 +58,8 @@ This document describes the principals and configuration of the Aruba IoT integr
       *  [ZF Openmatics](#zf-openmatics)
    *  [BLE telemetry solutions](#ble-telemetry-solutions)
       *  [iBeacon + Eddystone asset tracking](#ibeacon--eddystone-asset-tracking)
+      *  [HYPROS (ArubaOS/Aruba Instant 8.7.x.x)](#hypros-arubaosaruba-instant-87xx)
+      *  [HYPROS (ArubaOS/Aruba Instant 8.8.x.x or higher)](#hypros-arubaosaruba-instant-88xx-or-higher)
    *  [BLE data forwarding solutions](#ble-data-forwarding-solutions)
       *  [Azure IoT Hub (ble data)](#azure-iot-hub-ble-data)
    *  [BLE connect solutions](#ble-connect-solutions)
@@ -116,7 +118,8 @@ Aruba AP-3xx/5xx series access points provide an integrated Aruba IoT radio for 
 Starting with ArubaOS/Instant OS version 8.8.0.0 **BLE Wi-Fi Co-Existence** has been introduced to improve the overall WLAN and BLE receiver performance and to prevent inter-modulation by coordinating WLAN and BLE traffic and avoiding WLAN and BLE transmitting simultaneously. The feature is enabled by default.
 
 >***Note:***  
->BLE Wi-Fi Co-Existence is only supported on Aruba AP-5xx series for the internal Aruba IoT Gen2 radio.  
+>BLE Wi-Fi Co-Existence is only supported on Aruba AP-53x and AP-55x series access point series for the internal Aruba IoT Gen2 radio.
+>The Aruba AP-505H hospitality accdess point series has some internal HW-based filtering to compensate local interference that works differently to the BLE Wi-Fi Co-Existence feature.   
 
 #### ***External***
 
@@ -1205,7 +1208,7 @@ iot useTransportProfile "ZF-Openmatics-deTAGtive"
 
 This example shows the required configuration to enable [BLE telemety](#ble-telemetry) reporting for `ibeacon` and `eddystone` BLE devices for asset tracking and eddystone based sensor monitoring.
 
--   `fqdn, ip-address` - has to be replaced with the FQDN or IP address of the remote server
+-   `fqdn, ip-address, port, path` - has to be replaced with the FQDN or IP address, optional port and path of the remote server
 -   `access-token` - has to be replaced with the static access token used to connect to the remote server
 -   `client-id` - has to be replaced with the client identifier string that is used by the remote server to identify the connecting Aruba infrastructure
 -   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
@@ -1258,6 +1261,143 @@ iot transportProfile "BLE-telemetry"
  exit
 
 iot useTransportProfile "BLE-telemetry"
+```
+
+### [HYPROS (ArubaOS/Aruba Instant 8.7.x.x)](#table-of-contents)
+
+This example shows the required configuration to enable the [HYPROS tracking and tracing solutions](https://hypros.de/en/) integrartion using ArubaOS/Aruba Instant version 8.7.x.x.
+
+-   `fqdn, ip-address, port, path` - has to be replaced with the FQDN or IP address, optional port and path of the HYPROS server
+-   `client-id` - has to be replaced with the HYPROS customer client id consisting of:  `"<customer-name>-client"`
+-   `username` - has to be replaced with the HYPROS server **login username**
+-   `password` - has to be replaced with the HYPROS server **login password**
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
+-   `interval` - has to be replaced with a HYPROS deployment specific reporting interval
+-   `uuid-list` - has to be replaced with a HYPROS deployment specific iBeacon UUID list to filter for, format:  `"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"`
+
+>***Note:***  
+>The self-signed server certificate of the HYPROS server has to be installed on the Aruba infrastructure for the sercure web socket server connection to be established. Please see the [Aruba CLI Reference - Importing Certificates](#aruba-cli-reference---importing-certificates) for details.
+
+**ArubaOS**
+
+```
+iot radio-profile "int-scan"
+    radio-mode none ble
+    ble-opmode scanning
+!
+ap-group <ap-group>
+    iot radio-profile "int-scan"
+!
+iot transportProfile "HYPROS"
+    serverType Telemetry-Websocket
+    serverURL "wss://<fqdn|ip-address>[:<port>][<path>]"
+    clientId <client-id>
+    username <username>
+    password <password>
+    reportingInterval <interval>
+    deviceClassFilter ibeacon
+    authenticationURL "https://<fqdn|ip-address>[:<port>][<path>]"
+    uuidFilter <uuid-list>
+    ageFilter 30
+    rssiReporting last
+    include-ap-group <ap-group>
+!
+iot useTransportProfile "HYPROS"
+```
+
+**Aruba Instant**
+
+```
+iot radio-profile "int-scan"
+ radio-mode ble
+ ble-opmode scanning
+ exit
+
+iot use-radio-profile "int-scan"
+
+iot transportProfile "HYPROS"
+ endpointURL "wss://<fqdn|ip-address>[:<port>][<path>]"
+ endpointType telemetry-websocket
+ payloadContent ibeacon
+ endpointID <client-id>
+ username <username>
+ password <password>
+ transportInterval <interval>
+ uuidFilter <uuid-list>
+ ageFilter 30
+ authenticationURL "https://<fqdn|ip-address>[:<port>][<path>]"
+ rssiReporting last
+ exit
+
+iot useTransportProfile "HYPROS"
+```
+
+### [HYPROS (ArubaOS/Aruba Instant 8.8.x.x or higher)](#table-of-contents)
+
+This example shows the required configuration to enable the [HYPROS tracking and tracing solutions](https://hypros.de/en/) integrartion using ArubaOS/Aruba Instant version 8.8.x.x or higher.
+
+-   `fqdn, ip-address, port, path` - has to be replaced with the FQDN or IP address, optional port and path of the HYPROS server
+-   `client-id` - has to be replaced with the HYPROS customer client id consisting of:  `"<customer-name>-client"`
+-   `secret` - has to be replaced with the HYPROS server **client credentials**
+-   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
+-   `interval` - has to be replaced with a HYPROS deployment specific reporting interval
+-   `uuid-list` - has to be replaced with a HYPROS deployment specific iBeacon UUID list to filter for, format:  `"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"`
+
+>***Note:***  
+>The self-signed server certificate of the HYPROS server has to be installed on the Aruba infrastructure for the sercure web socket server connection to be established. Please see the [Aruba CLI Reference - Importing Certificates](#aruba-cli-reference---importing-certificates) for details.
+
+**ArubaOS**
+
+```
+iot radio-profile "int-scan"
+    radio-mode none ble
+    ble-opmode scanning
+!
+ap-group <ap-group>
+    iot radio-profile "int-scan"
+!
+iot transportProfile "HYPROS"
+    serverType Telemetry-Websocket
+    serverURL "wss://<fqdn|ip-address>[:<port>][<path>]"
+    clientId <client-id>
+    client-secret <secret>
+    reportingInterval <interval>
+    deviceClassFilter ibeacon
+    authenticationURL "https://<fqdn|ip-address>[:<port>][<path>]"
+    authentication-mode client-credentials
+    uuidFilter <uuid-list>
+    ageFilter 30
+    rssiReporting last
+    include-ap-group <ap-group>
+!
+iot useTransportProfile "HYPROS"
+```
+
+**Aruba Instant**
+
+```
+iot radio-profile "int-scan"
+ radio-mode ble
+ ble-opmode scanning
+ exit
+
+iot use-radio-profile "int-scan"
+
+iot transportProfile "HYPROS"
+ endpointURL "wss://<fqdn|ip-address>[:<port>][<path>]"
+ endpointType telemetry-websocket
+ payloadContent ibeacon
+ endpointID <client-id>
+ client-secret <secret>
+ transportInterval <interval>
+ uuidFilter <uuid-list>
+ ageFilter 30
+ authenticationURL "https://<fqdn|ip-address>[:<port>][<path>]"
+ authentication-mode client-credentials
+ rssiReporting last
+ exit
+
+iot useTransportProfile "HYPROS"
 ```
 
 ## [BLE data forwarding solutions](#table-of-contents)
@@ -1351,6 +1491,7 @@ iot transportProfile "ABB-Ability-Smart-Sensor"
     reportingInterval 30
     deviceClassFilter ability-smart-sensor
     authenticationURL "https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2"
+    include-ap-group <ap-group>
 !
 iot useTransportProfile "ABB-Ability-Smart-Sensor"
 ```
@@ -1407,6 +1548,7 @@ iot transportProfile "ABB-Ability-Smart-Sensor"
     deviceClassFilter ability-smart-sensor
     authenticationURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
     authentication-mode client-credentials
+    include-ap-group <ap-group>
 !
 iot useTransportProfile "ABB-Ability-Smart-Sensor"
 ```
