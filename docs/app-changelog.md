@@ -31,6 +31,9 @@
     - displays all important information
     - values can be copied to clipboard
 
+- added external content warning when opening links in documentation and licenses
+- shortened and improved various log messages
+
 ### Fixed bugs and issues:
 
 - fixed bug: app crashing when rotating the dashboard
