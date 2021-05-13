@@ -1,0 +1,55 @@
+! Aruba Instant IoT CLI Config Template - IoT-Utilities App v1
+! Aruba Instant Version 8.7
+!
+! Variables:
+!
+! IoT-Utilities variables (auto-replaced):
+!   - ip-address
+!   - port
+!   - access-token
+!   - username
+!   - interval
+!   
+! Custom variables, to be replaced by the user:
+!   - client-id
+!   - password
+!   - ap-group
+!
+! Step 1) Define the iot radio profile
+!
+iot radio-profile "int-scan"
+ radio-mode ble
+ ble-opmode scanning
+ exit
+!
+iot useTransportProfile "IoT-Utilities-App"
+!
+! Step 2) Enable the iot radio profile
+!
+iot use-radio-profile "int-scan"
+!
+! Step 3) Define the iot transport profile
+!
+iot transportProfile "IoT-Utilities-App"
+ endpointURL "wss://<ip-address>:<port>/telemetry"
+ endpointType telemetry-websocket
+ authenticationURL "https://<ip-address>:<port>/auth"
+ endpointID <client-id>
+ username <username>
+ password <password>
+ payloadContent all
+ payloadContent unclassified
+ payloadContent serial-data
+ payloadContent wifi-tags
+ payloadContent wifi-assoc-sta
+ payloadContent wifi-unassoc-sta
+ transportInterval <interval>
+ ageFilter 30
+ bleDataForwarding
+ rssiReporting last
+ exit
+!
+! Step 4) Enable the iot transport profile
+!
+iot useTransportProfile "IoT-Utilities-App"
+!
