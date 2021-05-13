@@ -6,7 +6,7 @@
     - connecting to devices via sensors
     - authenticating, pairing and bonding with devices via sensors
     - reading and writing on GATT-services of connected devices
-    - support of GATT-Notification and GATT-Indication
+    - support of GATT-Notification and GATT-Indication (currently only in interaction)
     - Philips Hue control panel (BETA)
 - BLE-Connect presets
     - functionality to save connection presets (device and sensor)
