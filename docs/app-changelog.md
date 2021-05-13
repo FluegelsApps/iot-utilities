@@ -13,6 +13,10 @@
     - shortcuts to open connections to previous devices
     - connection and security information of device can be stored
     - functionality to reconnect after successful authentication
+- bug reporting feature
+    - bugs and crashes can now be reported using the app
+    - crashes: using the dialog that appears when the app crashes OR at Settings --> Advanced --> Recent crashes
+    - bugs: using the app: Settings --> Advanced --> Report a bug
 - new documentation features
     - support of anchors
 
