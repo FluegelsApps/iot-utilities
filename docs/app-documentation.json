@@ -19,7 +19,7 @@
     "SetupActivityWelcomeFragment": "./setup/setup_welcome.md",
     "SetupActivityIoTServerFragment": "./setup/setup_iot_server.md",
     "OnBoardingActivityWelcomeFragment": "./setup/setup_welcome.md",
-    "OnBoardingActivityServerFragment": "./setup/setup_iot_server_md",
+    "OnBoardingActivityServerFragment": "./setup/setup_iot_server.md",
     "PreferencesGeneralFragment": "./settings/settings_general.md",
     "PreferencesPermissionsFragment": "./settings/settings_permissions.md",
     "PreferencesStyleFragment": "./settings/settings_style.md",
