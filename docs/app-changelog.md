@@ -34,6 +34,7 @@
 - added external content warning when opening links in documentation and licenses
 - shortened and improved various log messages
 - authentication no longer required when trying to download server certificate
+- comments will now be removed when copying configuration templates
 
 ### Fixed bugs and issues:
 
