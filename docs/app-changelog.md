@@ -33,6 +33,7 @@
 
 - added external content warning when opening links in documentation and licenses
 - shortened and improved various log messages
+- authentication no longer required when trying to download server certificate
 
 ### Fixed bugs and issues:
 
@@ -42,6 +43,7 @@
 - fixed bug: app crashing when deleting multiple clients at a time
 - fixed bug: app crashing in clients list due to formatting errors 
 - fixed bug: certificate was not downloadable from the web-dashboard (only viewable)
+- fixed bug: anchors in documentation not always redirecting properly
 
 ---
 
