@@ -44,6 +44,7 @@
 - fixed bug: app crashing in clients list due to formatting errors 
 - fixed bug: certificate was not downloadable from the web-dashboard (only viewable)
 - fixed bug: anchors in documentation not always redirecting properly
+- fixed bug: axis scale in history graph to big when receiving invalid rssi (0 - 900)
 
 ---
 
