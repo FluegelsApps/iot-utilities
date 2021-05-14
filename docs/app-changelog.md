@@ -5,7 +5,7 @@
 - implementation of Aruba IoT BLE-Connect functionality
     - connecting to devices via sensors
     - authenticating, pairing and bonding with devices via sensors
-    - reading and writing on GATT-services of connected devices
+    - reading and writing on GATT-services/characteristics of connected devices
     - support of GATT-Notification and GATT-Indication (currently only in interaction)
     - Philips Hue control panel (BETA)
 - BLE-Connect presets
@@ -16,7 +16,7 @@
 - bug reporting feature
     - bugs and crashes can now be reported using the app
     - crashes: using the dialog that appears when the app crashes OR at Settings --> Advanced --> Recent crashes
-    - bugs: using the app: Settings --> Advanced --> Report a bug
+    - bugs: using the app: Main drawer --> Report a bug
 - new Web-Dashboard error page
 - new documentation features
     - support of anchors
@@ -47,9 +47,9 @@
 - fixed bug: data collection not loaded when rotating in northbound details
 - fixed bug: app crashing when deleting multiple clients at a time
 - fixed bug: app crashing in clients list due to formatting errors 
-- fixed bug: certificate was not downloadable from the web-dashboard (only viewable)
+- fixed bug: certificate was not downloadable from the web-dashboard
 - fixed bug: anchors in documentation not always redirecting properly
-- fixed bug: axis scale in history graph to big when receiving invalid RSSI (0 - 900)
+- fixed bug: axis scale in history graph too big when receiving invalid RSSI
 
 ---
 
