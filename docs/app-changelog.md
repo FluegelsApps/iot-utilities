@@ -17,8 +17,12 @@
     - bugs and crashes can now be reported using the app
     - crashes: using the dialog that appears when the app crashes OR at Settings --> Advanced --> Recent crashes
     - bugs: using the app: Settings --> Advanced --> Report a bug
+- new Web-Dashboard error page
 - new documentation features
     - support of anchors
+- support of both HTTP and HTTPS
+    - HTTP requests will automatically be redirected to HTTPS requests because of security reasons
+    - HTTPS is not required when downloading the certificate from the server
 
 ### Reworked features and improvements:
 
