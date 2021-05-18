@@ -20,9 +20,11 @@
 - new Web-Dashboard error page
 - new documentation features
     - support of anchors
-- support of both HTTP and HTTPS
-    - HTTP requests will automatically be redirected to HTTPS requests because of security reasons
-    - HTTPS is not required when downloading the certificate from the server
+- new server features
+    - support of both HTTP and HTTPS (HTTP requests, except for certificate download will be redirected to HTTPS because of security concerns)
+    - global traffic analysis and output
+    - per connection traffic analysis and output
+    - server will save count and size of all messages instead of only relevant data
 
 ### Reworked features and improvements:
 
