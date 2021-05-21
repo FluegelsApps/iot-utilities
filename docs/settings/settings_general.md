@@ -1,3 +1,9 @@
+---
+layout: default
+title: General Settings
+parent: Settings
+---
+
 # General settings
 
 ## Application behaviour
