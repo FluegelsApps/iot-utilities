@@ -1,6 +1,8 @@
 remote_theme: pmarsceill/just-the-docs
 color_scheme: dark
 title: IoT-Utilities
+logo: "/docs/images/PlayStoreBanner.png"
+
 aux_links:
   "IoT-Utilities on GitHub":
     - "//github.com/FluegelsApps/iot-utilities/"
