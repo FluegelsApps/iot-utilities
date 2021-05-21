@@ -2,6 +2,7 @@
 layout: default
 title: Client Configuration
 parent: Main
+grand_parent: App Documentation
 ---
 
 # Client configuration
