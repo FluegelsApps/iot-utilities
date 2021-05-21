@@ -1,3 +1,9 @@
+---
+layout: default
+title: Welcome Setup
+parent: Setup
+grand_parent: App Documentation
+---
 
 # Setup wizard
 
