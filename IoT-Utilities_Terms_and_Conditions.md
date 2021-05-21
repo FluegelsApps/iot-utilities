@@ -1,3 +1,9 @@
+---
+layout: default
+title: Terms & Conditions
+parent: Legal
+---
+
 # Terms and Conditions
 
 Last updated: December 06, 2020

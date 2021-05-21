@@ -1,3 +1,10 @@
+---
+layout: default
+title: Advanced Settings
+parent: Settings
+grand_parent: App Documentation
+---
+
 # Advanced settings
 
 ## Log settings

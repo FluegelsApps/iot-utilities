@@ -1,3 +1,10 @@
+---
+layout: default
+title: Style & Appearance
+parent: Settings
+grand_parent: App Documentation
+---
+
 # Style and appearance
 
 ## Style settings

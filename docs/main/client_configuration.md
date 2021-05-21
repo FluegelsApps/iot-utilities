@@ -1,3 +1,10 @@
+---
+layout: default
+title: Client Configuration
+parent: Main
+grand_parent: App Documentation
+---
+
 # Client configuration
 
 The app client configuration feature provides templates for the configuration of an Aruba infrastructure for use with this app or other 3rd party IoT solutions. The term _client_ revers to the ArubaOS Controller or Aruba Instant access point.
