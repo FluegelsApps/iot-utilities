@@ -1,3 +1,9 @@
+---
+layout: default
+title: Documentation Home
+nav_exclude: true
+---
+
 # Documentation
 
 ## Available destinations
@@ -33,4 +39,4 @@
 
 ### Aruba documentation
 
-- [Aruba IoT concepts and configuration](./aruba/aruba_iot_concepts_and_configuration.md)  
+- [Aruba IoT Configuration Guide](./aruba/aruba_iot_configuration_guide.md)  

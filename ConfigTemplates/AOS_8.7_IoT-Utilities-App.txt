@@ -1,0 +1,52 @@
+! ArubaOS IoT CLI Config Template - IoT-Utilities App v1
+! AOS Version 8.7
+!
+! Variables:
+!
+! IoT-Utilities variables (auto-replaced):
+!   - ip-address
+!   - port
+!   - access-token
+!   - username
+!   - interval
+!   
+! Custom variables, to be replaced by the user:
+!   - client-id
+!   - password
+!   - ap-group
+!
+! Step 1) Define the iot radio profile
+!
+iot radio-profile "int-scan"
+    radio-mode none ble
+    ble-opmode scanning
+!
+! Step 2) Enable the iot radio profile
+!
+ap-group <ap-group>
+    iot radio-profile "int-scan"
+!
+! Step 3) Define the iot transport profile
+!
+iot transportProfile "IoT-Utilities-App"
+    serverType Telemetry-Websocket
+    serverURL "wss://<ip-address>:<port>/telemetry"
+    authenticationURL "https://<ip-address>:<port>/auth"
+    clientId <client-id>
+    username <username>
+    password <password>
+    deviceClassFilter all
+    deviceClassFilter wifi-tags
+    deviceClassFilter wifi-assoc-sta
+    deviceClassFilter wifi-unassoc-sta
+    deviceClassFilter serial-data
+    deviceClassFilter unclassified
+    reportingInterval <interval>
+    rssiReporting last
+    bleDataForwarding
+    include-ap-group <ap-group>
+!
+! Step 4) Enable the iot transport profile
+!
+iot useTransportProfile "IoT-Utilities-App"
+!

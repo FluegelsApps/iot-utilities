@@ -1,3 +1,10 @@
+---
+layout: default
+title: IoT-Server Settings
+parent: Settings
+grand_parent: App Documentation
+---
+
 # IoT-Server settings
 
 ## Server certificate
@@ -32,7 +39,7 @@ Note: This setting also allows you to keep tests running in the background (feat
 
 Tap this setting to set a cooldown for offline connections. These connections will be removed when the time expired to free memory space. Additionally, you can set this value to 0 in order to disable this feature.
 
-### Set server URL
+### Server URL
 
 Tap this setting to change the api_url parameter that is included in Aruba authentication responses. This will **ONLY** change the parameter in the response, not the actual address of the server.
 
@@ -46,7 +53,7 @@ Tap this setting to change the api_url parameter that is included in Aruba authe
 - If this setting is enabled, the server will send Aruba Southbound messages as a response to incoming telemetry messages
 - If this setting is disabled, the server won't send any response message
 
-### Set port number
+### Port number
 
 Tap this setting to change the port of the IoT-Server.
 

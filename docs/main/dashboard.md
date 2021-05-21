@@ -1,3 +1,10 @@
+---
+layout: default
+title: Dashboard
+parent: Main
+grand_parent: App Documentation
+---
+
 # IoT-Utilities Dashboard
 
 ![Dashboard](https://github.com/FluegelsApps/iot-utilities/raw/documentation-dev/docs/images/docs_dashboard.png)

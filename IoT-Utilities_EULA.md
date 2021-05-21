@@ -1,3 +1,9 @@
+---
+layout: default
+title: End User License Agreement
+parent: Legal
+---
+
 # End-User License Agreement ("Agreement")  
 
 Last updated: December 07, 2020

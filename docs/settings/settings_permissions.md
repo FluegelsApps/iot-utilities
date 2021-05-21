@@ -1,3 +1,10 @@
+---
+layout: default
+title: Permission Settings
+parent: Settings
+grand_parent: App Documentation
+---
+
 # Permission settings
 
 ## Permissions
