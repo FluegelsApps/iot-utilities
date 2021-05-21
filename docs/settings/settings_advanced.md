@@ -1,3 +1,9 @@
+---
+layout: default
+title: Advanced Settings
+parent: Settings
+---
+
 # Advanced settings
 
 ## Log settings
