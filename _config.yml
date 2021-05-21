@@ -6,3 +6,6 @@ logo: "https://iot-utilities.arubademo.de/docs/images/documentation_logo.svg"
 aux_links:
   "IoT-Utilities on GitHub":
     - "https://github.com/FluegelsApps/iot-utilities/"
+
+search:
+  heading_level: 4
