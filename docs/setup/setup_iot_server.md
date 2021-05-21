@@ -1,3 +1,9 @@
+---
+layout: default
+title: IoT-Server Setup
+parent: Setup
+grand_parent: App Documentation
+---
 
 # IoT Server Setup
 
