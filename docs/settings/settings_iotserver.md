@@ -2,6 +2,7 @@
 layout: default
 title: IoT-Server Settings
 parent: Settings
+grand_parent: App Documentation
 ---
 
 # IoT-Server settings
