@@ -1,3 +1,9 @@
+---
+layout: default
+title: Home
+nav_order: 0
+permalink: /index.html
+---
 
 # IoT-Utilities (Android App)
 
