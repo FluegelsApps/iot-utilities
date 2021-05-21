@@ -1,3 +1,9 @@
+---
+layout: default
+title: Permission Settings
+parent: Settings
+---
+
 # Permission settings
 
 ## Permissions
