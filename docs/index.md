@@ -1,3 +1,9 @@
+---
+layout: default
+title: Documentation Home
+nav_exclude: true
+---
+
 # Documentation
 
 ## Available destinations
