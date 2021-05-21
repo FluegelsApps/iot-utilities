@@ -1,7 +1,11 @@
 remote_theme: pmarsceill/just-the-docs
-color_scheme: dark
+color_scheme: dark_orange
 title: IoT-Utilities
+logo: "https://iot-utilities.arubademo.de/docs/images/documentation_logo.svg"
 
 aux_links:
   "IoT-Utilities on GitHub":
-    - "//github.com/FluegelsApps/iot-utilities/"
+    - "https://github.com/FluegelsApps/iot-utilities/"
+
+search:
+  heading_level: 4
