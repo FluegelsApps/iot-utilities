@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Application Log
+grand_parent: App Documentation
 parent: Main
 ---
 
