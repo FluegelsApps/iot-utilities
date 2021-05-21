@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Aruba IoT Configuration Guide
+parent: Aruba Documentation
 nav_order: 0
 ---
 
