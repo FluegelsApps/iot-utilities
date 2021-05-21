@@ -1,3 +1,10 @@
+---
+layout: default
+title: Aruba IoT Configuration Guide
+parent: Aruba Documentation
+nav_order: 0
+---
+
 # Aruba IoT Configuration Guide
 
 This document describes the principals and configuration of the Aruba IoT integrations using ArubaOS/Aruba Instant version 8.8.0.0 or higher.

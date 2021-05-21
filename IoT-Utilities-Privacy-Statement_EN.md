@@ -1,3 +1,9 @@
+---
+layout: default
+title: Privacy-Statement (EN)
+parent: Legal
+---
+
 # IoT-Utilities Privacy Statement (**EN**|[DE](./IoT-Utilities-Privacy-Statement_DE.md))
 
 Valid as of <!--validof-->03/01/2021<!--validof-->
