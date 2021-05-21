@@ -2,6 +2,7 @@
 layout: default
 title: Bluetooth Settings
 parent: Settings
+grand_parent: App Documentation
 ---
 
 # Bluetooth settings
