@@ -2,7 +2,7 @@
 layout: default
 title: BLE Data
 parent: Main
-nav_order: 0
+grand_parent: App Documentation
 ---
 
 # BLE Data
