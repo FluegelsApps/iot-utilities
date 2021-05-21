@@ -1,3 +1,9 @@
+---
+layout: default
+title: IoT-Server Settings
+parent: Settings
+---
+
 # IoT-Server settings
 
 ## Server certificate
