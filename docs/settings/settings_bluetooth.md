@@ -1,3 +1,9 @@
+---
+layout: default
+title: Bluetooth Settings
+parent: Settings
+---
+
 # Bluetooth settings
 
 ## BLE scanning
