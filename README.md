@@ -1,8 +1,3 @@
----
-layout: default
-title: Home
-nav_order: 0
----
 
 # IoT-Utilities (Android App)
 
