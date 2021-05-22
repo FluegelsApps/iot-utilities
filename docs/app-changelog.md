@@ -30,6 +30,8 @@ title: Changelog
     - global traffic analysis and output
     - per connection traffic analysis and output
     - server will save count and size of all messages instead of only relevant data
+- new online documentation (iot-utilities.arubademo.de)
+    - updated theme, content and navigation
 
 ### Reworked features and improvements:
 
