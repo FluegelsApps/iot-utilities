@@ -2,36 +2,57 @@
 
 This feature uses the Aruba IoT-Interface BLE-Connect functionality to connect to surrounding bluetooth devices via GATT. All GATT-Actions are redirected to the sensor which executes them on the local device.
 
+## BLE-Connect Presets
+
+The app uses "Presets" in order to save connection information of a specific device. This includes device MAC-Address, Access Points MAC-Address as well as the device name (optional). These preset can also save the "Bonding-Keys" when a device is bonded with an Access Point. They also offer the possibilty to automatically choose an Access Point depending on the received signal strength. The user can clone existing device information or manually create them.
+
 ## Connecting to a device
 
-## Pairing & Bonding with a device
+### Selecting an existing device
+
+The app allows the user to select a device from the received data. This only applies to "BLE-Telemetry" and "BLE-Data". In order to start a connection, press and hold the item of a device. The app will prompt the user to select an action. Select "Estabilsh connection" to start the session. This will automatically create a preset for future connections. Information of existing devices can also be added by tapping "Add" and "Import from BLE-Telemetry" or "Import from BLE-Data" on the "BLE-Connect" page of the application.
+
+### Manually configuring the connection
+
+The app also allows the user to manually configure a connection. This feature uses the "BLE-Connect presets" to configure the connection. Open the "BLE-Connect" page of the app and tap "Add". Select "Create manually" to create the preset. Enter the required information to continue. Once the preset has been created, tap it to establish the connection.
+
+## Pairing & Bonding a device
+
+Pairing and bonding bluetooth devices is used to encrypt and secure connections between two devices. The app also offers this functionality as some third-party devices require bonding or pairing in order to interact (e.g. Philips Hue).
 
 ## Interacting with a device
 
 ### Default interaction methods
+
+The app provides a generic interface to control BLE devices via the BLE-Connect interface. Once connected, the app will display all available GATT-Services and characteristics of the device. Tap the Up-Arrow button the write a characteristic and the Down-Arrow button to read a characteristic. The field at the top of the list is used to filter the collection.
 
 ### Philips Hue Control Panel
 
 This app provides an interface to control Philips Hue lamps via the IoT-Interface. We currently support:
  - Turning the lamp on & off
  - Adjusting the brightness of the lamp
- - Changing the color of the lamp (only presets, color picker is **Work in Progress**)
+ - Changing the color of the lamp (full RGB color picker)
  - Changing the color temperature of the lamp (only presets, color picker is **Work in Progress**)
  - Playing simple animations on the lamp (e.g. Flashing)
 
 There are several steps that have to be done in order to communicate with the lamp.
 
-#### 1) Reset the lamp via the "Philips Hue Bluetooth Application" ([Android](https://play.google.com/store/apps/details?id=com.signify.hue.blue&gl=DE)/[iOS](https://apps.apple.com/de/app/philips-hue-bluetooth/id1456604186))
+#### 1) Bond the lamp with a sensor
 
-The Philips Hue lamp needs to be reset to factory settings in order to establish a new connection. By doing so, the lamp enters it's initial pairing state, allowing the app to establish a secure connection. The app will be able to do this process automatically in a future version.
+There are multiple ways to bond the Philips Hue Lamp with an Aruba AP.
 
->***Note:***
->The lamp will change it's MAC-Address when resetting to factory mode. Make sure to select the latest MAC-Address of the device when connecting as both the old and the new address might be visible in the app. The "BLE-Scanning" functionality of the app can be used to get the address.
+##### a) Straight-forward bonding with a new lamp
 
-#### 2) Adding the connection preset
+When using a new or recently reset Hue Lamp it is possible to bond the lamp directly without the press of a button. The app will automatically handle this if possible.
 
-The next step is to start the IoT-Utilities App and the IoT-Server. The lamp has to appear in the "BLE-Telemetry" section of the app in order to establish a connection. Once the data is available, go to the "BLE-Connect" page of the app. Tap the "Add-Button" in the bottom-right corner of the screen. Select "Import from BLE-Telemetry" and select your lamp. The field at the top of the page can be used to search for the name of the lamp. Once selected, select the connecting sensor or enable "Automatically select sensor". If enabled, the app will select a sensor depending on the received signal strengths of the device. The sensor that received the strongest signal will be selected for a connection. Tap "Save" to save your connection preset.
+##### b) Bonding the lamp via the short-range app-interface
 
-#### 3) Establish a connection
+When using a Hue Lamp that is already in use and connected to other devices, the bonding requires an additional procdedure to authenticate. This also requires to distance between the client and the lamp to be less than 1m. This procedure can be started by tapping the options (three-dots) icon and selecting "Authenticate" in the session tab header. The app will notify the user that an automated bonding procedure is available. Tap "auto" to start the procedure. The app will try to authenticate via the alternative authentication method of the lamp. Make sure to be in range of the lamp. The app also notifies the user if the lamp is too far away.
 
-Tap the connection preset to establish a connection. The app will automatically detect the type of the lamp and will bond the lamp to the sensor. Once established, the app will show an interaction view for the lamp. This page can be used to change the values of the lamp explained in [Philips Hue Control Panel](#philips-hue-control-panel). The connection can be restablished at any time as the lamp now is bonded. This can be removed by either tapping the three dots on the tab and selecting "Remove bond information" or deleting the connection preset. If the bond information has been deleted, the app won't be able to reconnect without resetting the lamp to factory settings again.
+> **Note:**
+> The "distance between the client and the lamp" refers to the distance between the Hue Lamp and the Aruba Sensor. This does not apply to the distance between the app (mobile-device) and the lamp.
+> This procedure does not work with every model of 
+
+##### c) Resetting the lamp to factory settings
+
+If the options a) and b) are not successful it is required to reset the lamp to factory settings in order to establish a new secure connection. This currently is only possible by using the Philips Hue App [[Android]()/[iOS]()]. When the lamp has been reset, it is possible to establish a new connection by using step a).
