@@ -59,6 +59,7 @@ title: Changelog
 - fixed bug: certificate was not downloadable from the web-dashboard
 - fixed bug: anchors in documentation not always redirecting properly
 - fixed bug: axis scale in history graph too big when receiving invalid RSSI
+- fixed bug: BLE Testing advertiser has been removed after the guide has finished
 
 ---
 
