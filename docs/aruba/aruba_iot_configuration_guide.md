@@ -1707,12 +1707,12 @@ ap-group <ap-group>
 !
 iot transportProfile "ABB-Ability-Smart-Sensor"
     serverType Telemetry-Websocket
-    serverURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+    serverURL "https://api.smartsensor.abb.com/v8/Auth/BearerOAuth2"
     clientId <client-id>
     client-secret <secret>
     reportingInterval 30
     deviceClassFilter ability-smart-sensor
-    authenticationURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+    authenticationURL "https://api.smartsensor.abb.com/v8/Auth/BearerOAuth2"
     authentication-mode client-credentials
     include-ap-group <ap-group>
 !
@@ -1729,13 +1729,13 @@ iot radio-profile "int-beacon-scan"
 iot use-radio-profile "int-beacon-scan"
 
 iot transportProfile "ABB-Ability-Smart-Sensor"
- endpointURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+ endpointURL "https://api.smartsensor.abb.com/v8/Auth/BearerOAuth2"
  endpointType telemetry-websocket
  payloadContent ability-smart-sensor
  endpointID <client-id>
  client-secret <secret>
  transportInterval 30
- authenticationURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+ authenticationURL "https://api.smartsensor.abb.com/v8/Auth/BearerOAuth2"
  authentication-mode client-credentials
  exit
 
