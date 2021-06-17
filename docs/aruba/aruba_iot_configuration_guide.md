@@ -384,10 +384,17 @@ BLE data forwarding works by forwarding the raw BLE data packets to the remote s
 >Furthermore, BLE data forwarding happens in addition to the periodic telemetry reporting. Both methods happen in parallel.  
 Therefore, if BLE data forwarding is the main method for the IoT use case it is recommended to set a high *reporting interval* in the [iot transport profile](#iot-transport-profile).  
 
-BLE data forwarding is enabled for the selected [BLE device class](#ble-device-class-filter) in the [iot transport profile](#iot-transport-profile) configuration.
+With ArubaOS/Instant version 8.7.0.0 no special configuration is needed to enable BLE data forwarding. The BLE data service is automatically enabled for the following selected device classes:  
 
->***Note:***  
->Starting with ArubaOS/Instant version 8.8.0.0 BLE data forwarding is supported for all [known BLE vendor device classes](#supported-iot-vendordevice-class-list), except for [BLE device class](#ble-device-class-filter) ***all*** or ***unclassified***.
+  - mysphera
+  - abilitySmartSensor
+  - sBeacon
+  - exposureNotification
+  - wiliot
+  
+Starting with ArubaOS/Instant version 8.8.0.0 BLE data forwarding is supported for all [known BLE vendor device classes](#supported-iot-vendordevice-class-list), except for [BLE device class](#ble-device-class-filter) ***all*** or ***unclassified***.
+
+BLE data forwarding is enabled for the selected [BLE device class](#ble-device-class-filter) in the [iot transport profile](#iot-transport-profile) configuration.
 
 >***Note:***  
 >BLE data forwarding is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
