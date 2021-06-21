@@ -43,7 +43,6 @@ iot transportProfile "IoT-Utilities-App"
     deviceClassFilter unclassified
     reportingInterval <interval>
     rssiReporting last
-    bleDataForwarding
     include-ap-group <ap-group>
 !
 ! Step 4) Enable the iot transport profile

@@ -45,7 +45,6 @@ iot transportProfile "IoT-Utilities-App"
  payloadContent wifi-unassoc-sta
  transportInterval <interval>
  ageFilter 30
- bleDataForwarding
  rssiReporting last
  exit
 !
