@@ -16,7 +16,7 @@ The app allows the user to select a device from the received data. This only app
 
 The app also allows the user to manually configure a connection. This feature uses the "BLE-Connect presets" to configure the connection. Open the "BLE-Connect" page of the app and tap "Add". Select "Create manually" to create the preset. Enter the required information to continue. Once the preset has been created, tap it to establish the connection.
 
-## Pairing & Bonding a device
+## Pairing & bonding a device
 
 Pairing and bonding bluetooth devices is used to encrypt and secure connections between two devices. The app also offers this functionality as some third-party devices require bonding or pairing in order to interact (e.g. Philips Hue).
 
@@ -37,7 +37,7 @@ This app provides an interface to control Philips Hue lamps via the IoT-Interfac
 
 There are several steps that have to be done in order to communicate with the lamp.
 
-#### 1) Bond the lamp with a sensor
+#### Bonding the lamp and the sensor
 
 There are multiple ways to bond the Philips Hue Lamp with an Aruba AP.
 
@@ -56,3 +56,7 @@ When using a Hue Lamp that is already in use and connected to other devices, the
 ##### c) Resetting the lamp to factory settings
 
 If the options a) and b) are not successful it is required to reset the lamp to factory settings in order to establish a new secure connection. This currently is only possible by using the Philips Hue App [[Android]()/[iOS]()]. When the lamp has been reset, it is possible to establish a new connection by using step a).
+
+#### Controlling the Hue Lamp using the app
+
+The IoT-Utilities App can be used to fully control the Philips Hue Lamps. The app provides an interface to do so.
