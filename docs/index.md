@@ -13,12 +13,13 @@ nav_exclude: true
 - [Server-Setup](./setup/setup_iot_server.md)  
 
 ### Main app pages
-- [Dashboard](./main/dashboard.md)  
+- [Dashboard](./main/dashboard.md)
+- [Dashboard (Traffic)](./main/dashboard_traffic.md)  
 - [Client-Configuration](./main/client_configuration.md)  
 - [BLE-Testing](./main/ble_testing.md)  
 - [Clients](./main/clients.md)
 - [Sensors](./main/sensors.md)  
-- [Sensor data (details)](./main/sensor_data_details.md)  
+- [Sensor data (Details)](./main/sensor_data_details.md)  
 - [BLE-Telemetry](./main/ble_telemetry.md)  
 - [BLE-Telemetry (Details)](./main/ble_telemetry_details.md)  
 - [BLE-Data](./main/ble_data.md)  
