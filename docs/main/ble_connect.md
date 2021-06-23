@@ -60,3 +60,23 @@ If the options a) and b) are not successful it is required to reset the lamp to 
 #### Controlling the Hue Lamp using the app
 
 The IoT-Utilities App can be used to fully control the Philips Hue Lamps. The app provides an interface to do so.
+
+#### 1) Main state button
+
+This is the main button to control the state of the lamp.
+
+#### 2) Brightness control slider
+
+This slider can be used to set the brightness of the lamp (Values between 0 and 100%)
+
+#### 3) Color control button
+
+This button can be used to change the color of the lamp. Tapping the button will show a color selection dialog. This dialog can be used to select any color from the RGB-Space.
+
+#### 4) Temperature control button
+
+This button can be used to change the color temperature of the lamp. Tapping the button will show a dialog to select the color temperature. The app currently only supports different color temperature presets (default, cold, warm).
+
+#### 5) Animation control button
+
+This button can be used to start an animation on the lamp. Tapping the button will show a dialog to select an animation. Tap the same animation again to stop it.

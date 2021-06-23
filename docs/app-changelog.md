@@ -32,6 +32,9 @@ title: Changelog
     - server will save count and size of all messages instead of only relevant data
 - new online documentation (iot-utilities.arubademo.de)
     - updated theme, content and navigation
+- new status bar notifications
+    - the app is now able to display critical errors in the statusbar of the device
+    - this feature is e.g. used in case the app loses the connection to the local network
 
 ### Reworked features and improvements:
 
