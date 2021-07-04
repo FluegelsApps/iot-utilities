@@ -7,12 +7,22 @@ title: Changelog
 
 ### New features in this release:
 
+- updated dashboard
+    - reworked style
+    - additional server traffic card
+- server traffic details page
+    - evaluates data such as current read, current write, total data received
+    - values displayed inside graph
 - implementation of Aruba IoT BLE-Connect functionality
     - connecting to devices via sensors
     - authenticating, pairing and bonding with devices via sensors
     - reading and writing on GATT-services/characteristics of connected devices
     - support of GATT-Notification and GATT-Indication (currently only in interaction)
-    - Philips Hue control panel (BETA)
+    - Philips Hue control panel
+        - full control of Philips Hue lamps nearby
+        - full RGB color control
+        - color temperature control
+        - animation support
 - BLE-Connect presets
     - functionality to save connection presets (device and sensor)
     - shortcuts to open connections to previous devices
