@@ -35,11 +35,15 @@ title: Changelog
 - new Web-Dashboard error page
 - new documentation features
     - support of anchors
+    - support of vector images
+    - zoom gestures when viewing images
 - new server features
     - support of both HTTP and HTTPS (HTTP requests, except for certificate download will be redirected to HTTPS because of security concerns)
     - global traffic analysis and output
     - per connection traffic analysis and output
     - server will save count and size of all messages instead of only relevant data
+    - various versions of the TLS protocol can be enabled and disabled
+        - protocol version and cipher suites of each client are displayed in the clients page
 - new online documentation (iot-utilities.arubademo.de)
     - updated theme, content and navigation
 - new status bar notifications
