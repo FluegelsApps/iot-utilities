@@ -11,13 +11,13 @@ grand_parent: App Documentation
 
 This document explains the concept of the feature BLE-Testing which uses the [Aruba IoT Interface](../aruba/aruba_iot_configuration_guide.md) to validate the user's configuration.
 
-![Concept of BLE-Testing](../images/ble_testing_graphic.png)
-
 ## Main concept
 
 The BLE-Testing feature sends a BLE advertising packet via the bluetooth radio of the mobile device. The Aruba Access Point should receive this data and forwards it to the IoT-Server. The server validates and evaluates the incoming data. If the message contains all properties of the [Testing beacon](#testing-beacon) the Access Point / sensor will be treated as "in-range". The user can also specify multiple [parameters](#testing-parameters) to control the test and customize the testing conditions.
 
 > **_Note:_** The server only accepts BLE-Data messages during tests to optimize performance and latency during the test.
+
+![Concept of BLE-Testing](../images/ble_testing_graphic.png)
 
 ## Testing parameters
 
