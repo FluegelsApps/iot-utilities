@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # IoT-Utilities Dashboard
 
-![Dashboard](https://github.com/FluegelsApps/iot-utilities/raw/documentation-dev/docs/images/docs_dashboard.png)
+![Dashboard](https://github.com/FluegelsApps/iot-utilities/raw/documentation-dev/docs/images/main_dashboard.png)
 
 The app dashboard is the main page of the application. You can control the server and it's values via this page.
 
