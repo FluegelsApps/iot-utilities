@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # IoT-Utilities Dashboard
 
-![Dashboard](../images/main_dashboard.svg)
+![Dashboard Scheme](../images/main_dashboard.svg)
 
 The app dashboard is the main page of the application. You can control the server and it's values via this page.
 
@@ -105,3 +105,17 @@ This panel displays the current count of BLE data records in the internal databa
  
 ### c) WiFi data statistics panel
 This panel displays the current count of WiFi data records in the internal database. Tap the panel to open the WiFi-Data page. More information on this page can be found in the "WiFi-Data" section of the documentation.
+
+## Menu features
+
+### Keep screen on
+
+If this checkbox is enabled, the screen of the device won't turn off automatically.
+
+### Documentation
+
+Tap this item to open the documentation of this page.
+
+### Guide
+
+Tap this item to start the guide of this page.
