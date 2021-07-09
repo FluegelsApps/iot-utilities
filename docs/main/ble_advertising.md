@@ -7,4 +7,6 @@ grand_parent: App Documentation
 
 # BLE Advertising
 
+![BLE Advertising Scheme](../images/main_ble_advertising.svg)
+
 Work in progress

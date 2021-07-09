@@ -1,3 +1,10 @@
+---
+layout: default
+title: BLE Connect
+parent: Main
+grand_parent: App Documentation
+---
+
 # BLE-Connect
 
 This feature uses the Aruba IoT-Interface BLE-Connect functionality to connect to surrounding bluetooth devices via GATT. All GATT-Actions are redirected to the sensor which executes them on the local device.
