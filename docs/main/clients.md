@@ -146,4 +146,18 @@ Tap this button of the client item to display the log of this remote session.
 |Unknown|The status of the connection currently is not available. This state is the default state of every connection and should never be reached.|
 |Deleting|The data of the remote client is currently being deleted. This status is applied when the user dismisses the collected data of the client. |
 |SessionLimitExceeded|The connection exceeded the app's concurrent session limit. This value can be configured in the [IoT-Server settings](../settings/settings_iotserver.md).|
-|Blocked|The client is on the client block-list / not on the allow-list and the connection was consequently closed. |
+|Blocked|The client is on the client block-list / not on the allow-list and the connection was consequently closed.|
+
+## Menu items
+
+### Keep screen on
+
+If this checkbox is enabled, the screen of the device will not turn off automatically.
+
+### Documentation
+
+Tap this item to open the documentation of this page.
+
+### Guide
+
+Tap this item to start the interactive guide of this page.

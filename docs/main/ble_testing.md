@@ -17,7 +17,7 @@ The BLE-Testing feature sends a BLE advertising packet via the bluetooth radio o
 
 > **_Note:_** The server only accepts BLE-Data messages during tests to optimize performance and latency during the test.
 
-![Concept of BLE-Testing](../images/ble_testing_graphic.png)
+![Basic principles of the BLE-Testing feature](../images/ble_testing_graphic.png)
 
 ## Testing parameters
 

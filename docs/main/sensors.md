@@ -13,7 +13,7 @@ The sensors page of the app is used to display and manage all Aruba sensors.
 
 ## 1) Filter interface
 
-When this button is pressed, the filter configuration layout will appear. This layout will allow the user to configure different client filters. The filter interface can hold multiple filters of the same and different types.  
+When this button is pressed, the filter configuration layout will appear. This layout will allow the user to configure different sensor filters. The filter interface can hold multiple filters of the same and different types.  
 Different filter types are compared using AND, e.g. if the filters "Username" and "Client IP" are applied, the clients have to fulfill both criteria.  
 Identical filter types are compared using OR, e.g. if two filters of the type "Username" are applied, the clients have to fulfill only one of the provided filters. 
 
