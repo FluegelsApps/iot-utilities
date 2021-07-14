@@ -33,7 +33,7 @@ Identical filter types are compared using OR, e.g. if two filters of the type "U
 
 ### a) Health status indicator
 
-Displays the current status of the sensor instance received in Aruba health messages. The status won't be available until any health message is received by the server ([Available statuses]()).
+Displays the current status of the sensor instance received in Aruba health messages. The status won't be available until any health message is received by the server ([Available statuses](#available-health-statuses)).
 
 ### b) Detailed sensor information
 
