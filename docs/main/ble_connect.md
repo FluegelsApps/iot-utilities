@@ -93,3 +93,72 @@ This item represents the bonding information of a specific device-sensor combina
 ## BLE-Connect Sessions
 
 The app uses "BLE-Connect sessions" when connecting to any BLE-Device using the IoT-Interface. The application is able to keep multiple session running in the background concurrently. However, the Aruba sensors only allow one session/connection per sensor/access point.
+
+### Offline page
+
+Page that is displayed if the connection is currently offline. This page can additionally display the cause of the disconnection if available.
+
+### Failed page
+
+Page that is displayed if the connection failed due to an exception. A short summary of the exception is displayed by the page. However, the detailed stack trace can be viewed via the log. The log of the session is accessible via the tab header options or the failed page.
+
+### Pending page
+
+Page that is displayed if the connection is established but the application is waiting for the device to complete an action.
+
+### Connected page
+
+![Connected Page Scheme](../images/main_ble_connect_sessions_interaction_default.svg)
+
+Page that is displayed if the connection is established. The interaction pages will be provided as soon as the services become available.
+
+#### **1) Service filter field**
+
+Field that contains the current GATT-Service filter. This filter can search either a specific service name or a specific service UUID.
+
+#### **2) Clear/Hide button**
+
+**Hide button:**
+
+This button hides most parts of the filter layout. Only the [service filter field](#1-service-filter-field) remains visible.
+
+**Clear button:**
+
+This button hides most parts of the filter layout (similar to hide) and furthermore, clears all filters.
+
+#### **3) Characteristics filter field**
+
+Field that contains the current GATT-Characteristics filter. This filter can search either a specific characteristics name or a specific characteristics UUID.
+
+#### **4) GATT-Service item**
+
+![Connected Page GATT-Service Item Scheme](../images/main_ble_connect_sessions_interaction_default_gattitem.svg)
+
+This item represents a BLE GATT-Service as described in the [official documentation](https://www.bluetooth.com/de/bluetooth-resources/intro-to-bluetooth-gap-gatt/).
+
+#### **a) Service information**
+
+This section contains the main information of the GATT-Service. The upper body of this section displays the name of the GATT-Service. This name is resolved from the [Offical Bluetooth Specification](https://www.bluetooth.com/de/specifications/assigned-numbers/). The center text of the item contains the UUID of the GATT-Service. This value is retrieved via the Aruba IoT-Interface. The lower text of this section shows the amount of GATT-Characteristics of the service.
+
+#### **b) Characteristics item**
+
+This sub-item represents a BLE GATT-Characteristic as described in the [official documentation](https://www.bluetooth.com/de/bluetooth-resources/intro-to-bluetooth-gap-gatt/).
+
+#### **c) Characteristics information**
+
+This section of the sub-item contains the main information of the GATT-Characteristic. Detailed information can be viewed by tapping the characteristics item. The upper text of this section displays the display name of the characteristic. This name is resolved from the [Official Bluetooth Specification](https://www.bluetooth.com/de/bluetooth-resources/intro-to-bluetooth-gap-gatt/).
+
+#### **d) Expansion switch**
+
+This switch is used to expand and collapse all GATT-Characteristics of this service.
+
+#### **e) GATT action buttons**
+
+These buttons can be used to manually send GATT-Commands via the Aruba IoT-Interface to the remote BLE-Device. Available actions:
+
+|Action|Description|Requirements|
+|-|-|-|
+|GATT-Write|Write a specific raw byte value to the selected characteristic of the service.|writeWithResponse, writeWithoutResponse|
+|GATT-Read|Read the current raw byte value from the selected characteristic of the service.|read|
+|GATT-Notify (Coming soon)|Notify the application via the IoT-Interface when the value of the selected characteristic of the service changes.|notify|
+|GATT-Indicate (Coming soon)|Notify the application via the IoT-Interface when the value of the selected characteristic of the service changes. In comparison to notify is an acknowledgement required.|indicate|
