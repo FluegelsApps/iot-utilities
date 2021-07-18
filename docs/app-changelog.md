@@ -3,6 +3,83 @@ layout: default
 title: Changelog
 ---
 
+## Version 1.2.0 | 18.07.2021
+
+### New features in this release:
+
+- server traffic details page
+    - evaluates data such as current read, current write, total data received
+    - values displayed inside graph
+- implementation of Aruba IoT BLE-Connect functionality
+    - connecting to devices via sensors
+    - authenticating, pairing and bonding with devices via sensors
+    - reading and writing on GATT-services/characteristics of connected devices
+    - support of GATT-Notification and GATT-Indication (currently only in interaction)
+    - Philips Hue control panel
+        - full control of Philips Hue lamps nearby
+        - full RGB color control
+        - color temperature control
+        - animation support
+- BLE-Connect presets
+    - functionality to save connection presets (device and sensor)
+    - shortcuts to open connections to previous devices
+    - connection and security information of device can be stored
+    - functionality to reconnect after successful authentication
+- bug reporting feature
+    - bugs and crashes can now be reported using the app
+    - crashes: using the dialog that appears when the app crashes OR at Settings --> Advanced --> Recent crashes
+    - bugs: using the app: Main drawer --> Report a bug
+- new Web-Dashboard error page
+- new documentation features
+    - support of anchors
+    - support of vector images
+    - zoom gestures when viewing images
+- new server features
+    - support of both HTTP and HTTPS (HTTP requests, except for certificate download will be redirected to HTTPS because of security concerns)
+    - global traffic analysis and output
+    - per connection traffic analysis and output
+    - server will save count and size of all messages instead of only relevant data
+    - various versions of the TLS protocol can be enabled and disabled
+        - protocol version and cipher suites of each client are displayed in the clients page
+- new online documentation (iot-utilities.arubademo.de)
+    - updated theme, content and navigation
+- new status bar notifications
+    - the app is now able to display critical errors in the statusbar of the device
+    - this feature is e.g. used in case the app loses the connection to the local network
+
+### Reworked features and improvements:
+
+- updated dashboard
+    - reworked style
+    - additional server traffic card
+- reworked certificate details page
+- reworked certificate generator dialog
+    - updated components
+    - fixed data loss on rotation
+    - added certificate generation in background without dialog
+- reworked BLE-Testing beacon info dialog
+    - new dialog style
+    - displays all important information
+    - values can be copied to clipboard
+- added external content warning when opening links in documentation and licenses
+- shortened and improved various log messages
+- authentication no longer required when trying to download server certificate
+- comments will now be removed when copying configuration templates
+
+### Fixed bugs and issues:
+
+- fixed bug: app crashing when rotating the dashboard
+- fixed bug: advertiser name not cloned properly
+- fixed bug: data collection not loaded when rotating in northbound details
+- fixed bug: app crashing when deleting multiple clients at a time
+- fixed bug: app crashing in clients list due to formatting errors 
+- fixed bug: certificate was not downloadable from the web-dashboard
+- fixed bug: anchors in documentation not always redirecting properly
+- fixed bug: axis scale in history graph too big when receiving invalid RSSI
+- fixed bug: BLE Testing advertiser has been removed after the guide has finished
+
+---
+
 ## Version 1.1.0 | 02.04.2021
 
 ### New features in this release:
