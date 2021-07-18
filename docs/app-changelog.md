@@ -3,7 +3,7 @@ layout: default
 title: Changelog
 ---
 
-## Version 1.2.0 | ?
+## Version 1.2.0 | 18.07.2021
 
 ### New features in this release:
 
