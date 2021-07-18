@@ -7,10 +7,6 @@ title: Changelog
 
 ### New features in this release:
 
-- updated dashboard
-    - reworked style
-    - additional server traffic card
-- reworked certificate details page
 - server traffic details page
     - evaluates data such as current read, current write, total data received
     - values displayed inside graph
@@ -53,6 +49,10 @@ title: Changelog
 
 ### Reworked features and improvements:
 
+- updated dashboard
+    - reworked style
+    - additional server traffic card
+- reworked certificate details page
 - reworked certificate generator dialog
     - updated components
     - fixed data loss on rotation
