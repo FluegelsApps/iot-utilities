@@ -7,4 +7,6 @@ grand_parent: App Documentation
 
 # Wi-Fi Data
 
+![Wi-Fi Data Scheme](../images/main_northbound_data.svg)
+
 Work in progress
