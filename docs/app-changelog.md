@@ -10,6 +10,7 @@ title: Changelog
 - updated dashboard
     - reworked style
     - additional server traffic card
+- reworked certificate details page
 - server traffic details page
     - evaluates data such as current read, current write, total data received
     - values displayed inside graph
@@ -60,7 +61,6 @@ title: Changelog
     - new dialog style
     - displays all important information
     - values can be copied to clipboard
-
 - added external content warning when opening links in documentation and licenses
 - shortened and improved various log messages
 - authentication no longer required when trying to download server certificate
