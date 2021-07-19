@@ -5,12 +5,11 @@ title: Changelog
 
 ## Version 1.2.1 | 19.07.2021
 
----
-
 ### Fixed bugs and issues:
 
 - fixed bug that caused app in BLE-Connect page to crash
 - fixed bug in BLE-Connect bonds database that caused app to stop working
+- fixed bug that caused app dashboard to crash
 
 Reinstallation of the application may be required due to this update.
 
