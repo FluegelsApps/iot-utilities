@@ -11,7 +11,7 @@ title: Changelog
 - fixed bug in BLE-Connect bonds database that caused app to stop working
 - fixed bug that caused app dashboard to crash
 
-Reinstallation of the application may be required due to this update.
+> **_Note:_** Reinstallation of the application may be required due to this update.
 
 ---
 
