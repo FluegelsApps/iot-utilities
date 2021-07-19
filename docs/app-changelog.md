@@ -14,6 +14,8 @@ title: Changelog
 
 Reinstallation of the application may be required due to this update.
 
+---
+
 ## Version 1.2.0 | 18.07.2021
 
 ### New features in this release:
