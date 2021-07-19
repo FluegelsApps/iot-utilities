@@ -45,9 +45,13 @@ The app provides a web dashboard to show basic status information and to provide
 
 CLI configuration templates are provided within the app and via the web dashboard to setup an Aruba controller or Aruba Instant infrastructure to communicate with the app.
 
-### BLE Test Tool
+### BLE Testing Tool
 
-The BLE test tool allows to check the Aruba infrastructure setup/configuration by verifying if BLE test messages send via the smartphone's BLE radio are received back by the app via the Aruba IoT interface.
+The BLE testing tool allows to check the Aruba infrastructure setup/configuration by verifying if BLE test messages send via the smartphone's BLE radio are received back by the app via the Aruba IoT interface.
+
+### BLE Connect Tool
+
+The BLE connect tool allows to connect and control BLE-Devices using the Aruba-IoT-Interface.
 
 ### Bluetooth Scanning
 

@@ -46,6 +46,12 @@ The app also offers other functions and tools, such as "Bluetooth Scanning" and 
 
 The app provides an IoT-server function that accepts connections from Aruba controllers and Aruba Instant access points via the Aruba IoT interface protocol. The IoT-server only allows (TLS/SSL) encrypted connections, which are authorized or authenticated via static access tokens or username and password. The required SSL server certificate can be imported into the app or a self-signed certificate can be generated. The IoT-server also provides a web dashboard via a (TLS/SSL) encrypted connection under the URL [https://[smartphone_IP_address]:[port]/dashboard](https://[smartphone_IP_address]:[port]/dashboard). Access to the dashboard is secured using a username/password combination assigned in the app settings.  
 
+#### **BLE Testing**
+
+#### **BLE Connect**
+
+This function allows the app to connect to BLE-Devices using the Aruba access points. Furthermore, the app is capable of pairing and bonding the BLE-Device. The key material that is used throughout this process is stored securely in an encrypted database. The app also stores the MAC-Addresses of the BLE-Devices and the Aruba access points.
+
 #### **Bluetooth Scanning**  
 
 This function of the app shows all Bluetooth Low Energy (BLE) devices in range of the smartphone in a list. A Bluetooth-enabled smartphone is required for this capability. Detailed information about the recorded BLE devices are also available.  
