@@ -48,6 +48,8 @@ Die App stellt eine IoT-Server Funktion zur Verfügung, welche Verbindungen von 
 
 #### **BLE Testing**
 
+Diese Funktion ermöglicht der App, die momentane Konfiguration zu überprüfen, indem Sie iBeacon-Advertisements an Aruba Access Points in der Nähe, mithilfe des Aruba-IoT-Interfaces, sendet. Wenn die Konfiguration funktioniert, dann werden die gesendeten Signale über das Interface zurückgeschickt. Die App zeigt dabei die antwortenden Access Points, sowie die Signalstärke.
+
 #### **BLE Connect**
 
 Diese Funktion ermöglicht der App sich, mithilfe der Aruba Access Points, mit BLE-Geräten zu verbinden. Außerdem kann die App ein sogennantes Pairing bzw. Bonding mit dem Gerät durchführen. Das Schlüsselmaterial, welches während dieses Prozesses verwendet wird, wird sicher in einer verschlüsselten Datenbank gespeichert. Des Weiteren speichert die App die MAC-Adressen der BLE-Geräte und Aruba Access Points.
