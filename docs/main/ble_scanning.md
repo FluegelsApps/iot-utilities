@@ -24,7 +24,7 @@ Additionally the filter layout of this page also provides two sliders to select 
 
 ## 2) BLE-Device item
 
-![BLE Scanning Item Scheme](../images/main_ble_scanning_item.svg)
+![BLE Scanning Item Scheme](../images/main_ble_device_item.svg)
 
 This item represents a BLE-Device in range of the device.  
 Tap this item to show the detailed information on this device. Tap and hold this item to copy the advertiser information into the local database. This information is available as a custom advertiser in the [BLE-Advertising](./ble_advertising.md) page.

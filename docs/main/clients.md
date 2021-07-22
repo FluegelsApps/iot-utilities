@@ -161,3 +161,7 @@ Tap this item to open the documentation of this page.
 ### Guide
 
 Tap this item to start the interactive guide of this page.
+
+### Client blocklist
+
+Tap this item to open the client block-/allowlist page. This page allows the user to block/allow specific client connections.
