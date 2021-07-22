@@ -20,6 +20,10 @@ This page contains the IoT-Connector data/entries that have been received in IoT
 This item represents an IoT-Connector data entry of the local database. The app currently does not put the reported devices of the data entry into a seperate database.  
 Tap this item to view the data of the entry.
 
+### a) Main content body
+
+This view contains the main information of the data entry. The upper text of the item displays the parent client IP-Address of the entry. The center text of the item displays the topic of the package. This currently is either **TOPIC_BLE_DATA** or **TOPIC_TELEMETRY**. The lower text of the item shows the amount of reported devices in the data package.
+
 ## Menu items
 
 ### Keep screen on
