@@ -7,11 +7,9 @@ grand_parent: App Documentation
 
 # BLE Testing
 
-![BLE Testing Scheme](../images/main_ble_testing.svg)
-
 This document explains the concept of the feature BLE-Testing which uses the [Aruba IoT Interface](../aruba/aruba_iot_configuration_guide.md) to validate the user's configuration.
 
-## Main concept
+## Basic princinples
 
 The BLE-Testing feature sends a BLE advertising packet via the bluetooth radio of the mobile device. The Aruba Access Point should receive this data and forwards it to the IoT-Server. The server validates and evaluates the incoming data. If the message contains all properties of the [Testing beacon](#testing-beacon) the Access Point / sensor will be treated as "in-range". The user can also specify multiple [parameters](#testing-parameters) to control the test and customize the testing conditions.
 
@@ -66,3 +64,85 @@ The test will enter this stage when the [running stage](#running-stage) finished
 ### Failed-Stage
 
 The test will enter this stage when any exception occured. The test service is now offline but the results as well as the received data are visible.
+
+## BLE-Testing page
+
+![BLE-Testing Scheme](../images/main_ble_testing.svg)
+
+### 1) Start button
+
+Tap this button to start the test. This feature requires the IoT-Server feature to be running.
+
+### 2) Test duration
+
+This slider will set the duration of the test in seconds. Drag the slider to the right to let the test run indefinetely.
+
+### 3) Sensor timeout
+
+This slider will set the sensor timeout of the test in seconds. This is the interval after which the sensor will be treated as out of range.
+
+### 4) RSSI threshold
+
+This slider will set the RSSI threshold value of the test in dBm. This is the minimum required signal strength of the incoming packages to be treated as in range.
+
+### 5) Testing beacon
+
+This card displays the general information of the testing beacon.
+
+- Tap the card to select a new testing beacon
+- Hold the card to edit the current testing beacon
+- Tap the info-icon of this card to show detailed information on the testing beacon
+
+### 6) Live status layout
+
+This layout displays the live status of the test. The phone icon on the left side represents the app. This view shows a specific animation if the phone is currently advertising the IBeacon data. The access point icon on the right side represents any Aruba Access Point. The tube in the center of these two icons represents the socket connection that is established between the app and the access point. This view will show an animation, every time a valid message is received.
+- Blue/Orange color for valid messages
+- Red color for invalid messages (e.g. strength (RSSI) is to weak)
+
+### 7) Sensor list
+
+This list contains all sensors that send the response signal to the app. Every item contains specific information on the sensor.
+
+![Sensor Item Scheme](../images/main_ble_testing_sensoritem.svg)
+
+#### **a) Main sensor icon**
+
+Icon that indicates that the item represents a sensor.
+
+#### **b) Sensor name**
+
+This view displays the local name of the sensor if it is available.
+
+#### **c) RSSI value and trend**
+
+This view displays the last transmission strength value (RSSI) of the received packages, as well as the current trend of this value.
+
+Green - The signal became stronger
+Gray - The signal remained stable
+Red - The signal became weaker
+
+#### **d) Total messages**
+
+This view displays the current count of messages that have been received by the sensor.
+
+#### **e) Last seen**
+
+This view displays the date when the last message has been received and the time delta, if the app already received multiple messages by this sensor.
+
+### 8) Stop button and timer output
+
+By default, this view will display the time elapsed since the start of the test in seconds. If the test duration is configured, it will show the remaining time of the test in seconds. Tap this view to cancel the current test. Tap it again to restart the test.
+
+## Menu items
+
+### Keep screen on
+
+If this checkbox is enabled, the screen of the device will not turn off automatically.
+
+### Documentation
+
+Tap this item to open the documentation of this page.
+
+### Guide
+
+Tap this item to start the interactive guide of this page.
