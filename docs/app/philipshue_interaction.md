@@ -11,7 +11,7 @@ The app provides a feature to control Philips Hue lamps. This feature uses BLE-C
 
 > **_Note:_** Feature requires ArubaOS/InstantOS 8.8 or higher for BLE authentication and encryption.
 
-![Philips Hue Interaction Scheme](../images/main_philipshue_interaction.svg)
+![Philips Hue Interaction Scheme](../images/app_philipshue_interaction.svg)
 
 ## Interaction layout
 

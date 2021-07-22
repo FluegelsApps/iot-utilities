@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # Client Configuration
 
-![Client Configuration Scheme](../images/main_client_configuration.svg)
+![Client Configuration Scheme](../images/app_client_configuration.svg)
 
 The app client configuration feature provides templates for the configuration of an Aruba infrastructure for use with this app or other 3rd party IoT solutions. The term _client_ revers to the ArubaOS Controller or Aruba Instant access point.
 

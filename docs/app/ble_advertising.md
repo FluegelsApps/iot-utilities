@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # BLE Advertising
 
-![BLE Advertising Scheme](../images/main_ble_advertising.svg)
+![BLE Advertising Scheme](../images/app_ble_advertising.svg)
 
 The BLE-Advertising feature of the app allows the user to simulate BLE-Beacons using various protocols. The application currently only supports Apple iBeacon. Additional protocols such as EddyStone will be implemented in a later update of the app.
 If [enabled](../settings/settings_bluetooth.md) this feature is able to run in the background indefinitely.
@@ -16,7 +16,7 @@ If [enabled](../settings/settings_bluetooth.md) this feature is able to run in t
 
 This list contains all custom advertisers the user created. This list also contains the testing beacon of the [BLE-Testing](./ble_testing.md) feature of the app.
 
-![BLE-Advertising Item Scheme](../images/main_ble_advertising_item.svg)
+![BLE-Advertising Item Scheme](../images/app_ble_advertising_item.svg)
 
 ### a) Protocol icon
 

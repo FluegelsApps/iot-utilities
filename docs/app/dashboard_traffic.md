@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # Server Traffic
 
-![Server Traffic Scheme](../images/main_dashboard_traffic.svg)
+![Server Traffic Scheme](../images/app_dashboard_traffic.svg)
 
 This page is used to display various statistics and the traffic analysis of the IoT-Endpoint server feature. This page can be opened using the [Dashboard](./dashboard.md).
 

@@ -9,11 +9,11 @@ grand_parent: App Documentation
 
 This feature uses the Aruba IoT-Interface BLE-Connect functionality to connect to surrounding bluetooth devices via GATT. All GATT-Actions are redirected to the sensor which executes them on the local device.
 
-![Basic principles of the BLE-Connect feature](../images/main_ble_connect_graphic.png)
+![Basic principles of the BLE-Connect feature](../images/app_ble_connect_graphic.png)
 
 ## BLE-Connect Presets
 
-![BLE-Connect Presets Page Scheme](../images/main_ble_connect_presets.svg)
+![BLE-Connect Presets Page Scheme](../images/app_ble_connect_presets.svg)
 
 The app uses "Presets" in order to save connection information of a specific device. This includes device MAC-Address, Access Points MAC-Address as well as the device name (optional). These presets can also save the "Bonding-Keys" when a device is bonded with an Access Point. They also offer the possibilty to automatically choose an Access Point depending on the received signal strength. The user can clone existing device information or manually create them. Alternatively, a connection can also be established by pressing and holding a device in the [BLE-Telemetry](./ble_telemetry.md) page of the app.
 

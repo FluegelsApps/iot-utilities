@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # IoT-Connector
 
-![IoT-Connector Scheme](../images/main_iot_connector.svg)
+![IoT-Connector Scheme](../images/app_iot_connector.svg)
 
 This page contains the IoT-Connector data/entries that have been received in IoT-Connector Northbound packages by the server.
 
@@ -15,7 +15,7 @@ This page contains the IoT-Connector data/entries that have been received in IoT
 
 ## 1) IoT-Connector item
 
-![IoT-Connector Item Scheme](../images/main_iot_connector_item.svg)
+![IoT-Connector Item Scheme](../images/app_iot_connector_item.svg)
 
 This item represents an IoT-Connector data entry of the local database. The app currently does not put the reported devices of the data entry into a seperate database.  
 Tap this item to view the data of the entry.
@@ -29,7 +29,3 @@ If this checkbox is enabled, the screen of the device will not turn off automati
 ### Documentation
 
 Tap this item to open the documentation of this page.
-
-### Guide
-
-Tap this item to start the interactive guide of this page.

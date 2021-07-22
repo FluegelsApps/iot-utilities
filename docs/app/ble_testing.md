@@ -67,7 +67,7 @@ The test will enter this stage when any exception occured. The test service is n
 
 ## BLE-Testing page
 
-![BLE-Testing Scheme](../images/main_ble_testing.svg)
+![BLE-Testing Scheme](../images/app_ble_testing.svg)
 
 ### 1) Start button
 
@@ -103,7 +103,7 @@ This layout displays the live status of the test. The phone icon on the left sid
 
 This list contains all sensors that send the response signal to the app. Every item contains specific information on the sensor.
 
-![Sensor Item Scheme](../images/main_ble_testing_sensoritem.svg)
+![Sensor Item Scheme](../images/app_ble_testing_sensoritem.svg)
 
 #### **a) Main sensor icon**
 

@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # BLE Telemetry
 
-![BLE Telemetry Scheme](../images/main_northbound_data.svg)
+![BLE Telemetry Scheme](../images/app_northbound_data.svg)
 
 This page contains the BLE-Telemetry entries/devices that have been received in Telemetry Northbound packages by the server.
 
@@ -30,7 +30,7 @@ Additionally the filter layout of this page also provides two sliders to select 
 
 ## 2) BLE-Device item
 
-![BLE Telemetry Item Scheme](../images/main_ble_device_item.svg)
+![BLE Telemetry Item Scheme](../images/app_ble_device_item.svg)
 
 This item represents a BLE-Device in range of the device.  
 Tap this item to show the detailed information on this device. Tap and hold this item to copy the advertiser information into the local database or establish a connection via the [BLE-Connect](./ble_connect.md) feature. This information is available as a custom advertiser in the [BLE-Advertising](./ble_advertising.md) page.

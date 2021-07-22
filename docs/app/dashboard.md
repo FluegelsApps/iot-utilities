@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # IoT-Utilities Dashboard
 
-![Dashboard Scheme](../images/main_dashboard.svg)
+![Dashboard Scheme](../images/app_dashboard.svg)
 
 The app dashboard is the main page of the application. You can control the server and it's values via this page.
 

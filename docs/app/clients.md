@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # Clients
 
-![Clients Scheme](../images/main_clients.svg)
+![Clients Scheme](../images/app_clients.svg)
 
 The clients page of the app is used to manage all clients connections.
 
@@ -26,7 +26,7 @@ Identical filter types are compared using OR, e.g. if two filters of the type "U
 
 ## 2) Client session item
 
-![Client Item Scheme](../images/main_clients_item.svg)
+![Client Item Scheme](../images/app_clients_item.svg)
 
 This item represents a remote client session. This item displays various information on the client session. The app is refering to client sessions, this means that any client can connect on multiple ports to the application's IoT-Server.  
 Tap this item to show all sensors of this client.

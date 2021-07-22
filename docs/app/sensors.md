@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # Sensors
 
-![Sensors Scheme](../images/main_sensors.svg)
+![Sensors Scheme](../images/app_sensors.svg)
 
 The sensors page of the app is used to display and manage all Aruba sensors.
 

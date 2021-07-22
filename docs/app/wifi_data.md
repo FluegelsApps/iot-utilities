@@ -7,7 +7,7 @@ grand_parent: App Documentation
 
 # Wi-Fi Data
 
-![Wi-Fi Data Scheme](../images/main_northbound_data.svg)
+![Wi-Fi Data Scheme](../images/app_northbound_data.svg)
 
 This page contains the WiFi-Data entries/devices that have been received in WiFi-Data Northbound packages by the server.
 
