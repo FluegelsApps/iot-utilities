@@ -56,3 +56,21 @@ The app provides the possibility to select a specific BLE-Scanning mode. This mo
 |Low Latency|Collects as much data as possible. Consumes the highest amount of energy.|
 |Balanced|Mode in between Low Latency and Low Power. Balanced amount of data and energy consumption.|
 |Low Power|Collects the least amount of data. Consumes the least amount of battery.|
+
+## Menu items
+
+### Keep screen on
+
+If this checkbox is enabled, the screen of the device will not turn off automatically.
+
+### Documentation
+
+Tap this item to open the documentation of this page.
+
+### Guide
+
+Tap this item to start the interactive guide of this page.
+
+### Clear all
+
+Tap this item to clear the local BLE-Scanning database.
