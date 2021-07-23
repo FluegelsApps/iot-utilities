@@ -45,10 +45,26 @@ Displays the last transmission strength (RSSI) value in dBm.
 
 ## 3) Devices tab
 
-This tab contains a list of all devices included in the report.
+This tab contains a list of all devices included in the report. This is the default page.
 
 ## 4) Detailed information
 
+This list contains cards that display all the information included in the device report. The information can also be viewed in raw (JSON) format.
+
 ## 5) Details tab
 
-This tab contains detailed information on a specific device.
+This tab contains detailed information on a specific device. This page can be opened by either tapping a device from the list or manually opening the page via the tab.
+
+## Menu items
+
+### Documentation
+
+Tap this item to open the documentation of this page.
+
+### Guide
+
+Tap this item to start the interactive guide of this page.
+
+### Freeze / unfreeze data view
+
+Tap this item to freeze the current data view. This means that updates of the data will be discarded and not displayed on the current page. Tap this item again to unfreeze the current page.
