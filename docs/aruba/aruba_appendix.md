@@ -3,6 +3,7 @@ layout: default
 title: Appendix
 has_children: false
 parent: Aruba Guide
+nav_order: 2
 ---
 
 # [Appendix](#table-of-contents)

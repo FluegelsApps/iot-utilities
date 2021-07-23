@@ -2,7 +2,7 @@
 layout: default
 title: Configuration Docs
 has_children: false
-parent: Aruba Documentation
+parent: Aruba Configuration
 grand_parent: Aruba Guide
 ---
 

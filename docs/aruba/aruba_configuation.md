@@ -3,6 +3,7 @@ layout: default
 title: Aruba Configuration
 has_children: true
 parent: Aruba Guide
+nav_order: 1
 ---
 
 # [Configuration](#table-of-contents)
