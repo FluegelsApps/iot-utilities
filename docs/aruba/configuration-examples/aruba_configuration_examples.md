@@ -8,30 +8,6 @@ has_children: true
 
 This chapter provides configuration examples for supported IoT solutions and use cases on an Aruba infrastructure.
 
-## [USB vendor specific solutions](#table-of-contents)
-
-### [SES Imagotag](#table-of-contents)
-
-This example shows the required configuration to enable an [SES-Imagotag ESL soulution](https://www.arubanetworks.com/assets/pso/PSB_SESImagotag.pdf) on premise solution. All avaialbe confiugation options are descirbed in the [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)
-
--   `<ip-address>` - has to be replaced with the SES-Imagotag on-premises server IP address
-
-**ArubaOS**
-
-```
-ap system-profile "iot-ap-system-prof"
-    sesImagotag-esl-serverip <ip-address>
-    sesImagotag-esl-channel 127
-```
-
-**Aruba Instant**
-
-```
-sesimagotag-esl-profile
- sesImagotag-esl-serverip <ip-address>
- sesimagotag-esl-channel 127
-```
-
 ## [USB-to-ethernet solutions](#table-of-contents)
 
 ### [Solu-M ESL](#table-of-contents)
