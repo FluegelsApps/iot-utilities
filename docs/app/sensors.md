@@ -29,7 +29,7 @@ Identical filter types are compared using OR, e.g. if two filters of the type "U
 
 ## 2) Sensor item
 
-![Sensor Item Scheme](../images/main_sensors_item.svg)
+![Sensor Item Scheme](../images/app_sensors_item.svg)
 
 ### a) Health status indicator
 
@@ -55,7 +55,7 @@ This section can also contain detailed information on the health status of the s
 
 #### **Internal radio information (referred to as IoT-Radio (internal))**
 
-![Internal Radio Icon](../images/main_sensors_health_internal.svg)
+![Internal Radio Icon](../images/app_sensors_health_internal.svg)
 
 The health status message of each sensor can contain advanced information on the internal BLE-Radio of the sensor. Available information:
 
@@ -68,7 +68,7 @@ The health status message of each sensor can contain advanced information on the
 
 #### **External radio information (referred to as IoT-Radio (external))**
 
-![External Radio Icon](../images/main_sensors_health_external.svg)
+![External Radio Icon](../images/app_sensors_health_external.svg)
 
 The health status message of each sensor can contain advanced information on the external BLE-Radio of the sensor. Available information:
 
@@ -81,7 +81,7 @@ The health status message of each sensor can contain advanced information on the
 
 #### **USB-Device health information (referred to as USB-Device))**
 
-![USB-Device Icon](../images/main_sensors_health_usb.svg)
+![USB-Device Icon](../images/app_sensors_health_usb.svg)
 
 The health status message of each sensor can contain advanced information on an USB-Device that is connected to the sensor.
 

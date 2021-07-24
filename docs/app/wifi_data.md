@@ -30,7 +30,7 @@ Additionally the filter layout of this page also provides two sliders to select 
 
 ## 2) WiFi-Device item
 
-![WiFi Data Item Scheme](../images/main_ble_device_item.svg)
+![WiFi Data Item Scheme](../images/app_ble_device_item.svg)
 
 This item represents a WiFi-Device in range of the device.  
 Tap this item to show detailed information on this device.

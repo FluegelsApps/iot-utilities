@@ -28,7 +28,7 @@ The application offers multiple possibilites to create BLE-Connect presets. Avai
 |Import from BLE-Telemetry|Shows a dialog to import device information from the collected [BLE-Telemetry](./ble_telemetry.md) data of the IoT-Server feature. Selecting a device from the list will import the name, as well as the MAC-Address of the device. The sensor will be automatically selected when connecting.|
 |Import from BLE-Data|Shows a dialog to import device information from the collected [BLE-Data](./ble_data.md) of the IoT-Server feature. Selecting a device frmo the list will import the name, as well as the MAC-Address of the device. The sensor will be automatically selected when connecting.|
 
-![Modify Presets Dialog Scheme](../images/main_ble_connect_presets_modifydialog.svg)
+![Modify Presets Dialog Scheme](../images/app_ble_connect_presets_modifydialog.svg)
 
 The dialog displayed above is used to edit and create BLE-Connect presets.
 
@@ -56,7 +56,7 @@ This text field contains the MAC-Address of the sensor that should be used durin
 
 This item represents a BLE-Connect preset as described above. Tap the item to attempt establishing a connection or swipe it off the screen to permanently delete it.
 
-![Preset Item Scheme](../images/main_ble_connect_presets_item.svg)
+![Preset Item Scheme](../images/app_ble_connect_presets_item.svg)
 
 #### a) Status indicator
 
@@ -84,7 +84,7 @@ Tap this button to edit the parameters of the BLE-Connect preset. Tapping this b
 
 ## BLE-Connect Bonds
 
-![BLE-Connect Bonds Page Scheme](../images/main_ble_connect_bonds.svg)
+![BLE-Connect Bonds Page Scheme](../images/app_ble_connect_bonds.svg)
 
 ### 1) BLE-Connect bond item
 
@@ -134,7 +134,7 @@ Page that is displayed if the connection is established but the application is w
 
 ### Connected page
 
-![Connected Page Scheme](../images/main_ble_connect_sessions_interaction_default.svg)
+![Connected Page Scheme](../images/app_ble_connect_sessions_interaction_default.svg)
 
 Page that is displayed if the connection is established. The interaction pages will be provided as soon as the services become available.
 
@@ -158,7 +158,7 @@ Field that contains the current GATT-Characteristics filter. This filter can sea
 
 #### **4) GATT-Service item**
 
-![Connected Page GATT-Service Item Scheme](../images/main_ble_connect_sessions_interaction_default_gattitem.svg)
+![Connected Page GATT-Service Item Scheme](../images/app_ble_connect_sessions_interaction_default_gattitem.svg)
 
 This item represents a BLE GATT-Service as described in the [official documentation](https://www.bluetooth.com/de/bluetooth-resources/intro-to-bluetooth-gap-gatt/).
 
@@ -208,7 +208,7 @@ This mode is used to manually authenticate with the remote BLE-Device. However, 
 
 > **_Note:_** The key material of the individual keys (e.g. Own, OOB, ...) is automatically provided by the application if the corresponding field is left empty.
 
-![Manual Authentication Dialog Scheme](../images/main_ble_connect_session_authenticate.svg)
+![Manual Authentication Dialog Scheme](../images/app_ble_connect_session_authenticate.svg)
 
 #### **1) Method dropdown**
 
