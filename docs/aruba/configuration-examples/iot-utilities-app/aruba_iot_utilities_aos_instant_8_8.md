@@ -7,7 +7,7 @@ parent: IoT-Utilities App
 grand_parent: Configuration Examples
 ---
 
-## IoT-Utilities App (ArubaOS/Aruba Instant 8.8.x.x or higher)
+# IoT-Utilities App (ArubaOS/Aruba Instant 8.8.x.x or higher)
 
 <details open markdown="block">
   <summary>
