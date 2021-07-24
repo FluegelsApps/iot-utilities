@@ -7,7 +7,16 @@ grand_parent: Aruba IoT Concepts
 nav_order: 2
 ---
 
-### [**Device Class Filter**](#table-of-contents)
+# Device Class Filter
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+- TOC
+{:toc}
+</details>
 
 Device class filters are used to enabled specific [IoT transport services](#iot-transport-services) over an [IoT server connection](#iot-server-connectivity-server-side) and to control the amount of IoT data transferred on an Aruba infrastructure by using input/output filtering.
 
@@ -23,7 +32,7 @@ Multiple [supported device classes](#supported-iot-vendordevice-class-list) can 
 
 Device class filter are grouped into the following categories.
 
-#### [**BLE device class filter**](#table-of-contents)
+## BLE device class filter
 
 For every supported BLE device vendor, identified by the [Bluetooth SIG member list](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/), a dedicated [BLE device class](#supported-iot-vendordevice-class-list) is defined.
 One ore more BLE device classes can be selected in an [iot transport profile](#iot-transport-profile) to enable [IoT transport services](#iot-transport-services) for the respective BLE vendor.
@@ -32,16 +41,16 @@ The special device class ***unclassified*** enables [BLE telemetry](#ble-telemet
 
 The special device class ***all*** enables [BLE telemetry](#ble-telemetry) reporting for all BLE device classes including unclassified BLE devices.
 
-#### **Wi-Fi device class filter**
+## Wi-Fi device class filter
 
 The device class ***wifi-assoc-sta*** and ***wifi-unassoc-sta*** enables the [Wi-Fi telemetry](#wi-fi-telemetry) transport service.
 
 The device class ***wifi-tag*** enables the [Wi-Fi RTLS data forwarding](#wi-fi-rtls-data-forwarding) transport service.
 
-#### **USB/3rd party device class filter**
+## USB/3rd party device class filter
 
 The device class ***serial-data*** enables the [serial-data forwarding](#serial-data) to support [3rd party IoT radio solutions](#supported-usb-vendor-list-for-iot)
 
-#### **ZigBee socket device class filter**
+## ZigBee socket device class filter
 
 The device class ***zsd*** enables the [ZigBee socket device](#zigbee-socket-device) transport service to enable ZigBee applications.

@@ -7,11 +7,20 @@ grand_parent: Aruba IoT Concepts
 nav_order: 3
 ---
 
-### [**Data content filters**](#table-of-contents)
+# Data content filters
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+- TOC
+{:toc}
+</details>
 
 In addition to filter for specific [device classes](#device-class-filter) it possible to filter the forwarded IoT data content before being sent to the remote Iot system.
 
-#### [**General data filter**](#table-of-contents)
+## General data filter
 
 -   ***Data Filter***  
 This is a list of data fields to be suppress in the telemetry reports. The data filter is a string that is a comma separated list of index-paths. Each index path refers to the field numbers in the [Aruba IoT Protobuf Specification](#aruba-iot-protobuf-specification). For example, the value  “3.3, 3.12” would suppress the ‘reported.model’ field and the ‘reported.beacons’ field in the telemetry reports.  
@@ -19,7 +28,7 @@ This is a list of data fields to be suppress in the telemetry reports. The data 
 -   ***Device Count***  
 Only sends the count of device types, e.g. iBeacon, Wi-Fi clients, seen by an AP in the telemetry reports, but not the actual device information of those devices. Supported device counts are defined in the [Aruba IoT Protobuf Specification](#aruba-iot-protobuf-specification).
 
-#### [**BLE data filter**](#table-of-contents)
+## BLE data filter
 
 -   ***RSSI Reporting Format***  
 For the BLE RSSI values being send in the telemetry reports five different RSSI reporting formats are supported. The four reporting

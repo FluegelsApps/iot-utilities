@@ -7,7 +7,16 @@ grand_parent: Aruba IoT Concepts
 nav_order: 1
 ---
 
-### [**IoT transport services**](#table-of-contents)
+# IoT transport services
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+- TOC
+{:toc}
+</details>
 
 The Aruba IoT server interface supports different transport services for the IoT communication.
 
@@ -37,7 +46,7 @@ The table below shows a summary of the available transport services and the corr
 >***Note:***  
 >For details about the available data payloads and the correspondig encoding and deconding of the different IoT transport servcies please refer to the [Aruba IoT Server Interface Guide](#aruba-iot-server-interface-guide).
 
-#### [**Wi-Fi telemetry**](#table-of-contents)
+## Wi-Fi telemetry
 
 Wi-Fi telemetry sends periodic reports (northbound only) about all the Wi-Fi devices that are discovered by an AP.
 
@@ -60,7 +69,7 @@ Wi-Fi telemetry is enabled using the device class [wifi-assoc-sta](#wi-fi-device
 >***Note:***  
 >WiFi telemetry is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
 
-#### [**Wi-Fi RTLS data forwarding**](#table-of-contents)
+## Wi-Fi RTLS data forwarding
 
 WiFi RTLS data forwards the wireless data frames that originate from unassociated Wi-Fi tags addressed to a configured RTLS destination MAC address to the remote server.
 
@@ -79,7 +88,7 @@ Wi-Fi RTLS data forwarding is enabled using the device class [wifi-tag](#wi-fi-d
 >***Note:***  
 >WiFi telemetry is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
 
-#### [**BLE telemetry**](#table-of-contents)
+## BLE telemetry
 
 BLE telemetry sends periodic reports about all BLE devices that are discovered by an AP's [IoT radio](#aruba-iot-radio) and saved on a local BLE table to a remote server.  
 
@@ -101,7 +110,7 @@ BLE telemetry is enabled for the selected [BLE device class](#ble-device-class-f
 >***Note:***  
 >BLE Telemetry is the default data forwarding mode for all BLE device classes and cannot be disabled.
 
-#### [**BLE data forwarding**](#table-of-contents)
+## BLE data forwarding
 
 BLE data forwarding sends all BLE advertisement and scan response frames from [known BLE vendor device classes](#supported-iot-vendordevice-class-list) to a remote server.
 
@@ -129,7 +138,7 @@ BLE data forwarding is enabled for the selected [BLE device class](#ble-device-c
 >***Note:***  
 >BLE data forwarding is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
 
-#### [**BLE connect**](#table-of-contents)
+## BLE connect
 
 BLE connect provides functions to connect and interact with BLE devices remotely via the [Aruba IoT server interface](#aruba-iot-server-interface) using the [BLE GATT profile](https://www.bluetooth.com/bluetooth-resources/intro-to-bluetooth-gap-gatt/).  
 
@@ -146,7 +155,7 @@ For details about the available BLE connect service please refer to the [Aruba I
 
 BLE connect is enabled for the selected [BLE device class](#ble-device-class-filter) in the [iot transport profile](#iot-transport-profile) configuration and requires the server connection type [Telemetry-Websocket](#telemetry-websocket) beeing selected.
 
-#### [**Serial-data**](#table-of-contents)
+## Serial-data
 
 Serial-data forwarding is used to support [3rd party IoT radio solutions](#supported-usb-vendor-list-for-iot) connected via the AP USB port.
 When the 3rd party IoT radio is plugged into the USB port, it presents itself as a [USB-to-serial](#usb-to-serial) device to the AP.
@@ -158,7 +167,7 @@ The serial data sent by the 3rd party radio to the AP is encapsulated in the [Ar
 
 Serial data forwarding is enabled using the device class [serial-data](#usb3rd-party-device-class-filter) in the [iot transport profile](#iot-transport-profile) configuration.
 
-#### [**ZigBee socket device**](#table-of-contents)
+## ZigBee socket device
 
 ZigBee socket device (ZSD) service is a generic approach used for enabling ZigBee applications using the [Aruba IoT radio Gen2](#aruba-iot-radio).
 
