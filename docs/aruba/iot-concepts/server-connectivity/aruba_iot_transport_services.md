@@ -92,7 +92,7 @@ Wi-Fi RTLS data forwarding is enabled using the device class [wifi-tag](#wi-fi-d
 
 BLE telemetry sends periodic reports about all BLE devices that are discovered by an AP's [IoT radio](#aruba-iot-radio) and saved on a local BLE table to a remote server.  
 
-![BLE telemetry](../images/ble_telemetry.png)
+![BLE telemetry](../../../images/ble_telemetry.png)
 
 The AP will continuously listen for advertisements and scan responses and parse/decode these packets for supported BLE protocols. The APs BLE table is updated and reported as BLE telemetry data at a configurable report interval.  
 
@@ -116,7 +116,7 @@ BLE data forwarding sends all BLE advertisement and scan response frames from [k
 
 BLE data forwarding works by forwarding the raw BLE data packets to the remote server **immediately when they are received** by the AP's [IoT radio](#aruba-iot-radio).
 
-![BLE data forwarding](../images/ble_data_forwarding.png)
+![BLE data forwarding](../../../images/ble_data_forwarding.png)
 
 >***Important:***  
 >BLE forwarding increase the amount of server-side traffic because a message for every BLE advertisement and scan response from eligible BLE devices is forwarded.  

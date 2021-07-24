@@ -5,7 +5,7 @@ has_children: true
 parent: Aruba IoT Concepts
 ---
 
-## [IoT server connectivity (server-side)](#table-of-contents)
+# IoT server connectivity (server-side)
 
 On the server-side IoT data payloads are either forwarded directly by [USB-to-ethernet](#usb-to-ethernet) connected devices using IP transport or using the [Aruba IoT server interface](#aruba-iot-server-interface) providing different transport protocols and data encapsulations.
 
