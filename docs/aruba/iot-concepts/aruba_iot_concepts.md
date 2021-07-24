@@ -2,6 +2,7 @@
 layout: default
 title: Aruba IoT Concepts
 has_children: true
+nav_order: 2
 ---
 
 # Aruba IoT concepts

@@ -2,6 +2,7 @@
 layout: default
 title: Configuration Examples
 has_children: true
+nav_order: 4
 ---
 
 # Configuration Examples
