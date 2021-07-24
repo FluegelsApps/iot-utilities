@@ -4,6 +4,7 @@ title: Device Class Filters
 has_children: false
 parent: IoT-Server Connectivity
 grand_parent: Aruba IoT Concepts
+nav_order: 2
 ---
 
 ### [**Device Class Filter**](#table-of-contents)

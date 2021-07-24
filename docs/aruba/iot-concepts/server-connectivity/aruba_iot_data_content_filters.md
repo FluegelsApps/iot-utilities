@@ -2,8 +2,9 @@
 layout: default
 title: Data Content Filters
 has_children: false
-parent: Aruba IoT-Connectivity
+parent: IoT-Server Connectivity
 grand_parent: Aruba IoT Concepts
+nav_order: 3
 ---
 
 ### [**Data content filters**](#table-of-contents)

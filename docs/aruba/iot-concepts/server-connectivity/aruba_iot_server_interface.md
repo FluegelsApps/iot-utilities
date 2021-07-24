@@ -4,6 +4,7 @@ title: Aruba IoT Server Interface
 has_children: false
 parent: IoT-Server Connectivity
 grand_parent: Aruba IoT Concepts
+nav_order: 0
 ---
 
 ### [**Aruba IoT server interface**](#table-of-contents)

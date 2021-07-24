@@ -4,6 +4,7 @@ title: IoT Transport Services
 has_children: false
 parent: IoT-Server Connectivity
 grand_parent: Aruba IoT Concepts
+nav_order: 1
 ---
 
 ### [**IoT transport services**](#table-of-contents)

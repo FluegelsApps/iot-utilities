@@ -1,7 +1,7 @@
 ---
 layout: default
 title: IoT-Connectivity
-has_children: true
+has_children: false
 parent: Aruba IoT Concepts
 ---
 
