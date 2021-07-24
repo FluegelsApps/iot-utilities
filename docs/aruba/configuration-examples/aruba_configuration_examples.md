@@ -1,9 +1,7 @@
 ---
 layout: default
 title: Configuration Examples
-has_children: false
-parent: Aruba Configuration
-grand_parent: Aruba Guide
+has_children: true
 ---
 
 # [Configuration Examples](#table-of-contents)

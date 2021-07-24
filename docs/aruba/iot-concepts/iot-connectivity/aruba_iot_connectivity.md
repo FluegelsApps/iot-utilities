@@ -1,9 +1,8 @@
 ---
 layout: default
-title: IoT-Connectivity (Radio-Side)
-has_children: false
+title: IoT-Connectivity
+has_children: true
 parent: Aruba IoT Concepts
-grand_parent: Aruba Guide
 ---
 
 ## [IoT connectivity (radio-side)](#table-of-contents)

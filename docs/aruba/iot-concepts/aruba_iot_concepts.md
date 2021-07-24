@@ -2,8 +2,6 @@
 layout: default
 title: Aruba IoT Concepts
 has_children: true
-parent: Aruba Guide
-nav_order: 0
 ---
 
 # [Aruba IoT concepts](#table-of-contents)
