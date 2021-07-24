@@ -3,7 +3,7 @@ layout: default
 title: Solu-M ESL
 has_children: false
 parent: USB-to-Ethernet Solutions
-grand_parent: Configuration Examples
+grand_parent: Aruba IoT Config Examples
 nav_order: 0
 ---
 

@@ -2,7 +2,7 @@
 layout: default
 title: BLE Telemetry Solutions
 has_children: true
-parent: Configuration Examples
+parent: Aruba IoT Config Examples
 nav_order: 3
 ---
 

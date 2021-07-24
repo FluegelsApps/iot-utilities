@@ -2,7 +2,7 @@
 layout: default
 title: AP USB Device Management
 has_children: false
-parent: Configuration
+parent: Aruba IoT Configuration
 nav_order: 2
 ---
 

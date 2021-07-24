@@ -3,7 +3,7 @@ layout: default
 title: Azure IoT Hub (BLE-Data)
 has_children: false
 parent: BLE Data Forwarding Solutions
-grand_parent: Configuration Examples
+grand_parent: Aruba IoT Config Examples
 nav_order: 0
 ---
 

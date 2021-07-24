@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuration Examples
+title: Aruba IoT Config Examples
 has_children: true
 nav_order: 4
 ---

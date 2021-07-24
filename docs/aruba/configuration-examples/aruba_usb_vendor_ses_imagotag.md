@@ -3,7 +3,7 @@ layout: default
 title: SES Imagotag
 has_children: false
 parent: USB Vendor Specific Solutions
-grand_parent: Configuration Examples
+grand_parent: Aruba IoT Config Examples
 nav_order: 0
 ---
 

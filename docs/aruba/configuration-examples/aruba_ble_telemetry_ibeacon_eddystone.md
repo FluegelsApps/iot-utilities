@@ -3,7 +3,7 @@ layout: default
 title: iBeacon + EddyStone Asset Tracking
 has_children: false
 parent: BLE Telemetry Solutions
-grand_parent: Configuration Examples
+grand_parent: Aruba IoT Config Examples
 nav_order: 0
 ---
 

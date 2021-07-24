@@ -1,7 +1,7 @@
 ---
 layout: default
 title: IoT-Utilities App
-parent: Configuration Examples
+parent: Aruba IoT Config Examples
 has_children: true
 nav_order: 0
 ---

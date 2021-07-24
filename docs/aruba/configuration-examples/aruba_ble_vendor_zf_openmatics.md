@@ -3,7 +3,7 @@ layout: default
 title: ZF Openmatics
 has_children: false
 parent: BLE Vendor Specific Solutions
-grand_parent: Configuration Examples
+grand_parent: Aruba IoT Config Examples
 nav_order: 2
 ---
 

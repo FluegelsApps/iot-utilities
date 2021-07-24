@@ -3,7 +3,7 @@ layout: default
 title: EnOcean Demo
 has_children: false
 parent: USB-to-Serial Solutions
-grand_parent: Configuration Examples
+grand_parent: Aruba IoT Config Examples
 nav_order: 0
 ---
 

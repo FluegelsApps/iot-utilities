@@ -3,7 +3,7 @@ layout: default
 title: Wi-Fi RTLS Data Forwarding Solution
 has_children: false
 parent: Wi-Fi Solutions
-grand_parent: Configuration Examples
+grand_parent: Aruba IoT Config Examples
 nav_order: 1
 ---
 

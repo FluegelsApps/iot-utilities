@@ -2,7 +2,7 @@
 layout: default
 title: IoT Transport Profile
 has_children: false
-parent: Configuration
+parent: Aruba IoT Configuration
 nav_order: 1
 ---
 

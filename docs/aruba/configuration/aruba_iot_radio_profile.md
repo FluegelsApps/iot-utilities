@@ -1,7 +1,7 @@
 ---
 layout: default
 title: IoT Radio Profile
-parent: Configuration
+parent: Aruba IoT Configuration
 has_children: false
 nav_order: 0
 ---

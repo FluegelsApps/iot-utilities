@@ -4,7 +4,7 @@ title: ArubaOS/Aruba Instant 8.8.x.x or higher
 has_children: false
 nav_order: 1
 parent: IoT-Utilities App
-grand_parent: Configuration Examples
+grand_parent: Aruba IoT Config Examples
 ---
 
 # IoT-Utilities App (ArubaOS/Aruba Instant 8.8.x.x or higher)

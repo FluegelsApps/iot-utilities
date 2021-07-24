@@ -2,7 +2,7 @@
 layout: default
 title: ZigBee Configuration
 has_children: false
-parent: Configuration
+parent: Aruba IoT Configuration
 nav_order: 5
 ---
 
