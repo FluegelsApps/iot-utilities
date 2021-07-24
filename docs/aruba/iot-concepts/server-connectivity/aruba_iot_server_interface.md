@@ -7,7 +7,8 @@ grand_parent: Aruba IoT Concepts
 nav_order: 0
 ---
 
-### [**Aruba IoT server interface**](#table-of-contents)
+# Aruba IoT server interface
+
 <details open markdown="block">
   <summary>
     Table of contents
@@ -26,13 +27,13 @@ Up to 4 iot transport profiles can be concurrently enabled per Aruba Instant AP 
 
 The following chapters describe the **Aruba IoT server interface** related options and services.
 
-### [**Server connection types**](#table-of-contents)
+## Server connection types
 
 The Aruba IoT server interface supports vendor specific and generic [server connections types](#aruba-iot-server-interface---connection-types).  
 
 The following generic connection types allow IoT data forwarding for the different [IoT connectivity (radio-side)](#iot-connectivity-radio-side) options previously described.
 
-#### [***Telemetry-Https***](#table-of-contents)
+### Telemetry-Https
 
 The *Telemetry-Https* connection type can be use to send [BLE telemetry](#ble-telemetry) reports in one direction only, from the radio-side to the server-side, using HTTP POST requests.  
 
@@ -45,7 +46,7 @@ The used JSON data structure is defined in the [Aruba IoT Telemetry JSON Schema]
 >***Note:***  
 >Starting with ArubaOS/Aruba Instant 8.6.0.0 or higher no new BLE device classes will be added to be used with **Telemetry-Https**.
 
-#### [***Telemetry-Websocket***](#table-of-contents)
+### Telemetry-Websocket
 
 The *Telemetry-Websocket* connection type can be used for all supported [IoT transport services](#iot-transport-services) providing a bi-directional communication channel though a web socket (ws) or secure web socket (wss) connection.
 
@@ -56,7 +57,7 @@ This connection type enables the full set of IoT connection capabilities of an A
 >***Note:***  
 >The [IoT-Utilities app](https://iot-utilities.arubademo.de/) only supports Telemetry-Websocket connections.
 
-#### [***Azure-IoTHub***](#table-of-contents)
+### Azure-IoTHub
 
 The *Azure-IoTHub* connection type can be use to send/receive [BLE data forwarding](#ble-data-forwarding)/[Serial-data](#serial-data) directly to [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub) by using the AMPQ over websocket protocol.
 
@@ -64,7 +65,7 @@ With this connection type Aruba controller's or Aruba Instant access points work
 
 For details please see the [Azure IoT Hub Integration Tech Note](#azure-iot-hub-integration)  
 
-### [**Server connection encryption**](#table-of-contents)
+## Server connection encryption
 
 Even if un-encrypted HTTP or web socket connectivity is supported by the Aruba IoT server interface, it is recommended to only use encrypted connections to remote IoT systems.  
 
@@ -78,7 +79,7 @@ Please refer to [importing certificates](#importing-certificates) for how to add
 >***Note:***  
 >The [IoT-Utilities app](https://iot-utilities.arubademo.de/) provides a download link on the web dashboard to download the self-signed server certificate. Alternatively a certificate signed by a private or public CA certificate that is trusted by the Aruba infrastructure can be installed into the app.
 
-### [**Authentication and authorization**](#table-of-contents)
+## Authentication and authorization
 
 Depending on the [Aruba IoT server connection type](#aruba-iot-server-interface---connection-types) different authentication and authorization methods are supported/required to establish server-side connections.
 
@@ -90,7 +91,7 @@ Supported authentication and authorization methods are:
 
 Details about the different authentication methods are documented in the [Aruba IoT Server Interface Guide](#aruba-iot-server-interface-guide).
 
-### [**Connection management**](#table-of-contents)
+## Connection management
 
 Server connections are established form every single Aruba Instant access point, in case of a controller-less setup, or from every Aruba controller in case of a controller-based setup.  
 
