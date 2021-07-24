@@ -2,6 +2,7 @@
 layout: default
 title: Aruba Guide
 has_children: true
+nav_exclude: true
 ---
 
 # Aruba IoT Configuration Guide

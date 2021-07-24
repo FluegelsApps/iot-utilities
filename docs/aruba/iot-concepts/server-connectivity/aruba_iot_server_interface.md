@@ -8,13 +8,14 @@ nav_order: 0
 ---
 
 ### [**Aruba IoT server interface**](#table-of-contents)
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
 1. TOC
 {:toc}
+</details>
 
 The **Aruba IoT server interface** is an Aruba proprietary server-side connectivity interface to connect to IoT servers using the Aruba AP's or Aruba controllers management IP address. The interface provide multiple transport protocol and data encapsulation options and is specified in the [Aruba IoT Server Interface Guide](#aruba-iot-server-interface-guide).  
 All **Aruba IoT server interface** related aspects are configured in an [iot transport profile](#iot-transport-profile).  
