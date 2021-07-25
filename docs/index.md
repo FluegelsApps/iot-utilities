@@ -17,6 +17,7 @@ nav_exclude: true
 - [Dashboard (Traffic)](./app/dashboard_traffic.md)  
 - [Client-Configuration](./app/client_configuration.md)  
 - [BLE-Testing](./app/ble_testing.md)  
+- [BLE-Connect](.app/ble_connect.md)  
 - [Clients](./app/clients.md)
 - [Sensors](./app/sensors.md)  
 - [Sensor data (Details)](./app/sensor_data_details.md)  
@@ -40,4 +41,9 @@ nav_exclude: true
 
 ### Aruba documentation
 
-- [Aruba IoT Configuration Guide](./aruba/aruba_iot_configuration_guide.md)  
+- [IoT-Concepts](./aruba/iot-concepts/aruba_iot_concepts.md)
+  - [IoT-Connectivity (Radio-Side)](./aruba/iot-concepts/iot-connectivity/aruba_iot_connectivity.md)
+  - [IoT-Server-Connectivity (Server-Side)](./aruba/iot-concepts/server-connectivity/aruba_iot_server_connectivity.md)
+- [Configuration](./aruba/configuration/aruba_configuation.md)
+- [Configuration Examples](./aruba/configuration-examples/aruba_configuration_examples.md)
+- [References](./aruba/references/aruba_references.md)
