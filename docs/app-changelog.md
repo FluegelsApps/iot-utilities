@@ -3,15 +3,12 @@ layout: default
 title: Changelog
 ---
 
-## Version 1.3.0 | ?
+## Version 1.2.2 | 25.07.2021
 
 ### New features in this release:
 
-- new search function in app preferences
-
-### Reworked features and improvements:
-
-### Fixed bugs and issues:
+- search function in app preferences
+- relative anchors in app documentation
 
 ---
 
