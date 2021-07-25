@@ -23,7 +23,7 @@ This example shows the required configuration to enable the [ASSA ABLOY](https:/
 -   `fqdn, ip-address` - has to be replaced with the FQDN or IP address of the Assa-Abloy server
 -   `username` - has to be replaced with the **username** on the Assa-Abloy server
 -   `password` - has to be replaced with the **password** of the Assa-Abloy server
--   `accessid` - has to be replaces with the Assa-Abloy server **access id**
+-   `accessid` - has to be replaced with the Assa-Abloy server **access id**
 -   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
 
 **ArubaOS**

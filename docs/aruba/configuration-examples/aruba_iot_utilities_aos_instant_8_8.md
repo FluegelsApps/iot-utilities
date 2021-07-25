@@ -20,15 +20,15 @@ grand_parent: Aruba IoT Config Examples
 
 This example shows the configuration to setup an Aruba IoT demo using the [IoT-Utilities app](https://iot-utilities.arubademo.de/) using ArubaOS/Aruba Instant version 8.8.x.x or higher.
 
--   `ip-address` - has to be replaced with the **IP address** of the mobile device the IoT-Utilities app is running on. The current IP address used by the app is shown in the [IoT-Utilties Dashboard - Server control panel status](../main/dashboard.md#1-server-control-panel).
--   `port` - has to be replaced with the apps [**port number**](../settings/settings_iotserver.md#port-number) configured in the apps [IoT-server settings](../settings/settings_iotserver.md). The default value is ***5443***.
+-   `ip-address` - has to be replaced with the **IP address** of the mobile device the IoT-Utilities app is running on. The current IP address used by the app is shown in the [IoT-Utilties Dashboard - Server control panel status](../../app/dashboard.md#1-server-control-panel).
+-   `port` - has to be replaced with the apps [**port number**](../../settings/settings_iotserver.md#port-number) configured in the apps [IoT-server settings](../../settings/settings_iotserver.md). The default value is ***5443***.
 -   `client-id` - should be replaced with a custom client identifier to uniquily identify the connecting Aruba infrasturcture within the IoT-Utilities app.
--   `secret` - has to be replaced with the apps [**Static access token**](../settings/settings_iotserver.md#static-access-token) configured in the apps [IoT-server settings](../settings/settings_iotserver.md)
+-   `secret` - has to be replaced with the apps [**Static access token**](../../settings/settings_iotserver.md#static-access-token) configured in the apps [IoT-server settings](../../settings/settings_iotserver.md)
 -   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
 
 >***Note:***  
->The self-signed server certificate or the trusted root CA certificate used by the [IoT-Utilities app](https://iot-utilities.arubademo.de/) has to be installed on the Aruba infrastructure for the sercure web socket server connection to be established. The self-signed certificate can be downloaded either via the [IoT-Utilties Dashboard - Certificate Control Panel](../main/dashboard.md#2-certificate-control-panel) or using the apps web dashboard.  
->Please see the [Aruba CLI Reference - Importing Certificates](#aruba-cli-reference---importing-certificates) for details about how to install the downloaded certificate on the Aruba infrastructure.
+>The self-signed server certificate or the trusted root CA certificate used by the [IoT-Utilities app](https://iot-utilities.arubademo.de/) has to be installed on the Aruba infrastructure for the sercure web socket server connection to be established. The self-signed certificate can be downloaded either via the [IoT-Utilties Dashboard - Certificate Control Panel](../../app/dashboard.md#2-certificate-control-panel) or using the apps web dashboard.  
+>Please see the [Aruba CLI Reference - Importing Certificates](../references/aruba_reference_documentation.md#aruba-cli-reference---importing-certificates) for details about how to install the downloaded certificate on the Aruba infrastructure.
 
 **ArubaOS**
 

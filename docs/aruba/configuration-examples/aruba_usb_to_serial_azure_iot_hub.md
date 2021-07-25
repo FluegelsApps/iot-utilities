@@ -18,14 +18,14 @@ nav_order: 1
 {:toc}
 </details>
 
-This example shows the required configuration to enable [serial-data](#serial-data) forwarding to Azure IoT Hub.
+This example shows the required configuration to enable [serial-data](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#serial-data) forwarding to Azure IoT Hub.
 
 -   `scope-id` - has to be replaced with Azure DPS enrollment group scope-id
 -   `key` - has to be replaces with Azure symmetric group key
 -   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
 
 >***Note:***  
->`bleDataForwarding` is enabled by default for server type `Azure-IoTHub` and cannot be disabled. But only enabling `payloadContent serial-data`  effectively disables all [BLE device classes](#supported-iot-vendordevice-class-list) and therefore no BLE data is forwarded.
+>`bleDataForwarding` is enabled by default for server type `Azure-IoTHub` and cannot be disabled. But only enabling `payloadContent serial-data`  effectively disables all [BLE device classes](../references/aruba_supported_iot_vendor_device_class_list.md#supported-iot-vendordevice-class-list) and therefore no BLE data is forwarded.
 
 **ArubaOS**
 

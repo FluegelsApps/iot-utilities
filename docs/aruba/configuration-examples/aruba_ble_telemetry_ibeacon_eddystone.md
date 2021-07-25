@@ -18,7 +18,7 @@ nav_order: 0
 {:toc}
 </details>
 
-This example shows the required configuration to enable [BLE telemety](#ble-telemetry) reporting for `ibeacon` and `eddystone` BLE devices for asset tracking and eddystone based sensor monitoring.
+This example shows the required configuration to enable [BLE telemety](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#ble-telemetry) reporting for `ibeacon` and `eddystone` BLE devices for asset tracking and eddystone based sensor monitoring.
 
 -   `fqdn, ip-address, port, path` - has to be replaced with the FQDN or IP address, optional port and path of the remote server
 -   `access-token` - has to be replaced with the static access token used to connect to the remote server

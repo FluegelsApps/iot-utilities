@@ -25,7 +25,7 @@ This example shows the required configuration to enable [ZF Openmatics asset tra
 -   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
 
 >***Note:***  
->The [DigiCert root certificate](https://www.digicert.com/kb/digicert-root-certificates.htm) has to be installed on the Aruba infrastructure when connecting the ZF Openmatics [deTAGtiv platform](https://app.detagtive.com/). Please see the [Aruba CLI Reference - Importing Certificates](#aruba-cli-reference---importing-certificates) for details.
+>The [DigiCert root certificate](https://www.digicert.com/kb/digicert-root-certificates.htm) has to be installed on the Aruba infrastructure when connecting the ZF Openmatics [deTAGtiv platform](https://app.detagtive.com/). Please see the [Aruba CLI Reference - Importing Certificates](../references/aruba_reference_documentation.md#aruba-cli-reference---importing-certificates) for details.
 
 **ArubaOS**
 

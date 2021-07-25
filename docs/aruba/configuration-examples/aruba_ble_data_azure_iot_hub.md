@@ -18,7 +18,7 @@ nav_order: 0
 {:toc}
 </details>
 
-This example shows the required configuration to enable [BLE data forwarding](#ble-data-forwarding) for `all` supported [BLE vendors](#supported-iot-vendordevice-class-list) to Azure IoT Hub.
+This example shows the required configuration to enable [BLE data forwarding](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#ble-data-forwarding) for `all` supported [BLE vendors](../references/aruba_supported_iot_vendor_device_class_list.md#supported-iot-vendordevice-class-list) to Azure IoT Hub.
 
 -   `scope-id` - has to be replaced with Azure DPS enrollment group scope-id
 -   `key` - has to be replaces with Azure symmetric group key
@@ -28,8 +28,8 @@ This example shows the required configuration to enable [BLE data forwarding](#b
 >`bleDataForwarding` is enabled by default for server type `Azure-IoTHub` and cannot be disabled.
 
 >***Caution:***  
->Enabling the **device class filter** `all` will enable BLE data forwarding of all knon/supported [BLE vendor device classes](#supported-iot-vendordevice-class-list). This could haveally increase the amount of data beeing forwarded to the remote server because all BLE advertisements and scan respsonse packets are forwarded in near real time.  
-It is recommended to use the [BLE device class filter](#ble-device-class-filter) and [BLE data filters ](#ble-data-filter) to filter the data being forwarded.
+>Enabling the **device class filter** `all` will enable BLE data forwarding of all knon/supported [BLE vendor device classes](../references/aruba_supported_iot_vendor_device_class_list.md#supported-iot-vendordevice-class-list). This could haveally increase the amount of data beeing forwarded to the remote server because all BLE advertisements and scan respsonse packets are forwarded in near real time.  
+It is recommended to use the [BLE device class filter](../iot-concepts/server-connectivity/aruba_iot_device_class_filters.md#ble-device-class-filter) and [BLE data filters ](../iot-concepts/server-connectivity/aruba_iot_data_content_filters.md#ble-data-filter) to filter the data being forwarded.
 
 **ArubaOS**
 

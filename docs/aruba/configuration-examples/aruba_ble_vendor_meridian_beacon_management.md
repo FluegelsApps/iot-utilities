@@ -19,7 +19,7 @@ nav_order: 0
 </details>
 
 This example shows the required configuration to enable [Aruba Meridian Beacon Management](https://www.arubanetworks.com/products/location-services/beacons-tags/beacons/).
-For more details on the Aruba Meridian related confiugration please refer to the [Aruba Meridian Online Documenation - Configure Aruba Hardware](#aruba-meridian-online-documenation---configure-aruba-hardware)
+For more details on the Aruba Meridian related confiugration please refer to the [Aruba Meridian Online Documenation - Configure Aruba Hardware](../references/aruba_reference_documentation.md#aruba-meridian-online-documenation---configure-aruba-hardware)
 
 -   `access-token` - has to be replaced with the static access token generated using the Meridian Beacon Management menu
 -   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)

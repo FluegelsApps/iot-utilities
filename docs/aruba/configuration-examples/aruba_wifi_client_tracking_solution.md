@@ -18,7 +18,7 @@ nav_order: 0
 {:toc}
 </details>
 
-This example shows the required configuration to enable [Wi-Fi telemetry](#wi-fi-telemetry).
+This example shows the required configuration to enable [Wi-Fi telemetry](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#wi-fi-telemetry).
 
 -   `fqdn, ip-address` - has to be replaced with the FQDN or IP address of the remote server
 -   `access-token` - has to be replaced with the static access token used to connect to the remote server

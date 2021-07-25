@@ -18,7 +18,7 @@ nav_order: 0
 {:toc}
 </details>
 
-This example shows the required configuration to enable an [SES-Imagotag ESL soulution](https://www.arubanetworks.com/assets/pso/PSB_SESImagotag.pdf) on premise solution. All avaialbe confiugation options are descirbed in the [SES Imagotag ESL configuration](#ses-imagotag-esl-configuration)
+This example shows the required configuration to enable an [SES-Imagotag ESL solution](https://www.arubanetworks.com/assets/pso/PSB_SESImagotag.pdf) on premise solution. All available configuration options are descirbed in the [SES Imagotag ESL configuration](../configuration/aruba_ses_imagotag_esl_configuration.md#ses-imagotag-esl-configuration)
 
 -   `<ip-address>` - has to be replaced with the SES-Imagotag on-premises server IP address
 
