@@ -20,13 +20,13 @@ On the radio-side the Aruba access points support different IoT radio technologi
 
 ## Wi-Fi
 
-The Aruba access point Wi-Fi radios can be used to forward associated/unassociated client information and RTLS data for Wi-Fi based tracking use cases. Wi-Fi client and RTLS data is encapsulated in the [Aruba IoT server interface](#aruba-iot-server-interface) protocol and forwarded to the IoT backend system.  
+The Aruba access point Wi-Fi radios can be used to forward associated/unassociated client information and RTLS data for Wi-Fi based tracking use cases. Wi-Fi client and RTLS data is encapsulated in the [Aruba IoT server interface](../server-connectivity/aruba_iot_server_interface.md#aruba-iot-server-interface) protocol and forwarded to the IoT backend system.  
 
 ## Aruba IoT radio
 
 An Aruba IoT radio is an additional internal or external radio in the Aruba AP-3xx/5xx series access points that can be leveraged for IoT connectivity.  
 A single Aruba AP-3xx/5xx series access points can support up to two IoT radios, one internal and one external. This would allow to use one radio e.g. for BLE and the other one for ZigBee concurrently.  
-The access point removes/adds the radio specific headers from/to IoT devices e.g. BLE or ZigBee and forwards/receives the data payload encapsulated in the [Aruba IoT server interface](#aruba-iot-server-interface) protocol to/from the IoT backend system.  
+The access point removes/adds the radio specific headers from/to IoT devices e.g. BLE or ZigBee and forwards/receives the data payload encapsulated in the [Aruba IoT server interface](../server-connectivity/aruba_iot_server_interface.md#aruba-iot-server-interface) protocol to/from the IoT backend system.  
 
 ### Internal
 
@@ -58,7 +58,7 @@ The intention of the Aruba IoT expansion radio is to add the 802.15.4(ZigBee) ca
 >  
 > In order to support BLE tracking or bi-directional use cases concurrently to ZigBee uses cases on the same access points two Aruba IoT radios Gen2, one internal and one external, are required. The external radio should be used as ZigBee radio in this case. Therefore this scenario is currently only supported on the Aruba AP-5xx series access points.
 
-The configuration of the Aruba IoT radios is handled in the [IoT radio profile](#iot-radio-profile) configuration.
+The configuration of the Aruba IoT radios is handled in the [IoT radio profile](../../configuration/aruba_iot_radio_profile.md#iot-radio-profile) configuration.
 
 ## USB/3rd party IoT radio's
 
@@ -69,21 +69,21 @@ Aruba supports the expansion of Aruba access points using the AP's USB port with
 
 In all cases the USB connected host system removes/adds the radio specific headers/protocols from/to IoT devices and forwards/receives the data payload to the access point using one of the USB methods.
 
-Supported USB connected devices does not required a specific configuration, except for vendor specific implementations, but it can be controlled which USB devices are allowed to connect to an access points. This can be controlled using the [AP USB device management](#ap-usb-device-management).
+Supported USB connected devices does not required a specific configuration, except for vendor specific implementations, but it can be controlled which USB devices are allowed to connect to an access points. This can be controlled using the [AP USB device management](../../configuration/aruba_ap_usb_device_management.md#ap-usb-device-management).
 
 ### USB-to-serial
 
-The [3rd party solutions using the USB-to-serial](#supported-usb-vendor-list-for-iot) method forwards the data payload to/from the access point using [serial-data](#serial-data). The Aruba access point encapsulates the serial-data payload in the [Aruba IoT server interface](#aruba-iot-server-interface) protocol to/from the IoT backend system.
+The [3rd party solutions using the USB-to-serial](../../references/aruba_supported_usb_vendor_list_for_iot.md#supported-usb-vendor-list-for-iot) method forwards the data payload to/from the access point using [serial-data](../server-connectivity/aruba_iot_transport_services.md#serial-data). The Aruba access point encapsulates the serial-data payload in the [Aruba IoT server interface](../../#aruba-iot-server-interface) protocol to/from the IoT backend system.
 
 >***Note:***  
-> No specific configuration is required for USB-to-serial devices. Serial data is only forwarded though the [Aruba IoT server interface](#aruba-iot-server-interface), if enabled in the [server-side configuration](#iot-server-connectivity-server-side).  
+> No specific configuration is required for USB-to-serial devices. Serial data is only forwarded though the [Aruba IoT server interface](../server-connectivity/aruba_iot_server_interface.md#aruba-iot-server-interface), if enabled in the [server-side configuration](../server-connectivity/aruba_iot_server_connectivity.md#iot-server-connectivity-server-side).  
 
 ### USB-to-ethernet
 
-The [3rd party solutions](#supported-usb-vendor-list-for-iot) using the USB-to-ethernet method provides ethernet/IP connectivity to the connected USB host system. The USB host system is connected to the access point in the same way as a wired ethernet client. No data processing is done by the access point and ethernet/IP data packets form the USB host system is forwarded like any other ethernet/IP traffic.
+The [3rd party solutions](../../references/aruba_supported_usb_vendor_list_for_iot.md#supported-usb-vendor-list-for-iot) using the USB-to-ethernet method provides ethernet/IP connectivity to the connected USB host system. The USB host system is connected to the access point in the same way as a wired ethernet client. No data processing is done by the access point and ethernet/IP data packets form the USB host system is forwarded like any other ethernet/IP traffic.
 
 ### Vendor specific implementations
 
-The following vendor specific [USB integrations](#supported-usb-vendor-list-for-iot) do not follow the previously mentioned methods and require a dedicated configuration.  
+The following vendor specific [USB integrations](../../references/aruba_supported_usb_vendor_list_for_iot.md#supported-usb-vendor-list-for-iot) do not follow the previously mentioned methods and require a dedicated configuration.  
  
-- [SES Imagotag Electronic Shelf Labels (ESL)](#ses-imagotag-esl-configuration)
+- [SES Imagotag Electronic Shelf Labels (ESL)](../../configuration/aruba_ses_imagotag_esl_configuration.md#ses-imagotag-esl-configuration)
