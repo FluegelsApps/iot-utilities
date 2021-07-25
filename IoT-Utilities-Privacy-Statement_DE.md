@@ -46,6 +46,14 @@ Des Weiteren bietet die App weitere Funktionen und Werkzeuge, wie z.B. „Blueto
 
 Die App stellt eine IoT-Server Funktion zur Verfügung, welche Verbindungen von Aruba Controllern und Aruba Instant Access Points über das Aruba IoT Interface Protokoll entgegennimmt. Der IoT-Server erlaubt nur (TLS / SSL) verschlüsselte Verbindungen, welche per statischem Access Token oder Benutzername und Passwort autorisiert bzw. authentifiziert werden. Das hierfür notwendige SSL-Serverzertifikat kann in die App importiert oder ein selbst-signiertes Zertifikat generiert werden. Der IoT-Server stellt zusätzlich ein Web Dashboard über eine (TLS / SSL) verschlüsselte Verbindung unter der URL [https://[Smartphone_IP-Adresse]:[Port]/dashboard](https://[Smartphone_IP-Adresse]:[Port]/dashboard) zur Verfügung. Der Zugriff auf das Dashboard ist über ein in den App Einstellungen zu vergebene Benutzername/Passwort Kombination abgesichert.  
 
+#### **BLE Testing**
+
+Diese Funktion ermöglicht der App, die momentane Konfiguration zu überprüfen, indem Sie iBeacon-Advertisements an Aruba Access Points in der Nähe, mithilfe des Aruba-IoT-Interfaces, sendet. Wenn die Konfiguration funktioniert, dann werden die gesendeten Signale über das Interface zurückgeschickt. Die App zeigt dabei die antwortenden Access Points, sowie die Signalstärke.
+
+#### **BLE Connect**
+
+Diese Funktion ermöglicht der App sich, mithilfe der Aruba Access Points, mit BLE-Geräten zu verbinden. Außerdem kann die App ein sogennantes Pairing bzw. Bonding mit dem Gerät durchführen. Das Schlüsselmaterial, welches während dieses Prozesses verwendet wird, wird sicher in einer verschlüsselten Datenbank gespeichert. Des Weiteren speichert die App die MAC-Adressen der BLE-Geräte und Aruba Access Points.
+
 #### **Bluetooth Scanning**  
 
 Diese Funktion der App zeigt alle Bluetooth Low Energy (BLE) Geräte in der Umgebung des Smartphones in Form einer Liste an, hierfür wird ein Bluetooth fähiges Smartphone benötigt. Nähere Informationen zu den erfassten BLE Geräten werden in einer Details-Ansicht zusammengefasst dargestellt.  

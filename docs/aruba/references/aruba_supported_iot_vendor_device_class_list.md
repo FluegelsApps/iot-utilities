@@ -1,0 +1,51 @@
+---
+layout: default
+title: Supported IoT Vendor/Device Class List
+has_children: false
+parent: Aruba References
+nav_order: 2
+---
+
+# Supported IoT vendor/device class list
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+- TOC
+{:toc}
+</details>
+
+Device class list as of ArubaOS/Aruba Instant version 8.8.0.0.
+
+|Device class|IoT connectivity (radio)|Supported server connectivity|Minimum required SW version|Description|
+|-|-|-|-|-|
+|aruba-beacons|BLE|Meridian-Beacon-Management, [Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.4.0.0 or higher|Forward Aruba beacon BLE device data payloads|
+|aruba-tags|BLE|Meridian-Asset-Tracking, [Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https),[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.4.0.0 or higher|Forward Aruba tag BLE device data payloads|
+|aruba-sensors|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.5.0.0 or higher|Forward Aruba sensor BLE device data payloads.<br>This an Aruba specific BLE beacon format for telemetry reporting of multiple sensor values by BLE device implementing the Aruba sensor specification|
+|ibeacon|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.4.0.0 or higher|Forward iBeacon BLE device data payloads<br>Telemetry reporting of the following iBeacon data payloads is supported:<br> - ***UUID*** - broadcasted Universally Unique Identifier<br> - ***Major*** - broadcasted major id<br> - ***Minor*** - broadcasting minor id|
+|eddystone|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.4.0.0 or higher|Forward Eddystone BLE device data payloads.<br>Telemetry reporting of the following Eddystone data payloads is supported:<br> - ***Eddystone-TLM*** - broadcasted telemetry (temperature, voltage)<br> - ***Eddystone-URL*** - broadcasted URL addresses<br> - ***Eddystone-UID*** - broadcasted beacons IDs|
+|zf-tags|BLE|ZF-Openmatics or [Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.3.0.0 or higher|Forward ZF-Openmatics tag BLE device data payloads|
+|enocean-sensors|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.4.0.0 or higher|Forward EnOcean sensor BLE device data payloads|
+|enocean-switches|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.4.0.0 or higher|Forward EnOcean switch BLE device data payloads|
+|mysphera|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.6.0.0 or higher|Forward MySphera BLE device data payloads|
+|ability-smart-sensor|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|8.6.0.0 or higher|Forward ABB sensor BLE device data payloads|
+|sbeacon|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.6.0.0 or higher|Forward sBeacon(HID) BLE device data payloads|
+|wiliot|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.7.0.0 or higher|Forward Wiliot BLE device data payloads|
+|exposure-notification|BLE|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.7.0.0 or higher|Forward Apple/Google exposure notification framework BLE device data payloads|
+|blyott|BLE|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.8.0.0 or higher|Forward Blyott BLE device data payloads|
+|diract|BLE|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.8.0.0 or higher|Forward Diract BLE device data payloads|
+|google|BLE|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.8.0.0 or higher|Forward Google BLE device data payloads|
+|gwahygiene|BLE| [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.8.0.0 or higher|Forward GWA Hygiene BLE device data payloads|
+|minew|BLE|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.8.0.0 or higher|Forward Ninew BLE device data payloads|
+|onity|BLE|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.8.0.0 or higher|Forward Onity BLE device data payloads|
+|polestar|BLE|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.8.0.0 or higher|Forward Polestar BLE device data payloads|
+|unclassified|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.4.0.0 or higher|all BLE devices we don’t know|
+|all|BLE|[Telemetry-Https](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-https), [Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.4.0.0 or higher|all BLE devices form known vendors|
+|assa-abloy|ZigBee|Assa-Abloy|8.6.0.0 or higher|Forwarding ASSA-ABLOY to Assa Abloy Visiononline server|
+|zsd|ZigBee|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|8.7.0.0 or higher|Forwarding ZigBee data payloads to an ZigBee application server|
+|serial-data|USB/3rd party|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#azure-iothub)|8.7.0.0 or higher|Forwarding serial data payloads of 3rd party USB extensions to an IoT system|
+|wifi-assoc-sta|Wi-Fi|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
+|wifi-unassoc-sta|Wi-Fi|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|8.6.0.0 or higher|Forwarding Wi-Fi client RSSI information to 3rd party|
+|wifi-tags|Wi-Fi|[Telemetry-Websocket](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|8.6.0.0 or higher|Forwarding Wi-Fi tag data to 3rd party system|
