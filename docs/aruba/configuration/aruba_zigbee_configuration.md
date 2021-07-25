@@ -8,9 +8,9 @@ nav_order: 5
 
 # ZigBee configuration
 
-This secion describes the required configuration for ZigBee based solutions via the [Aruba IoT radio Gen2](#aruba-iot-radio) using the [ZigBee socket device transport service](#zigbee-socket-device).
+This section describes the required configuration for ZigBee based solutions via the [Aruba IoT radio Gen2](../iot-concepts/iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio) using the [ZigBee socket device transport service](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#zigbee-socket-device).
 
-Configuring a ZigBee solution requires the following setps:  
+Configuring a ZigBee solution requires the following steps:  
 
 1)  Configuring an [`iot radio-profile`](#iot-radio-profile)  
 2)  Configuring a [`zigbee service-profile`](#zigbee-service-profile)
@@ -18,18 +18,18 @@ Configuring a ZigBee solution requires the following setps:
 4)  Configuring an [`iot transportProfile`](#iot-transport-profile)
 
 >***Note:***  
->**Assa-Abloy** is currently the only supported vendor specific ZigBee solution using a vendor specific [server connection type](#aruba-iot-server-interface---connection-types) and not using the generic [Zigbee socket device framework](#zigbee-socket-device). Therefore step 3) `zigbee socket-device-profile` confugration is NOT required for this solution. Please see the [Assa-Abloy configuration](#assa-abloy) exmaple for details.
+>**Assa-Abloy** is currently the only supported vendor specific ZigBee solution using a vendor specific [server connection type](../iot-concepts/server-connectivity/aruba_iot_server_interface.md#aruba-iot-server-interface---connection-types) and not using the generic [Zigbee socket device framework](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#zigbee-socket-device). Therefore step 3) `zigbee socket-device-profile` configuration is NOT required for this solution. Please see the [Assa-Abloy configuration](#assa-abloy) example for details.
 
 ## ZigBee service profile
 
-The `zigbee service-profile` determines the Zigbee network settings if ZigBee has been enabled in the [`iot radio-profile`](#iot-radio-profile) configuration.  
+The `zigbee service-profile` determines the Zigbee network settings if ZigBee has been enabled in the [`iot radio-profile`](../configuration/aruba_iot_radio_profile.md#iot-radio-profile) configuration.  
 
 |ArubaOS|Aruba Instant|Description|
 |-|-|-|
 |`zigbee service-profile <profile-name>`|`zigbee service-profile <profile-name>`|**Name** of the Zigbee service-profile.|
-|`panid <panid>`|`panid <panid>`|Sets the ZigBee **pernsonal network identifier (PAN ID)**.<br>Available options are:<br> - ***auto*** - automatically selects a PAN ID (default)<br> - ***[0000-FFF0]*** - hexadecimal PAN ID|
-|`permit-joining {off, on}`|`permit-joining {off, on}`|Enables or disables joining permission of new devices to the APs ZigBee network permanently.<br>Available options are:<br> - ***off*** - permanent joinging disabled (default)<br> - ***on*** - permanent joining enabled<br> ***Note:*** To allow devices to join in case joining is disabled see [Permit ZigBee device joining](#permit-zigbee-device-joining)|
-|`radio-instance {all, external, internal}`|`radio-instance {all, external, internal}`|Determines the IoT ZigBee radio instance the ZigBee service profile should be used with.<br>Available options are:<br> - ***all*** - applies the service-profile to internal and external IoT radios (default)<br> - ***external*** - applies the servcie profile to external radio's only<br> - ***internal*** - applies the service-profile to internal radios only.|
+|`panid <panid>`|`panid <panid>`|Sets the ZigBee **personal network identifier (PAN ID)**.<br>Available options are:<br> - ***auto*** - automatically selects a PAN ID (default)<br> - ***[0000-FFF0]*** - hexadecimal PAN ID|
+|`permit-joining {off, on}`|`permit-joining {off, on}`|Enables or disables joining permission of new devices to the APs ZigBee network permanently.<br>Available options are:<br> - ***off*** - permanent joining disabled (default)<br> - ***on*** - permanent joining enabled<br> ***Note:*** To allow devices to join in case joining is disabled see [Permit ZigBee device joining](../configuration/aruba_zigbee_configuration.md#permit-zigbee-device-joining)|
+|`radio-instance {all, external, internal}`|`radio-instance {all, external, internal}`|Determines the IoT ZigBee radio instance the ZigBee service profile should be used with.<br>Available options are:<br> - ***all*** - applies the service-profile to internal and external IoT radios (default)<br> - ***external*** - applies the service profile to external radio's only<br> - ***internal*** - applies the service-profile to internal radios only.|
 |`security {disable, enable}`|`security {disable, enable}`|Enables or disables ZigBee security.<br>Available options are:<br> - ***enable*** - enables ZigBee security (default) <br> - ***disable*** - disables ZigBee security|
 
 >***Additional CLI parameters:***  
@@ -45,7 +45,7 @@ ap-group <ap-group-name>
     zigbee service-profile <profile-name>
 ```
 
-For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](#aruba-cli-reference---ap-group).
+For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](../references/aruba_reference_documentation.md#aruba-cli-reference---ap-group).
 
 **Aruba Instant**
 
@@ -65,7 +65,7 @@ Temporarily permitting joining is enabled using the `zigbee-init-action` command
 
 ## ZigBee socket-device-profile
 
-The `zigbee socket-device-profile` profile defines the **inbound and outbound sockets** of a ZigBee application using the [zigbee socket device (ZSD) service](#zigbee-socket-device).
+The `zigbee socket-device-profile` profile defines the **inbound and outbound sockets** of a ZigBee application using the [zigbee socket device (ZSD) service](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#zigbee-socket-device).
 
 |ArubaOS|Aruba Instant|Description|
 |-|-|-|
@@ -78,4 +78,4 @@ The `zigbee socket-device-profile` is assigned to the [`iot transportProfile`](#
 >***Note:***  
 >A maximum of 8 inbound and 4 outbound socket are supported per ZigBee socket device profile while a maximum of 4 ZigBee socket device profiles are supported per IoT transport profile.
 
-Plesae see [Generic ZSD solution](#generic-zsd-solution) for a configuration example unsing the the [ZigBee socket device transport service](#zigbee-socket-device).
+Please see [Generic ZSD solution](../configuration-examples/aruba_zigbee_generic_zsd_solution.md#generic-zsd-solution) for a configuration example using the the [ZigBee socket device transport service](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#zigbee-socket-device).

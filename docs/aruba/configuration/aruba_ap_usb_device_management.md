@@ -52,7 +52,7 @@ ap-group <ap-group-name>
     usb-profile <usb-profile-name>
 ```
 
-For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](#aruba-cli-reference---ap-group).
+For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](../references/aruba_reference_documentation.md#aruba-cli-reference---ap-group).
 
 **Aruba Instant**
 
@@ -60,7 +60,7 @@ For details about the `ap-group` configuration refer to the [ArubaOS CLI Referen
 usb-profile-binding <usb-profile-name>
 ```
 
-For details about the `usb-profile-binding` configuration refer to the [Aruba CLI Reference - USB profile binding](#aruba-cli-reference---usb-profile-binding).
+For details about the `usb-profile-binding` configuration refer to the [Aruba CLI Reference - USB profile binding](../references/aruba_reference_documentation.md#aruba-cli-reference---usb-profile-binding).
 
 Examples:
 

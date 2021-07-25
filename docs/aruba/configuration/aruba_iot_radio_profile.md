@@ -17,7 +17,7 @@ nav_order: 0
 {:toc}
 </details>
 
-`iot radio-profile`'s are used to configure the [Aruba IoT radio](#aruba-iot-radio) mode, BLE and/or ZigBee, and the respective mode settings. An `iot radio-profile` can either be applied to an internal or external radio instance.  
+`iot radio-profile`'s are used to configure the [Aruba IoT radio](../iot-concepts/iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio) mode, BLE and/or ZigBee, and the respective mode settings. An `iot radio-profile` can either be applied to an internal or external radio instance.  
 
 The `iot radio-profile` also controls the AP' BLE console settings.
 
@@ -56,7 +56,7 @@ In addition to enabling the `iot radio-profile` it has to be assigned to an AP g
     ap-group <ap-group-name>
         iot radio-profile <iot-profile-name>
 
-For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](#aruba-cli-reference---ap-group).
+For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](../references/aruba_reference_documentation.md#aruba-cli-reference---ap-group).
 
 >***Note:***  
 >Multiple `iot radio-profile`'s can be configured but a **maximum of two**, one internal and one external can be **enabled** per access point (Aruba Instant) or access point group (ArubaOS).

@@ -17,7 +17,7 @@ nav_order: 4
 {:toc}
 </details>
 
-SES-Imagotag’s Electronic Shelf Label system uses a [vendor-specific](#vendor-specific-implementations) USB integration with the Aruba infrastructure using a dedicated set of configuration commands.
+SES-Imagotag’s Electronic Shelf Label system uses a [vendor-specific](../iot-concepts/iot-connectivity/aruba_iot_connectivity.md#vendor-specific-implementations) USB integration with the Aruba infrastructure using a dedicated set of configuration commands.
 In ArubaOS the SES-Imagotag configuration is enabled in the [`ap system-profile`](#aruba-cli-reference---ap-system-profile) where Aruba Instant uses an `sesimagotag-esl-profile`.
 
 |ArubaOS|Aruba Instant|Description|
@@ -31,4 +31,4 @@ In ArubaOS the SES-Imagotag configuration is enabled in the [`ap system-profile`
 |`sesImagotag-esl-tls-auth`|`sesImagotag-esl-tls-auth`|Enables TLS authentication of the AP with the SES-Imagotag ESL server. The AP uses the factory default TPM certificate to autheitcated itself to the SES server and use the pre-loaded SES server’s trusted root certificate to validate the SES server certificate<br>(Default: **Disabled**).|
 |`sesImagotag-esl-tls-fqdn-verify`|`sesImagotag-esl-tls-fqdn-verify`|Enables TLS certificate verification for the SES-Imagotag ESL server connection checking the configured FQDN against the TLS certificate presented by the SES-Imagotag server during connection establishment. Only applies if `sesImagotag-esl-server <FQDN>` is configured to use the SES cloud server.<br>(Default: **Disabled**)|  
 
-Please find an example configuration [here](#ses-imagotag)
+Please find an example configuration [here](../configuration-examples/aruba_usb_vendor_ses_imagotag.md#ses-imagotag)

@@ -34,7 +34,7 @@ ap-group <ap-group-name>
     enet-usb-port-profile <wired-port-profile-name> (default: shutdown)
 ```
 
-For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](#aruba-cli-reference---ap-group).
+For details about the `ap-group` configuration refer to the [ArubaOS CLI Reference - ap-group](../references/aruba_reference_documentation.md#aruba-cli-reference---ap-group).
 
 **Aruba Instant**
 
@@ -42,7 +42,7 @@ For details about the `ap-group` configuration refer to the [ArubaOS CLI Referen
 enet-usb-port-profile <wired-port-profile-name>
 ```
 
-For details about the wired profile configuration refer to the [ArubaOS CLI Reference - Wired profile](#aruba-cli-reference---wired-profile).
+For details about the wired profile configuration refer to the [ArubaOS CLI Reference - Wired profile](../references/aruba_reference_documentation.md#aruba-cli-reference---wired-profile).
 
 Examples:
 
