@@ -2,7 +2,7 @@
 layout: default
 title: Supported USB Vendor List for IoT
 has_children: false
-parent: References
+parent: Aruba References
 nav_order: 3
 ---
 

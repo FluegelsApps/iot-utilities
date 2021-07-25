@@ -2,7 +2,7 @@
 layout: default
 title: Aruba Reference Documentation
 has_children: false
-parent: References
+parent: Aruba References
 nav_order: 0
 ---
 

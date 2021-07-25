@@ -2,7 +2,7 @@
 layout: default
 title: Supported IoT Vendor/Device Class List
 has_children: false
-parent: References
+parent: Aruba References
 nav_order: 2
 ---
 

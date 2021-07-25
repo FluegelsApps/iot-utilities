@@ -2,7 +2,7 @@
 layout: default
 title: Aruba IoT Server Interface - Connection Types
 has_children: false
-parent: References
+parent: Aruba References
 nav_order: 1
 ---
 

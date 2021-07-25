@@ -1,6 +1,6 @@
 ---
 layout: default
-title: References
+title: Aruba References
 has_children: true
 nav_order: 5
 ---
