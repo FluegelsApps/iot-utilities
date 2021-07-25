@@ -4,6 +4,15 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 1.2.2 | 25.07.2021
+
+### New features in this release:
+
+- search function in app preferences
+- relative anchors in app documentation
+
+---
+
 ## Version 1.2.1 | 19.07.2021
 
 ### Fixed bugs and issues:
