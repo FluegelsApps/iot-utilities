@@ -27,7 +27,7 @@ jobs:
       - name: Stage the changed files
         run: git add .
       - name: Commit the changed files
-        run: git commit -m "Generated table of contents"
+        run: git commit -m "Converted Markdown docs to ReadMe format"
       - name: Fetch from main branch
         run: git fetch origin main
       - name: Push changes to main branch
