@@ -18,7 +18,7 @@ nav_order: 2
 {:toc}
 </details>
 
-Device class filters are used to enabled specific [IoT transport services](../server-connectivity/aruba_iot_transport_services.md#iot-transport-services) over an [IoT server connection](../server-connectivity/aruba_iot_server_connectivity.md#iot-server-connectivity-server-side) and to control the amount of IoT data transferred on an Aruba infrastructure by using input/output filtering.
+Device class filters are used to enabled specific [IoT transport services](../server-connectivity/aruba_iot_transport_services.md#iot-transport-services) over an [IoT server connection](../server-connectivity/aruba_iot_server_connectivity_index.md#iot-server-connectivity-server-side) and to control the amount of IoT data transferred on an Aruba infrastructure by using input/output filtering.
 
 Every device class applies to a specific input filter on the IoT connectivity (radio-side) e.g., filtering BLE devices added to the BLE table and an output filter on the IoT server-side connection e.g., filtering which IoT data is forwarded to the remote server.
 

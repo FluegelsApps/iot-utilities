@@ -22,7 +22,7 @@ Depending on respective IoT solution different configuration settings are requir
 
 In the table below the required configuration items for step 1 and step 2 per IoT solution are listed:
 
-|IoT solution|Step 1) [IoT radio-side](../iot-concepts/iot-connectivity/aruba_iot_connectivity.md#iot-connectivity-radio-side) configuration|Step 2) [IoT server-side](../iot-concepts/server-connectivity/aruba_iot_server_connectivity.md#iot-server-connectivity-server-side) configuration|
+|IoT solution|Step 1) [IoT radio-side](../iot-concepts/iot-connectivity/aruba_iot_connectivity_index.md#iot-connectivity-radio-side) configuration|Step 2) [IoT server-side](../iot-concepts/server-connectivity/aruba_iot_server_connectivity_index.md#iot-server-connectivity-server-side) configuration|
 |-|-|-|
 |Wi-Fi solutions|Enable Wi-Fi radios (access or monitor mode)|[iot transport profile](./aruba_iot_transport_profile.md#iot-transport-profile)|
 |BLE solutions|[iot radio profile](./aruba_iot_radio_profile.md#iot-radio-profile)|[iot transport profile](./aruba_iot_transport_profile.md#iot-transport-profile)|
@@ -37,4 +37,4 @@ In the table below the required configuration items for step 1 and step 2 per Io
 >
 >Which USB device are allowed to connect to an access point can be controlled using the [AP USB device management](./aruba_ap_usb_device_management.md#ap-usb-device-management).
 
-For details about the different configuration steps requried to setup the IoT solutions layed out in the table above see the following chapters as well as the [configuration examples](../configuration-examples/aruba_configuration_examples.md#configuration-examples) chapter.
+For details about the different configuration steps requried to setup the IoT solutions layed out in the table above see the following chapters as well as the [configuration examples](../configuration-examples/aruba_configuration_examples_index.md#configuration-examples) chapter.

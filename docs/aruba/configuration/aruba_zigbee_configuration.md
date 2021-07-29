@@ -8,7 +8,7 @@ nav_order: 5
 
 # ZigBee configuration
 
-This section describes the required configuration for ZigBee based solutions via the [Aruba IoT radio Gen2](../iot-concepts/iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio) using the [ZigBee socket device transport service](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#zigbee-socket-device).
+This section describes the required configuration for ZigBee based solutions via the [Aruba IoT radio Gen2](../iot-concepts/iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio) using the [ZigBee socket device transport service](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#zigbee-socket-device).
 
 Configuring a ZigBee solution requires the following steps:  
 

@@ -17,7 +17,7 @@ nav_order: 0
 {:toc}
 </details>
 
-`iot radio-profile`'s are used to configure the [Aruba IoT radio](../iot-concepts/iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio) mode, BLE and/or ZigBee, and the respective mode settings. An `iot radio-profile` can either be applied to an internal or external radio instance.  
+`iot radio-profile`'s are used to configure the [Aruba IoT radio](../iot-concepts/iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio) mode, BLE and/or ZigBee, and the respective mode settings. An `iot radio-profile` can either be applied to an internal or external radio instance.  
 
 The `iot radio-profile` also controls the AP' BLE console settings.
 

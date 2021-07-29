@@ -20,7 +20,7 @@ nav_order: 1
 
 The Aruba IoT server interface supports different transport services for the IoT communication.
 
-The usage of the specific transport service depends on the used [IoT connectivity](../iot-connectivity/aruba_iot_connectivity.md#iot-connectivity-radio-side) and [IoT server connection type](../server-connectivity/aruba_iot_server_interface.md#server-connection-types).
+The usage of the specific transport service depends on the used [IoT connectivity](../iot-connectivity/aruba_iot_connectivity_index.md#iot-connectivity-radio-side) and [IoT server connection type](../server-connectivity/aruba_iot_server_interface.md#server-connection-types).
 
 >***Note:***
 >Not all transport services are supported with every available IoT server connectivity option.
@@ -29,19 +29,19 @@ To enable one or multiple transport services the corresponding supported [device
 
 The table below shows a summary of the available transport services and the corresponding supporte server connection types and device class filter:
 
-|IoT transport service|[IoT connectivity](../iot-connectivity/aruba_iot_connectivity.md#iot-connectivity-radio-side)|[IoT server connection type](../server-connectivity/aruba_iot_server_interface.md#server-connection-types)|[Device Class Filter](../server-connectivity/aruba_iot_device_class_filters.md#device-class-filter)|
+|IoT transport service|[IoT connectivity](../iot-connectivity/aruba_iot_connectivity_index.md#iot-connectivity-radio-side)|[IoT server connection type](../server-connectivity/aruba_iot_server_interface.md#server-connection-types)|[Device Class Filter](../server-connectivity/aruba_iot_device_class_filters.md#device-class-filter)|
 |-|-|-|-|
 |**Wi-Fi**||||
-|[Wi-Fi telemetry](../server-connectivity/aruba_iot_transport_services.md#wi-fi-telemetry)|[Wi-Fi](../iot-connectivity/aruba_iot_connectivity.md#wi-fi)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|[wifi-assoc-sta, wifi-unassoc-sta](../server-connectivity/aruba_iot_device_class_filters.md#wi-fi-device-class-filter)|
-|[Wi-Fi RTLS data forwarding](../server-connectivity/aruba_iot_transport_services.md#wi-fi-rtls-data-forwarding)|[Wi-Fi](../iot-connectivity/aruba_iot_connectivity.md#wi-fi)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|[wifi-tags](../server-connectivity/aruba_iot_device_class_filters.md#wi-fi-device-class-filter)|
+|[Wi-Fi telemetry](../server-connectivity/aruba_iot_transport_services.md#wi-fi-telemetry)|[Wi-Fi](../iot-connectivity/aruba_iot_connectivity_index.md#wi-fi)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|[wifi-assoc-sta, wifi-unassoc-sta](../server-connectivity/aruba_iot_device_class_filters.md#wi-fi-device-class-filter)|
+|[Wi-Fi RTLS data forwarding](../server-connectivity/aruba_iot_transport_services.md#wi-fi-rtls-data-forwarding)|[Wi-Fi](../iot-connectivity/aruba_iot_connectivity_index.md#wi-fi)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|[wifi-tags](../server-connectivity/aruba_iot_device_class_filters.md#wi-fi-device-class-filter)|
 |**Bluetooth Low Energy (BLE)**||||
-|[BLE telemetry](../server-connectivity/aruba_iot_transport_services.md#ble-telemetry)|BLE -> [Aruba IoT radio Gen1 or Gen2](../iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio)|[Telemetry-Https](../server-connectivity/aruba_iot_server_interface.md#Telemetry-Https), [Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|[All BLE device classes](../server-connectivity/aruba_iot_device_class_filters.md#ble-device-class-filter)|
-|[BLE data forwarding](../server-connectivity/aruba_iot_transport_services.md#ble-data-forwarding)|BLE -> [Aruba IoT radio Gen1 or Gen2](../iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../server-connectivity/aruba_iot_server_interface.md#azure-iothub)|[All BLE device classes](../server-connectivity/aruba_iot_device_class_filters.md#ble-device-class-filter)|
+|[BLE telemetry](../server-connectivity/aruba_iot_transport_services.md#ble-telemetry)|BLE -> [Aruba IoT radio Gen1 or Gen2](../iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio)|[Telemetry-Https](../server-connectivity/aruba_iot_server_interface.md#Telemetry-Https), [Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|[All BLE device classes](../server-connectivity/aruba_iot_device_class_filters.md#ble-device-class-filter)|
+|[BLE data forwarding](../server-connectivity/aruba_iot_transport_services.md#ble-data-forwarding)|BLE -> [Aruba IoT radio Gen1 or Gen2](../iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../server-connectivity/aruba_iot_server_interface.md#azure-iothub)|[All BLE device classes](../server-connectivity/aruba_iot_device_class_filters.md#ble-device-class-filter)|
 |[BLE connect](../server-connectivity/aruba_iot_transport_services.md#ble-connect)|BLE -> [Aruba IoT radio Gen1 or Gen2](../server-connectivity/aruba_iot_server_interface.md#aruba-iot-radio)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|[All BLE device classes](../server-connectivity/aruba_iot_device_class_filters.md#ble-device-class-filter)|
 |**USB/3rd party**||||
-|[Serial-data](../server-connectivity/aruba_iot_transport_services.md#serial-data)|USB/3rd party -> [USB-to-serial](../iot-connectivity/aruba_iot_connectivity.md#usb-to-serial)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../server-connectivity/aruba_iot_server_interface.md#azure-iothub)|[serial-data](../server-connectivity/aruba_iot_device_class_filters.md#usb3rd-party-device-class-filter)|
+|[Serial-data](../server-connectivity/aruba_iot_transport_services.md#serial-data)|USB/3rd party -> [USB-to-serial](../iot-connectivity/aruba_iot_connectivity_index.md#usb-to-serial)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket), [Azure-IoTHub](../server-connectivity/aruba_iot_server_interface.md#azure-iothub)|[serial-data](../server-connectivity/aruba_iot_device_class_filters.md#usb3rd-party-device-class-filter)|
 |**ZigBee**||||
-|[ZigBee Socket Device](../server-connectivity/aruba_iot_transport_services.md#zigbee-socket-device)|[ZigBee -> Aruba IoT radio Gen2](../iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|[zsd](#zigbee-socket-device-class-filter)|  
+|[ZigBee Socket Device](../server-connectivity/aruba_iot_transport_services.md#zigbee-socket-device)|[ZigBee -> Aruba IoT radio Gen2](../iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio)|[Telemetry-Websocket](../server-connectivity/aruba_iot_server_interface.md#telemetry-websocket)|[zsd](#zigbee-socket-device-class-filter)|  
 
 >***Note:***  
 >For details about the available data payloads and the correspondig encoding and deconding of the different IoT transport servcies please refer to the [Aruba IoT Server Interface Guide](../../references/aruba_reference_documentation.md#aruba-iot-server-interface-guide).
@@ -90,7 +90,7 @@ Wi-Fi RTLS data forwarding is enabled using the device class [wifi-tag](../serve
 
 ## BLE telemetry
 
-BLE telemetry sends periodic reports about all BLE devices that are discovered by an AP's [IoT radio](../iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio) and saved on a local BLE table to a remote server.  
+BLE telemetry sends periodic reports about all BLE devices that are discovered by an AP's [IoT radio](../iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio) and saved on a local BLE table to a remote server.  
 
 ![BLE telemetry](../../../images/ble_telemetry.png)
 
@@ -114,7 +114,7 @@ BLE telemetry is enabled for the selected [BLE device class](../server-connectiv
 
 BLE data forwarding sends all BLE advertisement and scan response frames from [known BLE vendor device classes](../../references/aruba_supported_iot_vendor_device_class_list.md#supported-iot-vendordevice-class-list) to a remote server.
 
-BLE data forwarding works by forwarding the raw BLE data packets to the remote server **immediately when they are received** by the AP's [IoT radio](../iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio).
+BLE data forwarding works by forwarding the raw BLE data packets to the remote server **immediately when they are received** by the AP's [IoT radio](../iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio).
 
 ![BLE data forwarding](../../../images/ble_data_forwarding.png)
 
@@ -142,14 +142,14 @@ BLE data forwarding is enabled for the selected [BLE device class](../server-con
 
 BLE connect provides functions to connect and interact with BLE devices remotely via the [Aruba IoT server interface](../server-connectivity/aruba_iot_server_interface.md#aruba-iot-server-interface) using the [BLE GATT profile](https://www.bluetooth.com/bluetooth-resources/intro-to-bluetooth-gap-gatt/).  
 
-This allows IoT server applications to connect to BLE devices via the AP's [IoT radio](../iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio) using a southbound API. This service is generic to all BLE devices and is not limited to a specific device class.  
+This allows IoT server applications to connect to BLE devices via the AP's [IoT radio](../iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio) using a southbound API. This service is generic to all BLE devices and is not limited to a specific device class.  
 An access point can connect to one BLE device at a time using BLE connect. Before connecting to another BLE device an existing connections has to be disconnected.
 
 >***Note:***  
->[BLE connect](../server-connectivity/aruba_iot_transport_services.md#ble-connect) using the southbound API is only supported using the [**internal**](../iot-connectivity/aruba_iot_connectivity.md#internal) IoT radio.  
+>[BLE connect](../server-connectivity/aruba_iot_transport_services.md#ble-connect) using the southbound API is only supported using the [**internal**](../iot-connectivity/aruba_iot_connectivity_index.md#internal) IoT radio.  
 
 >***Note:***  
->Starting with ArubaOS/Instant OS 8.8.0.0 BLE security (authentication/encryption) has been added to the BLE connect service. BLE security is only supported on the [AP-5xx BLE5/802.15.4 (Gen2) IoT radio](../iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio).
+>Starting with ArubaOS/Instant OS 8.8.0.0 BLE security (authentication/encryption) has been added to the BLE connect service. BLE security is only supported on the [AP-5xx BLE5/802.15.4 (Gen2) IoT radio](../iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio).
 
 For details about the available BLE connect service please refer to the [Aruba IoT Server Interface Guide](../../references/aruba_reference_documentation.md#aruba-iot-server-interface-guide).  
 
@@ -158,7 +158,7 @@ BLE connect is enabled for the selected [BLE device class](../server-connectivit
 ## Serial-data
 
 Serial-data forwarding is used to support [3rd party IoT radio solutions](../references/../../references/aruba_supported_usb_vendor_list_for_iot.md#supported-usb-vendor-list-for-iot) connected via the AP USB port.
-When the 3rd party IoT radio is plugged into the USB port, it presents itself as a [USB-to-serial](../iot-connectivity/aruba_iot_connectivity.md#usb-to-serial) device to the AP.
+When the 3rd party IoT radio is plugged into the USB port, it presents itself as a [USB-to-serial](../iot-connectivity/aruba_iot_connectivity_index.md#usb-to-serial) device to the AP.
 
 The serial data sent by the 3rd party radio to the AP is encapsulated in the [Aruba IoT server interface](../server-connectivity/aruba_iot_server_interface.md#aruba-iot-server-interface) protocol to/from the IoT backend system. The server can also send serial data to the AP, which will be forwarded to the 3rd party device.  
 
@@ -169,7 +169,7 @@ Serial data forwarding is enabled using the device class [serial-data](../server
 
 ## ZigBee socket device
 
-ZigBee socket device (ZSD) service is a generic approach used for enabling ZigBee applications using the [Aruba IoT radio Gen2](../iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio).
+ZigBee socket device (ZSD) service is a generic approach used for enabling ZigBee applications using the [Aruba IoT radio Gen2](../iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio).
 
 Sending/receiving ZigBee application data using the ZigBee socket device (ZSD) service requires the configuration of one or multiple [ZigBee socket device profiles](../../configuration/aruba_zigbee_configuration.md#zigbee-socket-device-profile) which define the inbound and outbound sockets used by the respective ZigBee application.  
 
@@ -190,7 +190,7 @@ A ZigBee socket profile definition consists of four items:
 
 Different ZigBee services have different socket definitions, may be even for inbound and outbound connections.  
 
-Only the [Aruba IoT radios Gen2](../iot-connectivity/aruba_iot_connectivity.md#aruba-iot-radio) supports the ZigBee protocol and provides the coordinator function to establish a ZigBee network. The [ZigBee service profile](../../configuration/aruba_zigbee_configuration.md#zigbee-service-profile) defines the respective ZigBee network parameters.
+Only the [Aruba IoT radios Gen2](../iot-connectivity/aruba_iot_connectivity_index.md#aruba-iot-radio) supports the ZigBee protocol and provides the coordinator function to establish a ZigBee network. The [ZigBee service profile](../../configuration/aruba_zigbee_configuration.md#zigbee-service-profile) defines the respective ZigBee network parameters.
 
 ZigBee socket device (ZSD) service is enabled using the device class [zsd](../server-connectivity/aruba_iot_device_class_filters.md#zigbee-socket-device-class-filter) in the [iot transport profile](../../configuration/aruba_iot_transport_profile.md#iot-transport-profile) configuration. In addition one or multiple [ZigBee socket device profiles](../../configuration/aruba_zigbee_configuration.md#zigbee-socket-device-profile) have to be defined and assigned in the [iot transport profile](../../configuration/aruba_iot_transport_profile.md#iot-transport-profile) configuration.
 

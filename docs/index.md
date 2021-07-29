@@ -41,9 +41,9 @@ nav_exclude: true
 
 ### Aruba documentation
 
-- [IoT-Concepts](./aruba/iot-concepts/aruba_iot_concepts.md)
-  - [IoT-Connectivity (Radio-Side)](./aruba/iot-concepts/iot-connectivity/aruba_iot_connectivity.md)
-  - [IoT-Server-Connectivity (Server-Side)](./aruba/iot-concepts/server-connectivity/aruba_iot_server_connectivity.md)
+- [IoT-Concepts](./aruba/iot-concepts/aruba_iot_concepts_index.md)
+  - [IoT-Connectivity (Radio-Side)](./aruba/iot-concepts/iot-connectivity/aruba_iot_connectivity_index.md)
+  - [IoT-Server-Connectivity (Server-Side)](./aruba/iot-concepts/server-connectivity/aruba_iot_server_connectivity_index.md)
 - [Configuration](./aruba/configuration/aruba_configuation.md)
-- [Configuration Examples](./aruba/configuration-examples/aruba_configuration_examples.md)
-- [References](./aruba/references/aruba_references.md)
+- [Configuration Examples](./aruba/configuration-examples/aruba_configuration_examples_index.md)
+- [References](./aruba/references/aruba_references_index.md)
