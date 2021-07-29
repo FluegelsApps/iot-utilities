@@ -18,6 +18,7 @@ jobs:
           working-directory: "/home/runner/work/iot-utilities/iot-utilities"
           zip-filename: "readme-docs.zip"
           index-name: "index"
+          version-code: "v1.0"
       - name: Check Git Repository
         run: git status
       - name: Authorize with repository (E-Mail)
