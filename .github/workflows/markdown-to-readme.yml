@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
     branches:
-    - master
+    - main
 
 jobs:
   convert-readme-docs:
@@ -28,7 +28,7 @@ jobs:
         run: git add .
       - name: Commit the changed files
         run: git commit -m "Generated table of contents"
-      - name: Fetch from master branch
-        run: git fetch origin master
-      - name: Push changes to master branch
-        run: git push origin HEAD:master
+      - name: Fetch from main branch
+        run: git fetch origin main
+      - name: Push changes to main branch
+        run: git push origin HEAD:main
