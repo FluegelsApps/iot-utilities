@@ -16,7 +16,7 @@ jobs:
           root-directory: "docs/aruba"
           destination-directory: "./"
           working-directory: "/home/runner/work/iot-utilities/iot-utilities"
-          zip-filename: "aruba-docs.zip"
+          zip-filename: "readme-docs.zip"
           index-name: "index"
       - name: Check Git Repository
         run: git status
