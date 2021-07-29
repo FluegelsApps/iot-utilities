@@ -17,7 +17,7 @@ nav_order: 1
 {:toc}
 </details>
 
-The `iot transportProfile` defines the [IoT server connectivity](../iot-concepts/server-connectivity/aruba_iot_server_connectivity.md#iot-server-connectivity-server-side) settings using the [Aruba IoT server interface](../references/aruba_reference_documentation.md#aruba-iot-server-interface-guide).
+The `iot transportProfile` defines the [IoT server connectivity](../iot-concepts/server-connectivity/aruba_iot_server_connectivity_index.md#iot-server-connectivity-server-side) settings using the [Aruba IoT server interface](../references/aruba_reference_documentation.md#aruba-iot-server-interface-guide).
 
 The following table lists the available `iot transportProfile` parameters and their description:
 

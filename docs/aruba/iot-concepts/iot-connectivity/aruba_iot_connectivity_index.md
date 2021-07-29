@@ -76,7 +76,7 @@ Supported USB connected devices does not required a specific configuration, exce
 The [3rd party solutions using the USB-to-serial](../../references/aruba_supported_usb_vendor_list_for_iot.md#supported-usb-vendor-list-for-iot) method forwards the data payload to/from the access point using [serial-data](../server-connectivity/aruba_iot_transport_services.md#serial-data). The Aruba access point encapsulates the serial-data payload in the [Aruba IoT server interface](../../#aruba-iot-server-interface) protocol to/from the IoT backend system.
 
 >***Note:***  
-> No specific configuration is required for USB-to-serial devices. Serial data is only forwarded though the [Aruba IoT server interface](../server-connectivity/aruba_iot_server_interface.md#aruba-iot-server-interface), if enabled in the [server-side configuration](../server-connectivity/aruba_iot_server_connectivity.md#iot-server-connectivity-server-side).  
+> No specific configuration is required for USB-to-serial devices. Serial data is only forwarded though the [Aruba IoT server interface](../server-connectivity/aruba_iot_server_interface.md#aruba-iot-server-interface), if enabled in the [server-side configuration](../server-connectivity/aruba_iot_server_connectivity_index.md#iot-server-connectivity-server-side).  
 
 ### USB-to-ethernet
 

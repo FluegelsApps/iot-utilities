@@ -17,7 +17,7 @@ nav_order: 4
 {:toc}
 </details>
 
-SES-Imagotag’s Electronic Shelf Label system uses a [vendor-specific](../iot-concepts/iot-connectivity/aruba_iot_connectivity.md#vendor-specific-implementations) USB integration with the Aruba infrastructure using a dedicated set of configuration commands.
+SES-Imagotag’s Electronic Shelf Label system uses a [vendor-specific](../iot-concepts/iot-connectivity/aruba_iot_connectivity_index.md#vendor-specific-implementations) USB integration with the Aruba infrastructure using a dedicated set of configuration commands.
 In ArubaOS the SES-Imagotag configuration is enabled in the [`ap system-profile`](#aruba-cli-reference---ap-system-profile) where Aruba Instant uses an `sesimagotag-esl-profile`.
 
 |ArubaOS|Aruba Instant|Description|

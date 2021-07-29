@@ -31,7 +31,7 @@ The following chapters describe the **Aruba IoT server interface** related optio
 
 The Aruba IoT server interface supports vendor specific and generic [server connections types](../../references/aruba_iot_server_interface_connection_types.md#aruba-iot-server-interface---connection-types).  
 
-The following generic connection types allow IoT data forwarding for the different [IoT connectivity (radio-side)](../iot-connectivity/aruba_iot_connectivity.md#iot-connectivity-radio-side) options previously described.
+The following generic connection types allow IoT data forwarding for the different [IoT connectivity (radio-side)](../iot-connectivity/aruba_iot_connectivity_index.md#iot-connectivity-radio-side) options previously described.
 
 ### Telemetry-Https
 
