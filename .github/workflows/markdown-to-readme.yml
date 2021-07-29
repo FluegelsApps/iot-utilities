@@ -11,7 +11,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Convert the Documentation
-        uses: FluegelsApps/iot-utilities-docs-tools/readme-converter
+        uses: FluegelsApps/iot-utilities-docs-tools/readme-converter@master
         with:
           root-directory: "docs/aruba"
           destination-directory: "./"
