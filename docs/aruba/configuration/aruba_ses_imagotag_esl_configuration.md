@@ -31,4 +31,4 @@ In ArubaOS the SES-Imagotag configuration is enabled in the [`ap system-profile`
 |`sesImagotag-esl-tls-auth`|`sesImagotag-esl-tls-auth`|Enables TLS authentication of the AP with the SES-Imagotag ESL server. The AP uses the factory default TPM certificate to autheitcated itself to the SES server and use the pre-loaded SES server’s trusted root certificate to validate the SES server certificate<br>(Default: **Disabled**).|
 |`sesImagotag-esl-tls-fqdn-verify`|`sesImagotag-esl-tls-fqdn-verify`|Enables TLS certificate verification for the SES-Imagotag ESL server connection checking the configured FQDN against the TLS certificate presented by the SES-Imagotag server during connection establishment. Only applies if `sesImagotag-esl-server <FQDN>` is configured to use the SES cloud server.<br>(Default: **Disabled**)|  
 
-Please find an example configuration [here](../configuration-examples/aruba_usb_vendor_ses_imagotag.md#ses-imagotag)
+Please find an example configuration [here](../configuration-examples/usb-vendor/aruba_usb_vendor_ses_imagotag.md#ses-imagotag)
