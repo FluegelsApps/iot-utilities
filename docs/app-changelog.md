@@ -3,6 +3,17 @@ layout: default
 title: Changelog
 ---
 
+## Version 1.3.0 | 30.07.2021
+
+### New features in this release:
+
+- new documentation home page
+- new aruba documentation
+- new documentation search feature
+- updated Android dependencies
+
+---
+
 ## Version 1.2.2 | 25.07.2021
 
 ### New features in this release:
