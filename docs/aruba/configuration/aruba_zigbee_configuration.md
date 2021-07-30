@@ -78,4 +78,4 @@ The `zigbee socket-device-profile` is assigned to the [`iot transportProfile`](#
 >***Note:***  
 >A maximum of 8 inbound and 4 outbound socket are supported per ZigBee socket device profile while a maximum of 4 ZigBee socket device profiles are supported per IoT transport profile.
 
-Please see [Generic ZSD solution](../configuration-examples/aruba_zigbee_generic_zsd_solution.md#generic-zsd-solution) for a configuration example using the the [ZigBee socket device transport service](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#zigbee-socket-device).
+Please see [Generic ZSD solution](../configuration-examples/zigbee/aruba_zigbee_generic_zsd_solution.md#generic-zsd-solution) for a configuration example using the the [ZigBee socket device transport service](../iot-concepts/server-connectivity/aruba_iot_transport_services.md#zigbee-socket-device).
