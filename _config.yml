@@ -9,3 +9,6 @@ aux_links:
 
 search:
   heading_level: 4
+
+back_to_top: true
+back_to_top_text: Back to top
