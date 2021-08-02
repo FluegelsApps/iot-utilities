@@ -28,16 +28,16 @@ This example shows the required configuration to enable the [ZigBee socket devic
 **ArubaOS**
 
 ```
-iot radio-profile "ext-zb"
+iot radio-profile "zb-ext"
     radio-instance external
     radio-mode none zigbee
 !
-zigbee service-profile "ext-zb-sec-auto"
+zigbee service-profile "ext-sec-auto"
     radio-instance external
 !
 ap-group <ap-group>
-    iot radio-profile "ext-zb"
-    zigbee service-profile "ext-zb-sec-auto"
+    iot radio-profile "zb-ext"
+    zigbee service-profile "ext-sec-auto"
 !
 zigbee socket-inbound-profile "zb-in-prof-1"
     cluster 2100
@@ -101,12 +101,12 @@ iot useTransportProfile "ZSD"
 **Aruba Instant**
 
 ```
-iot radio-profile ext-zb
+iot radio-profile zb-ext
  radio-instance external
  radio-mode zigbee
  exit
 
-zigbee service-profile ext-zb-sec-auto
+zigbee service-profile ext-sec-auto
  radio-instance external
 
 zigbee socket-device-profile "zb-device-prof-1"
@@ -127,9 +127,9 @@ iot transportProfile "ZSD"
  ZSDFilter "zb-device-prof-1"
  exit
 
-iot use-radio-profile ext-zb
+iot use-radio-profile zb-ext
 
-zigbee use-service-profile ext-zb-sec-auto
+zigbee use-service-profile ext-sec-auto
 
 iot useTransportProfile "ZSD"
 ```

@@ -34,11 +34,11 @@ This example shows the required configuration to enable the [ABB Ability™ Smar
 **ArubaOS**
 
 ```
-iot radio-profile "int-beacon-scan"
+iot radio-profile "ble-int"
     radio-mode none ble
 !
 ap-group <ap-group>
-    iot radio-profile "int-beacon-scan"
+    iot radio-profile "ble-int"
 !
 iot transportProfile "ABB-Ability-Smart-Sensor"
     serverType Telemetry-Websocket
@@ -58,11 +58,11 @@ iot useTransportProfile "ABB-Ability-Smart-Sensor"
 **Aruba Instant**
 
 ```
-iot radio-profile "int-beacon-scan"
+iot radio-profile "ble-int"
  radio-mode ble
  exit
 
-iot use-radio-profile "int-beacon-scan"
+iot use-radio-profile "ble-int"
 
 iot transportProfile "ABB-Ability-Smart-Sensor"
  endpointURL "https://api.smartsensor.abb.com/v8/Auth/BearerOAuth2"

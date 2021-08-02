@@ -30,12 +30,11 @@ This example shows the required configuration to enable [ZF Openmatics asset tra
 **ArubaOS**
 
 ```
-iot radio-profile "int-scan"
+iot radio-profile "ble-int"
     radio-mode none ble
-    ble-opmode scanning
 !
 ap-group <ap-group>
-    iot radio-profile "int-scan"
+    iot radio-profile "ble-int"
 !
 iot transportProfile "ZF-Openmatics-deTAGtive"
     serverType ZF-Openmatics
@@ -52,12 +51,11 @@ iot useTransportProfile "ZF-Openmatics-deTAGtive"
 **Aruba Instant**
 
 ```
-iot radio-profile "int-scan"
+iot radio-profile "ble-int"
  radio-mode ble
- ble-opmode scanning
  exit
 
-iot use-radio-profile "int-scan"
+iot use-radio-profile "ble-int"
 
 iot transportProfile "ZF-Openmatics-deTAGtive"
  endpointURL https://app.detagtive.com/backend/
