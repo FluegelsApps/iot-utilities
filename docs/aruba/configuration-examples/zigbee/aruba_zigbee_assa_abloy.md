@@ -29,16 +29,16 @@ This example shows the required configuration to enable the [ASSA ABLOY](https:/
 **ArubaOS**
 
 ```
-iot radio-profile "int-zb"
+iot radio-profile "zb-int"
     radio-mode none zigbee
 !
-zigbee service-profile "int-zb-no-sec-auto"
+zigbee service-profile "int-no-sec-auto"
     radio-instance internal
     security disable
 !
 ap-group <ap-group>
-    iot radio-profile "int-zb"
-    zigbee service-profile "int-zb-no-sec-auto"
+    iot radio-profile "zb-int"
+    zigbee service-profile "int-no-sec-auto"
 !
 iot transportProfile "Assa-Abloy"
     serverType Assa-Abloy
@@ -55,11 +55,11 @@ iot useTransportProfile "Assa-Abloy"
 **Aruba Instant**
 
 ```
-iot radio-profile int-zb
+iot radio-profile zb-int
  radio-mode zigbee
  exit
 
-zigbee service-profile int-zb-no-sec-auto
+zigbee service-profile int-no-sec-auto
  security disable
 
 iot transportProfile "Assa-Abloy"
@@ -71,9 +71,9 @@ iot transportProfile "Assa-Abloy"
  accessID <accessid>
  exit
 
-iot use-radio-profile int-zb
+iot use-radio-profile zb-int
 
-zigbee use-service-profile int-zb-no-sec-auto
+zigbee use-service-profile int-no-sec-auto
 
 iot useTransportProfile "Assa-Abloy"
 ```

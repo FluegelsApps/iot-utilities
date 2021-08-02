@@ -30,11 +30,11 @@ For more details on the Aruba Meridian related confiugration please refer to the
 **ArubaOS**
 
 ```
-iot radio-profile "int-beacon-scan"
+iot radio-profile "ble-int"
     radio-mode none ble
 !
 ap-group <ap-group>
-    iot radio-profile "int-beacon-scan"
+    iot radio-profile "ble-int"
 !
 iot transportProfile "Meridian-Beacon-Management"
     serverURL "https://edit.meridianapps.com/api/beacons/manage"
@@ -48,11 +48,11 @@ iot useTransportProfile "Meridian-Beacon-Management"
 **Aruba Instant**
 
 ```
-iot radio-profile "int-beacon-scan"
+iot radio-profile "ble-int"
  radio-mode ble
  exit
 
-iot use-radio-profile "int-beacon-scan"
+iot use-radio-profile "ble-int"
 
 iot transportProfile "Meridian-Beacon-Management"
  endpointURL https://edit.meridianapps.com/api/beacons/manage 

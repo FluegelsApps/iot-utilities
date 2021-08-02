@@ -34,12 +34,11 @@ This example shows the configuration to setup an Aruba IoT demo using the [IoT-U
 **ArubaOS**
 
 ```
-iot radio-profile "int-scan"
+iot radio-profile "ble-int"
     radio-mode none ble
-    ble-opmode scanning
 !
 ap-group <ap-group>
-    iot radio-profile "int-scan"
+    iot radio-profile "ble-int"
 !
 iot transportProfile "IoT-Utilities-App"
     serverType Telemetry-Websocket
@@ -65,12 +64,11 @@ iot useTransportProfile "IoT-Utilities-App"
 **Aruba Instant**
 
 ```
-iot radio-profile "int-scan"
+iot radio-profile "ble-int"
  radio-mode ble
- ble-opmode scanning
  exit
 
-iot use-radio-profile "int-scan"
+iot use-radio-profile "ble-int"
 
 iot transportProfile "IoT-Utilities-App"
  endpointURL "wss://<ip-address>:<port>/telemetry"

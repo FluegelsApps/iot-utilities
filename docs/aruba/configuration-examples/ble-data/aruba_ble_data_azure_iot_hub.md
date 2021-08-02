@@ -34,12 +34,11 @@ It is recommended to use the [BLE device class filter](../iot-concepts/server-co
 **ArubaOS**
 
 ```
-iot radio-profile "int-scan"
+iot radio-profile "ble-int"
     radio-mode none ble
-    ble-opmode scanning
 !
 ap-group <ap-group>
-    iot radio-profile "int-scan"
+    iot radio-profile "ble-int"
 !
 iot transportProfile "Azure-IoT-Hub-ble-data"
     serverType Azure-IoTHub
@@ -55,12 +54,11 @@ iot useTransportProfile "Azure-IoT-Hub-ble-data"
 **Aruba Instant**
 
 ```
-iot radio-profile "int-scan"
+iot radio-profile "ble-int"
  radio-mode ble
- ble-opmode scanning
  exit
 
-iot use-radio-profile "int-scan"
+iot use-radio-profile "ble-int"
 
 iot transportProfile "Azure-IoT-Hub-ble-data"
  endpointType Azure-IoTHub
