@@ -30,7 +30,7 @@ ap-group <ap-group>
 !
 iot transportProfile "IoT-Utilities-App"
     serverType Telemetry-Websocket
-    serverURL "wss://<ip-address>:<port>/telemetry"
+    serverURL "wss://<ip-address>:<port>/wss"
     authentication-mode client-credentials
     authenticationURL "https://<ip-address>:<port>/auth"
     clientId <client-id>
