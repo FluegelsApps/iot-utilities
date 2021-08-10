@@ -31,7 +31,7 @@ iot use-radio-profile "int-scan"
 ! Step 3) Define the iot transport profile
 !
 iot transportProfile "IoT-Utilities-App"
- endpointURL "wss://<ip-address>:<port>/telemetry"
+ endpointURL "wss://<ip-address>:<port>/wss"
  endpointType telemetry-websocket
  authentication-mode client-credentials
  authenticationURL "https://<ip-address>:<port>/auth"
