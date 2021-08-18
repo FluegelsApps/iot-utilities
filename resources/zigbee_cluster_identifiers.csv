@@ -1,0 +1,21 @@
+//ZIGBEE CLUSTER IDENTIFIERS
+//HOME AUTOMATION CLUSTERS
+"0000","Basic","General"
+"0001","Power Configuration","General"
+"0002","Device Temperature Configuration","General"
+"0003","Identify","General"
+"0004","Groups","General"
+"0005","Scenes","General"
+"0006","On/Off","General"
+"0007","On/Off Switch Configuration","General"
+"0008","Level Control","General"
+"0009","Alarms","General"
+"000F","Binary Input (Basic)","General"
+
+"0400","I luminance Management","Measurement & Sensing"
+"0401","I luminance Level Sensing","Measurement & Sensing"
+"0402","Temperature Management","Measurement & Sensing"
+"0403","Pressure Management","Measurement & Sensing"
+"0404","Flow Management","Measurement & Sensing"
+"0405","Relative Humidity Management","Measurement & Sensing"
+"0406","Occupancy Sensing","Measurement & Sensing"
