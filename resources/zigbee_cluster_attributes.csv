@@ -8,7 +8,7 @@
 "0005","ModelIdentifier","Basic"
 "0006","DataCode","Basic"
 "0007","PowerSource","Basic"
-"0010","LocationeDescription","Basic"
+"0010","LocationDescription","Basic"
 "0011","PhysicalEnvironment","Basic"
 "0012","DeviceEnabled","Basic"
 "0013","AlarmMask","Basic"
@@ -66,13 +66,13 @@
 "0000","NameSupport","Groups"
 
 //GENERAL - Scenes
-"000","Scene Management Information"
-"0000","SceneCount","Scene Management Information"
-"0001","CurrentScene","Scene Management Information"
-"0002","CurrentGroup","Scene Management Information"
-"0003","SceneValid","Scene Management Information"
-"0004","NameSupport","Scene Management Information"
-"0005","LastConfiguredBy","Scene Management Information"
+"000","Scene Management Information","Scenes"
+"0000","SceneCount","Scenes"
+"0001","CurrentScene","Scenes"
+"0002","CurrentGroup","Scenes"
+"0003","SceneValid","Scenes"
+"0004","NameSupport","Scenes"
+"0005","LastConfiguredBy","Scenes"
 
 //GENERAL - On/Off
 "0000","OnOff","On/Off"
@@ -272,8 +272,8 @@
 "0119","PhytoMACqueuelimitreached","Diagnostics"
 "011A","PacketValidatedropcount","Diagnostics"
 "011B","AverageMACRetryPerAPSMessageSent","Diagnostics"
-"011C","LastMessageLQI
-"011D","LastMessageRSSI
+"011C","LastMessageLQI,"Diagnostics"
+"011D","LastMessageRSSI","Diagnostics"
 
 //GENERAL - Poll Control
 "0000","Check-inInterval","Poll Control"
@@ -500,7 +500,7 @@
 "0A0E","ReactivePowerPhC","Electrical Measurement"
 "0A0F","ApparentPowerPhC","Electrical Measurement"
 "0A10","PowerFactorPhC","Electrical Measurement"
-"0A11","AverageRMSVoltageMeasurementPeriodPhC
+"0A11","AverageRMSVoltageMeasurementPeriodPhC","Electrical Measurement"
 "0A12","AverageRMSOverVoltageCounterPhC","Electrical Measurement"
 "0A13","AverageRMSUnderVoltageCounterPhC","Electrical Measurement"
 "0A14","RMSExtremeOverVoltagePeriodPhC","Electrical Measurement"
