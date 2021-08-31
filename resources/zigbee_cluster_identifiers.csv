@@ -1,5 +1,5 @@
 //ZIGBEE CLUSTER IDENTIFIERS
-//HOME AUTOMATION CLUSTERS
+//GENERAL CLUSTERS
 "0000","Basic","General"
 "0001","Power Configuration","General"
 "0002","Device Temperature Configuration","General"
@@ -10,12 +10,74 @@
 "0007","On/Off Switch Configuration","General"
 "0008","Level Control","General"
 "0009","Alarms","General"
+"000A","Time","General"
+"000B","RSSI","General"
+"000C","Analog Input (Basic)","General"
+"000D","Analog Output (Basic)","General"
+"000E","Analog Value (Basic)","General"
 "000F","Binary Input (Basic)","General"
+"0010","Binary Output (Basic)","General"
+"0011","Binary Value (Basic)","General"
+"0012","Multistate Input","General"
+"0013","Multistate Output","General"
+"0014","Multistate Value","General"
+"0B01","Meter Identification","General"
+"0B05","Diagnostics","General"
+"0020","Poll Control","General"
+"001A","Power Profile","General"
 
-"0400","I luminance Management","Measurement & Sensing"
-"0401","I luminance Level Sensing","Measurement & Sensing"
+//MEASUREMENT & SENSING CLUSTERS
+"0400","Illuminance Measurement","Measurement & Sensing"
+"0401","Illuminance Level Sensing","Measurement & Sensing"
 "0402","Temperature Management","Measurement & Sensing"
 "0403","Pressure Management","Measurement & Sensing"
 "0404","Flow Management","Measurement & Sensing"
 "0405","Relative Humidity Management","Measurement & Sensing"
 "0406","Occupancy Sensing","Measurement & Sensing"
+"0B04","Electrical Measurement","Measurement & Sensing"
+
+//LIGHTING CLUSTERS
+"0300","Color Control","Lighting"
+"0301","Ballast Configuration","Lighting"
+
+//HVAC CLUSTERS
+"0200","Pump Configuration and Control","HVAC"
+"0201","Thermostat","HVAC"
+"0202","Fan Control","HVAC"
+"0203","Dehumidification Control","HVAC"
+"0204","Thermostat User Interface Configuration","HVAC"
+
+//CLOSURE CLUSTERS
+"0100","Shade Configuration","Closure"
+"0101","Door Lock","Closure"
+"0102","Window Covering","Closure"
+
+//SECURITY & SAFETY
+"0500","IAS Zone","Security & Safety"
+"0501","IAS ACE","Security & Safety"
+"0502","IAS WD","Security & Safety"
+
+//PROTOCOL INTERFACES
+"0016","Partition","Protocol Interfaces"
+"0600","Generic Tunnel","Protocol Interfaces"
+"0601","BACnet Protocol Tunnel","Protocol Interfaces"
+"0602","Analog Input (BACnet Regular)","Protocol Interfaces"
+"0603","Analog Input (BACnet Extended)","Protocol Interfaces"
+"0604","Analog Output (BACnet Regular)","Protocol Interfaces"
+"0605","Analog Output (BACnet Extended)","Protocol Interfaces"
+"0606","Analog Value (BACnet Regular)","Protocol Interfaces"
+"0607","Analog Value (BACnet Extended)","Protocol Interfaces"
+"0608","Binary Input (BACnet Regular)","Protocol Interfaces"
+"0609","Binary Input (BACnet Extended)","Protocol Interfaces"
+"060A","Binary Output (BACnet Regular)","Protocol Interfaces"
+"060B","Binary Output (BACnet Extended)","Protocol Interfaces"
+"060C","Binary Value (BACnet Regular)","Protocol Interfaces"
+"060D","Binary Value (BACnet Extended)","Protocol Interfaces"
+"060E","Multistate Input (BACnet Regular)","Protocol Interfaces"
+"060F","Multistate Input (BACnet Extended)","Protocol Interfaces"
+"0610","Multistate Output (BACnet Regular)","Protocol Interfaces"
+"0611","Multistate Output (BACnet Extended)","Protocol Interfaces"
+"0612","Multistate Value (BACnet Regular)","Protocol Interfaces"
+"0613","Multistate Value (BACnet Extended)","Protocol Interfaces"
+"0614","11073 Protocol Tunnel","Protocol Interfaces"
+"0615","ISO7816 Tunnel","Protocol Interfaces"
