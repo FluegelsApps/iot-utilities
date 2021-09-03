@@ -162,3 +162,7 @@ The integrated "ZigBee Payload Generator" of the application can be used to gene
 |Color Control|Sequence Number (0 - 255), Command (Move to Color/Temperature/Hue)|This command is sent to the Color Control Cluster of the ZigBee device. This command can e.g. be used to change the color of a RGB lamp.|
 |Read Attributes Request|Sequence Number (0 - 255), Attributes (4-digit hex code)|This command can be sent to any cluster and is used to read specific attributes of a cluster. A list of popular clusters and attributes is included in the app.|
 |Identify Command|Sequence Number (0 - 255), Duration (0 - 65535)|This command should be sent to the Identify cluster of the ZigBee device. This command can e.g. identifiy a device by letting it flash.|
+
+### Third-party interaction
+
+The app implements a feature to [interact](../app/philipshue_interaction.md) with Philips Hue Lamps. This feature is similar to the BLE-Connect implementation.
