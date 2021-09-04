@@ -12,6 +12,60 @@ nav_order: 6
 
 ---
 
+## Version 1.4.0 | 31.08.2021
+
+### New features in this release:
+
+- additional Philips Hue features (BLE-Connect)
+    - color temperature slider in interaction page
+    - button to rename the Hue Lamp
+    - page will change color according to the lamp
+    - directly connect to lamps using the BLE-Scanner feature
+- implementation of Aruba-IoT ZigBee functionality
+    - Philips Hue implementation
+        - interaction page identical to the BLE-Connect implementation
+        - state control
+        - brightness control
+        - color temperature control
+        - full color control (RGB, Hue, Saturation, XY)
+        - demo animations (identical to BLE-Connect implementation)
+        - lamp identification (lamp will flash 3 seconds)
+        - ZigBee-Address can be resolved using the BLE-Connect feature of the app
+    - generic implementation
+        - actions: predefined/custom payloads that can be sent to the remote device
+        - triggers: actions that can be triggered when receiving a specific message from the device (not supported yet)
+        - custom messages: completely custom or predefined types e.g. On/Off Command, Read Request, ...
+        - implemented message templates, clusters, profiles, attributes from ZigBee Cluster Library Specification
+        - inbound/outbound messages graph
+        - basic parsing of inbound/outbound ZigBee messages
+    - device database
+        - saves device information e.g. ZigBee-Address, Name, Reporter MAC, ...
+        - types: collection of actions/triggers that can be shared across multiple devices
+    - Aruba configuration template generator
+        - ZigBee socket device template generation for Aruba OS & Instant
+- additional BLE-Scanning features
+    - detection of nearby Philips Hue Lamps when scanning for BLE devices
+    - added new information to BLE-Devices details page
+    - parts of information on BLE-Devices details page now copyable
+
+### Reworked features and improvements:
+
+- reworked user interface of copy dialog
+
+### Fixed bugs and issues:
+
+- fixed bug that disabled back press when completing any guide
+
+---
+
+## Version 1.3.1 | 31.07.2021
+
+### Fixed bugs and issues:
+
+- fixed bug that caused documentation to crash
+
+---
+
 ## Version 1.3.0 | 30.07.2021
 
 ### New features in this release:
