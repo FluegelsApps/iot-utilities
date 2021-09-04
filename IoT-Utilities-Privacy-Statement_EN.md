@@ -6,7 +6,7 @@ parent: Legal
 
 # IoT-Utilities Privacy Statement (**EN**|[DE](./IoT-Utilities-Privacy-Statement_DE.md))
 
-Valid as of <!--validof-->08/01/2021<!--validof-->
+Valid as of <!--validof-->09/04/2021<!--validof-->
 
 ## Privacy Statement for IoT-Utilities App
 
@@ -53,6 +53,10 @@ This function allows the app to validate the current configuration by sending iB
 #### **BLE Connect**
 
 This function allows the app to connect to BLE-Devices using the Aruba access points. Furthermore, the app is capable of pairing and bonding the BLE-Device. The key material that is used throughout this process is stored securely in an encrypted database. The app also stores the MAC-Addresses of the BLE-Devices and the Aruba access points.
+
+#### **ZigBee**
+
+This function allows the app to send data to ZigBee devices in the network of the Access Point. The app stores the ZigBee-Address of the device as well as the MAC-Address of the Access Point and its radio. Furthermore, the app supports the interaction with Philips Hue Lamps.
 
 #### **Bluetooth Scanning**  
 
@@ -136,7 +140,7 @@ Android permissions (granted automatically):
 
 The app requires the "foreground-service" permission to be able to run the "IoT-Server", "BLE Advertising" and "BLE Testing" functions in the background. This feature is optional and can be enabled / disabled in the settings of the application.
 
-The granted permissions can be viewed/granted/withdrawn at any time in the app under Settings -> Authorizations or in the device settings:  
+The granted permissions can be viewed/granted/withdrawn at any time in the app under Settings -> Permissions or in the device settings:  
 
 Android:  
 Settings -> Apps -> IoT Utilities -> Permissions  
@@ -145,7 +149,7 @@ Settings -> Apps -> IoT Utilities -> Permissions
 
 ### _**6. When and how are push notifications used?**_  
 
-The app uses push notification to show the status of the "Bluetooth Advertising" and "IoT-server" function.  
+The app uses push notification to show the status of the "IoT-Server", "BLE-Testing", "BLE-Connect" and "BLE-Advertising" functions.  
 
 The push notification may be deactivated and reactivated at any time at:  
 
@@ -210,10 +214,16 @@ The app stores the following data on the device to fulfill its function:
 
 - List of Bluetooth manufacturer IDs
 - Configuration templates
-- Exports certificates
-- Exports log files
+- Exported certificates
+- Exported configuration templates
+- Exported log files
 - Temporary data
 - Bluetooth advertisers Database
+- BLE-Connect presets database
+- BLE-Connect bonding database
+- ZigBee devices database
+- ZigBee types database
+- ZigBee flows database
 
 ---
 
