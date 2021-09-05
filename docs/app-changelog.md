@@ -4,14 +4,6 @@ title: Changelog
 nav_order: 6
 ---
 
-## Version 1.3.1 | 31.07.2021
-
-### Fixed bugs and issues:
-
-- fixed bug that caused documentation to crash
-
----
-
 ## Version 1.4.0 | 31.08.2021
 
 ### New features in this release:
