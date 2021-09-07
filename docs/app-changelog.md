@@ -4,6 +4,20 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 1.5.0 | ?
+
+### New features in this release:
+
+### Reworked features and improvements:
+
+- reworked entire filtering system
+- new toolbar style
+- new animations (page transitions)
+
+### Fixed bugs and issues:
+
+---
+
 ## Version 1.4.0 | 31.08.2021
 
 ### New features in this release:
