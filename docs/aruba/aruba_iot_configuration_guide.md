@@ -2,6 +2,7 @@
 layout: default
 title: Aruba IoT Configuration Guide
 has_children: true
+nav_exclude: true
 ---
 
 # Aruba IoT Configuration Guide
@@ -384,10 +385,17 @@ BLE data forwarding works by forwarding the raw BLE data packets to the remote s
 >Furthermore, BLE data forwarding happens in addition to the periodic telemetry reporting. Both methods happen in parallel.  
 Therefore, if BLE data forwarding is the main method for the IoT use case it is recommended to set a high *reporting interval* in the [iot transport profile](#iot-transport-profile).  
 
-BLE data forwarding is enabled for the selected [BLE device class](#ble-device-class-filter) in the [iot transport profile](#iot-transport-profile) configuration.
+With ArubaOS/Instant version 8.7.0.0 no special configuration is needed to enable BLE data forwarding. The BLE data service is automatically enabled for the following selected device classes:  
 
->***Note:***  
->Starting with ArubaOS/Instant version 8.8.0.0 BLE data forwarding is supported for all [known BLE vendor device classes](#supported-iot-vendordevice-class-list), except for [BLE device class](#ble-device-class-filter) ***all*** or ***unclassified***.
+  - mysphera
+  - abilitySmartSensor
+  - sBeacon
+  - exposureNotification
+  - wiliot
+  
+Starting with ArubaOS/Instant version 8.8.0.0 BLE data forwarding is supported for all [known BLE vendor device classes](#supported-iot-vendordevice-class-list), except for [BLE device class](#ble-device-class-filter) ***all*** or ***unclassified***.
+
+BLE data forwarding is enabled for the selected [BLE device class](#ble-device-class-filter) in the [iot transport profile](#iot-transport-profile) configuration.
 
 >***Note:***  
 >BLE data forwarding is only available when using the IoT server connection type [Telemetry-Websocket](#telemetry-websocket).
@@ -1637,6 +1645,9 @@ This example shows the required configuration to enable the [ABB Ability™ Smar
 -   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
 
 >***Note:***  
+>The [ABB Ability™ Smart Sensor](https://new.abb.com/motors-generators/service/advanced-services/smart-sensor) integrartion is levaraging the [BLE data forwarding service](#ble-data-forwarding) which is enabled by default for the device class *ability-smart-sensor* in ArubaOS/Aruba Instant 8.7.x.x. There is manual configuration supported for BLE data forwarding in this version.
+
+>***Note:***  
 >The [Baltimore CyberTrust Root certificate (BaltimoreCyberTrustRoot.crt.pem)](https://www.digicert.com/kb/digicert-root-certificates.htm) has to be installed on the Aruba infrastructure when connecting the [ABB Ability™ Smart Sensor platform](https://new.abb.com/motors-generators/service/advanced-services/smart-sensor). Please see the [Aruba CLI Reference - Importing Certificates](#aruba-cli-reference---importing-certificates) for details.
 
 **ArubaOS**
@@ -1654,7 +1665,7 @@ iot transportProfile "ABB-Ability-Smart-Sensor"
     clientId <client-id>
     username <username>
     password <password>
-    reportingInterval 30
+    reportingInterval 3600
     deviceClassFilter ability-smart-sensor
     authenticationURL "https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2"
     include-ap-group <ap-group>
@@ -1678,7 +1689,7 @@ iot transportProfile "ABB-Ability-Smart-Sensor"
  endpointID <client-id>
  username <username>
  password <password>
- transportInterval 30
+ transportInterval 3600
  authenticationURL "https://api.smartsensor.abb.com/v7/Auth/BearerOAuth2"
  exit
 
@@ -1694,6 +1705,10 @@ This example shows the required configuration to enable the [ABB Ability™ Smar
 -   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
 
 >***Note:***  
+>The [ABB Ability™ Smart Sensor](https://new.abb.com/motors-generators/service/advanced-services/smart-sensor) integrartion is levaraging the [BLE data forwarding service](#ble-data-forwarding). Starting with ArubaOS/Aruba Instant 8.8.x.x or higher [BLE data forwarding](#ble-data-forwarding) is disabled by default and has to be explicitely eanbled for the device class *ability-smart-sensor*.  
+>When migrating form ArubaOS/Aruba Instant 8.7.x.x to 8.8.x.x the iot transport profile configuration has to be adapgted to continue to work!
+
+>***Note:***  
 >The [Baltimore CyberTrust Root certificate (BaltimoreCyberTrustRoot.crt.pem)](https://www.digicert.com/kb/digicert-root-certificates.htm) has to be installed on the Aruba infrastructure when connecting the [ABB Ability™ Smart Sensor platform](https://new.abb.com/motors-generators/service/advanced-services/smart-sensor). Please see the [Aruba CLI Reference - Importing Certificates](#aruba-cli-reference---importing-certificates) for details.
 
 **ArubaOS**
@@ -1707,12 +1722,13 @@ ap-group <ap-group>
 !
 iot transportProfile "ABB-Ability-Smart-Sensor"
     serverType Telemetry-Websocket
-    serverURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+    serverURL "https://api.smartsensor.abb.com/v8/Auth/BearerOAuth2"
     clientId <client-id>
     client-secret <secret>
-    reportingInterval 30
+    reportingInterval 3600
     deviceClassFilter ability-smart-sensor
-    authenticationURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+    bleDataForwarding
+    authenticationURL "https://api.smartsensor.abb.com/v8/Auth/BearerOAuth2"
     authentication-mode client-credentials
     include-ap-group <ap-group>
 !
@@ -1729,13 +1745,14 @@ iot radio-profile "int-beacon-scan"
 iot use-radio-profile "int-beacon-scan"
 
 iot transportProfile "ABB-Ability-Smart-Sensor"
- endpointURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+ endpointURL "https://api.smartsensor.abb.com/v8/Auth/BearerOAuth2"
  endpointType telemetry-websocket
  payloadContent ability-smart-sensor
+ bleDataForwarding
  endpointID <client-id>
  client-secret <secret>
- transportInterval 30
- authenticationURL "https://api.smartsensor.abb.com/Auth/BearerOAuth2"
+ transportInterval 3600
+ authenticationURL "https://api.smartsensor.abb.com/v8/Auth/BearerOAuth2"
  authentication-mode client-credentials
  exit
 

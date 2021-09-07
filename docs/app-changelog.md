@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Changelog
+nav_order: 6
 ---
 
 ## Version 1.4.0 | 31.08.2021

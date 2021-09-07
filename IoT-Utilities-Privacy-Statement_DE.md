@@ -6,7 +6,7 @@ parent: Legal
 
 # IoT-Utilities Datenschutzerklärung ([EN](./IoT-Utilities-Privacy-Statement_EN.md)|**DE**)
 
-Gütig ab dem <!--#validof-->01.03.2021<!--#validof-->
+Gütig ab dem <!--#validof-->04.09.2021<!--#validof-->
 
 ## Datenschutzhinweise für IoT-Utilities App
 
@@ -45,6 +45,18 @@ Des Weiteren bietet die App weitere Funktionen und Werkzeuge, wie z.B. „Blueto
 #### **IoT-Server**
 
 Die App stellt eine IoT-Server Funktion zur Verfügung, welche Verbindungen von Aruba Controllern und Aruba Instant Access Points über das Aruba IoT Interface Protokoll entgegennimmt. Der IoT-Server erlaubt nur (TLS / SSL) verschlüsselte Verbindungen, welche per statischem Access Token oder Benutzername und Passwort autorisiert bzw. authentifiziert werden. Das hierfür notwendige SSL-Serverzertifikat kann in die App importiert oder ein selbst-signiertes Zertifikat generiert werden. Der IoT-Server stellt zusätzlich ein Web Dashboard über eine (TLS / SSL) verschlüsselte Verbindung unter der URL [https://[Smartphone_IP-Adresse]:[Port]/dashboard](https://[Smartphone_IP-Adresse]:[Port]/dashboard) zur Verfügung. Der Zugriff auf das Dashboard ist über ein in den App Einstellungen zu vergebene Benutzername/Passwort Kombination abgesichert.  
+
+#### **BLE Testing**
+
+Diese Funktion ermöglicht der App, die momentane Konfiguration zu überprüfen, indem Sie iBeacon-Advertisements an Aruba Access Points in der Nähe, mithilfe des Aruba-IoT-Interfaces, sendet. Wenn die Konfiguration funktioniert, dann werden die gesendeten Signale über das Interface zurückgeschickt. Die App zeigt dabei die antwortenden Access Points, sowie die Signalstärke.
+
+#### **BLE Connect**
+
+Diese Funktion ermöglicht der App sich, mithilfe der Aruba Access Points, mit BLE-Geräten zu verbinden. Außerdem kann die App ein sogennantes Pairing bzw. Bonding mit dem Gerät durchführen. Das Schlüsselmaterial, welches während dieses Prozesses verwendet wird, wird sicher in einer verschlüsselten Datenbank gespeichert. Des Weiteren speichert die App die MAC-Adressen der BLE-Geräte und Aruba Access Points.
+
+#### **ZigBee**
+
+Die Funktion ermöglicht der App, mithilfe der Aruba Access Points Daten an ZigBee Geräte im Netzwerk the Access Points zu senden. Die App speichert dabei die ZigBee-Addresse, sowie die MAC-Address des Aruba Access Points und dessen Radio. Zusätzlich unterstützt die App die Interaktion mit Philips Hue Lampen.
 
 #### **Bluetooth Scanning**  
 
@@ -137,7 +149,7 @@ Einstellungen -> Apps -> IoT-Utilities -> Berechtigungen
 
 ### _**6. Wann und wie werden Benachrichtigungen verwendet?**_
 
-Die App informiert mit Benachrichtigungen über den Status der „Bluetooth Advertising" und „IoT-Server" Funktionen.  
+Die app verwendet Push Benachrichtigungen, um den Status folgender Features darzustellen: "IoT-Server", "BLE-Connect", "BLE-Advertising", "BLE-Testing".
 
 Die Benachrichtigungen können jederzeit unter:  
 
@@ -204,10 +216,16 @@ Die App speichert folgende Daten auf dem Endgerät zur Erfüllung Ihrer Funktion
 
 - Liste der Bluetooth Hersteller ID's
 - Konfigurationsvorlagen
-- Exportiert Zertifikate
-- Exportiert Log Dateien
+- Exportierte Zertifikate
+- Exportierte Konfigurationsvorlagen
+- Exportierte Log Dateien
 - Temporäre Dateien
 - Bluetooth Advertiser Datenbank
+- BLE-Connect Preset Datenbank
+- BLE-Connect Bonding Datenbank
+- ZigBee-Devices Datenbank
+- ZigBee-Types Datenbank
+- ZIgBee-Flows Datenbank
 
 ---
 

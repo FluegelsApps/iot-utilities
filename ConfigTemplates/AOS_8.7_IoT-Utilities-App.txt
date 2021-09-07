@@ -30,7 +30,7 @@ ap-group <ap-group>
 !
 iot transportProfile "IoT-Utilities-App"
     serverType Telemetry-Websocket
-    serverURL "wss://<ip-address>:<port>/telemetry"
+    serverURL "wss://<ip-address>:<port>/wss"
     authenticationURL "https://<ip-address>:<port>/auth"
     clientId <client-id>
     username <username>
@@ -43,7 +43,6 @@ iot transportProfile "IoT-Utilities-App"
     deviceClassFilter unclassified
     reportingInterval <interval>
     rssiReporting last
-    bleDataForwarding
     include-ap-group <ap-group>
 !
 ! Step 4) Enable the iot transport profile

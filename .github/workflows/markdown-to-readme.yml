@@ -1,0 +1,35 @@
+on:
+  workflow_dispatch:
+    branches:
+    - main
+
+jobs:
+  convert-readme-docs:
+    runs-on: ubuntu-latest
+    name: Convert Markdown Docs to ReadMe
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Convert the Documentation
+        uses: FluegelsApps/iot-utilities-docs-tools/readme-converter@master
+        with:
+          root-directory: "docs/aruba"
+          destination-directory: "./"
+          working-directory: "/home/runner/work/iot-utilities/iot-utilities"
+          zip-filename: "readme-docs.zip"
+          index-name: "index"
+          version-code: "v1.0"
+      - name: Check Git Repository
+        run: git status
+      - name: Authorize with repository (E-Mail)
+        run: git config user.email "iot-utilities@arubademo.de"
+      - name: Authorize with repository (Username)
+        run: git config user.name "Documentation Tools"
+      - name: Stage the changed files
+        run: git add .
+      - name: Commit the changed files
+        run: git commit -m "Converted Markdown docs to ReadMe format"
+      - name: Fetch from main branch
+        run: git fetch origin main
+      - name: Push changes to main branch
+        run: git push origin HEAD:main
