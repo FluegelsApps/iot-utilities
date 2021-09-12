@@ -4,6 +4,28 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 1.5.0 | 12.08.2021
+
+### New features in this release:
+
+- feature to switch Philips Hue interaction from BLE to ZigBee
+- tap and hold devices in ZigBee devices list to identify them via the network
+
+### Reworked features and improvements:
+
+- reworked entire filtering system
+- new toolbar style
+- new animations (page transitions)
+- minor style adjustments (status bar color, navigation bar color)
+
+### Fixed bugs and issues:
+
+- fixed bug in clients guide that caused app to crash
+- fixed bug in Philips Hue Pairing that caused UI misbehaviours
+- fixed bug in BLE-Connect that notified the user the device disconnected when the status "alreadyConnected" is received
+
+---
+
 ## Version 1.4.0 | 31.08.2021
 
 ### New features in this release:

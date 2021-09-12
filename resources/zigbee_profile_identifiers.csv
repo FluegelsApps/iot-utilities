@@ -1,7 +1,7 @@
 //ZIGBEE PROFILE IDENTIFIERS
 "0101","Industrial Plant Monitoring"
 "0104","Home Automation"
-"105","Commercial Building Automation"
-"107","Telecom Applications"
-"108","Personal Home and Hospital Care"
-"109","Advanced Metering Initiative"
+"0105","Commercial Building Automation"
+"0107","Telecom Applications"
+"0108","Personal Home and Hospital Care"
+"0109","Advanced Metering Initiative"
