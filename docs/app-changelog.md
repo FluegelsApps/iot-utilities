@@ -4,6 +4,31 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 1.6.0 | ?
+
+### New features in this release:
+
+- Philips Hue ZigBee Joining (via SSH and BLE)
+    - enabling joining permission for devices using a SSH connection to the Access Point
+    - resetting Philips Hue Lamps using the BLE radio of the mobile device
+    - automatically adding the Lamp to the devices list of the app
+- ZigBee Device Availability Test (via SSH)
+    - checking if a device is available to the app by checking the client database of the Access Point by using a SSH connection
+- Adding ZigBee devices that are already in the network of an Access Point
+    - getting all devices in the network of the Access Point by reading the client database using a SSH connection
+    - the resolved devices list can be added to the ZigBee devices list of the app
+
+### Reworked features and improvements:
+
+- small dashboard layout adjustments
+- optimised the color resolution algorithm for Philips Hue Lamps connected via BLE-Connect
+
+### Fixed bugs and issues:
+
+- fixed bug int clients page that displayed the authentication access token twice instead of the access token and the refresh token
+
+---
+
 ## Version 1.5.0 | 12.08.2021
 
 ### New features in this release:
