@@ -20,7 +20,6 @@ nav_order: 1
 
 This example shows the required configuration to enable the [Blyott location based and monitoring solution](https://blyott.com/) integration using ArubaOS/Aruba Instant version 8.8.x.x or higher.
 
--   `fqdn, ip-address, port, path` - has to be replaced with the FQDN or IP address, optional port and path of the remote server
 -   `access-token` - has to be replaced with the static access token used to connect to the remote server
 -   `client-id` - (optional) has to be replaced with the client identifier string that is used by the remote server to identify the connecting Aruba infrastructure, e.g. "Aruba-Wi-Fi".
 -   `ap-group` - has to be replaced with the AP group name the configuration should be enabled on (multiple statements are required for multiple groups) (ArubaOS only)
@@ -219,16 +218,18 @@ To verify if the applied configuration if working properly connect to the Aruba 
     Websocket Write WM                      : 0B (0)
     Websocket Read Stats                    : 0 (0B)
     ```
-    If the websocket connection status show a different status than ***Connection Established*** uns the following command to check possible connection issues:
+    If the websocket connection status show a different status than ***Connection Established*** uns the following command to check possible connection issues:  
+
     **show ap debug ble-relay ws-log \<profile>**
     
-    Common causes of connection errors:
+    **Common causes of connection errors:**
     -   Trusted certificate chain for remote IoT server certificate not installed. Only applicable for secure connections (https://, wss://)
     -   Wrong authentication credentials for the remote IoT server connection (access token, username/password, clientid/secret)
     -   Domain name resolution not configured or not working e.g. DNS server not reachable
     -   Connection blocked firewall or other devices in the communication path  
 
-    >Note: Starting with Aruba Instant 8.8 IoT server connections are automatically established even if no messages need to be send to the remote server e.g. because no BLE devices are seen by the Aruba AP. 
+    >***Note***:  
+    >Starting with Aruba Instant 8.8 IoT server connections are automatically established even if no messages need to be send to the remote server e.g. because no BLE devices are seen by the Aruba AP. 
 
 ## Aruba Central (2.5.4 or higher)
 
