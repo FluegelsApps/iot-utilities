@@ -2,7 +2,7 @@
 layout: default
 title: Blyott (ArubaOS/Aruba Instant 8.8.x.x or higher)
 has_children: false
-parent: BLE Telemetry Solutions
+parent: BLE Data Forwarding Solutions
 grand_parent: Aruba IoT Config Examples
 nav_order: 1
 ---
@@ -269,20 +269,6 @@ To verify the configuration on the Aruba side, connect to the Aruba Instant acce
     Websocket Write Stats                   : 277 (39080B)
     Websocket Write WM                      : 0B (0)
     Websocket Read Stats                    : 0 (0B)
-
-
-    ArubaInstantAP# show ap debug ble-relay tag-report
-
-    ---------------------------Profile[blyott]---------------------------
-
-    Incoming Tag messages                   : 305
-    Tag messages processed                  : 301
-    Tag messages dropped                    : 4
-    Tag messages WS queue success           : 301
-    Tag messages WS queue unavailable       : 0
-    Tag messages WS not connected           : 0
-    Tag messages WS sent                    : 301
-    Heartbeat messages WS sent              : 181
 
     ```
 
