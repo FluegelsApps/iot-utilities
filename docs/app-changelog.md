@@ -4,7 +4,9 @@ title: Changelog
 nav_order: 6
 ---
 
-## Version 1.6.0 | ?
+## Version 1.6.0 - The Christmas Update | ?
+
+![Christmas Banner](./images/christmas_banner.png)
 
 ### New features in this release:
 
@@ -20,12 +22,19 @@ nav_order: 6
 
 ### Reworked features and improvements:
 
-- small dashboard layout adjustments
+- Reworked Philips Hue interaction layout (ZigBee and BLE)
+    - new button designs
+    - new brightness and color temperature sliders
+    - new rgb color selector wheel
+    - simplified layout
 - optimised the color resolution algorithm for Philips Hue Lamps connected via BLE-Connect
+- small dashboard layout adjustments
+- general improvements
 
 ### Fixed bugs and issues:
 
-- fixed bug int clients page that displayed the authentication access token twice instead of the access token and the refresh token
+- fixed bug in clients page that displayed the authentication access token twice instead of the access token and the refresh token
+- fixed bug in northbound details page that did not load the correct documentation
 
 ---
 
