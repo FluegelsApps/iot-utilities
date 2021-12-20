@@ -16,9 +16,14 @@ nav_order: 6
     - automatically adding the Lamp to the devices list of the app
 - ZigBee Device Availability Test (via SSH)
     - checking if a device is available to the app by checking the client database of the Access Point by using a SSH connection
-- Adding ZigBee devices that are already in the network of an Access Point
+- adding ZigBee devices that are already in the network of an Access Point
     - getting all devices in the network of the Access Point by reading the client database using a SSH connection
     - the resolved devices list can be added to the ZigBee devices list of the app
+- saving SSH authentication credentials
+    - storing usernames and passworts to automatically authenticate with Aruba Access Points
+    - data is stored locally on the device
+    - access to the data is protected using biometrics (refer to Privacy Statement)
+- new application icon (christmas style)
 
 ### Reworked features and improvements:
 

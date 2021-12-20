@@ -208,6 +208,14 @@ Die durch die „IoT-Server" Funktion der App empfangenen Daten werden nur in de
 
 Durch die App erzeugte Log Daten werden zur Fehlersuche und -analyse verwendet und nur auf dem lokalen Gerät angezeigt, so lange die App verwendet wird. Mit dem Beenden der App werden alle Log Daten gelöscht. Es werden keinerlei Daten permanent gespeichert.
 
+##### _SSH Benutzernamen und Passwörter_
+
+Die App besitzt eine Funktion, welche es ermöglicht, Befehle auf Aruba Access Points, über das SSH (Secure Shell) Protokoll, auszuführen. Für diese Prozedur werden sowohl der Benutzername, als auch das Passwort für eine sichere Verbindung benötigt. Die App speichert diese Daten standardmäßig nicht. Jedoch kann der Nutzer auswählen, dass diese Daten in der App gespeichert werden sollen, sodass diese beim erneuten Aufruf der Funktion automatisch verwendet werden können und der Nutzer diese nicht erneut eingeben muss. Diese Daten werden in einer verschlüsselten Datenbank innerhalb der App gespeichert. Dabei ist der Schlüssel für diese Datenbank biometrisch gesichert. Zum Abrufen oder Bearbeiten der Daten ist deshalb immer eine Authentifizierung des Benutzers erforderlich. Ansonsten, hat die App zu keinem Zeitpunkt Zugriff auf die Datenbank und kann diese damit nicht auslesen oder verändern. Eine Aktion, welche die App ohne Bestätigung des Nutzers ausführen kann ist lediglich das Löschen der Datenbank. Darüber hinaus werden diese Daten niemals an dritte weitergegeben und werden automatisch gelöscht, sobald die App gelöscht wird oder der Nutzer die Daten löscht.
+
+Die Daten können in der App wie folgt bearbeitet/eingesehen werden:
+
+IoT-Utilities --> Settings --> IoT-Server --> Manage SSH Credentials
+
 ---
 
 ### _**8. Welche Daten werden auf dem Endgerät gespeichert?**_
@@ -225,7 +233,8 @@ Die App speichert folgende Daten auf dem Endgerät zur Erfüllung Ihrer Funktion
 - BLE-Connect Bonding Datenbank
 - ZigBee-Devices Datenbank
 - ZigBee-Types Datenbank
-- ZIgBee-Flows Datenbank
+- ZigBee-Flows Datenbank
+- Nutzername und Passwort für eine SSH-Verbindung (optional)
 
 ---
 
