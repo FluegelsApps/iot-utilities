@@ -6,7 +6,7 @@ parent: Legal
 
 # IoT-Utilities Datenschutzerklärung ([EN](./IoT-Utilities-Privacy-Statement_EN.md)|**DE**)
 
-Gütig ab dem <!--#validof-->04.09.2021<!--#validof-->
+Gütig ab dem <!--#validof-->20.12.2021<!--#validof-->
 
 ## Datenschutzhinweise für IoT-Utilities App
 
