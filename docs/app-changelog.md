@@ -4,7 +4,7 @@ title: Changelog
 nav_order: 6
 ---
 
-## Version 1.6.0 | ?
+## Version 1.6.0 | 21.12.2021
 
 ## The Christmas Update
 
