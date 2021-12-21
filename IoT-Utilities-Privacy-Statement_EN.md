@@ -6,7 +6,7 @@ parent: Legal
 
 # IoT-Utilities Privacy Statement (**EN**|[DE](./IoT-Utilities-Privacy-Statement_DE.md))
 
-Valid as of <!--validof-->09/04/2021<!--validof-->
+Valid as of <!--validof-->12/20/2021<!--validof-->
 
 ## Privacy Statement for IoT-Utilities App
 
