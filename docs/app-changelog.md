@@ -4,6 +4,47 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 1.6.0 | ?
+
+## The Christmas Update
+
+![Christmas Banner](./images/christmas_banner.png)
+
+### New features in this release:
+
+- Philips Hue ZigBee Joining (via SSH and BLE)
+    - enabling joining permission for devices using a SSH connection to the Access Point
+    - resetting Philips Hue Lamps using the BLE radio of the mobile device
+    - automatically adding the Lamp to the devices list of the app
+- ZigBee Device Availability Test (via SSH)
+    - checking if a device is available to the app by checking the client database of the Access Point by using a SSH connection
+- adding ZigBee devices that are already in the network of an Access Point
+    - getting all devices in the network of the Access Point by reading the client database using a SSH connection
+    - the resolved devices list can be added to the ZigBee devices list of the app
+- saving SSH authentication credentials
+    - storing usernames and passworts to automatically authenticate with Aruba Access Points
+    - data is stored locally on the device
+    - access to the data is protected using biometrics (refer to Privacy Statement)
+- new application icon (christmas style)
+
+### Reworked features and improvements:
+
+- Reworked Philips Hue interaction layout (ZigBee and BLE)
+    - new button designs
+    - new brightness and color temperature sliders
+    - new rgb color selector wheel
+    - simplified layout
+- optimised the color resolution algorithm for Philips Hue Lamps connected via BLE-Connect
+- small dashboard layout adjustments
+- general improvements
+
+### Fixed bugs and issues:
+
+- fixed bug in clients page that displayed the authentication access token twice instead of the access token and the refresh token
+- fixed bug in northbound details page that did not load the correct documentation
+
+---
+
 ## Version 1.5.0 | 12.08.2021
 
 ### New features in this release:
