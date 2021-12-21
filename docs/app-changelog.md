@@ -4,7 +4,9 @@ title: Changelog
 nav_order: 6
 ---
 
-## Version 1.6.0 - The Christmas Update | ?
+## Version 1.6.0 | ?
+
+## The Christmas Update
 
 ![Christmas Banner](./images/christmas_banner.png)
 
