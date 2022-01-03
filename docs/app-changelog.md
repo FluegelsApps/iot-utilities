@@ -4,6 +4,22 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 1.6.1 | 03.01.2022
+
+### Reworked features and improvements:
+
+- Optimized and improved all SSH features
+    - Swipe-down gesture to refresh the data
+    - Recent connections history to quickly establish a connection
+    - Rotating the device will not cause the connection to close anymore
+- Removed christmas update assets
+
+### Fixed bugs and issues:
+
+- Fixed bug that prevented activity from showing client collector results
+
+---
+
 ## Version 1.6.0 | 21.12.2021
 
 ## The Christmas Update
