@@ -203,7 +203,7 @@ In Aruba Mobility Conductor setups running ArubaOS version 8.7.1.0 or higher the
 
 To verify the configuration on Aruba Mobility Controllers, in standalone mode or if managed by a Mobility Conductor, connect to the Aruba Mobility Controller using the SSH or the local console.
 
-1. Check if Blyott BLE devices are seen by the APs BLE radio using the command **show ap debug ble-table [ap-name|ip-addr|ip6-addr] generic** :
+1. Check if Blyott BLE devices are seen by the APs BLE radio using the command **show ap debug ble-table \[ap-name|ip-addr|ip6-addr\] generic** :  
 
     ```text
     ArubaOS#show ap debug ble-table ap-name <ap-name> generic
@@ -292,7 +292,7 @@ To verify the configuration on Aruba Mobility Controllers, in standalone mode or
 
     If the websocket connection status show a different status than ***Connection Established*** use the following command to check possible connection issues:  
 
-    **show ap debug ble-relay ws-log \<profile>**  
+    **show ble-relay ws-log \<profile>**  
 
 3. If the connection status shows ***Connection Established*** but the communication seems not to be working correctly, use the following command to check message processing thought the websocket connection:  
 
