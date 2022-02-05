@@ -4,6 +4,18 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 1.6.2 | 05.02.2022
+
+### Reworked features and improvements:
+
+- Added option to bypass the access token validation
+
+### Fixed bugs and issues:
+
+- Fixed bug that caused app to return the wrong expires_in value in authentication JSON responses
+
+---
+
 ## Version 1.6.1 | 03.01.2022
 
 ### Reworked features and improvements:
