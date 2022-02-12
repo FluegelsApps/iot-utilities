@@ -13,7 +13,7 @@
 ! Custom variables, to be replaced by the user:
 !   - client-id
 !   - password
-!   - ap-group
+!   - ap-group (AOS only)
 !
 ! Step 1) Define the iot radio profile
 !
