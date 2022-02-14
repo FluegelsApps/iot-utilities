@@ -29,7 +29,7 @@
 !   Login to the Aruba Instant AP via SSH and run the following command to 
 !   download and install the app's server certificate as trustedCA certificate.
 ! 
-crypto pki-import format pem cert-type TrustedCA http://<ip-address>:<port>//certificate-download certname iotuapp
+crypto pki-import format pem cert-type TrustedCA http://<ip-address>:<port>/certificate-download certname iotuapp
 !
 ! Step 2) Define the Zigbee service profile for Philips Hue
 !
