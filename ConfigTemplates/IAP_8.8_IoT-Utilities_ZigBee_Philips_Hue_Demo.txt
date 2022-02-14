@@ -4,6 +4,11 @@
 ! This configuration set up an Aruba 3xx/5xx IAP for controlling a Philips Hue Zigbee lamp 
 ! via the IoT-Utilities-App using the Aruba USB IoT radio dongle.
 !
+! Prerequisites:
+!   - Aruba Instant AP running version 8.8 or higher
+!   - Aruba USB Zigbee dongle
+!   - IP communication between the app and the AP, e.g. via demo Wi-Fi SSID
+!
 ! Variables:
 !
 ! IoT-Utilities variables (auto-replaced):
@@ -18,7 +23,15 @@
 !   - password
 !   - ap-group (AOS only)
 !
-! Step 1) Define the Zigbee service profile for Philips Hue
+!
+! Step 1) Install the IoT-Utilities-App server certificate on the Aruba Instant App
+!
+!   Login to the Aruba Instant AP via SSH and run the following command to 
+!   download and install the app's server certificate as trustedCA certificate.
+! 
+crypto pki-import format pem cert-type TrustedCA http://<ip-address>:<port>/certificate-download certname iotuapp
+!
+! Step 2) Define the Zigbee service profile for Philips Hue
 !
 ! Philips hue lamps use the Zigbee home automation cluster profile '0104'.
 !
@@ -33,7 +46,7 @@ zigbee socket-device-profile philips-hue-lamp
  outbound 232 11 0104 0003
  exit
 !
-! Step 2) Define the iot radio profile for the external Aruba USB IoT radio
+! Step 3) Define the iot radio profile for the external Aruba USB IoT radio
 !
 ! Note: Zigbee channel 11 is selected for ease of use. Auto-channel could also be used. 
 !
@@ -43,11 +56,11 @@ iot radio-profile ext-zb
  zigbee-channel 11
  exit
 !
-! Step 3) Enable the iot radio profile
+! Step 4) Enable the iot radio profile
 !
 iot use-radio-profile "ext-zb"
 !
-! Step 4) Define the Zigbee service-profile
+! Step 5) Define the Zigbee service-profile
 !
 ! The selected zigbee service profile settings the defaults and do not show up in the running config.
 ! "permit-joining" is disabled to avoid joining of devices outside of the demo.
@@ -58,11 +71,11 @@ zigbee service-profile zb-service-all
  radio-instance all
  security enable
 !
-! Step 5) Enable the zigbee service-profile
+! Step 6) Enable the zigbee service-profile
 !
 zigbee use-service-profile zb-service-all
 !
-! Step 6) Define the iot transport profile
+! Step 7) Define the iot transport profile
 !
 iot transportProfile "iotuapp"
  endpointURL "wss://<ip-address>:<port>/wss"
@@ -75,7 +88,9 @@ iot transportProfile "iotuapp"
  ZSDFilter philips-hue-lamp
  exit
 !
-! Step 7) Enable the iot transport profile
+! Step 8) Enable the iot transport profile
 !
 iot useTransportProfile "iotuapp"
+!
+! Step 9) Commit an apply the configuration
 !
