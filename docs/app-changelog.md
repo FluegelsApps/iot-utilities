@@ -4,6 +4,21 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 1.6.3 | 16.02.2022
+
+### New features in this release:
+
+- new server pong feature: The WebSocket-Server will now respond to received ping messages
+
+### Fixed bugs and issues:
+
+- Fixed bug that caused the app to crash when to certificate was found in the KeyStore (after skipping setup)
+- Fixed bug that caused the app to crash when loading the preferences from the background
+- Fixed bug that caused the app to crash when downloading remote content from the background
+- Fixed bug that caused the app to freeze when it was open for too long in the background
+
+---
+
 ## Version 1.6.2 | 05.02.2022
 
 ### Reworked features and improvements:
