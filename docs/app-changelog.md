@@ -10,6 +10,7 @@ nav_order: 6
 
 - advanced subject alternative names in certificate generator
   - supported types: RFC 822 Name, IP Address, Directory Name, DNS Name, Uniform Resource Identifier, Registered ID
+- SSL handshake alert and error logging
 
 ---
 
