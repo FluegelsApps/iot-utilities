@@ -4,6 +4,16 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 1.7.0 | 03.03.2022
+
+### New features in this release:
+
+- advanced subject alternative names in certificate generator
+  - supported types: RFC 822 Name, IP Address, Directory Name, DNS Name, Uniform Resource Identifier, Registered ID
+- SSL handshake alert and error logging
+
+---
+
 ## Version 1.6.3 | 16.02.2022
 
 ### New features in this release:
