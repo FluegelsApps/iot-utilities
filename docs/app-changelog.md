@@ -6,7 +6,7 @@ nav_order: 6
 
 ## Beta 1.8.0 | 20.03.2022
 
-Beta version of the upcoming 2.0.0 update
+Beta version of the upcoming 2.0.0 update  
 Short feature overview:
 - Material3 (Material You) test implementation
 - Serial data test implementation
