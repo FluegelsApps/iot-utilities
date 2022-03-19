@@ -4,6 +4,17 @@ title: Changelog
 nav_order: 6
 ---
 
+## Beta 1.8.0 | 20.03.2022
+
+Beta version of the upcoming 2.0.0 update
+Short feature overview:
+- Material3 (Material You) test implementation
+- Serial data test implementation
+- IoT-Connector features moved from beta to main
+- bug fix: ssl protocols not saved
+
+---
+
 ## Version 1.7.0 | 03.03.2022
 
 ### New features in this release:
