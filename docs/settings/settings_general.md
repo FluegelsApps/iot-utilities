@@ -11,6 +11,11 @@ grand_parent: App Documentation
 
 This section allows you to change the behaviour of the app
 
+### Keep screen on by default
+
+- If this feature is enabled the app will keep the screen on by default
+- If this feature is disabled the app will not keep the screen on by default
+
 ### Show close-confirmation dialog
 
 - If this feature is enabled the app will show a dialog if you are about to close the app

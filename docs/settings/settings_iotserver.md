@@ -57,6 +57,13 @@ Tap this preference to change the api_url parameter that is included in Aruba au
 
 Tap this preference to change the port of the IoT-Server.
 
+### Enabled SSL-Protocols
+
+Tap this preference to select the enabled SSL protocols of the IoT-Server.
+This IoT-Server supports the following SSL protocols:
+- TLS Version 1.1
+- TLS Version 1.2
+
 ## BLEConnect settings
 
 ### bleConnect action timeout
@@ -79,6 +86,13 @@ Tap this setting to set the maximum amount of concurrent connections. The lowest
 
 Tap this preference to change the static access token of the IoT-Server. This token will be used for authentication. Telemetry messages that contain this token as the access token won't be rejected.
 
+### Token Validation Bypass
+
+- If this feature is enabled, the application will disable the token checking on all received packets
+- If this feature is disabled, the application will validate each received packet using it's access token
+
+Use this feature with caution as third parties could have manipulated the data when the validation is disabled.
+
 ### Authentication username
 
 Tap this preference to change the username of the server authentication. This username will also be used to access protected content of the server (Web-Dashboard, API calls).
@@ -93,3 +107,9 @@ Tap this preference to change the duration of the reauthentication timer
 
 - If this feature is enabled, clients have to reauthenticate when the timer expired. The timer also controls the "expiring_in" parameter of the Aruba authentication response messages
 - If this feature is disabled, clients won't have to reauthenticate when the timer expired
+
+## SSH Settings
+
+### Manage SSH Credentials
+
+This this preference to manage the SSH credentials that are stored securely in an biometrically encrypted database inside the application.

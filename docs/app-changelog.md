@@ -4,6 +4,18 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 2.0.0 | ?
+
+- Material3 implementation
+- serial data implementation
+- IoT-Connector --> main
+- statistics
+- search bar in main drawer
+- bug: ssl protocols not saved
+- bug: some of default ZigBee flows editable
+
+---
+
 ## Beta 1.8.0 | 20.03.2022
 
 Beta version of the upcoming 2.0.0 update  

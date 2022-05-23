@@ -114,14 +114,19 @@ The app requires read and write access to the external memory of your smartphone
 Android permissions (granted automatically):  
 [_android.hardware.bluetooth\_le_]  
 [_android.permission.bluetooth_]  
-[_android.permission.bluetooth\_admin_]  
+[_android.permission.bluetooth\_admin_]
+[_android.permission.bluetooth\_scan]
+[_android.permission.bluetooth\_advertise]
+[_android.permission.bluetooth\_connect]
 
 This app requires access to the smartphone's Bluetooth system in order to be able to provide the "Bluetooth scanning" and "Bluetooth advertising" functions.
+
+> **_Note:_** In Android 12 and above the permissions [android.permission.bluetooth\_scan], [android.permission.bluetooth\_advertise] and [android.permission.bluetooth\_connect] are summarized and displayed as the permission "Nearby devices".
 
 - #### **Internet**
 
 Android permissions (granted automatically):  
-[android.permission.internet]  
+[_android.permission.internet_]  
 
 This app requires access to the device's Internet connection in order to be able to provide the "IoT-server" function and to download the BLE MAC manufacturer list from the Internet (optional).
 

@@ -96,47 +96,52 @@ Folgende Berechtigungen werden bei der Installation bzw. beim ersten Start von d
 - #### **Standort**  
 
 Android Berechtigungen (Benutzerabfrage):  
-[android.permission.access\_coarse\_location]  
-[android.permission.access\_fine\_location]  
+[_android.permission.access\_coarse\_location_]  
+[_android.permission.access\_fine\_location_]  
 
 Diese App benötigt Zugriff auf die Standortfunktion des Gerätes. Diese Berechtigung wird benötigt, um auf die Bluetooth Low Energy (BLE) Schnittstelle des Smartphones zuzugreifen. Hierbei werden keinerlei Standortinformationen durch die App abgerufen oder gespeichert.
 
 - #### **Speicher (Lesen/Schreiben)**
 
 Android Berechtigungen (Benutzerabfrage):  
-[android.permission.write\_external\_storage]  
-[android.permission.read\_external\_storage]  
+[_android.permission.write\_external\_storage_]  
+[_android.permission.read\_external\_storage_]  
 
 Die App benötigt lesenden und schreibenden Zugriff auf den Externen Speicher Ihres Smartphones, um temporäre Dateien für verschiedene Funktionen, sowie Konfigurationsdateien speichern zu können.
 
 - #### **Bluetooth**
 
 Android Berechtigungen (automatisch erteilt):  
-[android.hardware.bluetooth\_le]  
-[android.permission.bluetooth]  
-[android.permission.bluetooth\_admin]  
+[_android.hardware.bluetooth\_le_]  
+[_android.permission.bluetooth_]  
+[_android.permission.bluetooth\_admin_]  
+[_android.permission.bluetooth\_scan_]  
+[_android.permission.bluetooth\_advertise_]  
+[_android.permission.bluetooth\_connect_]  
 
 Diese App benötigt Zugriff auf das Bluetooth-System des Smartphones, um die Funktionen „Bluetooth Scanning"; und „Bluetooth Advertising"; zur Verfügung stellen zu können.
+
+> **_Hinweis:_** Ab Android 12 werden die Teilberechtigungen [android.permission.bluetooth\_scan], [android.permission.bluetooth\_advertise] und [android.permission.bluetooth\_connect] unter der Berechtigung "Geräte in der Nähe" zusammengefasst.
 
 - #### **Internet**
 
 Android Berechtigungen (automatisch erteilt):  
-[android.permission.internet]  
+[_android.permission.internet_]  
 
 Diese App benötigt Zugriff auf die Internetverbindung des Gerätes, um die Funktion „IoT-Server" zur Verfügung stellen zu können und zum Herunterladen der BLE MAC Hersteller Liste aus dem Internet (optional).
 
 - #### **Wi-Fi- und Netzwerkinformationen**
 
 Android Berechtigungen (automatisch erteilt):  
-[android.permission.access\_wifi\_state]  
-[android.permission.access\_network\_state]  
+[_android.permission.access\_wifi\_state_]  
+[_android.permission.access\_network\_state_]  
 
 Diese App benötigt Zugriff auf die Netzwerkinformationen des Smartphones, um die Funktion „IoT-Server" zur Verfügung stellen zu können.
 
 - #### **Vordergrunddienste**
 
 Android Berechtigungen (automatisch erteilt):  
-[android.permission.foreground_service]
+[_android.permission.foreground_service_]
 
 Diese App benötigt Zugriff auf sogenannte "Vordergrunddienste" um die Funktionen "IoT-Server", "BLE Advertising" und "BLE Testing" im Hintergrund ausführen zu können. Dieses Feature is optional und kann jederzeit in den Einstellungen der App aktiviert / deaktiviert werden.
 
