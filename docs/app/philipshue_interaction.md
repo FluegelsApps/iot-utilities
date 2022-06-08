@@ -9,64 +9,44 @@ grand_parent: App Documentation
 
 The app provides a feature to control Philips Hue lamps. This feature uses BLE-Connect and the BLE GATT protocol to communicate with the lamp. The Philips Hue lamp needs to be bonded to the remote sensor in order to accept incoming commands.
 
+The app provides a feature to control Philips Hue lamps. This feature uses BLE-Connect and the BLE-GATT protocol or the ZigBee network and the ZigBee Cluster Library protocol to communicate with the lamp.
+
 > **_Note:_** Feature requires ArubaOS/InstantOS 8.8 or higher for BLE authentication and encryption.
 
 ![Philips Hue Interaction Scheme](../images/app_philipshue_interaction.svg)
 
-## Interaction layout
+## Interaction
 
-### 1) State switch
+### 1) Color selection wheel
 
-Tap this button to turn the Philips Hue Lamp on and off. This switch will automatically apply to the current state of the lamp.
+Tap anywhere on the color wheel in order to change the current color of the lamp. The interaction page will always be tinted in the current color of the lamp.
 
-### 2) Brightness slider
+### 2) Action buttons
 
-Use this slider to manually set the brightness of the Philips Hue lamp. This slider will automatically apply to the current state of the lamp.
+![Philips Hue Interaction Buttons](../images/app_philipshue_interaction_buttons.svg)
 
-### 3) Color Temperature slider
+|Button|Bluetooth|ZigBee|
+|-|-|-|
+|1|**Change name:** Tap this button to change the BLE local name of the Philips Hue lamp.|**Periodic update configuration:** Tap this button to configure the periodic updating of the values. As the ZigBee implementation of the application currently does not support subscribing to data changes, the current values of the lamp are fetched automatically. This button invokes a dialog to change the interval or disable the feature entirely.|
+|2|**State:** Tap this button to turn the lamp on and off respectively.|**State:** Tap this button to turn the lamp on and off respectively.|
+|3|**Factory reset:** Tap this button to reset the lamp to factory default settings. This will cause the connection to be aborted. Additionally, the app is not able to reconnect to the lamp without updating to the new BLE address and authenticating again.|**Identify lamp:** Tap this button to send a ZCL: Identify command to the Philips Hue lamp. This command will cause the lamp to blink in a white color multiple times.|
+|4|**Brightness:** Pressing this button will cause it to expand to a slider displaying the current brightness of the lamp (in percent). Tap anywhere on the slider in order to set the new brightness of the lamp.|**Brightness:** Pressing this button will cause it to expand to a slider displaying the current brightness of the lamp (in percent). Tap anyhwere on the slider in order to set the new brightness of the lamp.|
+|5|**Temperature:** Pressing this button will cause it to expand to a slider displaying the current color temperature (in Kelvin). Tap anywhere on the slider in order to set the new color temperature of the lamp.|**Temperature:** Pressing this button will cause it to expand to a slider displaying the current color temperature (in Kelvin). Tap anywhere on the slider in order to set the new color temperature of the lamp.|
+|6|**Animation:** Tap this button to select an animation that is played on the lamp. Tap this button again to stop all running animations.|**Animation:** Tap this button to select an animation that is played on the lamp. Tap this button again to stop all running animations.|
 
-Use this slider to manually set the color temperature of the Philips Hue lamp in Kelvin (approx. range: 2000K - 6500K). This slider will automatically apply to the current state of the lamp.
-
-### 4) Color picker button
-
-Tap this button to select the new color of the Philips Hue lamp. This button will show a rgb color picker in order to select the new color. The app is currently not capable of retrieving the current color of the lamp.
-
-### 5) Animation button
-
-Tap this button to play an animation on the Philips Hue lamp. Available animations:
-
-|Animation|Details|
-|-|-|
-|White Flash Animation|The Hue lamp will start flashing in a white color every 500 ms.|
-|Rainbow Animation|The Hue lamp will start switching the colors like a rainbow.|
-
-### 6) Auto-Update Configuration button
-
-Tap this button to configure the auto updating of this page. The appearing dialog can be used to enable/disable the auto updating and set the timeout of feature. This feature will fetch all values of the lamp every time the timer expired. This feature is only available for ZigBee, as BLE supports realtime updates of the page.
-
-### 7) Identify Lamp button
-
-Tap this button to identify the connected lamp. This feature will make the lamp flash three times to identify. This feature is only available for ZigBee, as this device is exclusive to the ZigBee framework.
-
-### 8) Rename Hue Lamp button
-
-Tap this button to rename the Philips Hue Lamp. This feature will change the local BLE name of the lamp. This feature is only available for BLE, as the name of ZigBee devices cannot be changed.
-
-### 9) Factory default reset button
-
-Tap this button to reset the Philips Hue Lamp to factory default settings. This will also remove the bonding from the application.
-
-> **_Note:_** This application supports controlling Philips Hue Lamps via ZigBee and Bluetooth Low Energy (BLE). However, not all features all available for both platforms.
+> **_Note: Not all features are available for the BLE and ZigBee implementations of the application._**
 
 |Feature|BLE|ZigBee|
 |-|-|-|
-|State control|X|X|
-|Brightness control|X|X|
-|Color control|X|X|
-|Animation control|X|X|
-|Auto-Update configuration|O|X|
-|Identify Lamp feature|O|X|
-|Renaming the Lamp|X|O|
-|Factory default reset|X|O|
+|State|X|X|
+|Color|X|X|
+|Brightness|X|X|
+|Color Temperature|X|X|
+|Update Name|X|O|
+|Factory Reset|X|O|
+|Identify|O|X|
+|Automatic Updates|X|O|
+|Animations|X|X|
 
-X - Available, O - Not Available
+**X** - Feature available  
+**O** - Feature unavailable
