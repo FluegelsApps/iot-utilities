@@ -29,6 +29,7 @@
     "ArubaIoTConnectorDetailsActivity": "./app/iot_connector_details.md",
     "ArubaIoTBLEConnectFragment": "./app/ble_connect.md",
     "ServerStatisticsActivity":"./app/dashboard_traffic.md",
-    "ArubaIoTZigBeeFragment":"./app/zigbee.md"
+    "ArubaIoTZigBeeFragment":"./app/zigbee.md",
+    "ArubaIoTSerialDataFragment":"./app/serial_data.md"
   }
 }
