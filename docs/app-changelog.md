@@ -6,13 +6,43 @@ nav_order: 6
 
 ## Version 2.0.0 | ?
 
-- Material3 implementation
-- serial data implementation
-- IoT-Connector --> main
-- statistics
-- search bar in main drawer
-- bug: ssl protocols not saved
-- bug: some of default ZigBee flows editable
+## The Anniversary Update
+
+![Anniversary Banner]()
+
+### New features in this release:
+
+- Google Material You design implementation
+- Server Statistics page
+  - pie charts displaying all types of received messages
+  - detailed analysis of incoming messages
+  - various filters to tweak the statistics display
+- Serial data implementation
+  - receiving and sending custom Serial data messages using the Aruba-IoT-Interface
+  - decoding and displaying received/sent messages in the app
+- EnOcean third-party implementation
+  - decoding and interpreting all types of EnOcean Serial data
+  - implementation of various EnOcean Equipment profiles (complete list of supported profiles can be found [here](./app/serial_data.md)))
+  - interpreting teach-in telegrams to communicate with devices
+  - teaching-in third-party devices (BSC-ZS1S socket)
+  - packet validation including base ID retrieval and CRC8-checksum verification and calculation
+- server resources prioritization
+  - blocking all messages except for a specific type to optimize performance when data is required to be analyzed in real time (e.g. BLE-Testing)
+
+### Reworked features and improvements:
+
+- moved IoT-Connector from beta to production
+- new search function in the main drawer of the application
+- various performance improvements
+
+### Fixed bugs and issues:
+
+- Fixed bug that caused SSL protocols to not be saved when restarting the application
+- Fixed bug that enabled the user to edit some of the ZigBee default flows (Reinstallation required to take effect)
+- Fixed bug that prevented all databases to be cleared when clearing the server data
+- Fixed bug that caused to app to crash when rotating the device during the interactive page guide
+- Fixed issue that caused all services to crash on Android 12 and above
+- Fixed issue that caused all BLE related features to crash on Android 12 and above
 
 ---
 
