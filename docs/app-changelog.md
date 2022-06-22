@@ -34,6 +34,7 @@ nav_order: 6
 - moved IoT-Connector from beta to production
 - new search function in the main drawer of the application
 - various performance improvements
+- new permissions starting with Android 12 ("Nearby Devices")
 
 ### Fixed bugs and issues:
 

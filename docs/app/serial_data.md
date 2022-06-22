@@ -139,7 +139,11 @@ This item represents an EnOcean Serial device, that is saved in the internal dat
 
 #### **a) Preview Image**
 
+This view displays the preview image of the EnOcean Equipment Profile.
+
 #### **b) Display Name**
+
+This view displays the display name of the EnOcean Serial device. This name is not used when communicating with the device and is only used for display purposes inside the application.
 
 ### 3) Create-Device Button
 
