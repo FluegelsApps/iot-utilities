@@ -22,7 +22,7 @@ nav_order: 6
   - decoding and displaying received/sent messages in the app
 - EnOcean third-party implementation
   - decoding and interpreting all types of EnOcean Serial data
-  - implementation of various EnOcean Equipment profiles (complete list of supported profiles can be found [here](./app/serial_data.md)))
+  - implementation of various EnOcean Equipment profiles (complete list of supported profiles can be found [here](./app/serial_data.md))
   - interpreting teach-in telegrams to communicate with devices
   - teaching-in third-party devices (BSC-ZS1S socket)
   - packet validation including base ID retrieval and CRC8-checksum verification and calculation
