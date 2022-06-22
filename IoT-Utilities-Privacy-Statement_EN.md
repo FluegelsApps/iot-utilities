@@ -6,7 +6,7 @@ parent: Legal
 
 # IoT-Utilities Privacy Statement (**EN**|[DE](./IoT-Utilities-Privacy-Statement_DE.md))
 
-Valid as of <!--validof-->12/20/2021<!--validof-->
+Valid as of <!--validof-->06/21/2022<!--validof-->
 
 ## Privacy Statement for IoT-Utilities App
 
@@ -18,7 +18,7 @@ Protecting your privacy as an app user is a high priority. This document explain
 
 The controller for the data processing and the contact for questions or suggestions regarding the app is:
 
-Jens Flügel  
+Maximilian Flügel  
 Vor dem Steintor 4  
 38871 Ilsenburg (Harz)  
 Germany  
@@ -57,6 +57,10 @@ This function allows the app to connect to BLE-Devices using the Aruba access po
 #### **ZigBee**
 
 This function allows the app to send data to ZigBee devices in the network of the Access Point. The app stores the ZigBee-Address of the device as well as the MAC-Address of the Access Point and its radio. Furthermore, the app supports the interaction with Philips Hue Lamps.
+
+#### **EnOcean Serial Data**
+
+This function allows the app to send data to and receive data from EnOcean Serial devices in the network of the Access Point. Moreover, the application implements various EnOcean Equipment Profiles in order to control the devices.
 
 #### **Bluetooth Scanning**  
 
@@ -114,14 +118,19 @@ The app requires read and write access to the external memory of your smartphone
 Android permissions (granted automatically):  
 [_android.hardware.bluetooth\_le_]  
 [_android.permission.bluetooth_]  
-[_android.permission.bluetooth\_admin_]  
+[_android.permission.bluetooth\_admin_]
+[_android.permission.bluetooth\_scan]
+[_android.permission.bluetooth\_advertise]
+[_android.permission.bluetooth\_connect]
 
 This app requires access to the smartphone's Bluetooth system in order to be able to provide the "Bluetooth scanning" and "Bluetooth advertising" functions.
+
+> **_Note:_** In Android 12 and above the permissions [android.permission.bluetooth\_scan], [android.permission.bluetooth\_advertise] and [android.permission.bluetooth\_connect] are summarized and displayed as the permission "Nearby devices".
 
 - #### **Internet**
 
 Android permissions (granted automatically):  
-[android.permission.internet]  
+[_android.permission.internet_]  
 
 This app requires access to the device's Internet connection in order to be able to provide the "IoT-server" function and to download the BLE MAC manufacturer list from the Internet (optional).
 
