@@ -4,11 +4,11 @@ title: Changelog
 nav_order: 6
 ---
 
-## Version 2.0.0 | ?
+## Version 2.0.0 | 22.06.2022
 
 ## The Anniversary Update
 
-![Anniversary Banner]()
+![Anniversary Banner](./images/anniversary_banner.png)
 
 ### New features in this release:
 
