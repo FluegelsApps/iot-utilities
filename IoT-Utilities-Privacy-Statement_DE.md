@@ -6,7 +6,7 @@ parent: Legal
 
 # IoT-Utilities Datenschutzerklärung ([EN](./IoT-Utilities-Privacy-Statement_EN.md)|**DE**)
 
-Gütig ab dem <!--#validof-->20.12.2021<!--#validof-->
+Gütig ab dem <!--#validof-->21.06.2022<!--#validof-->
 
 ## Datenschutzhinweise für IoT-Utilities App
 
@@ -18,7 +18,7 @@ Der Schutz der Privatsphäre aller Nutzer der App ist uns ein wichtiges Anliegen
 
 Verantwortlicher für die Datenverarbeitung und Ansprechpartner bei Fragen oder Anregungen zur App ist:  
 
-Jens Flügel  
+Maximilian Flügel  
 Vor dem Steintor 4  
 38871 Ilsenburg (Harz)  
 Deutschland  
@@ -56,7 +56,11 @@ Diese Funktion ermöglicht der App sich, mithilfe der Aruba Access Points, mit B
 
 #### **ZigBee**
 
-Die Funktion ermöglicht der App, mithilfe der Aruba Access Points Daten an ZigBee Geräte im Netzwerk the Access Points zu senden. Die App speichert dabei die ZigBee-Addresse, sowie die MAC-Address des Aruba Access Points und dessen Radio. Zusätzlich unterstützt die App die Interaktion mit Philips Hue Lampen.
+Diese Funktion ermöglicht der App, mithilfe der Aruba Access Points Daten an ZigBee Geräte im Netzwerk the Access Points zu senden. Die App speichert dabei die ZigBee-Addresse, sowie die MAC-Address des Aruba Access Points und dessen Radio. Zusätzlich unterstützt die App die Interaktion mit Philips Hue Lampen.
+
+### **EnOcean Serial Data**
+
+Diese Funktion ermöglicht der App, mithilfe der Aruba Access Points Daten an EnOcean Serial Geräte zu senden und Daten von diesen zu empfangen. Darüber hinaus implementiert die App zahlreiche EnOcean Equipment Profile, welche zur Steuerung der Geräte verwendet werden.
 
 #### **Bluetooth Scanning**  
 
