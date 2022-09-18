@@ -6,7 +6,7 @@ parent: Legal
 
 # IoT-Utilities Datenschutzerklärung ([EN](./IoT-Utilities-Privacy-Statement_EN.md)|**DE**)
 
-Gütig ab dem <!--#validof-->21.06.2022<!--#validof-->
+Gütig ab dem <!--#validof-->18.09.2022<!--#validof-->
 
 ## Datenschutzhinweise für IoT-Utilities App
 
@@ -103,7 +103,7 @@ Android Berechtigungen (Benutzerabfrage):
 [_android.permission.access\_coarse\_location_]  
 [_android.permission.access\_fine\_location_]  
 
-Diese App benötigt Zugriff auf die Standortfunktion des Gerätes. Diese Berechtigung wird benötigt, um auf die Bluetooth Low Energy (BLE) Schnittstelle des Smartphones zuzugreifen. Hierbei werden keinerlei Standortinformationen durch die App abgerufen oder gespeichert.
+Diese App benötigt Zugriff auf die Standortfunktion des Gerätes. Diese Berechtigung wird benötigt, um auf die Bluetooth Low Energy (BLE) Schnittstelle des Smartphones zuzugreifen. Darüber hinaus kann die App Positionsdaten, nur zu Konfigurationszwecken, an Aruba Access Points senden. Diese Verbindung ist stets verschlüsselt (SSH). Hierbei werden keinerlei Standortinformationen durch die App persistent gespeichert.
 
 - #### **Speicher (Lesen/Schreiben)**
 

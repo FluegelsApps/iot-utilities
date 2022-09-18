@@ -4,6 +4,21 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 2.1.0 | 15.09.2022
+
+### New features in this release:
+
+- LCI-Configuration feature
+  - GPS data is sent to Access Points that cannot automatically retrieve their location
+
+### Reworked features and improvements:
+
+- Smaller tweaks and improvements to the EnOcean Serial data implementation
+- Continued Material You design implementation
+- Reduced the text size of all texts inside the application
+
+---
+
 ## Version 2.0.0 | 22.06.2022
 
 ## The Anniversary Update

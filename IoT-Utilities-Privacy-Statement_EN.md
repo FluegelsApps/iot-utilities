@@ -6,7 +6,7 @@ parent: Legal
 
 # IoT-Utilities Privacy Statement (**EN**|[DE](./IoT-Utilities-Privacy-Statement_DE.md))
 
-Valid as of <!--validof-->06/21/2022<!--validof-->
+Valid as of <!--validof-->09/18/2022<!--validof-->
 
 ## Privacy Statement for IoT-Utilities App
 
@@ -103,7 +103,7 @@ Android permissions (user query):
 [_android.permission.access\_coarse\_location_]  
 [_android.permission.access\_fine\_location_]  
 
-This app requires access to the location function of the device. This permission is required to access the Bluetooth Low Energy (BLE) interface of the smartphone. No location information is retrieved or saved by the app.
+This app requires access to the location function of the device. This permission is required to access the Bluetooth Low Energy (BLE) interface of the smartphone. Furthermore, the application is capable of sending location data to Aruba Access Points for configuration purposes only. This connection is permanently encrypted (SSH). No location information is stored persistently by the app.
 
 - #### **Storage (read / write)**
 
