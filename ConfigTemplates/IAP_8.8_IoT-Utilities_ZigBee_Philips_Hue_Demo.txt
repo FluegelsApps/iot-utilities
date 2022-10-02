@@ -1,0 +1,96 @@
+! Aruba Instant IoT CLI Config Template - IoT-Utilities App - Philips Hue ZigBee Demo v1
+! Aruba Instant Version 8.8
+!
+! This configuration set up an Aruba 3xx/5xx IAP for controlling a Philips Hue Zigbee lamp 
+! via the IoT-Utilities-App using the Aruba USB IoT radio dongle.
+!
+! Prerequisites:
+!   - Aruba Instant AP running version 8.8 or higher
+!   - Aruba USB Zigbee dongle
+!   - IP communication between the app and the AP, e.g. via demo Wi-Fi SSID
+!
+! Variables:
+!
+! IoT-Utilities variables (auto-replaced):
+!   - ip-address
+!   - port
+!   - access-token
+!   - username
+!   - interval
+!   
+! Custom variables, to be replaced by the user:
+!   - client-id
+!   - password
+!   - ap-group (AOS only)
+!
+!
+! Step 1) Install the IoT-Utilities-App server certificate on the Aruba Instant App
+!
+!   Login to the Aruba Instant AP via SSH and run the following command to 
+!   download and install the app's server certificate as trustedCA certificate.
+! 
+crypto pki-import format pem cert-type TrustedCA http://<ip-address>:<port>/certificate-download certname iotuapp
+!
+! Step 2) Define the Zigbee service profile for Philips Hue
+!
+! Philips hue lamps use the Zigbee home automation cluster profile '0104'.
+!
+zigbee socket-device-profile philips-hue-lamp
+ inbound 11 232 0104 0006
+ inbound 11 232 0104 0008
+ inbound 11 232 0104 0300
+ inbound 11 232 0104 0003
+ outbound 232 11 0104 0006
+ outbound 232 11 0104 0008
+ outbound 232 11 0104 0300
+ outbound 232 11 0104 0003
+ exit
+!
+! Step 3) Define the iot radio profile for the external Aruba USB IoT radio
+!
+! Note: Zigbee channel 11 is selected for ease of use. Auto-channel could also be used. 
+!
+iot radio-profile ext-zb
+ radio-instance external
+ radio-mode zigbee
+ zigbee-channel 11
+ exit
+!
+! Step 4) Enable the iot radio profile
+!
+iot use-radio-profile "ext-zb"
+!
+! Step 5) Define the Zigbee service-profile
+!
+! The selected zigbee service profile settings the defaults and do not show up in the running config.
+! "permit-joining" is disabled to avoid joining of devices outside of the demo.
+!
+zigbee service-profile zb-service-all
+ panid auto
+ permit-joining off
+ radio-instance all
+ security enable
+!
+! Step 6) Enable the zigbee service-profile
+!
+zigbee use-service-profile zb-service-all
+!
+! Step 7) Define the iot transport profile
+!
+iot transportProfile "iotuapp"
+ endpointURL "wss://<ip-address>:<port>/wss"
+ endpointType telemetry-websocket
+ authentication-mode client-credentials
+ authenticationURL "https://<ip-address>:<port>/auth"
+ endpointID IAP
+ client-secret <access-token>
+ payloadContent zsd
+ ZSDFilter philips-hue-lamp
+ exit
+!
+! Step 8) Enable the iot transport profile
+!
+iot useTransportProfile "iotuapp"
+!
+! Step 9) Commit an apply the configuration
+!
