@@ -33,7 +33,7 @@ The Blyott solution integration uses the BLE data transport service with the dev
 >
 >Aruba deployment's trusted CA configuration would have to be updated in case the to the server certificate changes!
 >
->Please see the [Aruba CLI Reference - Importing Certificates](../references/aruba_reference_documentation.md#aruba-cli-reference---importing-certificates) for details.
+>Please see the [Aruba CLI Reference - Importing Certificates](../../references/aruba_reference_documentation.md#aruba-cli-reference---importing-certificates) for details.
 
 ## ArubaOS
 

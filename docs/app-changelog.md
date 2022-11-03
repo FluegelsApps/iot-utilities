@@ -4,6 +4,20 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 2.2.0 | 03.11.2022
+
+### New features in this release:
+
+- Updated Protocol Buffer sources to version 8.11
+- New AP Health details pages
+
+### Reworked features and improvements:
+
+- Added button and swipe gesture to remove EnOcean learn frame results
+- Fixed font size in setup permissions page
+
+---
+
 ## Version 2.1.0 | 15.09.2022
 
 ### New features in this release:
