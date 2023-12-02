@@ -4,6 +4,16 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 2.3.0 | 02.12.2023
+
+### Reworked features and improvements:
+
+- Added support for Android API level 33 (Android 13)
+- Fixed permissions system for newer Android versions
+- Fix display of EnOcean Sender IDs in the user interface
+
+---
+
 ## Version 2.2.0 | 03.11.2022
 
 ### New features in this release:
