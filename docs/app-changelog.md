@@ -4,6 +4,15 @@ title: Changelog
 nav_order: 6
 ---
 
+## Version 2.3.1 | 14.07.2024
+
+### Reworked features and improvements:
+
+- Added support for Android API level 34 (Android 14)
+- Fixed services for newer Android versions
+
+---
+
 ## Version 2.3.0 | 02.12.2023
 
 ### Reworked features and improvements:
